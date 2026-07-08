@@ -4,4 +4,378 @@
 \cleardoublepage
 \chapter{IMPLEMENTASI}
 \label{chap:implementasi}
-asdfasdf
+
+\section{Lingkungan Implementasi}
+Pengembangan sistem \textit{Warehouse Management Controller} (WMC) dilakukan di dalam sebuah lingkungan implementasi yang terbagi menjadi dua jenis, yaitu perangkat keras (\textit{hardware}) dan perangkat lunak (\textit{software}). Keduanya menjadi komponen penting yang berjalan bersama dan saling mendukung dalam proses pengembangan sistem.
+
+Pada sisi perangkat keras, pengembangan dan pengujian sistem dilakukan pada lingkungan \textit{cloud} berbasis Amazon Web Services (AWS). Komponen yang digunakan dapat dilihat pada Tabel \ref{tab:hardware-spec}.
+
+\begin{table}[h]
+  \centering
+  \caption{Spesifikasi \textit{hardware}}
+  \label{tab:hardware-spec}
+  \begin{tabularx}{\textwidth}{ | l | X | }
+    \hline
+    \textbf{Komponen} & \textbf{Spesifikasi} \\
+    \hline
+    Platform & Amazon EC2 t3.medium \\
+    \hline
+    Prosesor & 2 vCPU (Intel Xeon Platinum 8259CL) \\
+    \hline
+    RAM & 4 GB DDR4 \\
+    \hline
+    Penyimpanan & Amazon EBS gp3, 20 GB \\
+    \hline
+    Sistem Operasi & Ubuntu Server 22.04 LTS (Jammy Jellyfish) \\
+    \hline
+    Bandwidth Jaringan & Up to 5 Gbps \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+Adapun perangkat lunak yang digunakan selama proses pengembangan dapat dilihat pada Tabel \ref{tab:software-spec}.
+
+\begin{table}[h]
+  \centering
+  \caption{Spesifikasi \textit{software}}
+  \label{tab:software-spec}
+  \begin{tabularx}{\textwidth}{ | l | X | }
+    \hline
+    \textbf{Jenis} & \textbf{Nama Software} \\
+    \hline
+    Bahasa Pemrograman & TypeScript \\
+    \hline
+    Runtime & Node.js \\
+    \hline
+    Framework/Library (auth-service) & Hono, @hono/node-server, @hono/swagger-ui \\
+    \hline
+    Framework/Library (goods-service) & Express.js, swagger-jsdoc, swagger-ui-express \\
+    \hline
+    Framework/Library (blob-service) & Express.js, Multer, Axios, Form-data \\
+    \hline
+    Library Umum (semua service) & JWT (jsonwebtoken), Bcryptjs, Dotenv, CORS \\
+    \hline
+    ORM & Prisma (dengan adapter PostgreSQL) \\
+    \hline
+    Database & PostgreSQL 15 \\
+    \hline
+    Containerization & Docker, Docker Compose \\
+    \hline
+    Database Admin Tool & Adminer \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+Dengan menggunakan kombinasi lingkungan \textit{cloud} Amazon EC2 dan rangkaian perangkat lunak berbasis kontainer tersebut, seluruh proses pengembangan, pengujian, serta orkestrasi layanan WMC dapat dilaksanakan secara konsisten dan terisolasi.
+
+\section{Implementasi Sistem WMC}
+Sub-bab ini menjabarkan detail implementasi sistem \textit{Warehouse Management Controller} (WMC), mencakup teknologi yang digunakan, implementasi modul, serta implementasi \textit{endpoint} pada masing-masing layanan.
+
+\subsection{Teknologi Yang Digunakan}
+Pengembangan sistem WMC memanfaatkan sejumlah bahasa pemrograman, \textit{runtime}, \textit{framework}, \textit{library}, ORM, basis data, serta alat bantu kontainerisasi. Seluruh teknologi yang digunakan beserta deskripsi singkatnya dapat dilihat pada Tabel \ref{tab:teknologi-wmc}.
+
+\begin{longtable}{ | >{\raggedright\arraybackslash}p{2.8cm} | >{\raggedright\arraybackslash}p{3.3cm} | >{\raggedright\arraybackslash}p{6.5cm} | }
+    \caption{Teknologi yang digunakan dalam pengembangan WMC} \label{tab:teknologi-wmc} \\
+    \hline
+    \textbf{Nama} & \textbf{Kategori} & \textbf{Deskripsi} \\
+    \hline
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:teknologi-wmc}}} \\
+    \hline
+    \textbf{Nama} & \textbf{Kategori} & \textbf{Deskripsi} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+    TypeScript & Bahasa Pemrograman & \textit{Superset} dari JavaScript yang menambahkan sistem tipe statis sehingga meningkatkan keandalan dan keterbacaan kode pada seluruh layanan WMC. \\
+    \hline
+    Node.js & Runtime & Lingkungan eksekusi JavaScript sisi server berbasis \textit{event-driven} yang menjadi fondasi \textit{runtime} untuk seluruh layanan \textit{backend} WMC. \\
+    \hline
+    Hono & Framework (auth-service) & Framework web ringan dan berperforma tinggi yang digunakan sebagai server HTTP utama pada layanan autentikasi. \\
+    \hline
+    @hono/node-server & Library (auth-service) & Adapter resmi Hono yang memungkinkan framework Hono dijalankan secara native di lingkungan runtime Node.js. \\
+    \hline
+    @hono/swagger-ui & Library (auth-service) & Plugin Hono untuk menyajikan antarmuka dokumentasi API interaktif berbasis Swagger UI langsung dari dalam layanan autentikasi. \\
+    \hline
+    Express.js & Framework (goods, blob service) & Framework web minimalis untuk Node.js yang digunakan sebagai fondasi server HTTP pada layanan \textit{goods} dan \textit{blob}. \\
+    \hline
+    swagger-jsdoc & Library (goods-service) & Library untuk menghasilkan spesifikasi OpenAPI secara otomatis dari anotasi JSDoc yang dituliskan pada kode sumber. \\
+    \hline
+    swagger-ui-express & Library (goods-service) & Middleware Express yang menyajikan halaman dokumentasi API interaktif berbasis Swagger UI pada layanan \textit{goods}. \\
+    \hline
+    Multer & Library (blob-service) & Middleware Node.js untuk menangani unggahan \textit{file} berformat \textit{multipart/form-data} pada layanan penyimpanan berkas. \\
+    \hline
+    Axios & Library (blob-service) & HTTP \textit{client} berbasis \textit{Promise} yang digunakan untuk melakukan permintaan HTTP antar layanan secara asinkron. \\
+    \hline
+    Form-data & Library (blob-service) & Library untuk membuat dan mengelola data formulir \textit{multipart} yang digunakan saat meneruskan berkas antar layanan. \\
+    \hline
+    jsonwebtoken (JWT) & Library (semua service) & Library untuk menghasilkan dan memverifikasi JSON Web Token sebagai mekanisme autentikasi \textit{stateless} pada setiap layanan. \\
+    \hline
+    Bcryptjs & Library (semua service) & Library untuk melakukan \textit{hashing} kata sandi secara aman menggunakan algoritma \textit{bcrypt} saat proses registrasi dan verifikasi pengguna. \\
+    \hline
+    Dotenv & Library (semua service) & Library yang memuat variabel konfigurasi dan rahasia dari \textit{file} \texttt{.env} ke dalam \texttt{process.env} pada saat layanan dijalankan. \\
+    \hline
+    CORS & Library (semua service) & Middleware untuk mengonfigurasi kebijakan \textit{Cross-Origin Resource Sharing} agar setiap layanan API dapat diakses lintas domain secara aman. \\
+    \hline
+    Prisma & ORM & \textit{Object-Relational Mapper} modern untuk TypeScript yang menyederhanakan akses basis data, pembuatan \textit{query}, serta migrasi skema secara \textit{type-safe}. \\
+    \hline
+    PostgreSQL 15 & Database & Sistem manajemen basis data relasional \textit{open-source} yang digunakan sebagai penyimpanan data utama seluruh layanan WMC. \\
+    \hline
+    Docker & Containerization & Platform kontainerisasi yang digunakan untuk mengemas setiap layanan beserta dependensinya ke dalam \textit{container} yang terisolasi dan portabel. \\
+    \hline
+    Docker Compose & Containerization & Alat orkestrasi multi-kontainer yang mendefinisikan dan menjalankan seluruh layanan WMC secara bersamaan melalui satu \textit{file} konfigurasi. \\
+    \hline
+    Adminer & Database Admin Tool & Antarmuka administrasi basis data berbasis web yang ringan, digunakan untuk mengelola dan memantau basis data PostgreSQL selama pengembangan. \\
+    \hline
+\end{longtable}
+
+\subsection{Implementasi Modul}
+Implementasi sistem WMC diorganisasikan ke dalam tiga komponen utama, yaitu \textit{auth-service}, \textit{goods-service}, dan \textit{database}. Masing-masing komponen memiliki sejumlah modul dengan tanggung jawab yang terpisah sesuai prinsip \textit{separation of concerns}, sehingga setiap modul dapat dikembangkan, diuji, dan dipelihara secara independen.
+
+\subsubsection*{auth-service}
+
+\begin{table}[h]
+  \centering
+  \caption{Modul \textit{auth-service}}
+  \label{tab:modul-auth}
+  \begin{tabularx}{\textwidth}{ | c | l | X | }
+    \hline
+    \textbf{No} & \textbf{Nama Modul} & \textbf{Nama File Fisik} \\
+    \hline
+    1 & Entry Point & \texttt{auth-service/\allowbreak src/\allowbreak index.ts} \\
+    \hline
+    2 & Authentication & \texttt{auth-service/\allowbreak src/\allowbreak routes/\allowbreak auth.ts} \\
+    \hline
+    3 & Middleware & \texttt{auth-service/\allowbreak src/\allowbreak middleware/\allowbreak jwt.ts} \\
+    \hline
+    4 & Store / Data Access & \texttt{auth-service/\allowbreak src/\allowbreak store/\allowbreak users.ts} \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsubsection*{goods-service}
+
+\begin{table}[h]
+  \centering
+  \caption{Modul \textit{goods-service}}
+  \label{tab:modul-goods}
+  \begin{tabularx}{\textwidth}{ | c | l | X | }
+    \hline
+    \textbf{No} & \textbf{Nama Modul} & \textbf{Nama File Fisik} \\
+    \hline
+    1 & Entry Point & \texttt{goods-service/\allowbreak src/\allowbreak index.ts} \\
+    \hline
+    2 & User & \texttt{goods-service/\allowbreak src/\allowbreak controllers/\allowbreak UserController.ts}, \texttt{goods-service/\allowbreak src/\allowbreak services/\allowbreak UserService.ts} \\
+    \hline
+    3 & Item (Barang) & \texttt{goods-service/\allowbreak src/\allowbreak controllers/\allowbreak ItemController.ts}, \texttt{goods-service/\allowbreak src/\allowbreak services/\allowbreak ItemService.ts} \\
+    \hline
+    4 & Item Location & \texttt{goods-service/\allowbreak src/\allowbreak controllers/\allowbreak ItemLocationController.ts}, \texttt{goods-service/\allowbreak src/\allowbreak services/\allowbreak ItemLocationService.ts} \\
+    \hline
+    5 & Order & \texttt{goods-service/\allowbreak src/\allowbreak controllers/\allowbreak OrderController.ts}, \texttt{goods-service/\allowbreak src/\allowbreak services/\allowbreak OrderService.ts} \\
+    \hline
+    6 & Order Item & \texttt{goods-service/\allowbreak src/\allowbreak controllers/\allowbreak OrderItemController.ts}, \texttt{goods-service/\allowbreak src/\allowbreak services/\allowbreak OrderItemService.ts} \\
+    \hline
+    7 & Robot & \texttt{goods-service/\allowbreak src/\allowbreak controllers/\allowbreak RobotController.ts}, \texttt{goods-service/\allowbreak src/\allowbreak services/\allowbreak RobotService.ts} \\
+    \hline
+    8 & Robot Log & \texttt{goods-service/\allowbreak src/\allowbreak controllers/\allowbreak RobotLogController.ts}, \texttt{goods-service/\allowbreak src/\allowbreak services/\allowbreak RobotLogService.ts} \\
+    \hline
+    9 & Task & \texttt{goods-service/\allowbreak src/\allowbreak controllers/\allowbreak TaskController.ts}, \texttt{goods-service/\allowbreak src/\allowbreak services/\allowbreak TaskService.ts} \\
+    \hline
+    10 & Session & \texttt{goods-service/\allowbreak src/\allowbreak controllers/\allowbreak SessionController.ts}, \texttt{goods-service/\allowbreak src/\allowbreak services/\allowbreak SessionService.ts} \\
+    \hline
+    11 & Base (Abstraksi) & \texttt{goods-service/\allowbreak src/\allowbreak controllers/\allowbreak BaseController.ts}, \texttt{goods-service/\allowbreak src/\allowbreak services/\allowbreak BaseService.ts} \\
+    \hline
+    12 & Middleware & \texttt{goods-service/\allowbreak src/\allowbreak middleware/\allowbreak jwt.ts} \\
+    \hline
+    13 & Library / Helper & \texttt{goods-service/\allowbreak src/\allowbreak lib/\allowbreak prisma.ts}, \texttt{goods-service/\allowbreak src/\allowbreak lib/\allowbreak response.ts} \\
+    \hline
+    14 & Dokumentasi API & \texttt{goods-service/\allowbreak src/\allowbreak docs/\allowbreak swagger.ts} \\
+    \hline
+    15 & Konfigurasi & \texttt{goods-service/\allowbreak package.json}, \texttt{goods-service/\allowbreak tsconfig.json}, \texttt{goods-service/\allowbreak prisma.config.ts}, \texttt{goods-service/\allowbreak Dockerfile} \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsubsection*{database}
+
+\begin{table}[h]
+  \centering
+  \caption{Modul \textit{database}}
+  \label{tab:modul-database}
+  \begin{tabularx}{\textwidth}{ | c | l | X | }
+    \hline
+    \textbf{No} & \textbf{Nama Modul} & \textbf{Nama File Fisik} \\
+    \hline
+    1 & Entry Point & \texttt{database/\allowbreak index.ts} \\
+    \hline
+    2 & Skema Database & \texttt{database/\allowbreak prisma/\allowbreak schema.prisma} \\
+    \hline
+    3 & Seeder & \texttt{database/\allowbreak prisma/\allowbreak seed.ts} \\
+    \hline
+    4 & Migrasi & \texttt{database/\allowbreak prisma/\allowbreak migrations/\allowbreak 20260312044418\_init\_db/\allowbreak migration.sql}, \texttt{database/\allowbreak prisma/\allowbreak migrations/\allowbreak migration\_lock.toml} \\
+    \hline
+    5 & Konfigurasi & \texttt{database/\allowbreak package.json}, \texttt{database/\allowbreak tsconfig.json}, \texttt{database/\allowbreak prisma.config.ts}, \texttt{database/\allowbreak Dockerfile}, \texttt{database/\allowbreak docker-compose.yml} \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsection{Implementasi Endpoint}
+Sub-bab ini merinci seluruh \textit{endpoint} REST API yang diimplementasikan pada setiap layanan WMC. Kolom \textit{Method} menunjukkan metode HTTP yang digunakan (GET, POST, PUT, DELETE), kolom \textit{Endpoint} menunjukkan jalur URL yang tersedia, dan kolom \textit{Auth} menunjukkan apakah \textit{endpoint} tersebut memerlukan token JWT sebagai otorisasi akses.
+
+\subsubsection*{auth-service --- localhost:3000}
+
+\begin{table}[h]
+  \centering
+  \caption{Daftar \textit{endpoint} \textit{auth-service}}
+  \label{tab:endpoint-auth}
+  \begin{tabularx}{\textwidth}{ | c | l | l | X | c | }
+    \hline
+    \textbf{No} & \textbf{Method} & \textbf{Endpoint} & \textbf{Deskripsi} & \textbf{Auth} \\
+    \hline
+    1 & POST & /auth/register & Registrasi user baru & -- \\
+    \hline
+    2 & POST & /auth/login & Login, mendapatkan JWT token & -- \\
+    \hline
+    3 & GET & /protected & Contoh \textit{endpoint} yang dilindungi JWT & JWT \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsubsection*{goods-service --- localhost:3001}
+
+\begin{table}[h]
+  \centering
+  \caption{Daftar \textit{endpoint} \textit{goods-service}}
+  \label{tab:endpoint-goods}
+  \begin{tabularx}{\textwidth}{ | c | l | l | X | c | }
+    \hline
+    \textbf{No} & \textbf{Method} & \textbf{Endpoint} & \textbf{Deskripsi} & \textbf{Auth} \\
+    \hline
+    1 & GET & /users & Get semua user & JWT \\
+    \hline
+    2 & GET & /users/:id & Get user by ID & JWT \\
+    \hline
+    3 & POST & /users & Buat user baru & JWT \\
+    \hline
+    4 & PUT & /users/:id & Update user & JWT \\
+    \hline
+    5 & DELETE & /users/:id & Hapus user & JWT \\
+    \hline
+    6 & GET & /orders & Get semua order & JWT \\
+    \hline
+    7 & GET & /orders/user/:userId & Get order by user & JWT \\
+    \hline
+    8 & POST & /orders & Buat order baru & JWT \\
+    \hline
+    9 & GET & /items & Get semua item/barang & JWT \\
+    \hline
+    10 & GET & /items/sku/:sku & Get item by SKU & JWT \\
+    \hline
+    11 & POST & /items & Tambah item baru & JWT \\
+    \hline
+    12 & DELETE & /items/:id & Hapus item & JWT \\
+    \hline
+    13 & GET & /item-locations & Get semua lokasi item & JWT \\
+    \hline
+    14 & GET & /item-locations/:id & Get lokasi by ID & JWT \\
+    \hline
+    15 & GET & /item-locations/item/:itemId & Get lokasi by item & JWT \\
+    \hline
+    16 & POST & /item-locations & Tambah lokasi item & JWT \\
+    \hline
+    17 & PUT & /item-locations/:id & Update lokasi item & JWT \\
+    \hline
+    18 & DELETE & /item-locations/:id & Hapus lokasi item & JWT \\
+    \hline
+    19 & GET & /order-items & Get semua order item & JWT \\
+    \hline
+    20 & GET & /order-items/:id & Get order item by ID & JWT \\
+    \hline
+    21 & GET & /order-items/order/:orderId & Get order item by order & JWT \\
+    \hline
+    22 & POST & /order-items & Tambah order item & JWT \\
+    \hline
+    23 & PUT & /order-items/:id & Update order item & JWT \\
+    \hline
+    24 & DELETE & /order-items/:id & Hapus order item & JWT \\
+    \hline
+    25 & GET & /robots & Get semua robot & JWT \\
+    \hline
+    26 & POST & /robots & Tambah robot baru & JWT \\
+    \hline
+    27 & GET & /tasks & Get semua task & JWT \\
+    \hline
+    28 & GET & /tasks/:id & Get task by ID & JWT \\
+    \hline
+    29 & GET & /tasks/robot/:robotId & Get task by robot & JWT \\
+    \hline
+    30 & POST & /tasks & Buat task baru & JWT \\
+    \hline
+    31 & PUT & /tasks/:id & Update task & JWT \\
+    \hline
+    32 & DELETE & /tasks/:id & Hapus task & JWT \\
+    \hline
+    33 & GET & /robot-logs & Get semua log robot & JWT \\
+    \hline
+    34 & GET & /robot-logs/:id & Get log by ID & JWT \\
+    \hline
+    35 & GET & /robot-logs/robot/:robotId & Get log by robot & JWT \\
+    \hline
+    36 & POST & /robot-logs & Tambah log robot & JWT \\
+    \hline
+    37 & PUT & /robot-logs/:id & Update log robot & JWT \\
+    \hline
+    38 & DELETE & /robot-logs/:id & Hapus log robot & JWT \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\section{Implementasi Subsistem Lokalisasi}
+Sub-bab ini menjabarkan detail implementasi Subsistem Lokalisasi yang berjalan sebagai komponen dalam \textit{Fleet Controller}, mencakup lingkungan perangkat keras, teknologi yang digunakan, implementasi \textit{pipeline} deteksi \textit{frame}, serta mekanisme publikasi data posisi melalui MQTT.
+
+\subsection{Lingkungan dan Perangkat Keras}
+Subsistem Lokalisasi berjalan di atas \textit{host} yang sama dengan WMC, yaitu \textit{instance} AWS EC2 t3.medium (Ubuntu 22.04 LTS). Perangkat keras utama yang digunakan adalah sebuah kamera IP \textit{fisheye} berkemampuan 1080p (3 MP) dengan kompresi H.264 yang melakukan \textit{streaming} video melalui protokol RTSP \textit{over} TCP. Kamera dipasang pada rangka penyangga yang ditempatkan setinggi 60 cm di atas area lantai gudang berukuran $2,4 \times 1,2$ m. Pencahayaan LED tambahan dipasang untuk memastikan iluminasi yang seragam di seluruh area lantai sehingga kontras \textit{marker} AprilTag tetap optimal di berbagai kondisi pencahayaan ruangan.
+
+AprilTag yang digunakan adalah keluarga Tag36h11 berukuran fisik $8 \times 8$ cm, ditempelkan pada bagian atas robot dan pada barang-barang di area gudang. Keluarga \textit{tag} ini dipilih karena memberikan keseimbangan optimal antara keterbacaan pada jarak jauh dan ketahanan terhadap oklusi parsial, sesuai dengan kondisi operasional gudang skala prototipe ini.
+
+\subsection{Teknologi yang Digunakan}
+Tabel \ref{tab:teknologi-lokalisasi} merangkum seluruh teknologi yang digunakan dalam implementasi Subsistem Lokalisasi beserta peran masing-masing dalam \textit{pipeline}.
+
+\begin{table}[h]
+  \centering
+  \caption{Teknologi yang digunakan dalam implementasi Subsistem Lokalisasi}
+  \label{tab:teknologi-lokalisasi}
+  \begin{tabularx}{\textwidth}{ | l | l | X | }
+    \hline
+    \textbf{Teknologi} & \textbf{Kategori} & \textbf{Deskripsi} \\
+    \hline
+    Python 3 & Bahasa Pemrograman & Runtime utama \textit{pipeline} deteksi dan publikasi MQTT. \\
+    \hline
+    OpenCV & Computer Vision & Undistortion lensa \textit{fisheye}, komputasi \textit{homography}, dan transformasi perspektif. \\
+    \hline
+    pupil-apriltags & Deteksi Marker & Detektor Tag36h11 AprilTag; mengekstrak ID, posisi piksel pusat, dan empat koordinat sudut setiap \textit{tag}. \\
+    \hline
+    Model Kannala--Brandt & Kalibrasi Kamera & Koefisien kalibrasi untuk koreksi distorsi radial lensa \textit{fisheye}, dihitung saat \textit{setup}. \\
+    \hline
+    RTSP / TCP & Protokol Streaming & Konsumsi \textit{video stream} H.264 dari kamera IP \textit{fisheye} secara \textit{real-time}. \\
+    \hline
+    Python threading & Konkurensi & \textit{Background thread} mengambil \textit{frame} secara kontinu tanpa memblokir \textit{detection loop} utama. \\
+    \hline
+    RabbitMQ (MQTT) & Message Broker & Publikasi \textit{grid state} JSON ke \textit{topic location} setiap 500 ms; \textit{broker} yang sama digunakan oleh WMC. \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsection{Implementasi Pipeline Deteksi}
+\textit{Pipeline} deteksi diimplementasikan dalam dua \textit{thread} Python yang berjalan secara konkuren. \textit{Thread} pertama adalah \textit{frame grabber thread} yang terhubung ke \textit{stream} RTSP kamera dan secara terus-menerus mengambil \textit{frame} terbaru ke dalam sebuah \textit{buffer} bersama, membuang \textit{frame} lama yang belum sempat diproses. \textit{Thread} kedua adalah \textit{detection loop} yang berjalan pada frekuensi 4 Hz, membaca \textit{frame} dari \textit{buffer} dan memprosesnya melalui enam tahap \textit{pipeline} secara berurutan.
+
+Pada tahap pertama, distorsi radial lensa \textit{fisheye} dihilangkan menggunakan koefisien kalibrasi Kannala--Brandt yang diperoleh dari proses kalibrasi \textit{checkerboard} saat \textit{setup} awal. Koefisien ini disimpan sebagai parameter permanen dan dimuat sekali saat program pertama kali dijalankan. Pada tahap kedua, \textit{frame} yang telah terkoreksi ditingkatkan kontrasnya menggunakan \textit{histogram equalization} kemudian dikonversi ke \textit{grayscale} untuk mempercepat proses deteksi.
+
+Pada tahap ketiga, detektor Tag36h11 dari \textit{library} pupil-apriltags dijalankan pada \textit{frame grayscale} untuk mengekstrak ID unik, koordinat piksel pusat \textit{tag}, serta koordinat piksel empat sudut \textit{marker} dari setiap \textit{tag} yang berhasil terdeteksi. Pada tahap keempat, koordinat piksel pusat setiap \textit{tag} ditransformasi ke koordinat lantai kontinu menggunakan matriks \textit{homography} $H$ yang telah dikalibrasi sebelumnya melalui OpenCV \texttt{perspectiveTransform}, kemudian di-\textit{snap} ke sel \textit{grid} diskrit $(c, r)$ menggunakan formula \textit{nearest-cell-centre} sebagaimana dijelaskan pada Subbab 2.5.3.
+
+Pada tahap kelima, setiap \textit{tag} ID diklasifikasikan ke salah satu dari tiga kategori berdasarkan rentang ID yang telah ditetapkan: \textit{docking station}, robot, atau \textit{warehouse item}. Orientasi (\textit{heading}) dalam derajat ($0^\circ$--$359^\circ$) dihitung dari sudut yang dibentuk oleh sisi depan \textit{tag} relatif terhadap sumbu X positif menggunakan fungsi \texttt{atan2} terhadap selisih koordinat dua sudut terdepan \textit{tag}.
+
+\subsection{Implementasi Publikasi MQTT}
+Pada tahap keenam \textit{pipeline}, seluruh hasil deteksi \textit{frame} dikodekan sebagai \textit{payload} JSON yang merepresentasikan \textit{state} penuh dari \textit{grid} $8\times4$. \textit{Payload} diterbitkan setiap 500 ms ke \textit{topic location} pada RabbitMQ \textit{broker} yang sama yang digunakan oleh WMC. Setiap entri dalam \textit{payload} memuat ID \textit{tag}, kategori objek (\textit{docking}/robot/\textit{item}), koordinat sel \textit{grid} $(c, r)$, dan nilai \textit{heading} dalam derajat. Dengan interval publikasi 500 ms, latensi maksimum tampilan posisi di \textit{User Interface} terikat pada 500 ms ditambah latensi jaringan WebSocket, jauh di bawah target KNF-02 sebesar 1 detik.
+
+Kalibrasi \textit{homography} dilakukan satu kali saat \textit{setup} dengan menempatkan empat \textit{marker} referensi di sudut-sudut area lantai gudang yang diketahui posisi \textit{grid}-nya. Korespondensi piksel ke \textit{grid} dari keempat titik tersebut kemudian digunakan oleh OpenCV \texttt{getPerspectiveTransform} untuk menghitung matriks $H$. Setelah kalibrasi selesai, parameter $H$ disimpan dan dimuat secara otomatis setiap kali Subsistem Lokalisasi dijalankan ulang tanpa memerlukan proses kalibrasi ulang.

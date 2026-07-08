@@ -1,112 +1,81 @@
 \cleardoublepage % memastikan bab baru dimulai di halaman ganjil (kanan)
 \chapter{PENDAHULUAN}
 \label{chap:pendahuluan}
+
 % --- Latar Belakang ---
 \section{Latar Belakang}
-Subbab ini menjelaskan dasar pemikiran, motivasi, kebutuhan, alasan, atau urgensi pemilihan masalah tugas akhir. Subbab ini berisi penjelasan ringkas tentang kondisi atau situasi yang ada saat ini terkait dengan topik yang dibahas. Tujuan utamanya adalah untuk memberikan informasi secukupnya kepada pembaca agar memahami topik yang akan dibahas. Dalam subbab ini, jelaskan hal-hal berikut ini:
-\begin{enumerate}
-\item	Kondisi atau situasi topik yang dibahas beserta permasalahannya, misalnya tentang pengelolaan informasi di fasilitas kesehatan daerah pedesaan saat ini dan masalah yang dihadapi, berdasarkan hasil survei atau wawancara dengan pihak terkait.
-\item	Urgensi atau pentingnya penyelesaian masalah tersebut, misalnya dampak negatif yang ditimbulkan jika masalah tersebut tidak diselesaikan.
-\item	Berbagai solusi yang telah diterapkan maupun solusi yang memungkinkan untuk diterapkan untuk menyelesaikan masalah tersebut, berdasarkan hasil studi literatur, wawancara dengan pihak terkait, atau kunjungan lapangan.
-\item   Kelemahan atau kekurangan dari solusi yang telah diterapkan atau yang memungkinkan untuk diterapkan tersebut, yang menjadi dasar pemikiran dalam merumuskan masalah tugas akhir.
-\end{enumerate}
-Latar belakang dapat ditulis dalam 2-3 halaman. Penulisan latar belakang masalah yang baik akan mengantarkan pembaca kepada pemahaman yang jelas tentang topik yang akan dibahas, 
-sehingga pembaca dapat mengikuti pembahasan pada subbab-subbab berikutnya dengan baik. Oleh karena itu, 
-penulis diharapkan melakukan investigasi yang mendalam untuk mengumpulkan fakta-fakta yang relevan dengan topik yang dibahas, 
-baik melalui studi literatur, wawancara dengan pihak terkait, maupun kunjungan lapangan. Hasil studi ini dijelaskan secara \emph{ringkas} di dalam subbab ini.
-Penjelasan hasil studi literatur yang komprehensif dapat dijabarkan di Bab II Studi Literatur secara sistematis.
+Industri \textit{Fast Moving Consumer Goods} (FMCG) merupakan sektor dengan pertumbuhan paling pesat secara global. Pasar FMCG dunia bernilai USD 14,1 triliun pada tahun 2024 dengan CAGR 5,4\% hingga tahun 2034 \autocite{researchandmarkets2025}, sementara kawasan Asia-Pasifik menyumbang lebih dari 40\% total penjualan global. Di Indonesia, nilai pasar FMCG melampaui USD 100 miliar dengan CAGR 7,6\% (2021--2025), khususnya pada segmen kecantikan dan perawatan diri yang mencatat penjualan senilai Rp36 triliun sepanjang Januari hingga Juli 2025 \autocite{kadin2025}. Dinamika ini mendorong kebutuhan sistem pergudangan yang semakin efisien, seiring pasar \textit{Smart Warehouse} global yang tumbuh dari USD 28 miliar (2024) menuju USD 90,21 miliar (2033) pada CAGR 14,2\%, dengan Asia-Pasifik memimpin laju adopsi di CAGR 18,4\% \autocite{precedenceresearch2025}. Namun, sistem pergudangan konvensional pada industri FMCG masih mengandung inefisiensi signifikan: 62\% keterlambatan pengiriman bersumber dari aktivitas \textit{order picking} yang tidak terkoordinasi \autocite{framinan2025}, dengan kekurangan SDM dalam proses \textit{picking} mencatat nilai keparahan (\textit{mean severity}) 3,79 dari skala 5 \autocite{habazin2017}. Kondisi ini mempertegas urgensi transformasi digital dalam manajemen pergudangan modern.
 
-Dalam menulis latar belakang, hindari penulisan yang bersifat terlalu umum atau terlalu luas cakupannya sehingga sulit untuk dihubungkan dengan topik yang dibahas dalam tugas akhir,
-seperti:
-\begin{enumerate}
-    \item "Pentingnya teknologi informasi dalam kehidupan manusia."
-    \item "Perkembangan pesat teknologi \emph{artificial intelligence} di era digital."
-    \item "Tantangan dalam pengelolaan data besar (\emph{big data}) di berbagai sektor industri."
-    \item "Peran teknologi informasi dalam meningkatkan kualitas layanan kesehatan."
-\end{enumerate}
-Penulisan yang terlalu umum atau luas cakupannya akan menyulitkan penulis dalam merumuskan masalah, tujuan, metodologi, dan evaluasi tugas akhir.
+PT Paragon Technology and Innovation (Paragon Corp) merupakan salah satu perusahaan FMCG terkemuka di Indonesia yang bergerak di bidang manufaktur dan distribusi produk kecantikan serta perawatan diri. Perusahaan ini mengoperasikan lebih dari 40 \textit{Distribution Center} (DC) yang tersebar di Indonesia dan Malaysia \autocite{undip2019}, dengan tiga jenis fasilitas gudang utama, yaitu gudang bahan baku, gudang \textit{packaging}, dan gudang barang jadi (\textit{Finished Goods}). Gudang barang jadi menjadi titik kritis dalam rantai distribusi karena menjadi tahap akhir sebelum produk dikirimkan kepada mitra ritel dan konsumen. Guna merespons kebutuhan operasional yang terus meningkat sekaligus selaras dengan agenda transformasi digital dalam konsep \textit{Society} 5.0, Paragon Corp menginisiasi proyek perancangan sistem \textit{Smart Warehouse} yang mencakup integrasi perangkat keras robotika dan layanan perangkat lunak secara menyeluruh pada gudang barang jadinya \autocite{docB100}.
 
-Jika ada referensi yang digunakan dalam penulisan latar belakang, cantumkan referensi tersebut dengan benar menggunakan \texttt{biblatex} sesuai dengan contoh penulisan kutipan dan daftar pustaka yang telah disediakan dalam template ini.
-Sebagai contoh, pada paragraf berikut ini terdapat kutipan dari dua referensi yang berbeda \autocite{laudon2020, pressman2019}. 
-Ada dua format penulisan sitasi yang dapat digunakan, yaitu format naratif dan format parentetik.
-Contoh penulisan kutipan dengan format naratif adalah sebagai berikut:
-\begin{displayquote}
-Menurut \textcite{laudon2020}, sistem informasi adalah kombinasi dari teknologi informasi dan aktivitas orang yang menggunakan teknologi tersebut untuk mendukung operasi dan manajemen organisasi.
-\end{displayquote}
-Contoh penulisan kutipan dengan format parentetik adalah sebagai berikut:
-\begin{displayquote}
-    Sistem informasi merupakan kombinasi dari teknologi informasi dan aktivitas orang yang menggunakan teknologi tersebut untuk mendukung operasi dan manajemen organisasi \autocite{laudon2020}.
-\end{displayquote}
+Berdasarkan analisis proses bisnis pada gudang barang jadi Paragon Corp, ditemukan permasalahan kritis pada tahap \textit{stocking} dan \textit{picking} yang masih bergantung sepenuhnya pada operator manusia. Kondisi ini menimbulkan \textit{bottleneck} operasional dengan tingkat \textit{overcapacity} di atas 80\% disertai \textit{waiting time} yang tinggi. Metode \textit{picking} manual mencatat tingkat kesalahan 1--3\%, angka yang 8--10 kali lebih tinggi dibanding lingkungan terotomasi \autocite{netsuite2024}, dengan biaya per insiden berkisar USD 85--220 \autocite{scmchamps2024}. Dampaknya meluas: 65\% pelanggan berhenti berbelanja setelah 2--3 keterlambatan pengiriman \autocite{conexiom2024}, sementara distorsi inventori global akibat ketidakakuratan data diestimasi merugikan USD 1,77 triliun pada tahun 2023 \autocite{ihlgroup2023}. \textcite{vangeest2021} menegaskan bahwa transisi ke \textit{Smart Warehouse}---melalui pilar \textit{Automation and Robotics}, \textit{IoT-based Visibility}, \textit{AI-driven Optimization}, dan \textit{Cyber-Physical Integration}---mampu meningkatkan efisiensi operasional gudang hingga 35\% dibanding sistem konvensional.
+
+Dalam operasionalnya saat ini, Paragon Corp memanfaatkan dua platform teknologi utama untuk pencatatan dan pelacakan barang di gudang. Platform pertama adalah sistem \textit{Enterprise Resource Planning} (ERP) Odoo yang berfungsi sebagai pusat pengelolaan data transaksi bisnis dan inventori secara korporat. Platform kedua adalah \textit{Warehouse Management System} (WMS) yang digunakan untuk mendukung manajemen aktivitas operasional di tingkat gudang secara lebih spesifik. Selain kedua platform tersebut, Paragon Corp juga telah mengadopsi robot \textit{Automated Guided Vehicle} (AGV) untuk sebagian proses mobilisasi barang jadi dari area produksi menuju \textit{Loading Dock}. Sistem kerja keseluruhan menerapkan pendekatan \textit{Pull System}, yakni penggerakan barang berdasarkan permintaan aktual guna meminimalkan penumpukan stok dan mengoptimalkan responsivitas rantai pasok.
+
+Meskipun kedua platform tersebut telah berperan dalam mendukung operasional, integrasi antara ERP Odoo dan WMS masih bersifat semi-manual, sehingga setiap proses sinkronisasi data memerlukan intervensi langsung dari operator gudang. Ketiadaan integrasi \textit{real-time} antara kedua sistem ini mengakibatkan seringnya terjadi \textit{mismatch} data stok antara kondisi fisik di lapangan dengan catatan digital pada sistem pusat. Hal ini diperparah oleh absennya mekanisme pencatatan barang yang bersifat atomik dan otomatis, sehingga area penempatan barang sementara kerap tidak tercatat secara sistematis dalam WMS. Akibatnya, muncul permasalahan \textit{mistracking} barang yang membuat staf gudang tidak dapat mengetahui posisi aktual suatu barang secara akurat. Selain itu, implementasi robot AGV yang masih terbatas pada area produksi menyebabkan proses \textit{inbound} dan perpindahan barang di area gudang barang jadi belum dapat dieksekusi secara otomatis, sehingga ketergantungan pada tenaga manual di area kritis tersebut masih sangat tinggi.
+
+Guna memperoleh gambaran kondisi operasional yang akurat dan kontekstual, tim TA252601001 melaksanakan wawancara daring pada tanggal 16 Oktober 2025 bersama Bapak Falih Muhtadi selaku \textit{Staff Logistics and Business Integration Systems} Paragon Corp. Dari hasil wawancara tersebut, dikonfirmasi bahwa permasalahan utama pada gudang barang jadi meliputi tiga hal: pertama, data stok tidak bersifat \textit{real-time} karena WMS belum terhubung langsung dengan sistem pusat; kedua, proses \textit{inbound} barang yang lambat dan perhitungan yang tidak presisi akibat ketergantungan pada proses manual; serta ketiga, proses \textit{picking} yang masih bergantung pada operator dan rawan \textit{human error}, khususnya dalam konteks jumlah barang. Bapak Falih juga mengonfirmasi adanya permasalahan \textit{mistracking} barang akibat area penempatan sementara yang tidak tercatat di sistem, serta potensi besar untuk mengotomasi proses \textit{inbound}, khususnya pemindahan barang dari truk ke \textit{pallet changer}. Berdasarkan seluruh temuan tersebut, tugas akhir ini mengusulkan pengembangan \textit{Warehouse Management Controller} (WMC) sebagai layanan \textit{backend} berbasis arsitektur \textit{microservices} yang mencakup \textit{Authentication Service}, \textit{Goods Detail Service}, \textit{Fleet Order Service}, dan antarmuka pengguna (\textit{User Interface}), guna menjamin konsistensi data stok secara otomatis serta mengoordinasikan armada \textit{mobile robot} dalam satu platform terpusat di PT Paragon Technology and Innovation.
+
 % --- Rumusan Masalah ---
 \section{Rumusan Masalah}
-Rumusan Masalah berisi masalah utama yang dibahas dalam tugas akhir. Rumusan masalah yang baik memiliki struktur sebagai berikut:
-\begin{enumerate}
-\item	Pokok persoalan dari kondisi atau situasi yang ada saat ini. Dengan kata lain, jelaskan kelemahan atau kekurangan dari kondisi, situasi, atau solusi yang dijelaskan pada latar belakang. Ini merupakan pokok rumusan masalah.
-\item	Elaborasi lebih lanjut urgensi penyelesaian masalah tersebut (mengapa penting untuk diselesaikan dan akibat yang dapat terjadi jika tidak diselesaikan).
-\item	Usulan singkat terkait dengan solusi yang ditawarkan untuk menyelesaikan persoalan.
-Penting untuk diperhatikan bahwa persoalan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan di bab Evaluasi (apakah terselesaikan atau tidak).
-\end{enumerate}
-Hindari penulisan rumusan masalah yang terlalu umum atau terlalu luas cakupannya sehingga sulit untuk diselesaikan dalam jangka waktu pelaksanaan tugas akhir, 
-seperti:
-\begin{enumerate}
-    \item "Bagaimana cara meningkatkan kualitas layanan kesehatan di Indonesia?"
-    \item "Bagaimana cara mengoptimalkan penggunaan energi di perkotaan?"
-    \item "Bagaimana cara mengurangi kemacetan lalu lintas di kota besar?"
-    \item "Bagaimana cara membangun sistem irigasi sawah menggunakan \emph{AI}?"
-\end{enumerate}
-Rumusan masalah yang baik dan spesifik akan memudahkan penulis dalam menentukan tujuan, metodologi, dan evaluasi tugas akhir.
+Saat ini, operasional pergudangan barang jadi (\textit{Finished Goods}) di PT Paragon Technology and Innovation masih bersifat semi-manual dan sangat bergantung pada operator manusia dalam pelaksanaan proses \textit{stocking} serta \textit{picking}. Pencatatan identitas dan aktivitas barang dilakukan menggunakan sistem ERP Odoo dan \textit{Warehouse Management System} (WMS) yang belum terintegrasi secara \textit{real-time}, sehingga sinkronisasi data masih memerlukan intervensi manual dari petugas gudang. Ketergantungan pada proses manual dan belum adanya integrasi sistem yang matang menyebabkan inefisiensi berupa terjadinya \textit{mismatch} data antara kondisi fisik di lapangan dengan catatan digital pada sistem pusat, serta permasalahan pelacakan barang (\textit{mistracking}) yang disebabkan oleh area penempatan sementara yang tidak tercatat secara sistematis.
 
-Selain itu, hindari menuliskan pertanyaan yang merupakan sebuah keniscayaan yang harus dijawab atau dikerjakan 
-dalam pelaksanaan tugas akhir, seperti:
+Jika masalah tersebut tidak segera diatasi, maka titik kritis (\textit{bottleneck}) operasional pada tahap \textit{stocking} dan \textit{picking} akan terus terjadi, yang memicu kondisi \textit{overcapacity} di atas 80\% serta \textit{waiting time} yang panjang. Hal ini berdampak langsung pada menurunnya kecepatan rantai pasok secara keseluruhan, meningkatnya \textit{lead time} distribusi, serta tingginya risiko \textit{human error} terutama dalam konteks ketidaktepatan jumlah barang. Oleh karena itu, diperlukan transformasi menuju sistem \textit{Smart Warehouse} yang mampu melakukan integrasi data secara \textit{real-time}, melacak posisi serta pergerakan barang secara otomatis, dan mengeksekusi perpindahan barang melalui teknologi otomasi guna meningkatkan akurasi serta kecepatan distribusi.
+
+Berdasarkan permasalahan tersebut, maka rumusan masalah dalam tugas akhir ini adalah:
 \begin{enumerate}
-    \item "Bagaimana cara melakukan analisis kebutuhan sistem informasi rumah sakit?"
-    \item "Bagaimana cara merancang basis data untuk aplikasi X?"
-    \item "Bagaimana cara mengimplementasikan \textit{large language model} untuk deteksi penyakit Y?"
-    \item "Bagaimana cara menguji sistem penyiraman tanaman berbasis IoT yang akan dibuat?"
+\item Bagaimana cara memastikan data stok di gudang barang jadi selalu akurat dan terintegrasi secara \textit{real-time} di seluruh tingkatan sistem?
+\item Bagaimana merancang sistem perpindahan barang otomatis menggunakan \textit{mobile robot} untuk meningkatkan kecepatan proses dan meminimalkan kesalahan operasional?
+\item Bagaimana mengelola serta mengoordinasikan armada robot secara aman dan terpusat agar tugas pemindahan barang berjalan efektif serta mudah ditingkatkan kapasitasnya sesuai kebutuhan?
 \end{enumerate}
-Kegiatan analisis, perancangan, implementasi, dan pengujian merupakan tahapan yang harus dilakukan dalam pelaksanaan tugas akhir,
-sehingga pertanyaan-pertanyaan tersebut tidak perlu dimasukkan ke dalam rumusan masalah.
 
 % --- Tujuan ---
 \section{Tujuan}
-Tuliskan \textbf{tujuan utama} dan/atau tujuan detail yang akan dicapai dalam pelaksanaan tugas akhir. 
-Fokuskan isi subbab ini pada hasil akhir yang ingin diperoleh setelah tugas akhir diselesaikan 
-terkait dengan penyelesaian persoalan pada rumusan masalah. 
-Penting untuk diperhatikan bahwa tujuan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan 
-di akhir pelaksanaan tugas akhir. Oleh karena itu, tuliskan juga \emph{kriteria keberhasilan} tugas akhir ini.
+Tujuan dari pelaksanaan tugas akhir ini adalah:
+\begin{enumerate}
+\item Mengembangkan layanan \textit{backend} berupa \textit{Warehouse Management Controller} (WMC) yang mampu menjamin konsistensi data stok antara kondisi fisik di gudang dengan catatan digital secara otomatis dan terintegrasi.
+\item Mengembangkan mekanisme pelacakan operasional gudang secara digital yang mampu mendokumentasikan setiap pergerakan barang dari proses penerimaan hingga distribusi secara menyeluruh.
+\end{enumerate}
+Kriteria keberhasilan tugas akhir ini meliputi:
+\begin{enumerate}
+\item Sistem dapat melakukan sinkronisasi data inventori secara otomatis untuk meniadakan selisih (\textit{mismatch}) antara kondisi lapangan dan sistem pusat.
+\item Sistem manajemen informasi memiliki antarmuka yang mudah digunakan oleh staf gudang untuk mengawasi status armada robot dan aktivitas inventori secara \textit{real-time}.
+\end{enumerate}
 
 % --- Batasan Masalah ---
 \section{Batasan Masalah}
-Tuliskan batasan-batasan yang diambil dalam pelaksanaan tugas akhir. Batasan ini dapat dihindari (bersifat opsional, tidak perlu ada) jika topik atau judul tugas akhir dibuat cukup spesifik.
+Untuk menjaga ruang lingkup pembahasan dan memastikan tercapainya tujuan penelitian dalam batasan waktu serta sumber daya yang tersedia, maka ditetapkan batasan-batasan proyek sebagai berikut:
+\begin{enumerate}
+\item \textbf{Dimensi Fisik Lingkungan}: Pengujian sistem tidak dilakukan pada lokasi gudang asli, melainkan disimulasikan pada \textit{layout} berskala $2,4 \times 1,2$ meter yang dipetakan ke dalam bentuk matriks berukuran $12 \times 6$ grid.
+\item \textbf{Asumsi Tata Letak Statis}: Konfigurasi dan posisi rak di dalam area operasional simulasi dianggap tetap (statis) dan tidak mengalami perubahan selama pengujian berlangsung.
+\item \textbf{Kapasitas Armada Robot}: Sistem dibatasi untuk mengelola dua unit robot mikro (dimensi $\pm 15 \times 15$ cm) dengan kemampuan manuver antar-sel matriks serta kemampuan rotasi 360 derajat.
+\item \textbf{Lingkup Aktivitas Operasional}: Fungsionalitas operasional dibatasi pada proses \textit{picking} (pengambilan) dan \textit{storing} (penyimpanan) barang antara rak tujuan dan area \textit{docking} menggunakan mekanisme penugasan antrean (\textit{pull system}).
+\item \textbf{Fokus Pengembangan Individu}: Penulis secara spesifik bertanggung jawab atas pengembangan layanan perangkat lunak \textit{backend} yang mencakup logika sinkronisasi data, manajemen antrean tugas, serta sistem autentikasi untuk kategori barang jadi dalam skala \textit{Proof of Concept} (PoC).
+\end{enumerate}
 
 % --- Metodologi Pengerjaan TA ---
 \section{Metodologi}
-Tuliskan semua tahapan yang akan dilalui selama pelaksanaan tugas akhir. 
-Tahapan ini spesifik untuk menyelesaikan persoalan tugas akhir. 
-Berikut adalah contoh metodologi pengerjaan tugas akhir yang dapat diikuti, yaitu meliputi tahapan, langkah-langkah, 
-atau tata cara melakukan:
+Metodologi pengerjaan tugas akhir ini mengadopsi pendekatan \textit{Design Thinking} yang dilakukan dalam dua siklus iterasi. \textit{Design thinking} merupakan metode inovasi yang berpusat pada manusia (\textit{human-centered approach}) melalui kolaborasi antara pengembang dan pengguna guna menghasilkan solusi yang relevan dengan cara pikir dan kebutuhan mereka.
+
+Tahapan utama dalam metodologi ini mencakup lima fase sebagai berikut:
 \begin{enumerate}
-\item	Investigasi pengumpulan fakta di latar belakang untuk merumuskan masalah.
-\item	Pencarian, pengelompokan, dan penapisan literatur atau sumber informasi untuk mengumpulkan informasi yang relevan tentang topik yang diangkat, termasuk teori (konsep atau teori apa saja yang perlu dicari), hal-hal yang telah dicapai oleh orang lain (cara mencari dan kata kuncinya), dan berbagai informasi pendukung, untuk mencari solusi terhadap masalah yang dibahas. Gunakan metodologi yang tepat dalam menggali informasi dan dokumentasikan prosesnya (termasuk rekaman wawancara atau survei) di dalam Lampiran, termasuk tautan ke video atau foto. Hasil penggalian informasi ini akan dijelaskan secara sistematis di Bab II Studi Literatur.
-\item   Analisis kebutuhan pengguna dan sistem berdasarkan hasil investigasi dan studi literatur. Jelaskan metode yang digunakan untuk melakukan analisis kebutuhan, misalnya wawancara, survei, observasi, atau studi kasus. Hasil analisis kebutuhan ini akan dijelaskan secara rinci di Bab III Analisis.
-\item   Perancangan solusi berdasarkan hasil analisis kebutuhan. Jelaskan metode yang digunakan untuk melakukan perancangan, misalnya menggunakan diagram UML, ERD, atau prototyping. Hasil perancangan ini akan dijelaskan secara rinci di Bab IV Perancangan.
-\item   Implementasi solusi berdasarkan hasil perancangan. Jelaskan teknologi, bahasa pemrograman, atau alat yang digunakan untuk mengimplementasikan solusi. Hasil implementasi ini akan dijelaskan secara rinci di Bab V Implementasi.
-\item   Evaluasi terhadap solusi yang telah diimplementasikan. Jelaskan metode pengujian, metrik evaluasi, atau studi kasus yang digunakan untuk menilai keberhasilan solusi. Hasil evaluasi ini akan dijelaskan secara rinci di Bab VI Evaluasi.
-\item   Penarikan kesimpulan dan saran berdasarkan hasil pelaksanaan tugas akhir. Hasil kesimpulan dan saran ini akan dijelaskan secara rinci di Bab VII Kesimpulan dan Saran. 
-\vfill % memaksa konten di atas untuk berada di bagian atas halaman dan menyisakan ruang kosong di bawah konten ini akibat berakhirnya section ini
+\item \textbf{Empathize}: Tahap awal untuk mendalami pengalaman dan kendala pengguna melalui observasi, wawancara, atau survei guna membangun pemahaman mendalam tentang konteks desain sistem.
+\item \textbf{Define}: Proses mengolah data temuan dari tahap \textit{empathize} untuk merumuskan masalah utama dalam bentuk \textit{problem statement} yang spesifik dan terukur sebagai panduan pengembangan solusi.
+\item \textbf{Ideate}: Fase eksplorasi solusi secara kreatif melalui berbagai teknik seperti \textit{brainstorming}, sketsa, atau \textit{mind mapping} untuk mengidentifikasi berbagai potensi pemecahan masalah.
+\item \textbf{Prototype}: Mewujudkan ide terpilih ke dalam bentuk nyata, seperti model fisik atau simulasi, yang bertujuan untuk menguji konsep dan mendapatkan pemahaman lebih lanjut tanpa harus membuat produk akhir terlebih dahulu.
+\item \textbf{Test}: Tahap pengujian purwarupa untuk mendapatkan umpan balik langsung dari pengguna, yang berfungsi sebagai dasar untuk menyempurnakan solusi, rumusan masalah, maupun pemahaman terhadap kebutuhan pengguna.
 \end{enumerate}
 
 % --- Sistematika Penulisan ---
 \section{Sistematika Penulisan}
-Tuliskan gambaran umum isi dari setiap bab yang ada dalam laporan tugas akhir. Sistematika penulisan ini memberikan panduan bagi pembaca tentang struktur dan alur pembahasan dalam laporan tugas akhir. Berikut adalah contoh sistematika penulisan yang dapat diikuti:
+Berikut adalah gambaran umum isi dari setiap bab yang ada dalam laporan tugas akhir ini:
 \begin{enumerate}
-\item	Bab I Pendahuluan: Berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, dan sistematika penulisan laporan tugas akhir       .
-\item	Bab II Studi Literatur: Berisi kajian pustaka yang relevan dengan topik tugas akhir, termasuk teori-teori, konsep-konsep, dan hasil-hasil penelitian sebelumnya yang                mendukung pelaksanaan tugas akhir.
-\item	Bab III Analisis: Berisi penjelasan tentang analisis masalah dan kebutuhan pengguna serta berbagai alternatif solusinya.
-\item   Bab IV Perancangan: Berisi penjelasan tentang perancangan solusi yang diusulkan, misalnya arsitektur sistem, desain basis data, antarmuka pengguna, dan sebagainya.
-\item	Bab V Implementasi: Berisi penjelasan tentang proses implementasi solusi yang diusulkan, termasuk langkah-langkah yang diambil, teknologi yang digunakan, dan hasil yang diperoleh.
-\item	Bab VI Evaluasi: Berisi analisis dan evaluasi terhadap solusi yang diimplementasikan, termasuk metode pengujian, hal-hal yang disiapkan sebelum pengujian, hasil pengujian, dan penilaian kinerja.                  
-\item   Bab VII Kesimpulan dan Saran: Berisi kesimpulan dari hasil pelaksanaan tugas akhir dan saran untuk pengembangan lebih lanjut.
-\item   Daftar Pustaka: Berisi daftar referensi yang digunakan dalam penyusunan laporan tugas akhir.
-\item   Lampiran: Berisi dokumen-dokumen pendukung seperti kode program, data lengkap hasil pengujian, rekaman wawancara, dan lain-lain. 
+\item Bab I Pendahuluan: Berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, dan sistematika penulisan laporan tugas akhir.
+\item Bab II Studi Literatur: Berisi kajian pustaka yang relevan dengan topik tugas akhir, termasuk teori-teori, konsep-konsep, dan hasil-hasil penelitian sebelumnya yang mendukung pelaksanaan tugas akhir.
+\item Bab III Analisis Masalah: Berisi penjelasan tentang analisis kondisi saat ini, analisis kebutuhan, dan analisis pemilihan solusi WMC.
+\item Bab IV Analisis Proses Bisnis \& Perancangan: Berisi penjelasan tentang perbandingan sistem \textit{as-is} dan \textit{to-be}, arsitektur sistem, desain basis data, kebutuhan fungsional, dan skenario \textit{use case}.
+\item Bab V Implementasi: Berisi penjelasan tentang proses implementasi solusi yang diusulkan, termasuk lingkungan, teknologi, modul, dan \textit{endpoint} yang dikembangkan.
+\item Bab VI Evaluasi: Berisi analisis dan evaluasi terhadap solusi yang diimplementasikan, mencakup metode pengujian dan hasil pengujian fungsionalitas, \textit{usability}, \textit{traceability}, produktivitas, dan akurasi.
+\item Bab VII Penutup: Berisi kesimpulan dari hasil pelaksanaan tugas akhir dan saran untuk pengembangan lebih lanjut.
+\item Daftar Pustaka: Berisi daftar referensi yang digunakan dalam penyusunan laporan tugas akhir.
 \end{enumerate}

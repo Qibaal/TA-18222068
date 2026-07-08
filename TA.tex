@@ -72,7 +72,8 @@
 % --- Main packages ---
 \usepackage[utf8]{inputenc} % for UTF-8 encoding
 \usepackage{fontspec} % for font selection
-\usepackage[indonesian]{babel} % untuk bahasa Indonesia
+\usepackage{babel} % untuk bahasa Indonesia
+\babelprovide[import, main]{indonesian} % memuat data bahasa Indonesia (workaround ketidakcocokan versi babel/tracklang di beberapa distribusi TeX Live)
 \usepackage{csquotes} % for context-sensitive quotation facilities
 \usepackage{setspace} % for line spacing
 \usepackage{graphicx} % for images
@@ -83,6 +84,7 @@
 \usepackage{titlesec} % for customizing titles
 \usepackage{lipsum} % for dummy text (lorem ipsum text)
 \usepackage{floatrow} % for customizing float (figure and table) positions
+\usepackage{float} % for the [H] "here, definitely" float placement specifier
 \usepackage{listings} % for code listing
 \usepackage{amsmath} % for math
 \usepackage{amssymb} % for math symbols
@@ -100,9 +102,14 @@
 \usepackage{array} % for better arrays (eg. in tabular environment)
 \usepackage{threeparttable} % for tables with notes
 \usepackage{tabularx} % for tables with adjustable-width columns
+\usepackage{multirow} % for multi-row table cells
 \usepackage{xcolor} % for color definitions
 \usepackage[title,titletoc]{appendix} % for appendix management
 \usepackage{csquotes} % for context-sensitive quotation facilities
+
+% todonotes tidak tersedia di instalasi TeX Live ini (butuh hak admin untuk tlmgr),
+% sehingga placeholder ditandai dengan makro sederhana berbasis xcolor.
+\newcommand{\placeholder}[1]{\par\noindent\fcolorbox{red}{yellow!15}{\parbox{0.97\textwidth}{\textbf{\textcolor{red}{[PLACEHOLDER]}} #1}}\par}
 
 \setmainfont{Times New Roman} % set main font to Times New Roman
 \onehalfspacing % spasi 1.5
