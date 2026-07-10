@@ -5,11 +5,22 @@
 \chapter{PERANCANGAN}
 \label{chap:perancangan}
 
+\newcommand{\arsfig}[1]{%
+  \fbox{\parbox[c][7cm][c]{0.85\textwidth}{\centering\textit{[Gambar belum tersedia: #1]}}}%
+}
+
 \section{Diagram Arsitektur}
-Subbab ini menjabarkan arsitektur sistem \textit{Smart Warehouse} secara bertingkat, dari gambaran sistem keseluruhan pada Level 0 hingga dekomposisi komponen perangkat lunak yang menyusun \textit{Warehouse Management Controller} (WMC) pada Level 2. Fokus pembahasan diarahkan pada WMC sebagai subsistem perangkat lunak yang dikembangkan, beserta komponen-komponen yang secara langsung berinteraksi dengannya.
+Subbab ini menjabarkan arsitektur sistem \textit{Smart Warehouse} secara bertingkat, dari gambaran sistem keseluruhan pada Level 0 hingga dekomposisi komponen perangkat lunak yang menyusun \textit{Warehouse Management Controller} (WMC) pada Level 2. Fokus pembahasan diarahkan pada WMC sebagai subsistem perangkat lunak yang dikembangkan, beserta komponen-komponen yang secara langsung berinteraksi dengannya, termasuk arsitektur \textit{Fleet Controller} sebagai konteks integrasi dan komponen \textit{Localisation System} yang menjadi kontribusi individu penulis di dalamnya.
 
 \subsection{Arsitektur Level 0}
-Arsitektur Level 0 menggambarkan sistem \textit{Smart Warehouse} secara menyeluruh sebagai satu kesatuan modul tunggal. Pada level ini, sistem dipandang sebagai kotak hitam (\textit{black box}) yang menerima berbagai masukan dari lingkungan eksternal dan menghasilkan keluaran berupa eksekusi fisik pemindahan barang serta laporan status operasional. Sistem ini berinteraksi langsung dengan staf gudang (\textit{Warehouse Staff}) dan sistem logistik eksternal. Tabel \ref{tab:level0} merangkum fungsi, masukan, dan keluaran sistem pada arsitektur Level 0.
+Arsitektur Level 0 menggambarkan sistem \textit{Smart Warehouse} secara menyeluruh sebagai satu kesatuan modul tunggal. Pada level ini, sistem dipandang sebagai kotak hitam (\textit{black box}) yang menerima berbagai masukan dari lingkungan eksternal dan menghasilkan keluaran berupa eksekusi fisik pemindahan barang serta laporan status operasional. Sistem ini berinteraksi langsung dengan staf gudang (\textit{Warehouse Staff}) dan sistem logistik eksternal. Gambar \ref{fig:level0-arch} mengilustrasikan arsitektur sistem pada Level 0, dan Tabel \ref{tab:level0} merangkum fungsi, masukan, dan keluaran sistem pada arsitektur Level 0.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Sistem Level 0}
+  \caption{Arsitektur Sistem \textit{Smart Warehouse} Level 0}
+  \label{fig:level0-arch}
+\end{figure}
 
 \begin{table}[h]
   \centering
@@ -31,7 +42,14 @@ Arsitektur Level 0 menggambarkan sistem \textit{Smart Warehouse} secara menyelur
 \end{table}
 
 \subsection{Arsitektur Level 1 --- Warehouse Management Controller}
-Pada Level 1, sistem \textit{Smart Warehouse} didekomposisi menjadi dua subsistem utama, yaitu \textit{Goods Handling and Delivery System} (GHDS) yang menangani aktivitas fisik robot, dan \textit{Warehouse Management Controller} (WMC) yang menjadi fokus pengembangan pada tugas akhir ini. WMC berfungsi sebagai pusat kendali digital yang mengelola permintaan barang, mengoordinasikan pengendalian robot, serta memperbarui status pesanan secara terintegrasi. WMC berinteraksi langsung dengan antarmuka pengguna, basis data, dan \textit{Fleet Controller} pada GHDS. Tabel \ref{tab:level1} merangkum fungsi, masukan, dan keluaran WMC pada Level 1.
+Pada Level 1, sistem \textit{Smart Warehouse} didekomposisi menjadi dua subsistem utama, yaitu \textit{Goods Handling and Delivery System} (GHDS) yang menangani aktivitas fisik robot, dan \textit{Warehouse Management Controller} (WMC) yang menjadi fokus pengembangan pada tugas akhir ini. WMC berfungsi sebagai pusat kendali digital yang mengelola permintaan barang, mengoordinasikan pengendalian robot, serta memperbarui status pesanan secara terintegrasi. WMC berinteraksi langsung dengan antarmuka pengguna, basis data, dan \textit{Fleet Controller} pada GHDS. Gambar \ref{fig:level1-wmc-arch} mengilustrasikan arsitektur WMC pada Level 1, dan Tabel \ref{tab:level1} merangkum fungsi, masukan, dan keluaran WMC pada Level 1.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Warehouse Management Controller Level 1}
+  \caption{Arsitektur \textit{Warehouse Management Controller} (Level 1)}
+  \label{fig:level1-wmc-arch}
+\end{figure}
 
 \begin{table}[h]
   \centering
@@ -54,7 +72,14 @@ Pada Level 1, sistem \textit{Smart Warehouse} didekomposisi menjadi dua subsiste
 Pada Level 2, WMC didekomposisi menjadi empat komponen perangkat lunak yang masing-masing memiliki tanggung jawab yang terdefinisi. Keempat komponen tersebut adalah \textit{Database}, \textit{Goods Detail Service}, \textit{Fleet Order Service}, dan \textit{Authentication Service}. Setiap komponen saling terhubung dan beroperasi dalam arsitektur \textit{microservices} yang memungkinkan setiap layanan dikembangkan dan di-\textit{deploy} secara independen (lihat Subbab \ref{chap:studi-literatur} tentang arsitektur \textit{microservices}, khususnya Gambar \ref{fig:microservices-diagram}).
 
 \subsubsection{Database}
-Komponen \textit{Database} merupakan lapisan penyimpanan data terpusat pada WMC. Komponen ini menyimpan seluruh data operasional gudang, mencakup detail barang, \textit{layout} penyimpanan, data pengguna, sesi autentikasi, dan status pengiriman robot. Seluruh layanan WMC lainnya berinteraksi dengan komponen ini melalui mekanisme \textit{query} yang terstruktur. Tabel \ref{tab:database-io} merangkum fungsi, masukan, dan keluaran komponen \textit{Database}.
+Komponen \textit{Database} merupakan lapisan penyimpanan data terpusat pada WMC. Komponen ini menyimpan seluruh data operasional gudang, mencakup detail barang, \textit{layout} penyimpanan, data pengguna, sesi autentikasi, dan status pengiriman robot. Seluruh layanan WMC lainnya berinteraksi dengan komponen ini melalui mekanisme \textit{query} yang terstruktur. Gambar \ref{fig:database-arch} mengilustrasikan arsitektur komponen \textit{Database}, dan Tabel \ref{tab:database-io} merangkum fungsi, masukan, dan keluaran komponen \textit{Database}.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Komponen Database WMC}
+  \caption{Arsitektur Komponen \textit{Database} WMC (Level 2)}
+  \label{fig:database-arch}
+\end{figure}
 
 \begin{table}[h]
   \centering
@@ -73,8 +98,61 @@ Komponen \textit{Database} merupakan lapisan penyimpanan data terpusat pada WMC.
   \end{tabularx}
 \end{table}
 
+Sebagai kelanjutan dari perancangan komponen \textit{Database}, subbab ini turut menjabarkan skema basis data sistem yang dimodelkan menggunakan \textit{Entity Relationship Diagram} (ERD) berikut.
+
+\textit{Entity Relationship Diagram} (ERD) adalah diagram yang menggambarkan struktur data dalam suatu sistem informasi yang berguna untuk mengetahui hubungan antar entitas, atribut dari masing-masing entitas, dan apa saja entitas yang berperan di dalam penyimpanan data \autocite{silberschatz2020}. ERD merupakan bagian penting dalam proses perancangan sistem, khususnya dalam merancang skema basis data relasional yang terstruktur dan konsisten.
+
+Pada tugas akhir ini, ERD digunakan untuk memodelkan entitas-entitas utama yang terlibat dalam sistem \textit{Warehouse Management Controller}, yaitu \textit{User}, \textit{Session}, \textit{Order}, \textit{OrderItem}, \textit{Item}, \textit{ItemLocation}, \textit{Task}, \textit{Robot}, dan \textit{RobotLog}, beserta seluruh relasi yang menghubungkan entitas-entitas tersebut. Entitas-entitas ini saling terhubung secara relasional sesuai dengan pendekatan basis data SQL yang diterapkan pada sistem.
+
+Berikut ini merupakan \textit{Entity Relationship Diagram} yang digunakan dalam pengembangan sistem \textit{Warehouse Management Controller}.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{ERD Sistem Warehouse Management Controller}
+  \caption{ERD Sistem \textit{Warehouse Management Controller}}
+  \label{fig:erd-wmc}
+\end{figure}
+
+Berdasarkan ERD pada Gambar \ref{fig:erd-wmc}, terdapat sembilan entitas yang dirancang dalam basis data sistem. Entitas \textit{User} menyimpan data pengguna sistem beserta kredensial autentikasi, sedangkan entitas \textit{Session} mencatat informasi sesi aktif pengguna termasuk token dan masa berlakunya. Entitas \textit{Order} merepresentasikan setiap permintaan \textit{picking} maupun \textit{storing} yang dibuat oleh pengguna, dan terhubung dengan entitas \textit{OrderItem} yang memuat rincian barang dalam setiap \textit{order} beserta kuantitasnya. Entitas \textit{Item} menjadi master data barang yang tersimpan di gudang, dilengkapi dengan entitas \textit{ItemLocation} untuk menyimpan informasi posisi fisik barang berupa koordinat rak dalam area gudang. Entitas \textit{Task} menghubungkan \textit{OrderItem} dengan \textit{Robot}, merepresentasikan instruksi operasional yang diberikan kepada robot untuk dieksekusi. Entitas \textit{Robot} menyimpan data identitas dan kapasitas robot, sementara entitas \textit{RobotLog} mencatat seluruh aktivitas dan kejadian pada setiap robot sebagai mekanisme \textit{logging} dan pelacakan kesalahan sistem. Tabel \ref{tab:entitas-db} merangkum penjelasan lengkap setiap entitas beserta relasinya.
+
+\begin{table}[h]
+  \centering
+  \caption{Penjelasan entitas basis data \textit{Warehouse Management Controller}}
+  \label{tab:entitas-db}
+  \begin{tabularx}{\textwidth}{ | l | X | }
+    \hline
+    \textbf{Entitas} & \textbf{Deskripsi} \\
+    \hline
+    \textit{User} & Menyimpan data pengguna sistem yang merupakan staf gudang yang bertugas mengelola dan memantau seluruh operasional \textit{Warehouse Management Controller}. Struktur data dari entitas \textit{User} mencakup informasi identitas pengguna seperti nama, \textit{username}, dan \textit{password} yang digunakan untuk keperluan autentikasi, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{User} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{Order} memungkinkan sistem melacak seluruh permintaan \textit{picking} dan \textit{storing} yang dibuat oleh masing-masing pengguna, sedangkan relasi dengan entitas \textit{Session} digunakan untuk mengelola sesi login aktif pengguna berdasarkan token autentikasi yang diterbitkan setelah proses login berhasil dilakukan. \\
+    \hline
+    \textit{Order} & Menyimpan data permintaan operasional gudang yang diajukan oleh pengguna, baik berupa proses \textit{picking} (pengambilan barang) maupun \textit{storing} (penyimpanan barang). Struktur data dari entitas \textit{Order} mencakup referensi pengguna yang mengajukan permintaan, status terkini dari permintaan tersebut, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{Order} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{User} mengikat setiap permintaan kepada pengguna yang membuatnya sehingga sistem dapat melakukan pelacakan dan audit aktivitas secara terstruktur, sedangkan relasi dengan entitas \textit{OrderItem} memungkinkan satu permintaan mencakup beberapa barang sekaligus dengan rincian kuantitas masing-masing. \\
+    \hline
+    \textit{OrderItem} & Menyimpan data rincian barang yang terdapat dalam suatu permintaan operasional gudang. Struktur data dari entitas \textit{OrderItem} mencakup referensi ke permintaan induk, referensi ke barang yang diminta, jumlah kuantitas yang diperlukan, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{OrderItem} merupakan entitas penghubung yang memiliki relasi dengan tiga entitas sekaligus dalam sistem. Relasi dengan entitas \textit{Order} mengaitkan setiap detail barang ke permintaan asalnya, relasi dengan entitas \textit{Item} menentukan barang spesifik yang menjadi objek permintaan, sedangkan relasi dengan entitas \textit{Task} menjadi dasar pembentukan instruksi operasional yang akan diberikan kepada robot untuk dieksekusi. \\
+    \hline
+    \textit{Item} & Menyimpan master data seluruh barang yang dikelola di dalam gudang. Struktur data dari entitas \textit{Item} mencakup informasi identitas barang seperti nama, deskripsi, \textit{stock-keeping unit} (SKU), kategori, dan jumlah stok yang tersedia, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{Item} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{OrderItem} memungkinkan sistem merujuk data barang secara akurat ketika memproses permintaan operasional, sedangkan relasi dengan entitas \textit{ItemLocation} digunakan untuk menyimpan informasi posisi fisik barang di dalam gudang berupa koordinat rak sehingga robot dapat menavigasi ke lokasi yang tepat. \\
+    \hline
+    \textit{Task} & Menyimpan data instruksi operasional yang diberikan kepada robot sebagai tindak lanjut dari permintaan \textit{picking} atau \textit{storing} yang masuk ke sistem. Struktur data dari entitas \textit{Task} mencakup referensi ke detail permintaan barang yang harus dikerjakan, referensi ke robot yang ditugaskan, status pelaksanaan tugas, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{Task} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{OrderItem} mengaitkan setiap instruksi dengan permintaan barang yang harus diselesaikan, sedangkan relasi dengan entitas \textit{Robot} menentukan robot mana yang bertanggung jawab mengeksekusi tugas tersebut sehingga sistem dapat melakukan pemantauan dan pengelolaan armada robot secara terpusat. \\
+    \hline
+    \textit{Robot} & Menyimpan data identitas dan kapasitas setiap unit robot yang beroperasi di dalam gudang. Struktur data dari entitas \textit{Robot} mencakup nomor seri robot, kapasitas muatan maksimum, kapasitas baterai, serta waktu pemeliharaan terakhir yang dilakukan. Entitas \textit{Robot} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{Task} memungkinkan sistem menugaskan dan memantau seluruh instruksi operasional yang sedang dijalankan oleh masing-masing robot, sedangkan relasi dengan entitas \textit{RobotLog} digunakan untuk mencatat seluruh aktivitas, kode log, kode kesalahan, dan pesan kejadian yang terjadi pada robot selama beroperasi sebagai mekanisme \textit{logging} dan penelusuran kesalahan sistem. \\
+    \hline
+    \textit{Session} & Menyimpan informasi sesi aktif setiap pengguna yang berhasil melakukan autentikasi ke dalam sistem. Struktur data entitas \textit{Session} mencakup token sesi, waktu kedaluwarsa (\textit{expiry}), serta status validitas token yang digunakan untuk memverifikasi kredensial pengguna pada setiap permintaan yang dikirimkan ke layanan WMC. Entitas \textit{Session} terhubung dengan entitas \textit{User} melalui relasi \textit{one-to-many}, di mana satu pengguna dapat memiliki beberapa sesi aktif secara bersamaan, namun setiap sesi selalu dimiliki oleh tepat satu pengguna. \\
+    \hline
+    \textit{ItemLocation} & Menyimpan informasi posisi fisik setiap jenis barang dalam area gudang, direpresentasikan sebagai koordinat sel pada \textit{grid} lantai gudang. Struktur data entitas \textit{ItemLocation} mencakup koordinat kolom ($c$) dan baris ($r$) pada \textit{grid} $8\times4$ yang merepresentasikan posisi penyimpanan barang, serta stempel waktu pembaruan terakhir untuk keperluan \textit{traceability} lokasi. Entitas ini terhubung dengan entitas \textit{Item} melalui relasi \textit{one-to-one}, memastikan bahwa setiap jenis barang selalu memiliki satu catatan lokasi aktif yang dapat diperbarui secara \textit{real-time} mengikuti perpindahan barang oleh robot. \\
+    \hline
+    \textit{RobotLog} & Mencatat seluruh kejadian, aktivitas, dan kesalahan yang terjadi pada setiap robot selama beroperasi di dalam gudang sebagai mekanisme \textit{logging} dan \textit{audit trail}. Struktur data entitas \textit{RobotLog} mencakup kode log, kode kesalahan (\textit{error code}), pesan kejadian, serta stempel waktu kejadian. Entitas \textit{RobotLog} terhubung dengan dua entitas lain: relasi dengan entitas \textit{Robot} (\textit{many-to-one}) untuk mengidentifikasi unit robot yang menghasilkan log, serta relasi dengan entitas \textit{Task} (\textit{many-to-one}) untuk mengaitkan setiap entri log dengan \textit{task} operasional yang sedang dijalankan saat kejadian tersebut terjadi, sehingga memudahkan penelusuran akar masalah (\textit{root cause analysis}) ketika terjadi kegagalan operasional. \\
+    \hline
+  \end{tabularx}
+\end{table}
+
 \subsubsection{Goods Detail Service}
-Komponen \textit{Goods Detail Service} bertanggung jawab mengelola data master seluruh barang yang tersimpan di gudang. Komponen ini menjadi antarmuka antara \textit{Database} dan komponen lain yang memerlukan informasi barang, mencakup penyimpanan, pembaruan, dan pengambilan informasi secara terperinci. Tabel \ref{tab:gds-io} merangkum fungsi, masukan, dan keluaran komponen ini.
+Komponen \textit{Goods Detail Service} bertanggung jawab mengelola data master seluruh barang yang tersimpan di gudang. Komponen ini menjadi antarmuka antara \textit{Database} dan komponen lain yang memerlukan informasi barang, mencakup penyimpanan, pembaruan, dan pengambilan informasi secara terperinci. Gambar \ref{fig:gds-arch} mengilustrasikan arsitektur komponen ini, dan Tabel \ref{tab:gds-io} merangkum fungsi, masukan, dan keluaran komponen ini.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Komponen Goods Detail Service WMC}
+  \caption{Arsitektur Komponen \textit{Goods Detail Service} WMC (Level 2)}
+  \label{fig:gds-arch}
+\end{figure}
 
 \begin{table}[h]
   \centering
@@ -94,7 +172,15 @@ Komponen \textit{Goods Detail Service} bertanggung jawab mengelola data master s
 \end{table}
 
 \subsubsection{Fleet Order Service}
-Komponen \textit{Fleet Order Service} merupakan \textit{gateway} utama antara sistem WMC dan komponen \textit{Fleet Controller} pada robot. Komponen ini mengolah seluruh logika pembuatan dan pembatalan \textit{order}, pengaturan tugas robot, serta pemantauan dan sinkronisasi status tugas secara \textit{real-time}. Tabel \ref{tab:fos-io} merangkum fungsi, masukan, dan keluaran komponen ini.
+\label{subsubsec:fleet-order-service}
+Komponen \textit{Fleet Order Service} merupakan \textit{gateway} utama antara sistem WMC dan komponen \textit{Fleet Controller} pada robot. Komponen ini mengolah seluruh logika pembuatan dan pembatalan \textit{order}, pengaturan tugas robot, serta pemantauan dan sinkronisasi status tugas secara \textit{real-time}. Gambar \ref{fig:fos-arch} mengilustrasikan arsitektur komponen ini, dan Tabel \ref{tab:fos-io} merangkum fungsi, masukan, dan keluaran komponen ini.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Komponen Fleet Order Service WMC}
+  \caption{Arsitektur Komponen \textit{Fleet Order Service} WMC (Level 2)}
+  \label{fig:fos-arch}
+\end{figure}
 
 \begin{table}[h]
   \centering
@@ -114,7 +200,14 @@ Komponen \textit{Fleet Order Service} merupakan \textit{gateway} utama antara si
 \end{table}
 
 \subsubsection{Authentication Service}
-Komponen \textit{Authentication Service} bertanggung jawab memvalidasi identitas pengguna yang mengakses sistem WMC. Komponen ini menerima kredensial dari antarmuka pengguna, memverifikasinya terhadap data pada \textit{Database}, kemudian menerbitkan \textit{Bearer Token} sebagai bukti otorisasi untuk seluruh permintaan berikutnya. Tabel \ref{tab:auth-io} merangkum fungsi, masukan, dan keluaran komponen ini.
+Komponen \textit{Authentication Service} bertanggung jawab memvalidasi identitas pengguna yang mengakses sistem WMC. Komponen ini menerima kredensial dari antarmuka pengguna, memverifikasinya terhadap data pada \textit{Database}, kemudian menerbitkan \textit{Bearer Token} sebagai bukti otorisasi untuk seluruh permintaan berikutnya. Gambar \ref{fig:auth-arch} mengilustrasikan arsitektur komponen ini, dan Tabel \ref{tab:auth-io} merangkum fungsi, masukan, dan keluaran komponen ini.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Komponen Authentication Service WMC}
+  \caption{Arsitektur Komponen \textit{Authentication Service} WMC (Level 2)}
+  \label{fig:auth-arch}
+\end{figure}
 
 \begin{table}[h]
   \centering
@@ -133,7 +226,176 @@ Komponen \textit{Authentication Service} bertanggung jawab memvalidasi identitas
   \end{tabularx}
 \end{table}
 
+\subsection{Arsitektur Level 1 --- Fleet Controller}
+Selain \textit{Warehouse Management Controller}, subsistem \textit{Fleet Controller} turut menjadi bagian penting dari arsitektur \textit{Smart Warehouse} karena berperan sebagai penghubung langsung antara WMC dan armada robot fisik pada \textit{Goods Handling and Delivery System} (GHDS). Sebagaimana dijelaskan pada dokumen B300, \textit{Fleet Controller} bertanggung jawab mengelola penugasan robot, manajemen status, dan perencanaan rute pergerakan armada, dengan seluruh data status robot diterima melalui subsistem \textit{Communication} pada GHDS. Pengembangan \textit{Fleet Controller} secara keseluruhan berada di luar cakupan tugas akhir individu ini, kecuali komponen \textit{Localisation System} yang menjadi kontribusi khusus penulis (lihat Subbab \ref{sec:batasan-masalah}). Pemaparan arsitektur \textit{Fleet Controller} pada subbab ini diperlukan untuk memberikan konteks interaksi antara WMC dan \textit{Fleet Controller} melalui \textit{Fleet Order Service} (lihat Subbab \ref{subsubsec:fleet-order-service}).
+
+Pada Level 1, \textit{Fleet Controller} dipandang sebagai satu modul tunggal yang menerima instruksi \textit{order} dan data robot dari WMC, kemudian menghasilkan perintah eksekusi bagi robot serta status terkini yang dikembalikan ke WMC. Gambar \ref{fig:fc-level1-arch} mengilustrasikan arsitektur \textit{Fleet Controller} pada Level 1, dan Tabel \ref{tab:fc-level1} merangkum fungsi, masukan, dan keluaran \textit{Fleet Controller} pada Level 1.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Fleet Controller Level 1}
+  \caption{Arsitektur \textit{Fleet Controller} (Level 1)}
+  \label{fig:fc-level1-arch}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \caption{Fungsi, masukan, dan keluaran \textit{Fleet Controller} (Level 1)}
+  \label{tab:fc-level1}
+  \begin{tabularx}{\textwidth}{ | l | X | }
+    \hline
+    \textbf{Elemen} & \textbf{Deskripsi} \\
+    \hline
+    Fungsi & Mengelola penugasan robot, manajemen status, dan rute pergerakan seluruh armada robot berdasarkan instruksi \textit{order} yang diterima dari WMC. \\
+    \hline
+    Masukan & 1. \textit{Robots Data} --- informasi status, posisi, dan kondisi seluruh robot yang beroperasi di gudang. 2. \textit{Order Commands} --- instruksi pembuatan, pembaruan, atau pembatalan tugas robot, diterima dari \textit{Fleet Order Service} WMC. \\
+    \hline
+    Luaran & 1. \textit{Order Status} --- status pelaksanaan tugas dikirim ke \textit{Fleet Order Service} WMC. 2. \textit{Robot Commands} --- perintah kendali dikirim ke robot melalui subsistem \textit{Communication} pada GHDS. 3. \textit{Robots Data} --- data status robot terbaru diteruskan ke WMC untuk ditampilkan pada \textit{User Interface}. \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsection{Arsitektur Level 2 --- Komponen Fleet Controller}
+Pada Level 2, \textit{Fleet Controller} didekomposisi menjadi lima komponen perangkat lunak, yaitu \textit{Communication Service}, \textit{Fleet Manager}, \textit{Local Database}, \textit{Robot Path Planner}, dan \textit{Localisation System}. Keempat komponen pertama merupakan hasil rancangan kelompok TA252601001 sebagaimana didokumentasikan pada dokumen B300, sedangkan komponen \textit{Localisation System} merupakan kontribusi individu penulis yang menggantikan pendekatan lokalisasi berbasis QR Code + \textit{Line Following} pada rancangan awal dengan pendekatan AprilTag + \textit{Overhead Fisheye Camera} (lihat Subbab \ref{sec:batasan-masalah}).
+
+\subsubsection{Communication Service}
+\textit{Communication Service} pada \textit{Fleet Controller} berfungsi sebagai penghubung komunikasi dua arah antara sistem pengendali dan robot, mengirimkan perintah kendali serta menerima data status robot secara \textit{real-time} melalui media komunikasi nirkabel. Gambar \ref{fig:comm-arch} mengilustrasikan arsitektur komponen ini, dan Tabel \ref{tab:comm-io} merangkum fungsi, masukan, dan keluarannya.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Komponen Communication Service Fleet Controller}
+  \caption{Arsitektur Komponen \textit{Communication Service} \textit{Fleet Controller} (Level 2)}
+  \label{fig:comm-arch}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \caption{Fungsi, masukan, dan keluaran \textit{Communication Service}}
+  \label{tab:comm-io}
+  \begin{tabularx}{\textwidth}{ | l | X | }
+    \hline
+    \textbf{Elemen} & \textbf{Deskripsi} \\
+    \hline
+    Fungsi & Menyediakan komunikasi dua arah antara \textit{Fleet Controller} dan robot untuk mengirimkan perintah kendali serta menerima data status robot secara \textit{real-time}. \\
+    \hline
+    Masukan & 1. Perintah Robot --- instruksi kendali yang akan diteruskan ke robot, seperti perintah bergerak atau menjalankan tugas tertentu, diterima dari \textit{Fleet Manager}. 2. Data Robot --- informasi status robot (posisi, kondisi, dan hasil eksekusi perintah) yang diterima dari robot melalui media komunikasi. \\
+    \hline
+    Luaran & 1. Perintah Robot --- diteruskan ke unit robot melalui media komunikasi yang digunakan. 2. Data Robot --- diteruskan ke \textit{Fleet Manager} dan \textit{Local Database} untuk diproses lebih lanjut. \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsubsection{Fleet Manager}
+\textit{Fleet Manager} berfungsi mengoordinasikan operasional robot berdasarkan \textit{order} yang diterima, menentukan penugasan robot, serta memperbarui status \textit{order} dan data barang secara terintegrasi. Gambar \ref{fig:fleetmanager-arch} mengilustrasikan arsitektur komponen ini, dan Tabel \ref{tab:fleetmanager-io} merangkum fungsi, masukan, dan keluarannya.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Komponen Fleet Manager Fleet Controller}
+  \caption{Arsitektur Komponen \textit{Fleet Manager} \textit{Fleet Controller} (Level 2)}
+  \label{fig:fleetmanager-arch}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \caption{Fungsi, masukan, dan keluaran \textit{Fleet Manager}}
+  \label{tab:fleetmanager-io}
+  \begin{tabularx}{\textwidth}{ | l | X | }
+    \hline
+    \textbf{Elemen} & \textbf{Deskripsi} \\
+    \hline
+    Fungsi & Mengoordinasikan operasional robot berdasarkan \textit{order} yang diterima, menentukan penugasan robot, serta memperbarui status \textit{order} dan data barang secara terintegrasi. \\
+    \hline
+    Masukan & 1. Data Robot --- informasi kondisi dan ketersediaan robot, diterima dari \textit{Communication Service}. 2. \textit{Order Command} --- instruksi pemrosesan \textit{order}, diterima dari \textit{Fleet Order Service} WMC. 3. \textit{Generate Route} --- hasil perencanaan rute robot, diterima dari \textit{Robot Path Planner}. \\
+    \hline
+    Luaran & 1. Perintah Robot --- instruksi eksekusi tugas dikirim ke \textit{Communication Service}. 2. Data Robot (terbarui) --- dikirim ke \textit{Local Database}. 3. Status \textit{Order} \& Detail \textit{Order} --- status pesanan dikirim kembali ke \textit{Fleet Order Service} WMC, detail \textit{order} diteruskan ke \textit{Robot Path Planner} sebagai dasar perencanaan rute. \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsubsection{Local Database}
+\textit{Local Database} berfungsi sebagai penyimpanan lokal pada \textit{Fleet Controller} untuk data barang dan data robot yang diperbarui secara berkala, sehingga pengambilan keputusan operasional dapat dilakukan secara cepat tanpa bergantung sepenuhnya pada \textit{Database} WMC. Gambar \ref{fig:localdb-arch} mengilustrasikan arsitektur komponen ini, dan Tabel \ref{tab:localdb-io} merangkum fungsi, masukan, dan keluarannya.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Komponen Local Database Fleet Controller}
+  \caption{Arsitektur Komponen \textit{Local Database} \textit{Fleet Controller} (Level 2)}
+  \label{fig:localdb-arch}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \caption{Fungsi, masukan, dan keluaran \textit{Local Database}}
+  \label{tab:localdb-io}
+  \begin{tabularx}{\textwidth}{ | l | X | }
+    \hline
+    \textbf{Elemen} & \textbf{Deskripsi} \\
+    \hline
+    Fungsi & Menyimpan dan menyediakan data barang serta data robot yang diperbarui oleh sistem \textit{Fleet Controller}. \\
+    \hline
+    Masukan & 1. Pembaruan Data Barang --- informasi perubahan status, jumlah, atau lokasi barang di gudang. 2. Pembaruan Data Robot --- informasi terbaru terkait kondisi dan aktivitas robot. \\
+    \hline
+    Luaran & 1. Data Barang --- informasi barang yang tersimpan dan siap digunakan oleh modul lain dalam sistem. 2. Data Robot --- data robot terkini yang digunakan sebagai referensi \textit{Fleet Manager} dan \textit{Robot Path Planner}. \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsubsection{Robot Path Planner}
+\textit{Robot Path Planner} berfungsi merencanakan rute pergerakan robot berdasarkan data robot, data barang, dan detail \textit{order} agar proses \textit{picking} dan \textit{storing} berjalan optimal. Gambar \ref{fig:pathplanner-arch} mengilustrasikan arsitektur komponen ini, dan Tabel \ref{tab:pathplanner-io} merangkum fungsi, masukan, dan keluarannya.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Komponen Robot Path Planner Fleet Controller}
+  \caption{Arsitektur Komponen \textit{Robot Path Planner} \textit{Fleet Controller} (Level 2)}
+  \label{fig:pathplanner-arch}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \caption{Fungsi, masukan, dan keluaran \textit{Robot Path Planner}}
+  \label{tab:pathplanner-io}
+  \begin{tabularx}{\textwidth}{ | l | X | }
+    \hline
+    \textbf{Elemen} & \textbf{Deskripsi} \\
+    \hline
+    Fungsi & Merencanakan rute pergerakan robot berdasarkan data robot, data barang, dan detail \textit{order} agar proses pengambilan dan pengantaran barang berjalan optimal. \\
+    \hline
+    Masukan & 1. Data Barang --- informasi lokasi dan karakteristik barang yang akan diambil atau dikirim, diterima dari \textit{Local Database}. 2. Data Robot --- informasi posisi dan kondisi robot yang akan digunakan. 3. Detail \textit{Order} --- informasi tujuan dan kebutuhan \textit{order} yang harus dipenuhi, diterima dari \textit{Fleet Manager}. \\
+    \hline
+    Luaran & 1. \textit{Generate Route} --- rute pergerakan robot yang telah direncanakan dan siap digunakan oleh \textit{Fleet Manager}. \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsubsection{Localisation System}
+\label{fc-localisation-system}
+\textit{Localisation System} merupakan komponen \textit{Fleet Controller} yang menjadi fokus kontribusi individu penulis pada tugas akhir ini, berjalan secara paralel dengan subsistem \textit{Navigation} pada robot. Berbeda dengan \textit{Navigation} yang menentukan posisi robot dari perspektif internal robot melalui pembacaan kode QR di lantai dan sensor IMU, \textit{Localisation System} menyediakan perspektif eksternal dari atas (\textit{overhead}) yang mencakup seluruh area lantai gudang sekaligus, termasuk posisi robot, barang, dan \textit{docking station}. Gambar \ref{fig:localisation-arch} mengilustrasikan arsitektur komponen ini; rincian perancangan perangkat dan \textit{pipeline} deteksinya dijabarkan lebih lanjut pada Subbab \ref{subsec:desain-lokalisasi}.
+
+\begin{figure}[h]
+  \centering
+  \arsfig{Arsitektur Komponen Localisation System Fleet Controller}
+  \caption{Arsitektur Komponen \textit{Localisation System} \textit{Fleet Controller} (Level 2)}
+  \label{fig:localisation-arch}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \caption{Fungsi, masukan, dan keluaran \textit{Localisation System}}
+  \label{tab:localisation-io}
+  \begin{tabularx}{\textwidth}{ | l | X | }
+    \hline
+    \textbf{Elemen} & \textbf{Deskripsi} \\
+    \hline
+    Fungsi & Mendeteksi posisi \textit{grid} dan orientasi seluruh robot, barang, serta \textit{docking station} secara terpusat dari sudut pandang \textit{overhead} menggunakan AprilTag \textit{fiducial marker}, kemudian mempublikasikan hasil deteksi sebagai data \textit{grid state} kepada komponen lain \textit{Fleet Controller}. \\
+    \hline
+    Masukan & 1. \textit{Video Stream} --- umpan video RTSP dari kamera IP \textit{fisheye overhead}. 2. Parameter Kalibrasi --- koefisien distorsi lensa (Kannala--Brandt) dan matriks \textit{homography} hasil kalibrasi satu kali di awal pemasangan. \\
+    \hline
+    Luaran & 1. \textit{Grid State} (\textit{Location Data}) --- data posisi \textit{grid} dan orientasi seluruh entitas terklasifikasi, dipublikasikan setiap 500 ms melalui \textit{topic} MQTT \textit{location}, dikonsumsi oleh \textit{Fleet Manager} dan diteruskan ke \textit{Fleet Order Service} WMC untuk ditampilkan \textit{real-time} pada \textit{User Interface}. \\
+    \hline
+  \end{tabularx}
+\end{table}
+
 \subsection{Desain Subsistem Lokalisasi}
+\label{subsec:desain-lokalisasi}
 Subsistem Lokalisasi merupakan komponen perangkat lunak yang berada di dalam \textit{Fleet Controller}, berjalan secara paralel dengan \textit{Navigation subsystem} pada robot. Jika \textit{Navigation subsystem} menentukan posisi robot dari perspektif internal robot melalui pembacaan kode QR di lantai dan sensor IMU, Subsistem Lokalisasi menyediakan perspektif eksternal dari atas (\textit{overhead}) yang mencakup seluruh area lantai gudang sekaligus---termasuk posisi robot, barang, dan \textit{docking station}. \textit{Output} subsistem ini berupa data \textit{grid state} yang dipublikasikan melalui MQTT ke \textit{topic location} pada RabbitMQ \textit{broker}, dikonsumsi oleh \textit{Fleet Manager} untuk keperluan \textit{digital twin} koordinasi robot, serta oleh \textit{Fleet Order Service} di WMC untuk diteruskan ke \textit{User Interface} secara \textit{real-time}.
 
 \subsubsection{Perangkat Lokalisasi}
@@ -170,67 +432,8 @@ Untuk menyampaikan telemetri \textit{order} dan robot secara langsung ke \textit
 
 Pada saat koneksi WebSocket terbentuk, UI berlangganan pada dua \textit{data stream} secara bersamaan. Pertama, \textit{order stream} mendorong transisi status \textit{order} secara \textit{real-time} (\texttt{PENDING} $\rightarrow$ \texttt{IN\_PROGRESS} $\rightarrow$ \texttt{COMPLETED}) setiap kali \textit{Fleet Order Service} memproses perubahan \textit{state order}. Kedua, \textit{robot stream} meneruskan koordinat \textit{grid} dan orientasi robot terbaru yang diterima dari \textit{topic} MQTT \textit{location}, melakukan \textit{broadcast payload} terbaru ke seluruh klien yang terhubung dalam satu siklus \textit{publish} MQTT. Dengan demikian, latensi tampilan posisi robot di UI terikat langsung pada interval publikasi Subsistem Lokalisasi (500 ms), jauh di bawah target KNF-02 sebesar 1 detik.
 
-\section{Desain Basis Data}
-\textit{Entity Relationship Diagram} (ERD) adalah diagram yang menggambarkan struktur data dalam suatu sistem informasi yang berguna untuk mengetahui hubungan antar entitas, atribut dari masing-masing entitas, dan apa saja entitas yang berperan di dalam penyimpanan data \autocite{silberschatz2020}. ERD merupakan bagian penting dalam proses perancangan sistem, khususnya dalam merancang skema basis data relasional yang terstruktur dan konsisten.
-
-Pada tugas akhir ini, ERD digunakan untuk memodelkan entitas-entitas utama yang terlibat dalam sistem \textit{Warehouse Management Controller}, yaitu \textit{User}, \textit{Session}, \textit{Order}, \textit{OrderItem}, \textit{Item}, \textit{ItemLocation}, \textit{Task}, \textit{Robot}, dan \textit{RobotLog}, beserta seluruh relasi yang menghubungkan entitas-entitas tersebut. Entitas-entitas ini saling terhubung secara relasional sesuai dengan pendekatan basis data SQL yang diterapkan pada sistem. Berdasarkan pemodelan tersebut, terdapat sembilan entitas yang dirancang dalam basis data sistem. Entitas \textit{User} menyimpan data pengguna sistem beserta kredensial autentikasi, sedangkan entitas \textit{Session} mencatat informasi sesi aktif pengguna termasuk token dan masa berlakunya. Entitas \textit{Order} merepresentasikan setiap permintaan \textit{picking} maupun \textit{storing} yang dibuat oleh pengguna, dan terhubung dengan entitas \textit{OrderItem} yang memuat rincian barang dalam setiap \textit{order} beserta kuantitasnya. Entitas \textit{Item} menjadi master data barang yang tersimpan di gudang, dilengkapi dengan entitas \textit{ItemLocation} untuk menyimpan informasi posisi fisik barang berupa koordinat rak dalam area gudang. Entitas \textit{Task} menghubungkan \textit{OrderItem} dengan \textit{Robot}, merepresentasikan instruksi operasional yang diberikan kepada robot untuk dieksekusi. Entitas \textit{Robot} menyimpan data identitas dan kapasitas robot, sementara entitas \textit{RobotLog} mencatat seluruh aktivitas dan kejadian pada setiap robot sebagai mekanisme \textit{logging} dan pelacakan kesalahan sistem.
-
-\subsection{Entitas User}
-Entitas \textit{User} berguna untuk menyimpan data pengguna sistem yang merupakan staf gudang yang bertugas mengelola dan memantau seluruh operasional \textit{Warehouse Management Controller}. Struktur data dari entitas \textit{User} mencakup informasi identitas pengguna seperti nama, \textit{username}, dan \textit{password} yang digunakan untuk keperluan autentikasi, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{User} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{Order} memungkinkan sistem melacak seluruh permintaan \textit{picking} dan \textit{storing} yang dibuat oleh masing-masing pengguna, sedangkan relasi dengan entitas \textit{Session} digunakan untuk mengelola sesi login aktif pengguna berdasarkan token autentikasi yang diterbitkan setelah proses login berhasil dilakukan.
-
-\subsection{Entitas Order}
-Entitas \textit{Order} berguna untuk menyimpan data permintaan operasional gudang yang diajukan oleh pengguna, baik berupa proses \textit{picking} (pengambilan barang) maupun \textit{storing} (penyimpanan barang). Struktur data dari entitas \textit{Order} mencakup referensi pengguna yang mengajukan permintaan, status terkini dari permintaan tersebut, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{Order} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{User} mengikat setiap permintaan kepada pengguna yang membuatnya sehingga sistem dapat melakukan pelacakan dan audit aktivitas secara terstruktur, sedangkan relasi dengan entitas \textit{OrderItem} memungkinkan satu permintaan mencakup beberapa barang sekaligus dengan rincian kuantitas masing-masing.
-
-Status \textit{Order} berubah mengikuti alur \textit{state machine} yang dipublikasikan secara \textit{real-time} ke \textit{User Interface} melalui WebSocket, sebagaimana diilustrasikan pada Gambar \ref{fig:order-statechart}.
-
-\begin{figure}[h]
-  \caption{\textit{Statechart} transisi status entitas \textit{Order}}
-  \label{fig:order-statechart}
-  \centering
-  \includegraphics[width=0.6\textwidth]{images/order_sc.png}
-\end{figure}
-
-\subsection{Entitas OrderItem}
-Entitas \textit{OrderItem} berguna untuk menyimpan data rincian barang yang terdapat dalam suatu permintaan operasional gudang. Struktur data dari entitas \textit{OrderItem} mencakup referensi ke permintaan induk, referensi ke barang yang diminta, jumlah kuantitas yang diperlukan, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{OrderItem} merupakan entitas penghubung yang memiliki relasi dengan tiga entitas sekaligus dalam sistem. Relasi dengan entitas \textit{Order} mengaitkan setiap detail barang ke permintaan asalnya, relasi dengan entitas \textit{Item} menentukan barang spesifik yang menjadi objek permintaan, sedangkan relasi dengan entitas \textit{Task} menjadi dasar pembentukan instruksi operasional yang akan diberikan kepada robot untuk dieksekusi.
-
-\subsection{Entitas Item}
-Entitas \textit{Item} berguna untuk menyimpan master data seluruh barang yang dikelola di dalam gudang. Struktur data dari entitas \textit{Item} mencakup informasi identitas barang seperti nama, deskripsi, \textit{stock-keeping unit} (SKU), kategori, dan jumlah stok yang tersedia, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{Item} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{OrderItem} memungkinkan sistem merujuk data barang secara akurat ketika memproses permintaan operasional, sedangkan relasi dengan entitas \textit{ItemLocation} digunakan untuk menyimpan informasi posisi fisik barang di dalam gudang berupa koordinat rak sehingga robot dapat menavigasi ke lokasi yang tepat.
-
-\subsection{Entitas Task}
-Entitas \textit{Task} berguna untuk menyimpan data instruksi operasional yang diberikan kepada robot sebagai tindak lanjut dari permintaan \textit{picking} atau \textit{storing} yang masuk ke sistem. Struktur data dari entitas \textit{Task} mencakup referensi ke detail permintaan barang yang harus dikerjakan, referensi ke robot yang ditugaskan, status pelaksanaan tugas, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{Task} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{OrderItem} mengaitkan setiap instruksi dengan permintaan barang yang harus diselesaikan, sedangkan relasi dengan entitas \textit{Robot} menentukan robot mana yang bertanggung jawab mengeksekusi tugas tersebut sehingga sistem dapat melakukan pemantauan dan pengelolaan armada robot secara terpusat.
-
-Status \textit{Task} mengikuti alur \textit{state machine} sebagaimana diilustrasikan pada Gambar \ref{fig:task-statechart}.
-
-\begin{figure}[h]
-  \caption{\textit{Statechart} transisi status entitas \textit{Task}}
-  \label{fig:task-statechart}
-  \centering
-  \includegraphics[width=0.6\textwidth]{images/task_sc.png}
-\end{figure}
-
-\subsection{Entitas Robot}
-Entitas \textit{Robot} berguna untuk menyimpan data identitas dan kapasitas setiap unit robot yang beroperasi di dalam gudang. Struktur data dari entitas \textit{Robot} mencakup nomor seri robot, kapasitas muatan maksimum, kapasitas baterai, serta waktu pemeliharaan terakhir yang dilakukan. Entitas \textit{Robot} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{Task} memungkinkan sistem menugaskan dan memantau seluruh instruksi operasional yang sedang dijalankan oleh masing-masing robot, sedangkan relasi dengan entitas \textit{RobotLog} digunakan untuk mencatat seluruh aktivitas, kode log, kode kesalahan, dan pesan kejadian yang terjadi pada robot selama beroperasi sebagai mekanisme \textit{logging} dan penelusuran kesalahan sistem.
-
-Status operasional \textit{Robot} (\textit{idle}/\textit{active}/\textit{charging}/\textit{error}) mengikuti alur \textit{state machine} sebagaimana diilustrasikan pada Gambar \ref{fig:robot-statechart}.
-
-\begin{figure}[h]
-  \caption{\textit{Statechart} transisi status entitas \textit{Robot}}
-  \label{fig:robot-statechart}
-  \centering
-  \includegraphics[width=0.6\textwidth]{images/robot_sc.png}
-\end{figure}
-
-\subsection{Entitas Session}
-Entitas \textit{Session} berguna untuk menyimpan informasi sesi aktif setiap pengguna yang berhasil melakukan autentikasi ke dalam sistem. Struktur data entitas \textit{Session} mencakup token sesi, waktu kedaluwarsa (\textit{expiry}), serta status validitas token yang digunakan untuk memverifikasi kredensial pengguna pada setiap permintaan yang dikirimkan ke layanan WMC. Entitas \textit{Session} terhubung dengan entitas \textit{User} melalui relasi \textit{one-to-many}, di mana satu pengguna dapat memiliki beberapa sesi aktif secara bersamaan, namun setiap sesi selalu dimiliki oleh tepat satu pengguna.
-
-\subsection{Entitas ItemLocation}
-Entitas \textit{ItemLocation} berguna untuk menyimpan informasi posisi fisik setiap jenis barang dalam area gudang, direpresentasikan sebagai koordinat sel pada \textit{grid} lantai gudang. Struktur data entitas \textit{ItemLocation} mencakup koordinat kolom ($c$) dan baris ($r$) pada \textit{grid} $8\times4$ yang merepresentasikan posisi penyimpanan barang, serta stempel waktu pembaruan terakhir untuk keperluan \textit{traceability} lokasi. Entitas ini terhubung dengan entitas \textit{Item} melalui relasi \textit{one-to-one}, memastikan bahwa setiap jenis barang selalu memiliki satu catatan lokasi aktif yang dapat diperbarui secara \textit{real-time} mengikuti perpindahan barang oleh robot.
-
-\subsection{Entitas RobotLog}
-Entitas \textit{RobotLog} berguna untuk mencatat seluruh kejadian, aktivitas, dan kesalahan yang terjadi pada setiap robot selama beroperasi di dalam gudang sebagai mekanisme \textit{logging} dan \textit{audit trail}. Struktur data entitas \textit{RobotLog} mencakup kode log, kode kesalahan (\textit{error code}), pesan kejadian, serta stempel waktu kejadian. Entitas \textit{RobotLog} terhubung dengan dua entitas lain: relasi dengan entitas \textit{Robot} (\textit{many-to-one}) untuk mengidentifikasi unit robot yang menghasilkan log, serta relasi dengan entitas \textit{Task} (\textit{many-to-one}) untuk mengaitkan setiap entri log dengan \textit{task} operasional yang sedang dijalankan saat kejadian tersebut terjadi, sehingga memudahkan penelusuran akar masalah (\textit{root cause analysis}) ketika terjadi kegagalan operasional.
-
 \section{Kebutuhan Fungsional Sistem}
-Kebutuhan fungsional sistem mendefinisikan kapabilitas spesifik yang harus tersedia bagi pengguna dalam berinteraksi dengan sistem \textit{Warehouse Management Controller}. Kebutuhan ini diturunkan langsung dari Tabel \ref{tab:kebutuhan-fungsional} dengan perincian yang lebih granular, sehingga setiap kebutuhan merepresentasikan satu fungsi yang dapat diuji secara mandiri. Tabel \ref{tab:kf-detail} merangkum kebutuhan fungsional yang diidentifikasi untuk mendukung pengembangan sistem \textit{Warehouse Management Controller} sebagai perangkat lunak pengelola operasional gudang berbasis robot.
+Kebutuhan fungsional sistem mendefinisikan kapabilitas spesifik yang harus tersedia bagi pengguna dalam berinteraksi dengan sistem \textit{Warehouse Management Controller}. Kebutuhan ini diturunkan langsung dari Tabel \ref{tab:kebutuhan-fungsional} dengan perincian yang lebih granular, sehingga setiap kebutuhan merepresentasikan satu fungsi yang dapat diuji secara mandiri. Berikut ini adalah kebutuhan fungsional yang diidentifikasi untuk mendukung pengembangan sistem \textit{Warehouse Management Controller} sebagai perangkat lunak pengelola operasional gudang berbasis robot.
 
 \begin{table}[h]
   \centering

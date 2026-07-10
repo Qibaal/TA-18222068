@@ -5053,9 +5053,10 @@
     <bcf:citekey order="72" intorder="1">hartley2004</bcf:citekey>
     <bcf:citekey order="73" intorder="1">bradski2000</bcf:citekey>
     <bcf:citekey order="74" intorder="1">docB100</bcf:citekey>
-    <bcf:citekey order="75" intorder="1">silberschatz2020</bcf:citekey>
-    <bcf:citekey order="76" intorder="1">bangor2009</bcf:citekey>
+    <bcf:citekey order="75" intorder="1">saaty1977</bcf:citekey>
+    <bcf:citekey order="76" intorder="1">silberschatz2020</bcf:citekey>
     <bcf:citekey order="77" intorder="1">bangor2009</bcf:citekey>
+    <bcf:citekey order="78" intorder="1">bangor2009</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="cms">

@@ -7,12 +7,12 @@
 \contentsline {chapter}{ABSTRAK}{vii}{chapter*.4}%
 \contentsline {chapter}{KATA PENGANTAR}{ix}{chapter*.5}%
 \contentsline {chapter}{DAFTAR ISI}{xi}{chapter*.5}%
-\contentsline {chapter}{DAFTAR GAMBAR}{xv}{chapter*.5}%
-\contentsline {chapter}{DAFTAR TABEL}{xviii}{chapter*.5}%
-\contentsline {chapter}{DAFTAR ALGORITMA}{xix}{chapter*.6}%
-\contentsline {chapter}{DAFTAR KODE PROGRAM}{xxi}{chapter*.7}%
-\contentsline {chapter}{DAFTAR SINGKATAN}{xxiii}{chapter*.7}%
-\contentsline {chapter}{DAFTAR SIMBOL}{xxv}{table.0.1}%
+\contentsline {chapter}{DAFTAR GAMBAR}{xvi}{chapter*.5}%
+\contentsline {chapter}{DAFTAR TABEL}{xix}{chapter*.5}%
+\contentsline {chapter}{DAFTAR ALGORITMA}{xxi}{chapter*.6}%
+\contentsline {chapter}{DAFTAR KODE PROGRAM}{xxiii}{chapter*.7}%
+\contentsline {chapter}{DAFTAR SINGKATAN}{xxv}{chapter*.7}%
+\contentsline {chapter}{DAFTAR SIMBOL}{xxvii}{table.0.1}%
 \setlength {\cftbeforechapskip }{10pt}
 \renewcommand {\cftchapfont }{\bfseries }
 \renewcommand {\cftchappagefont }{\bfseries }
@@ -197,98 +197,92 @@
 \contentsline {section}{\numberline {III.1}Analisis Kondisi Saat Ini}{23}{section.3.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {III.1.1}Proses Bisnis Pergudangan Eksisting}{23}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {III.1.2}Kondisi Smart Warehouse yang Ditargetkan}{24}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {III.1.3}Analisis Gap}{24}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {III.1.4}Pernyataan Masalah}{25}{subsection.3.1.4}%
-\contentsline {section}{\numberline {III.2}Analisis Kebutuhan}{25}{section.3.2}%
-\contentsline {subsection}{\numberline {III.2.1}Identifikasi Masalah Pengguna}{26}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{26}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{26}{subsection.3.2.3}%
-\contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{29}{section.3.3}%
-\contentsline {subsection}{\numberline {III.3.1}Pemilihan Solusi Level WMC}{29}{subsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {III.3.1.1}Alternatif Solusi}{30}{subsubsection.3.3.1.1}%
-\contentsline {paragraph}{\numberline {III.3.1.1.1}Alternatif 1: Event-Driven Inventory Management}{30}{paragraph.3.3.1.1.1}%
-\contentsline {paragraph}{\numberline {III.3.1.1.2}Alternatif 2: State-Driven Inventory Management}{30}{paragraph.3.3.1.1.2}%
-\contentsline {subsubsection}{\numberline {III.3.1.2}Analisis Penentuan Solusi}{31}{subsubsection.3.3.1.2}%
-\contentsline {subsection}{\numberline {III.3.2}Pemilihan Solusi Subsistem Lokalisasi}{32}{subsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {III.3.2.1}Alternatif Solusi Lokalisasi}{32}{subsubsection.3.3.2.1}%
-\contentsline {subsubsection}{\numberline {III.3.2.2}Kriteria Evaluasi}{33}{subsubsection.3.3.2.2}%
-\contentsline {subsubsection}{\numberline {III.3.2.3}Pairwise Comparison dan Perhitungan Bobot Kriteria}{33}{subsubsection.3.3.2.3}%
-\contentsline {subsubsection}{\numberline {III.3.2.4}Penilaian Alternatif dan Penentuan Solusi Terpilih}{33}{subsubsection.3.3.2.4}%
-\contentsline {subsubsection}{\numberline {III.3.2.5}Justifikasi Solusi Terpilih}{33}{subsubsection.3.3.2.5}%
-\contentsline {section}{\numberline {III.4}Analisis Proses Bisnis}{33}{section.3.4}%
-\contentsline {subsection}{\numberline {III.4.1}Kondisi Sistem Saat Ini (As-Is)}{33}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {III.4.2}Kondisi Sistem Smart Warehouse (To-Be)}{36}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {III.4.3}Perbandingan Sistem As-Is dan Sistem To-Be}{37}{subsection.3.4.3}%
-\contentsline {chapter}{\numberline {IV}PERANCANGAN}{49}{chapter.4}%
-\contentsline {section}{\numberline {IV.1}Diagram Arsitektur}{49}{section.4.1}%
-\contentsline {subsection}{\numberline {IV.1.1}Arsitektur Level 0}{49}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {IV.1.2}Arsitektur Level 1 --- Warehouse Management Controller}{49}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {IV.1.3}Arsitektur Level 2 --- Komponen Warehouse Management Controller}{50}{subsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {IV.1.3.1}Database}{50}{subsubsection.4.1.3.1}%
-\contentsline {subsubsection}{\numberline {IV.1.3.2}Goods Detail Service}{50}{subsubsection.4.1.3.2}%
-\contentsline {subsubsection}{\numberline {IV.1.3.3}Fleet Order Service}{51}{subsubsection.4.1.3.3}%
-\contentsline {subsubsection}{\numberline {IV.1.3.4}Authentication Service}{51}{subsubsection.4.1.3.4}%
-\contentsline {subsection}{\numberline {IV.1.4}Desain Subsistem Lokalisasi}{51}{subsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {IV.1.4.1}Perangkat Lokalisasi}{52}{subsubsection.4.1.4.1}%
-\contentsline {subsubsection}{\numberline {IV.1.4.2}Desain Pipeline Deteksi}{53}{subsubsection.4.1.4.2}%
-\contentsline {subsection}{\numberline {IV.1.5}Desain Real-Time Streaming via WebSocket}{54}{subsection.4.1.5}%
-\contentsline {section}{\numberline {IV.2}Desain Basis Data}{55}{section.4.2}%
+\contentsline {subsection}{\numberline {III.1.1}Profil Operasional Gudang Berdasarkan Hasil Wawancara}{23}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {III.1.2}Proses Bisnis Pergudangan Eksisting}{24}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {III.1.3}Kondisi Sistem Saat Ini (As-Is)}{25}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {III.1.4}Kondisi Sistem Smart Warehouse (To-Be)}{28}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {III.1.5}Analisis Gap}{29}{subsection.3.1.5}%
+\contentsline {section}{\numberline {III.2}Analisis Kebutuhan}{30}{section.3.2}%
+\contentsline {subsection}{\numberline {III.2.1}Karakteristik Produk}{30}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{31}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{33}{subsection.3.2.3}%
+\contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{37}{section.3.3}%
+\contentsline {subsection}{\numberline {III.3.1}Pemilihan Solusi Level WMC}{37}{subsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {III.3.1.1}Alternatif Solusi}{37}{subsubsection.3.3.1.1}%
+\contentsline {subsubsection}{\numberline {III.3.1.2}Analisis Penentuan Solusi}{40}{subsubsection.3.3.1.2}%
+\contentsline {subsection}{\numberline {III.3.2}Pemilihan Solusi Subsistem Lokalisasi}{44}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {III.3.2.1}Alternatif Solusi Lokalisasi}{44}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {III.3.2.2}Kriteria Evaluasi}{46}{subsubsection.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {III.3.2.3}Pairwise Comparison dan Perhitungan Bobot Kriteria}{47}{subsubsection.3.3.2.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {IV.2.1}Entitas User}{55}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {IV.2.2}Entitas Order}{56}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {IV.2.3}Entitas OrderItem}{56}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {IV.2.4}Entitas Item}{57}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {IV.2.5}Entitas Task}{57}{subsection.4.2.5}%
-\contentsline {subsection}{\numberline {IV.2.6}Entitas Robot}{57}{subsection.4.2.6}%
-\contentsline {subsection}{\numberline {IV.2.7}Entitas Session}{58}{subsection.4.2.7}%
-\contentsline {subsection}{\numberline {IV.2.8}Entitas ItemLocation}{59}{subsection.4.2.8}%
-\contentsline {subsection}{\numberline {IV.2.9}Entitas RobotLog}{59}{subsection.4.2.9}%
-\contentsline {section}{\numberline {IV.3}Kebutuhan Fungsional Sistem}{60}{section.4.3}%
-\contentsline {section}{\numberline {IV.4}Skenario Use Case}{60}{section.4.4}%
-\contentsline {subsection}{\numberline {IV.4.1}UC-01: Login Pengguna}{60}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {IV.4.2}UC-02: Logout Pengguna}{62}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {IV.4.3}UC-03: Daftar Barang}{63}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {IV.4.4}UC-04: Detail Informasi Barang}{64}{subsection.4.4.4}%
-\contentsline {subsection}{\numberline {IV.4.5}UC-05: Lokasi Fisik Barang}{65}{subsection.4.4.5}%
-\contentsline {subsection}{\numberline {IV.4.6}UC-06: Pembuatan Order Picking}{67}{subsection.4.4.6}%
-\contentsline {subsection}{\numberline {IV.4.7}UC-07: Pembuatan Order Storing}{68}{subsection.4.4.7}%
-\contentsline {subsection}{\numberline {IV.4.8}UC-08: Daftar dan Status Order}{70}{subsection.4.4.8}%
-\contentsline {subsection}{\numberline {IV.4.9}UC-09: Pemantauan Status Task}{70}{subsection.4.4.9}%
-\contentsline {subsection}{\numberline {IV.4.10}UC-10: Pemantauan Status Robot}{72}{subsection.4.4.10}%
-\contentsline {chapter}{\numberline {V}IMPLEMENTASI}{77}{chapter.5}%
-\contentsline {section}{\numberline {V.1}Lingkungan Implementasi}{77}{section.5.1}%
-\contentsline {section}{\numberline {V.2}Implementasi Sistem WMC}{77}{section.5.2}%
-\contentsline {subsection}{\numberline {V.2.1}Teknologi Yang Digunakan}{78}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {V.2.2}Implementasi Modul}{81}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {V.2.3}Implementasi Endpoint}{81}{subsection.5.2.3}%
-\contentsline {section}{\numberline {V.3}Implementasi Subsistem Lokalisasi}{81}{section.5.3}%
-\contentsline {subsection}{\numberline {V.3.1}Lingkungan dan Perangkat Keras}{82}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {V.3.2}Teknologi yang Digunakan}{82}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {V.3.3}Implementasi Pipeline Deteksi}{82}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {V.3.4}Implementasi Publikasi MQTT}{83}{subsection.5.3.4}%
-\contentsline {chapter}{\numberline {VI}EVALUASI}{89}{chapter.6}%
-\contentsline {section}{\numberline {VI.1}Metode Evaluasi}{89}{section.6.1}%
-\contentsline {paragraph}{\numberline {VI.1.0.0.1}a. Pengujian Usability --- Kuesioner System Usability Scale (SUS)}{89}{paragraph.6.1.0.0.1}%
+\contentsline {subsubsection}{\numberline {III.3.2.4}Penilaian Alternatif dan Penentuan Solusi Terpilih}{48}{subsubsection.3.3.2.4}%
+\contentsline {subsubsection}{\numberline {III.3.2.5}Justifikasi Solusi Terpilih}{51}{subsubsection.3.3.2.5}%
+\contentsline {chapter}{\numberline {IV}PERANCANGAN}{53}{chapter.4}%
+\contentsline {section}{\numberline {IV.1}Diagram Arsitektur}{53}{section.4.1}%
+\contentsline {subsection}{\numberline {IV.1.1}Arsitektur Level 0}{53}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {IV.1.2}Arsitektur Level 1 --- Warehouse Management Controller}{53}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {IV.1.3}Arsitektur Level 2 --- Komponen Warehouse Management Controller}{54}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {IV.1.3.1}Database}{54}{subsubsection.4.1.3.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {paragraph}{\numberline {VI.1.0.0.2}b. Pengujian Traceability --- Audit Log dan Pengukuran Latensi}{90}{paragraph.6.1.0.0.2}%
-\contentsline {paragraph}{\numberline {VI.1.0.0.3}c. Pengujian Productivity --- Pengukuran Throughput Tugas}{90}{paragraph.6.1.0.0.3}%
-\contentsline {paragraph}{\numberline {VI.1.0.0.4}d. Pengujian Task Fulfilment Accuracy --- Verifikasi Konsistensi Data}{91}{paragraph.6.1.0.0.4}%
-\contentsline {section}{\numberline {VI.2}Hasil Evaluasi}{92}{section.6.2}%
-\contentsline {subsection}{\numberline {VI.2.1}Hasil Pengujian Fungsionalitas}{92}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {VI.2.2}Hasil Pengujian Usability}{93}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {IV.1.3.2}Goods Detail Service}{56}{subsubsection.4.1.3.2}%
+\contentsline {subsubsection}{\numberline {IV.1.3.3}Fleet Order Service}{56}{subsubsection.4.1.3.3}%
+\contentsline {subsubsection}{\numberline {IV.1.3.4}Authentication Service}{57}{subsubsection.4.1.3.4}%
+\contentsline {subsection}{\numberline {IV.1.4}Arsitektur Level 1 --- Fleet Controller}{57}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {IV.1.5}Arsitektur Level 2 --- Komponen Fleet Controller}{58}{subsection.4.1.5}%
+\contentsline {subsubsection}{\numberline {IV.1.5.1}Communication Service}{58}{subsubsection.4.1.5.1}%
+\contentsline {subsubsection}{\numberline {IV.1.5.2}Fleet Manager}{59}{subsubsection.4.1.5.2}%
+\contentsline {subsubsection}{\numberline {IV.1.5.3}Local Database}{59}{subsubsection.4.1.5.3}%
+\contentsline {subsubsection}{\numberline {IV.1.5.4}Robot Path Planner}{59}{subsubsection.4.1.5.4}%
+\contentsline {subsubsection}{\numberline {IV.1.5.5}Localisation System}{59}{subsubsection.4.1.5.5}%
+\contentsline {subsection}{\numberline {IV.1.6}Desain Subsistem Lokalisasi}{60}{subsection.4.1.6}%
+\contentsline {subsubsection}{\numberline {IV.1.6.1}Perangkat Lokalisasi}{60}{subsubsection.4.1.6.1}%
+\contentsline {subsubsection}{\numberline {IV.1.6.2}Desain Pipeline Deteksi}{61}{subsubsection.4.1.6.2}%
+\contentsline {subsection}{\numberline {IV.1.7}Desain Real-Time Streaming via WebSocket}{61}{subsection.4.1.7}%
+\contentsline {section}{\numberline {IV.2}Kebutuhan Fungsional Sistem}{62}{section.4.2}%
+\contentsline {section}{\numberline {IV.3}Skenario Use Case}{62}{section.4.3}%
+\contentsline {subsection}{\numberline {IV.3.1}UC-01: Login Pengguna}{63}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {IV.3.2}UC-02: Logout Pengguna}{64}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {IV.3.3}UC-03: Daftar Barang}{64}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {IV.3.4}UC-04: Detail Informasi Barang}{65}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {IV.3.5}UC-05: Lokasi Fisik Barang}{66}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {IV.3.6}UC-06: Pembuatan Order Picking}{67}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {IV.3.7}UC-07: Pembuatan Order Storing}{68}{subsection.4.3.7}%
+\contentsline {subsection}{\numberline {IV.3.8}UC-08: Daftar dan Status Order}{70}{subsection.4.3.8}%
+\contentsline {subsection}{\numberline {IV.3.9}UC-09: Pemantauan Status Task}{70}{subsection.4.3.9}%
+\contentsline {subsection}{\numberline {IV.3.10}UC-10: Pemantauan Status Robot}{71}{subsection.4.3.10}%
+\contentsline {chapter}{\numberline {V}IMPLEMENTASI}{89}{chapter.5}%
+\contentsline {section}{\numberline {V.1}Lingkungan Implementasi}{89}{section.5.1}%
+\contentsline {section}{\numberline {V.2}Implementasi Sistem WMC}{89}{section.5.2}%
+\contentsline {subsection}{\numberline {V.2.1}Teknologi Yang Digunakan}{90}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {V.2.2}Implementasi Modul}{93}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {V.2.3}Implementasi Endpoint}{93}{subsection.5.2.3}%
+\contentsline {section}{\numberline {V.3}Implementasi Subsistem Lokalisasi}{93}{section.5.3}%
+\contentsline {subsection}{\numberline {V.3.1}Lingkungan dan Perangkat Keras}{94}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {V.3.2}Teknologi yang Digunakan}{94}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {V.3.3}Implementasi Pipeline Deteksi}{94}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {V.3.4}Implementasi Publikasi MQTT}{95}{subsection.5.3.4}%
+\contentsline {chapter}{\numberline {VI}EVALUASI}{101}{chapter.6}%
+\contentsline {section}{\numberline {VI.1}Metode Evaluasi}{101}{section.6.1}%
+\contentsline {paragraph}{\numberline {VI.1.0.0.1}a. Pengujian Usability --- Kuesioner System Usability Scale (SUS)}{101}{paragraph.6.1.0.0.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {VI.2.3}Hasil Pengujian Traceability}{93}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {VI.2.4}Hasil Pengujian Produktivitas}{94}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {VI.2.5}Hasil Pengujian Task Fulfilment Accuracy}{94}{subsection.6.2.5}%
-\contentsline {subsection}{\numberline {VI.2.6}Hasil Pengujian Lokalisasi}{94}{subsection.6.2.6}%
-\contentsline {chapter}{\numberline {VII}PENUTUP}{101}{chapter.7}%
-\contentsline {section}{\numberline {VII.1}Kesimpulan}{101}{section.7.1}%
-\contentsline {section}{\numberline {VII.2}Saran}{102}{section.7.2}%
+\contentsline {paragraph}{\numberline {VI.1.0.0.2}b. Pengujian Traceability --- Audit Log dan Pengukuran Latensi}{102}{paragraph.6.1.0.0.2}%
+\contentsline {paragraph}{\numberline {VI.1.0.0.3}c. Pengujian Productivity --- Pengukuran Throughput Tugas}{102}{paragraph.6.1.0.0.3}%
+\contentsline {paragraph}{\numberline {VI.1.0.0.4}d. Pengujian Task Fulfilment Accuracy --- Verifikasi Konsistensi Data}{103}{paragraph.6.1.0.0.4}%
+\contentsline {section}{\numberline {VI.2}Hasil Evaluasi}{104}{section.6.2}%
+\contentsline {subsection}{\numberline {VI.2.1}Hasil Pengujian Fungsionalitas}{104}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {VI.2.2}Hasil Pengujian Usability}{105}{subsection.6.2.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {VI.2.3}Hasil Pengujian Traceability}{105}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {VI.2.4}Hasil Pengujian Produktivitas}{106}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {VI.2.5}Hasil Pengujian Task Fulfilment Accuracy}{106}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {VI.2.6}Hasil Pengujian Lokalisasi}{106}{subsection.6.2.6}%
+\contentsline {chapter}{\numberline {VII}PENUTUP}{113}{chapter.7}%
+\contentsline {section}{\numberline {VII.1}Kesimpulan}{113}{section.7.1}%
+\contentsline {section}{\numberline {VII.2}Saran}{114}{section.7.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -351,10 +345,10 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {chapter}{\bbl@ensure@indonesian {Lampiran} \numberline {A}\textit {SOURCE CODE}}{109}{appendix.1.A}%
-\contentsline {section}{\numberline {A.1}Perangkat Lunak untuk Akuisisi Data dari Sensor Ultrasonik}{109}{appendix.1.A.1}%
-\contentsline {section}{\numberline {A.2}Perangkat Lunak untuk Pengolahan Data Akuisisi dan Visualisasi Hasil Pengukuran Jarak}{110}{appendix.1.A.2}%
-\contentsline {chapter}{\bbl@ensure@indonesian {Lampiran} \numberline {B}HASIL SURVEI LAPANGAN}{111}{appendix.1.B}%
-\contentsline {section}{\numberline {B.1}Foto Survei Lokasi 1}{111}{appendix.1.B.1}%
-\contentsline {section}{\numberline {B.2}Foto Survei Lokasi 2}{111}{appendix.1.B.2}%
-\contentsline {section}{\numberline {B.3}Transkrip Wawancara dengan Narasumber}{111}{appendix.1.B.3}%
+\contentsline {chapter}{\bbl@ensure@indonesian {Lampiran} \numberline {A}\textit {SOURCE CODE}}{121}{appendix.1.A}%
+\contentsline {section}{\numberline {A.1}Perangkat Lunak untuk Akuisisi Data dari Sensor Ultrasonik}{121}{appendix.1.A.1}%
+\contentsline {section}{\numberline {A.2}Perangkat Lunak untuk Pengolahan Data Akuisisi dan Visualisasi Hasil Pengukuran Jarak}{122}{appendix.1.A.2}%
+\contentsline {chapter}{\bbl@ensure@indonesian {Lampiran} \numberline {B}HASIL SURVEI LAPANGAN}{123}{appendix.1.B}%
+\contentsline {section}{\numberline {B.1}Foto Survei Lokasi 1}{123}{appendix.1.B.1}%
+\contentsline {section}{\numberline {B.2}Foto Survei Lokasi 2}{123}{appendix.1.B.2}%
+\contentsline {section}{\numberline {B.3}Transkrip Wawancara dengan Narasumber}{123}{appendix.1.B.3}%
