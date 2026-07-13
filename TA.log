@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.4)  8 JUL 2026 19:18
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.4)  13 JUL 2026 18:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1250,18 +1250,9 @@ Package datetime2 Warning: Region `bahasai' has ignored
 
 ]) (./2 Lembar Pengesahan.tex [2
 
-]) (./3 Lembar Pernyataan.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3]
-[4
-
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 10--14
+LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
 
- []
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1269,7 +1260,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
 
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1281,8 +1272,28 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
-))
-(./4 Abstrak.tex [5] [6
+)
+Underfull \hbox (badness 1783) in paragraph at lines 35--35
+[]|\TU/TimesNewRoman(0)/m/n/12 I Gusti Bagus Baskara Nugraha, S.T.,
+ []
+
+
+Overfull \hbox (64.45271pt too wide) in paragraph at lines 33--38
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3])
+(./3 Lembar Pernyataan.tex [4]
+Underfull \hbox (badness 10000) in paragraph at lines 10--14
+
+ []
+
+) (./4 Abstrak.tex [5
+
+] [6
 
 ]) (./5 Kata Pengantar.tex [7] [8
 
@@ -1363,13 +1374,14 @@ Overfull \hbox (0.58832pt too wide) detected at line 220
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.5 
  []
 
-[12]
-Overfull \hbox (1.5152pt too wide) detected at line 254
-\TU/TimesNewRoman(0)/m/n/12 IV.3.10 
+
+Overfull \hbox (7.96014pt too wide) in paragraph at lines 239--239
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Desain Detail Subsistem Lokalisasi (\TU
+/TimesNewRoman(0)/m/it/12 Localisation Sys- 
  []
 
-
-Overfull \hbox (4.90068pt too wide) in paragraph at lines 268--268
+[12]
+Overfull \hbox (4.90068pt too wide) in paragraph at lines 271--271
  [][] [][][]\TU/TimesNewRoman(0)/m/n/12 a. Pengujian Usability — Kuesioner Sys-
  
  []
@@ -1379,7 +1391,7 @@ Overfull \hbox (4.90068pt too wide) in paragraph at lines 268--268
 \openout5 = `TA.toc'.
 
 ) (./8 Daftar Gambar.tex [14] (./TA.lof
-Underfull \vbox (badness 1383) has occurred while \output is active []
+Underfull \vbox (badness 1237) has occurred while \output is active []
 
  [15
 
@@ -1446,19 +1458,7 @@ Underfull \vbox (badness 1412) has occurred while \output is active []
 Underfull \vbox (badness 7722) has occurred while \output is active []
 
  [3]
-Overfull \hbox (0.20038pt too wide) in paragraph at lines 28--29
-[]\TU/TimesNewRoman(0)/m/n/12 Bagaimana merancang sistem perpindahan barang oto
-matis menggunakan \TU/TimesNewRoman(0)/m/it/12 mo-
- []
-
-
-Overfull \hbox (6.18289pt too wide) in paragraph at lines 37--38
-[]\TU/TimesNewRoman(0)/m/n/12 Mengembangkan mekanisme pelacakan operasional gud
-ang secara digital yang
- []
-
-
-Overfull \hbox (2.23563pt too wide) in paragraph at lines 42--43
+Overfull \hbox (2.23563pt too wide) in paragraph at lines 41--42
 []\TU/TimesNewRoman(0)/m/n/12 Sistem manajemen informasi memiliki antarmuka yan
 g mudah digunakan oleh
  []
@@ -2249,29 +2249,25 @@ Overfull \hbox (15.88994pt too wide) in paragraph at lines 685--685
 [50]) [51] (./Bab IV - Perancangan.tex [52]
 \bbl@ensure@indonesian {Bab} IV.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \vbox (badness 3039) has occurred while \output is active []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[53
+ [53
 
 
 ]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+File: images/bab_iv/architecture-Level-0.jpg Graphic file (type bmp)
+<images/bab_iv/architecture-Level-0.jpg>
 
 [54]
-Overfull \hbox (2.2634pt too wide) in paragraph at lines 105--106
+File: images/bab_iv/architecture-Level-1.jpg Graphic file (type bmp)
+<images/bab_iv/architecture-Level-1.jpg>
+ [55]
+File: images/bab_iv/wmc/wmc.jpg Graphic file (type bmp)
+<images/bab_iv/wmc/wmc.jpg>
+File: images/bab_iv/wmc/database.jpg Graphic file (type bmp)
+<images/bab_iv/wmc/database.jpg>
+ [56] [57]
+Overfull \hbox (2.2634pt too wide) in paragraph at lines 128--129
 \TU/TimesNewRoman(0)/m/n/12 terlibat dalam sistem \TU/TimesNewRoman(0)/m/it/12 
 Warehouse Management Controller\TU/TimesNewRoman(0)/m/n/12 , yaitu \TU/TimesNew
 Roman(0)/m/it/12 User\TU/TimesNewRoman(0)/m/n/12 , \TU/TimesNewRoman(0)/m/it/12
@@ -2279,277 +2275,334 @@ Roman(0)/m/it/12 User\TU/TimesNewRoman(0)/m/n/12 , \TU/TimesNewRoman(0)/m/it/12
 esNewRoman(0)/m/n/12 ,
  []
 
+File: images/bab_iv/ERD.jpg Graphic file (type bmp)
+<images/bab_iv/ERD.jpg>
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Float too large for page by 844.06944pt on input line 168.
 
-[55]
-
-LaTeX Warning: Float too large for page by 844.06944pt on input line 145.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [56]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [57]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [58]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [59]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [60]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 6348) has occurred while \output is active []
-
+File: images/bab_iv/wmc/goods-service.jpg Graphic file (type bmp)
+<images/bab_iv/wmc/goods-service.jpg>
+[58] [59] [60]
+File: images/bab_iv/wmc/fleet-service.jpg Graphic file (type bmp)
+<images/bab_iv/wmc/fleet-service.jpg>
  [61]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: images/use_case_diagram.png Graphic file (type bmp)
-<images/use_case_diagram.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+File: images/bab_iv/wmc/auth-service.jpg Graphic file (type bmp)
+<images/bab_iv/wmc/auth-service.jpg>
  [62]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: images/Sequence_Diagram/sd1.png Graphic file (type bmp)
-<images/Sequence_Diagram/sd1.png>
-
-Underfull \hbox (badness 3375) in paragraph at lines 539--539
-[]|\TU/TimesNewRoman(0)/m/n/12 3. Sistem memvalidasi kredensial
- []
-
-
-Underfull \hbox (badness 1199) in paragraph at lines 539--539
-[]|\TU/TimesNewRoman(0)/m/n/12 2a. Sistem menampilkan pesan ke-
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 4608) has occurred while \output is active []
-
- [63]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: images/Sequence_Diagram/sd2.png Graphic file (type bmp)
-<images/Sequence_Diagram/sd2.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: images/Sequence_Diagram/sd3.png Graphic file (type bmp)
-<images/Sequence_Diagram/sd3.png>
-
-Underfull \vbox (badness 7433) has occurred while \output is active []
-
- [64]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: images/Sequence_Diagram/sd4.png Graphic file (type bmp)
-<images/Sequence_Diagram/sd4.png>
-
-Underfull \vbox (badness 3930) has occurred while \output is active []
-
+File: images/bab_iv/fleet-controller/fleet-controller.jpg Graphic file (type bm
+p)
+<images/bab_iv/fleet-controller/fleet-controller.jpg>
+ [63] [64]
+File: images/bab_iv/fleet-controller/localization-system.jpg Graphic file (type
+ bmp)
+<images/bab_iv/fleet-controller/localization-system.jpg>
  [65]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: images/Sequence_Diagram/sd5.png Graphic file (type bmp)
-<images/Sequence_Diagram/sd5.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [66]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: images/Sequence_Diagram/sd6.png Graphic file (type bmp)
-<images/Sequence_Diagram/sd6.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [67]
-Underfull \hbox (badness 1067) in paragraph at lines 840--840
-\TU/TimesNewRoman(0)/m/n/12 buatan \TU/TimesNewRoman(0)/m/it/12 order \TU/Times
-NewRoman(0)/m/n/12 baru dan memilih tipe
+Overfull \hbox (7.11835pt too wide) in paragraph at lines 319--320
+[] []|\TU/TimesNewRoman(0)/b/n/12 IV.3.3.3.1 Perangkat Lokalisasi[] \TU/TimesNe
+wRoman(0)/m/n/12 Perangkat lokalisasi adalah rakitan kamera \TU/TimesNewRoman(0
+)/m/it/12 over-
  []
 
-
-Underfull \hbox (badness 1286) in paragraph at lines 840--840
-[]|\TU/TimesNewRoman(0)/m/n/12 7. Sistem menampilkan konfirmasi
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: images/Sequence_Diagram/sd7.png Graphic file (type bmp)
-<images/Sequence_Diagram/sd7.png>
-
-Underfull \vbox (badness 3735) has occurred while \output is active []
-
+File: images/bab_iv/use-case.jpg Graphic file (type bmp)
+<images/bab_iv/use-case.jpg>
+[66] [67]
+File: images/bab_iv/Sequence_Diagram/sd01.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd01.png>
  [68]
-Overfull \vbox (133.76042pt too high) has occurred while \output is active []
+File: images/bab_iv/Sequence_Diagram/sd02.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd02.png>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[69]
-Underfull \hbox (badness 1067) in paragraph at lines 909--909
-\TU/TimesNewRoman(0)/m/n/12 buatan \TU/TimesNewRoman(0)/m/it/12 order \TU/Times
-NewRoman(0)/m/n/12 baru dan memilih tipe
- []
-
-
-Underfull \hbox (badness 1286) in paragraph at lines 909--909
-[]|\TU/TimesNewRoman(0)/m/n/12 7. Sistem menampilkan konfirmasi
- []
-
-
-Underfull \hbox (badness 1400) in paragraph at lines 909--909
-[]|\TU/TimesNewRoman(0)/m/n/12 1a. Tidak ada lokasi penyimpanan
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: images/Sequence_Diagram/sd8.png Graphic file (type bmp)
-<images/Sequence_Diagram/sd8.png>
-
-Underfull \hbox (badness 1577) in paragraph at lines 970--970
-[]|\TU/TimesNewRoman(0)/m/n/12 2. Sistem mengambil data seluruh
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: images/Sequence_Diagram/sd9.png Graphic file (type bmp)
-<images/Sequence_Diagram/sd9.png>
+ [69]
+File: images/bab_iv/Sequence_Diagram/sd03.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd03.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [70]
+[71]
+File: images/bab_iv/Sequence_Diagram/sd04.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd04.png>
+File: images/bab_iv/Sequence_Diagram/sd05.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd05.png>
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \vbox (badness 7576) has occurred while \output is active []
 
+ [72]
+File: images/bab_iv/Sequence_Diagram/sd06.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd06.png>
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \vbox (badness 2384) has occurred while \output is active []
 
-File: images/Sequence_Diagram/sd10.png Graphic file (type bmp)
-<images/Sequence_Diagram/sd10.png>
+ [73]
+File: images/bab_iv/Sequence_Diagram/sd07.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd07.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [71]
-Underfull \hbox (badness 1721) in paragraph at lines 1092--1092
-\TU/TimesNewRoman(0)/m/n/12 (\TU/TimesNewRoman(0)/m/it/12 idle\TU/TimesNewRoman
-(0)/m/n/12 /\TU/TimesNewRoman(0)/m/it/12 active\TU/TimesNewRoman(0)/m/n/12 /\TU
-/TimesNewRoman(0)/m/it/12 charging\TU/TimesNewRoman(0)/m/n/12 /\TU/TimesNewRoma
-n(0)/m/it/12 error\TU/TimesNewRoman(0)/m/n/12 ), dan \TU/TimesNewRoman(0)/m/it/
-12 task
+ [74]
+File: images/bab_iv/Sequence_Diagram/sd08.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd08.png>
+
+Underfull \vbox (badness 1112) has occurred while \output is active []
+
+ [75]
+Underfull \hbox (badness 1286) in paragraph at lines 811--811
+[]|\TU/TimesNewRoman(0)/m/n/12 6. Sistem menampilkan konfirmasi
+ []
+
+File: images/bab_iv/Sequence_Diagram/sd09.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd09.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [76]
+[77]
+File: images/bab_iv/class_diagram.png Graphic file (type bmp)
+<images/bab_iv/class_diagram.png>
+ [78]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [79]
+[80]
+Underfull \hbox (badness 10000) in paragraph at lines 972--972
+[]|\TU/TimesNewRoman(0)/m/n/12 Menerima permintaan keluar
  []
 
 
-Underfull \hbox (badness 1442) in paragraph at lines 1092--1092
-[]|\TU/TimesNewRoman(0)/m/n/12 2a. Sistem menampilkan status ro-
+Underfull \hbox (badness 10000) in paragraph at lines 972--972
+\TU/TimesNewRoman(0)/m/n/12 dan meneruskan pembatalan
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \hbox (badness 1715) in paragraph at lines 993--993
+[]|\TU/TimesNewRoman(0)/m/n/12 Meneruskan permintaan detail ba-
+ []
 
-) (./Bab V - Implementasi.tex [72] [73] [74] [75] [76] [77] [78] [79] [80]
-[81] [82] [83] [84] [85] [86] [87] [88
+
+Underfull \hbox (badness 1371) in paragraph at lines 1052--1052
+[]|\TU/TimesNewRoman(0)/m/n/12 Menginisialisasi modul \TU/TimesNewRoman(0)/m/it
+/12 Digital Twin
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 1079--1079
+[]|\TU/TimesNewRoman(0)/m/n/12 Memverifikasi kreden-
+ []
+
+
+Underfull \hbox (badness 2245) in paragraph at lines 1079--1079
+\TU/TimesNewRoman(0)/m/it/12 ken \TU/TimesNewRoman(0)/m/n/12 terhadap sesi ter-
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1079--1079
+[]|\TU/TimesNewRoman(0)/m/n/12 Menghasilkan \TU/TimesNewRoman(0)/m/it/12 bearer
+
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 1104--1104
+[]|\TU/TimesNewRoman(0)/m/n/12 Menyelaraskan data barang
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1133
+\TU/TimesNewRoman(0)/m/it/12 order \TU/TimesNewRoman(0)/m/n/12 beserta
+ []
+
+
+Underfull \hbox (badness 8056) in paragraph at lines 1133--1133
+\TU/TimesNewRoman(0)/m/n/12 statusnya untuk
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1133
+[]|\TU/TimesNewRoman(0)/m/n/12 Memvalidasi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1133
+\TU/TimesNewRoman(0)/m/n/12 ketersediaan
+ []
+
+
+Underfull \hbox (badness 2310) in paragraph at lines 1133--1133
+\TU/TimesNewRoman(0)/m/n/12 barang dan me-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1133
+\TU/TimesNewRoman(0)/m/n/12 nyimpan \TU/TimesNewRoman(0)/m/it/12 order
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1133
+\TU/TimesNewRoman(0)/m/n/12 beserta \TU/TimesNewRoman(0)/m/it/12 order
+ []
+
+
+Underfull \hbox (badness 1308) in paragraph at lines 1133--1133
+[]|\TU/TimesNewRoman(0)/m/n/12 Mengirim perin-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1133
+\TU/TimesNewRoman(0)/m/it/12 controller \TU/TimesNewRoman(0)/m/n/12 dan
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1133
+\TU/TimesNewRoman(0)/m/n/12 memicu \TU/TimesNewRoman(0)/m/it/12 Notifi-
+ []
+
+
+Overfull \hbox (21.46046pt too wide) in paragraph at lines 1133--1133
+[]|\TU/TimesNewRoman(0)/m/n/12 OrderItemRepository| 
+ []
+
+
+Overfull \hbox (12.78859pt too wide) in paragraph at lines 1133--1133
+[]|\TU/TimesNewRoman(0)/m/n/12 NotificationService| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1162
+[]|\TU/TimesNewRoman(0)/m/n/12 Menyusun daftar
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1162
+[]|\TU/TimesNewRoman(0)/m/n/12 Mengambil status
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1162
+\TU/TimesNewRoman(0)/m/n/12 robot termasuk
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1162
+[]|\TU/TimesNewRoman(0)/m/n/12 Memperbarui \TU/TimesNewRoman(0)/m/it/12 te-
+ []
+
+
+Underfull \hbox (badness 2608) in paragraph at lines 1162--1162
+\TU/TimesNewRoman(0)/m/it/12 lemetry \TU/TimesNewRoman(0)/m/n/12 robot dan
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1183--1183
+[]|\TU/TimesNewRoman(0)/m/n/12 Membuat tugas baru
+ []
+
+
+Underfull \hbox (badness 6526) in paragraph at lines 1183--1183
+\TU/TimesNewRoman(0)/m/n/12 untuk eksekusi suatu
+ []
+
+
+Underfull \hbox (badness 5548) in paragraph at lines 1183--1183
+[]|\TU/TimesNewRoman(0)/m/n/12 Mengambil daftar tu-
+ []
+
+
+Underfull \hbox (badness 1931) in paragraph at lines 1206--1206
+\TU/TimesNewRoman(0)/m/n/12 menyiapkan langganan koordi-
+ []
+
+
+Underfull \hbox (badness 4084) in paragraph at lines 1227--1227
+[]|\TU/TimesNewRoman(0)/m/n/12 Menyelaraskan posisi robot
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1227--1227
+\TU/TimesNewRoman(0)/m/n/12 dengan data \TU/TimesNewRoman(0)/m/it/12 AprilTagMa
+p-
+ []
+
+
+Underfull \hbox (badness 4096) in paragraph at lines 1227--1227
+[]|\TU/TimesNewRoman(0)/m/n/12 Menentukan lokasi penyim-
+ []
+
+
+Underfull \hbox (badness 2142) in paragraph at lines 1248--1248
+[]|\TU/TimesNewRoman(0)/m/n/12 Mengirim pembaruan status
+ []
+
+
+Underfull \hbox (badness 2142) in paragraph at lines 1248--1248
+[]|\TU/TimesNewRoman(0)/m/n/12 Mengirim pembaruan status
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1338--1338
+[]|\TU/TimesNewRoman(0)/m/n/12 Mengambil \TU/TimesNewRoman(0)/m/it/12 order \TU
+/TimesNewRoman(0)/m/n/12 berda-
+ []
+
+
+Underfull \hbox (badness 4060) in paragraph at lines 1501--1501
+[]|\TU/TimesNewRoman(0)/m/n/12 Mengembalikan riwayat aktivitas ba-
+ []
+
+
+Underfull \hbox (badness 8075) in paragraph at lines 1545--1545
+[]|\TU/TimesNewRoman(0)/m/n/12 Menyesuaikan kuantitas item dalam
+ []
+
+
+Underfull \hbox (badness 1817) in paragraph at lines 1610--1610
+[]|\TU/TimesNewRoman(0)/m/n/12 Mengembalikan koordinat entitas berda-
+ []
+
+
+Overfull \hbox (1.72pt too wide) in paragraph at lines 1614--1615
+[]\TU/TimesNewRoman(0)/m/it/12 Sequence diagram \TU/TimesNewRoman(0)/m/n/12 mer
+upakan pemodelan perilaku dinamis (\TU/TimesNewRoman(0)/m/it/12 dynamic behavio
+r\TU/TimesNewRoman(0)/m/n/12 ) yang
+ []
+
+[81] [82] [83] [84] [85] [86] [87] [88] [89]
+Overfull \hbox (0.22252pt too wide) in paragraph at lines 1625--1626
+[]\TU/TimesNewRoman(0)/m/it/12 Sequence diagram \TU/TimesNewRoman(0)/m/n/12 ini
+ memodelkan proses pengakhiran sesi. Antarmuka peng-
+ []
+
+[90]
+File: images/bab_iv/Sequence_Diagram/sd01.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd01.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [91]
+File: images/bab_iv/Sequence_Diagram/sd02.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd02.png>
+File: images/bab_iv/Sequence_Diagram/sd03.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd03.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [92]
+File: images/bab_iv/Sequence_Diagram/sd04.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd04.png>
+File: images/bab_iv/Sequence_Diagram/sd05.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd05.png>
+File: images/bab_iv/Sequence_Diagram/sd06.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd06.png>
+
+[93]
+File: images/bab_iv/Sequence_Diagram/sd07.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd07.png>
+File: images/bab_iv/Sequence_Diagram/sd08.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd08.png>
+File: images/bab_iv/Sequence_Diagram/sd09.png Graphic file (type bmp)
+<images/bab_iv/Sequence_Diagram/sd09.png>
+) [94] (./Bab V - Implementasi.tex [95] [96
 
 ]
 \bbl@ensure@indonesian {Bab} V.
@@ -2566,9 +2619,9 @@ Underfull \hbox (badness 7379) in paragraph at lines 66--66
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[89
+[97
 
-] [90] [91] [92]
+] [98] [99] [100]
 Underfull \hbox (badness 10000) in paragraph at lines 196--196
 []|\TU/lmtt/m/n/12 goods-service/src/controllers/
  []
@@ -2742,7 +2795,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[93]
+[101]
 Underfull \hbox (badness 1527) in paragraph at lines 366--366
 []|\TU/TimesNewRoman(0)/m/n/12 Runtime utama \TU/TimesNewRoman(0)/m/it/12 pipel
 ine \TU/TimesNewRoman(0)/m/n/12 de-
@@ -2760,8 +2813,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 1412) has occurred while \output is active []
 
- [94])
-(./Bab VI - Evaluasi.tex [95] [96] [97] [98] [99] [100
+ [102])
+(./Bab VI - Evaluasi.tex [103] [104] [105] [106] [107] [108
 
 ]
 \bbl@ensure@indonesian {Bab} VI.
@@ -2769,14 +2822,14 @@ Underfull \vbox (badness 1412) has occurred while \output is active []
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 12.
 
-[101
+[109
 
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 17.
 
-[102]
+[110]
 Underfull \hbox (badness 10000) in paragraph at lines 55--55
 []|\TU/TimesNewRoman(0)/b/n/12 Parameter Target
  []
@@ -2870,7 +2923,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--55
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[103]
+[111]
 Underfull \hbox (badness 10000) in paragraph at lines 117--117
 []|\TU/TimesNewRoman(0)/b/n/12 Output yang Diha-
  []
@@ -3024,7 +3077,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 7030) has occurred while \output is active []
 
- [104]
+ [112]
 Underfull \hbox (badness 3417) in paragraph at lines 143--143
 []|\TU/TimesNewRoman(0)/m/n/12 Login, daftar barang, buat
  []
@@ -3134,7 +3187,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [105]
+ [113]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -3152,20 +3205,19 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[106]) (./Bab VII - Penutup.tex [107] [108] [109] [110] [111] [112
+[114]) (./Bab VII - Penutup.tex [115] [116] [117] [118] [119] [120
 
 ]
 \bbl@ensure@indonesian {Bab} VII.
 
-Overfull \hbox (10.07547pt too wide) in paragraph at lines 15--16
-\TU/TimesNewRoman(0)/m/n/12 dengan arsitektur \TU/TimesNewRoman(0)/m/it/12 micr
-oservices \TU/TimesNewRoman(0)/m/n/12 yang terbagi menjadi tiga layanan: \TU/Ti
-mesNewRoman(0)/m/it/12 auth-service\TU/TimesNewRoman(0)/m/n/12 ,
+Overfull \hbox (5.67273pt too wide) in paragraph at lines 14--15
+\TU/TimesNewRoman(0)/m/n/12 pe Subsistem Lokalisasi yang memanfaatkan penanda A
+prilTag jenis Tag36h11.
  []
 
-[113
+[121
 
-] [114]) [115] [116
+] [122]) [123] [124
 
 ]
 Overfull \hbox (8.30055pt too wide) in paragraph at lines 394--394
@@ -3174,7 +3226,7 @@ sNewRoman(0)/m/it/12 The WebSocket Protocol. \TU/TimesNewRoman(0)/m/n/12 Techni
 cal report RFC
  []
 
-[117
+[125
 
 ]
 Overfull \hbox (3.35031pt too wide) in paragraph at lines 394--394
@@ -3188,26 +3240,26 @@ Overfull \hbox (26.11789pt too wide) in paragraph at lines 394--394
  0-9-1 Model Explained”. VMware,
  []
 
-[118]
+[126]
 Overfull \hbox (3.36778pt too wide) in paragraph at lines 394--394
 [][]\TU/TimesNewRoman(0)/m/n/12 Tim TA252601001. 2025a. \TU/TimesNewRoman(0)/m/
 it/12 Dokumen B100-TA2526.01.001-008: Analisis Kebutuhan
  []
 
-(./Lampiran-A.tex [119] [120
+(./Lampiran-A.tex [127] [128
 
 ]
 \bbl@ensure@indonesian {Lampiran} A.
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 4.
-(./listings/binary-search-python.tex [121
+(./listings/binary-search-python.tex [129
 
-])) (./Lampiran-B.tex [122]
+])) (./Lampiran-B.tex [130]
 \bbl@ensure@indonesian {Lampiran} B.
-) [123
+) [131
 
 
-] [124
+] [132
 
 ]
 
@@ -3220,18 +3272,18 @@ LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
 Package rerunfilecheck Info: File `TA.out' has not changed.
-(rerunfilecheck)             Checksum: BD465F0713472F0DA979FC60E75F5F22;28143.
+(rerunfilecheck)             Checksum: EF45367E6FFE65DA70E6000BA90BAE0C;28312.
 Package logreq Info: Writing requests to 'TA.run.xml'.
 \openout1 = `TA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35489 strings out of 469293
- 698592 string characters out of 5455855
- 2279046 words of memory out of 5000000
- 63978 multiletter control sequences out of 15000+600000
+ 35629 strings out of 469293
+ 703963 string characters out of 5455855
+ 2282086 words of memory out of 5000000
+ 64105 multiletter control sequences out of 15000+600000
  634522 words of font info for 96 fonts, out of 8000000 for 9000
  374 hyphenation exceptions out of 8191
  73i,10n,95p,2006b,7481s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TA.pdf (154 pages).
+Output written on TA.pdf (162 pages).

@@ -157,32 +157,38 @@
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {IV.1}{\ignorespaces Arsitektur Sistem \textit {Smart Warehouse} Level 0}}{54}{figure.caption.12}%
+\contentsline {figure}{\numberline {IV.1}{\ignorespaces Konsep Sistem \textit {Smart Warehouse}}}{54}{figure.caption.12}%
+\contentsline {figure}{\numberline {IV.2}{\ignorespaces Arsitektur Sistem \textit {Smart Warehouse} Level 0}}{55}{figure.caption.13}%
+\contentsline {figure}{\numberline {IV.3}{\ignorespaces Arsitektur \textit {Warehouse Management Controller} (Level 2)}}{56}{figure.caption.15}%
+\contentsline {figure}{\numberline {IV.4}{\ignorespaces Arsitektur Komponen \textit {Database} WMC (Level 3)}}{57}{figure.caption.17}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {figure}{\numberline {IV.2}{\ignorespaces Arsitektur \textit {Warehouse Management Controller} (Level 1)}}{56}{figure.caption.14}%
-\contentsline {figure}{\numberline {IV.3}{\ignorespaces Arsitektur Komponen \textit {Database} WMC (Level 2)}}{58}{figure.caption.16}%
-\contentsline {figure}{\numberline {IV.4}{\ignorespaces ERD Sistem \textit {Warehouse Management Controller}}}{60}{figure.caption.18}%
-\contentsline {figure}{\numberline {IV.5}{\ignorespaces Arsitektur Komponen \textit {Goods Detail Service} WMC (Level 2)}}{61}{figure.caption.20}%
-\contentsline {figure}{\numberline {IV.6}{\ignorespaces Arsitektur Komponen \textit {Fleet Order Service} WMC (Level 2)}}{62}{figure.caption.22}%
-\contentsline {figure}{\numberline {IV.7}{\ignorespaces Arsitektur Komponen \textit {Authentication Service} WMC (Level 2)}}{63}{figure.caption.24}%
-\contentsline {figure}{\numberline {IV.15}{\ignorespaces Diagram \textit {sequence} UC-01: Login Pengguna}}{63}{figure.caption.42}%
-\contentsline {figure}{\numberline {IV.8}{\ignorespaces Arsitektur \textit {Fleet Controller} (Level 1)}}{64}{figure.caption.26}%
-\contentsline {figure}{\numberline {IV.16}{\ignorespaces Diagram \textit {sequence} UC-02: Logout Pengguna}}{64}{figure.caption.45}%
-\contentsline {figure}{\numberline {IV.9}{\ignorespaces Arsitektur Komponen \textit {Communication Service} \textit {Fleet Controller} (Level 2)}}{65}{figure.caption.28}%
-\contentsline {figure}{\numberline {IV.17}{\ignorespaces Diagram \textit {sequence} UC-03: Daftar Barang}}{65}{figure.caption.48}%
-\contentsline {figure}{\numberline {IV.10}{\ignorespaces Arsitektur Komponen \textit {Fleet Manager} \textit {Fleet Controller} (Level 2)}}{66}{figure.caption.30}%
-\contentsline {figure}{\numberline {IV.18}{\ignorespaces Diagram \textit {sequence} UC-04: Detail Informasi Barang}}{66}{figure.caption.51}%
-\contentsline {figure}{\numberline {IV.11}{\ignorespaces Arsitektur Komponen \textit {Local Database} \textit {Fleet Controller} (Level 2)}}{67}{figure.caption.32}%
-\contentsline {figure}{\numberline {IV.19}{\ignorespaces Diagram \textit {sequence} UC-05: Lokasi Fisik Barang}}{67}{figure.caption.54}%
-\contentsline {figure}{\numberline {IV.12}{\ignorespaces Arsitektur Komponen \textit {Robot Path Planner} \textit {Fleet Controller} (Level 2)}}{68}{figure.caption.34}%
-\contentsline {figure}{\numberline {IV.20}{\ignorespaces Diagram \textit {sequence} UC-06: Pembuatan Order Picking}}{68}{figure.caption.57}%
-\contentsline {figure}{\numberline {IV.13}{\ignorespaces Arsitektur Komponen \textit {Localisation System} \textit {Fleet Controller} (Level 2)}}{69}{figure.caption.36}%
-\contentsline {figure}{\numberline {IV.14}{\ignorespaces Diagram \textit {use case} sistem \textit {Warehouse Management Controller}}}{69}{figure.caption.40}%
-\contentsline {figure}{\numberline {IV.21}{\ignorespaces Diagram \textit {sequence} UC-07: Pembuatan Order Storing}}{69}{figure.caption.60}%
-\contentsline {figure}{\numberline {IV.22}{\ignorespaces Diagram \textit {sequence} UC-08: Daftar dan Status Order}}{70}{figure.caption.63}%
-\contentsline {figure}{\numberline {IV.23}{\ignorespaces Diagram \textit {sequence} UC-09: Pemantauan Status Task}}{71}{figure.caption.66}%
-\contentsline {figure}{\numberline {IV.24}{\ignorespaces Diagram \textit {sequence} UC-10: Pemantauan Status Robot}}{72}{figure.caption.69}%
+\contentsline {figure}{\numberline {IV.5}{\ignorespaces ERD Sistem \textit {Warehouse Management Controller}}}{59}{figure.caption.19}%
+\contentsline {figure}{\numberline {IV.6}{\ignorespaces Arsitektur Komponen \textit {Goods Detail Service} WMC (Level 3)}}{61}{figure.caption.21}%
+\contentsline {figure}{\numberline {IV.7}{\ignorespaces Arsitektur Komponen \textit {Fleet Order Service} WMC (Level 3)}}{61}{figure.caption.23}%
+\contentsline {figure}{\numberline {IV.8}{\ignorespaces Arsitektur Komponen \textit {Authentication Service} WMC (Level 3)}}{62}{figure.caption.25}%
+\contentsline {figure}{\numberline {IV.9}{\ignorespaces Arsitektur \textit {Fleet Controller} (Level 2)}}{64}{figure.caption.27}%
+\contentsline {figure}{\numberline {IV.10}{\ignorespaces Arsitektur Komponen \textit {Localisation System} \textit {Fleet Controller} (Level 3)}}{65}{figure.caption.29}%
+\contentsline {figure}{\numberline {IV.11}{\ignorespaces \textit {Use Case Diagram} Sistem \textit {Warehouse Management Controller}}}{67}{figure.caption.32}%
+\contentsline {figure}{\numberline {IV.12}{\ignorespaces \textit {Sequence Diagram} UC-01: \textit {Login System}}}{68}{figure.caption.34}%
+\contentsline {figure}{\numberline {IV.13}{\ignorespaces \textit {Sequence Diagram} UC-02: \textit {Logout System}}}{70}{figure.caption.37}%
+\contentsline {figure}{\numberline {IV.14}{\ignorespaces \textit {Sequence Diagram} UC-03: \textit {View Inventory List}}}{71}{figure.caption.40}%
+\contentsline {figure}{\numberline {IV.15}{\ignorespaces \textit {Sequence Diagram} UC-04: \textit {View Goods Detail}}}{72}{figure.caption.43}%
+\contentsline {figure}{\numberline {IV.16}{\ignorespaces \textit {Sequence Diagram} UC-05: \textit {View Order Status}}}{73}{figure.caption.46}%
+\contentsline {figure}{\numberline {IV.17}{\ignorespaces \textit {Sequence Diagram} UC-06: \textit {View Robot \& Operation Status}}}{74}{figure.caption.49}%
+\contentsline {figure}{\numberline {IV.18}{\ignorespaces \textit {Sequence Diagram} UC-07: \textit {Operate Digital Twin}}}{75}{figure.caption.52}%
+\contentsline {figure}{\numberline {IV.19}{\ignorespaces \textit {Sequence Diagram} UC-08: \textit {Create Order Request}}}{76}{figure.caption.55}%
+\contentsline {figure}{\numberline {IV.20}{\ignorespaces \textit {Sequence Diagram} UC-09: \textit {View Item History}}}{78}{figure.caption.58}%
+\contentsline {figure}{\numberline {IV.21}{\ignorespaces \textit {Class Diagram} Sistem \textit {Warehouse Management Controller}}}{79}{figure.caption.60}%
+\contentsline {figure}{\numberline {IV.22}{\ignorespaces \textit {Sequence Diagram} UC-01: \textit {Login System}}}{92}{figure.caption.91}%
+\contentsline {figure}{\numberline {IV.23}{\ignorespaces \textit {Sequence Diagram} UC-02: \textit {Logout System}}}{92}{figure.caption.92}%
+\contentsline {figure}{\numberline {IV.24}{\ignorespaces \textit {Sequence Diagram} UC-03: \textit {View Inventory List}}}{93}{figure.caption.93}%
+\contentsline {figure}{\numberline {IV.25}{\ignorespaces \textit {Sequence Diagram} UC-04: \textit {View Goods Detail}}}{93}{figure.caption.94}%
+\contentsline {figure}{\numberline {IV.26}{\ignorespaces \textit {Sequence Diagram} UC-05: \textit {View Order Status}}}{93}{figure.caption.95}%
+\contentsline {figure}{\numberline {IV.27}{\ignorespaces \textit {Sequence Diagram} UC-06: \textit {View Robot \& Operation Status}}}{94}{figure.caption.96}%
+\contentsline {figure}{\numberline {IV.28}{\ignorespaces \textit {Sequence Diagram} UC-07: \textit {Operate Digital Twin}}}{94}{figure.caption.97}%
+\contentsline {figure}{\numberline {IV.29}{\ignorespaces \textit {Sequence Diagram} UC-08: \textit {Create Order Request}}}{94}{figure.caption.98}%
+\contentsline {figure}{\numberline {IV.30}{\ignorespaces \textit {Sequence Diagram} UC-09: \textit {View Item History}}}{95}{figure.caption.99}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
