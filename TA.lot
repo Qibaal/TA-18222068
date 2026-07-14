@@ -111,42 +111,6 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
@@ -233,30 +197,24 @@
 \contentsline {table}{\numberline {IV.57}{\ignorespaces Detail Kelas -- Task}}{90}{table.caption.89}%
 \contentsline {table}{\numberline {IV.58}{\ignorespaces Detail Kelas -- AprilTagMapping}}{90}{table.caption.90}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {V.1}{\ignorespaces Spesifikasi \textit {hardware}}}{97}{table.caption.100}%
-\contentsline {table}{\numberline {V.2}{\ignorespaces Spesifikasi \textit {software}}}{98}{table.caption.101}%
-\contentsline {table}{\numberline {V.3}{\ignorespaces Teknologi yang digunakan dalam pengembangan WMC}}{98}{table.5.3}%
-\contentsline {table}{\numberline {V.4}{\ignorespaces Modul \textit {auth-service}}}{101}{table.caption.102}%
-\contentsline {table}{\numberline {V.5}{\ignorespaces Modul \textit {goods-service}}}{104}{table.caption.103}%
-\contentsline {table}{\numberline {V.6}{\ignorespaces Modul \textit {database}}}{105}{table.caption.104}%
-\contentsline {table}{\numberline {V.7}{\ignorespaces Daftar \textit {endpoint} \textit {auth-service}}}{105}{table.caption.105}%
-\contentsline {table}{\numberline {V.8}{\ignorespaces Daftar \textit {endpoint} \textit {goods-service}}}{106}{table.caption.106}%
-\contentsline {table}{\numberline {V.9}{\ignorespaces Teknologi yang digunakan dalam implementasi Subsistem Lokalisasi}}{107}{table.caption.107}%
+\contentsline {table}{\numberline {V.1}{\ignorespaces Daftar \textit {endpoint} \textit {Authentication Service}}}{98}{table.caption.100}%
+\contentsline {table}{\numberline {V.3}{\ignorespaces Daftar \textit {endpoint} \textit {Goods Service}}}{98}{table.5.3}%
+\contentsline {table}{\numberline {V.5}{\ignorespaces Daftar \textit {endpoint} \textit {Fleet Service}}}{100}{table.5.5}%
+\contentsline {table}{\numberline {V.6}{\ignorespaces Rencana Berkas Fisik \textit {Fleet Service}}}{102}{table.5.6}%
+\contentsline {table}{\numberline {V.10}{\ignorespaces Teknologi yang digunakan dalam pengembangan WMC}}{104}{table.5.10}%
+\contentsline {table}{\numberline {V.12}{\ignorespaces Deskripsi Berkas pada Folder \texttt {localisasi}}}{108}{table.5.12}%
+\contentsline {table}{\numberline {V.2}{\ignorespaces Rencana Berkas Fisik \textit {Authentication Service}}}{112}{table.caption.101}%
+\contentsline {table}{\numberline {V.4}{\ignorespaces Rencana Berkas Fisik \textit {Goods Service}}}{113}{table.caption.102}%
+\contentsline {table}{\numberline {V.7}{\ignorespaces Modul infrastruktur bersama \textit {goods-service} dan \textit {database}}}{114}{table.caption.103}%
+\contentsline {table}{\numberline {V.8}{\ignorespaces Spesifikasi \textit {hardware}}}{114}{table.caption.104}%
+\contentsline {table}{\numberline {V.9}{\ignorespaces Spesifikasi \textit {software}}}{115}{table.caption.105}%
+\contentsline {table}{\numberline {V.11}{\ignorespaces Teknologi yang digunakan dalam implementasi Subsistem Lokalisasi}}{115}{table.caption.107}%
 \addvspace {10\p@ }
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {VI.1}{\ignorespaces Rangkuman kriteria dan metode evaluasi WMC}}{112}{table.caption.108}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {VI.2}{\ignorespaces Skenario dan hasil pengujian fungsionalitas WMC}}{116}{table.caption.109}%
-\contentsline {table}{\numberline {VI.3}{\ignorespaces Hasil pengujian usability (SUS)}}{117}{table.caption.110}%
-\contentsline {table}{\numberline {VI.4}{\ignorespaces Rekapitulasi skor SUS}}{117}{table.caption.111}%
-\contentsline {table}{\numberline {VI.5}{\ignorespaces Hasil pengukuran latensi respons API}}{117}{table.caption.112}%
-\contentsline {table}{\numberline {VI.6}{\ignorespaces Hasil audit log skenario Inbound--Storage--Outbound}}{118}{table.caption.113}%
-\contentsline {table}{\numberline {VI.7}{\ignorespaces Hasil pengujian produktivitas sistem WMC}}{118}{table.caption.114}%
-\contentsline {table}{\numberline {VI.8}{\ignorespaces Hasil pengujian Task Fulfilment Accuracy}}{118}{table.caption.115}%
-\contentsline {table}{\numberline {VI.9}{\ignorespaces Hasil verifikasi posisi Subsistem Lokalisasi}}{119}{table.caption.116}%
-\contentsline {table}{\numberline {VI.10}{\ignorespaces Hasil verifikasi orientasi Subsistem Lokalisasi}}{119}{table.caption.117}%
+\contentsline {table}{\numberline {VI.1}{\ignorespaces Rangkuman kriteria dan metode evaluasi WMC}}{119}{table.caption.110}%
+\contentsline {table}{\numberline {VI.2}{\ignorespaces Hasil pengujian Task Fulfilment Accuracy}}{120}{table.caption.111}%
+\contentsline {table}{\numberline {VI.3}{\ignorespaces Hasil pengujian stress test \textit {endpoint} WMC}}{123}{table.caption.112}%
+\contentsline {table}{\numberline {VI.4}{\ignorespaces Contoh hasil verifikasi posisi Subsistem Lokalisasi (representasi dari pengujian pada seluruh 32 sel grid $8\times 4$)}}{124}{table.caption.113}%
+\contentsline {table}{\numberline {VI.5}{\ignorespaces Contoh hasil verifikasi orientasi Subsistem Lokalisasi (kelipatan $90^\circ $)}}{124}{table.caption.114}%
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 

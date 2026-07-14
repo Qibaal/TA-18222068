@@ -69,19 +69,7 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {figure}{\numberline {II.1}{\ignorespaces Ilustrasi arsitektur \textit {microservices} pada \textit {Warehouse Management Controller}}}{14}{figure.caption.8}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
+\contentsline {figure}{\numberline {II.1}{\ignorespaces Ilustrasi arsitektur \textit {microservices} pada \textit {Warehouse Management Controller}}}{13}{figure.caption.8}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -120,31 +108,7 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {figure}{\numberline {II.2}{\ignorespaces Ilustrasi alur \textit {Event-Driven Architecture} pada sistem manajemen inventori}}{19}{figure.caption.9}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
+\contentsline {figure}{\numberline {II.2}{\ignorespaces Ilustrasi alur \textit {Event-Driven Architecture} pada sistem manajemen inventori}}{21}{figure.caption.9}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -190,11 +154,10 @@
 \contentsline {figure}{\numberline {IV.29}{\ignorespaces \textit {Sequence Diagram} UC-08: \textit {Create Order Request}}}{94}{figure.caption.98}%
 \contentsline {figure}{\numberline {IV.30}{\ignorespaces \textit {Sequence Diagram} UC-09: \textit {View Item History}}}{95}{figure.caption.99}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {V.1}{\ignorespaces Perangkat Keras Subsistem Lokalisasi}}{108}{figure.caption.106}%
+\contentsline {figure}{\numberline {V.2}{\ignorespaces Antarmuka Visualisasi Subsistem Lokalisasi}}{110}{figure.caption.108}%
+\contentsline {figure}{\numberline {V.3}{\ignorespaces Hasil Publikasi Data Posisi ke MQTT Broker}}{111}{figure.caption.109}%
 \addvspace {10\p@ }
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 

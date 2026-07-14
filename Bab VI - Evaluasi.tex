@@ -4,35 +4,28 @@
 \cleardoublepage
 \chapter{EVALUASI}
 \label{chap:evaluasi}
-Bab ini memaparkan proses evaluasi terhadap sistem \textit{Warehouse Management Controller} (WMC) yang telah diimplementasikan. Evaluasi bertujuan untuk mengukur sejauh mana sistem yang dikembangkan memenuhi spesifikasi yang telah ditetapkan pada dokumen B200, khususnya pada aspek-aspek yang berada dalam cakupan pengembangan WMC, yaitu \textit{usability} perangkat lunak, \textit{traceability} data, produktivitas sistem, dan akurasi pemenuhan tugas. Hasil evaluasi ini digunakan sebagai dasar untuk menilai kelayakan dan efektivitas sistem WMC dalam mendukung operasional \textit{Smart Warehouse} secara keseluruhan.
+Bab ini memaparkan proses evaluasi terhadap sistem \textit{Warehouse Management Controller} (WMC) dan Subsistem Lokalisasi yang telah diimplementasikan. Evaluasi bertujuan untuk mengukur sejauh mana sistem yang dikembangkan memenuhi spesifikasi yang telah ditetapkan pada dokumen B200. Untuk WMC, cakupan evaluasi meliputi akurasi pemenuhan tugas dan ketahanan sistem di bawah beban (\textit{stress test}), sedangkan untuk Subsistem Lokalisasi, cakupan evaluasi meliputi akurasi pemetaan posisi dan deteksi orientasi. Bab ini disusun menjadi tiga sub-bab: Subbab \ref{sec:metode-evaluasi} memaparkan metode evaluasi yang digunakan, Subbab \ref{sec:hasil-verifikasi} menyajikan hasil verifikasi dari setiap metode tersebut, dan Subbab \ref{sec:pembahasan-evaluasi} membahas hasil evaluasi secara keseluruhan sebagai dasar penilaian kelayakan sistem.
 
 \section{Metode Evaluasi}
-Evaluasi sistem WMC dirancang mengacu pada rencana verifikasi yang tertuang dalam dokumen B200, dengan memfokuskan penilaian pada komponen-komponen yang secara langsung dipengaruhi oleh WMC sebagai lapisan perangkat lunak pengendali gudang. Mengingat peran WMC sebagai sistem \textit{backend} yang mengatur manajemen inventori, koordinasi tugas robot, serta antarmuka pengguna, maka terdapat empat kriteria evaluasi utama yang akan diukur, yaitu \textit{Usability}, \textit{Traceability}, \textit{Productivity}, dan \textit{Task Fulfilment Accuracy}. Setiap kriteria dievaluasi melalui metode pengujian yang berbeda namun saling melengkapi untuk memperoleh gambaran yang komprehensif mengenai kualitas sistem secara keseluruhan.
+\label{sec:metode-evaluasi}
 
-\paragraph{a. Pengujian Usability --- Kuesioner System Usability Scale (SUS)}
-Pengujian \textit{usability} dilakukan untuk mengukur tingkat kemudahan penggunaan antarmuka sistem informasi dan \textit{fleet management} WMC. Mengacu pada spesifikasi B200, sistem dinyatakan memenuhi kriteria apabila skor \textit{System Usability Scale} (SUS) yang diperoleh melebihi nilai 80 (kategori \enquote{Good} hingga \enquote{Excellent}) \autocite{bangor2009}. Metode yang digunakan adalah pengisian kuesioner SUS standar yang terdiri dari 10 butir pertanyaan dengan skala Likert 1--5, yang kemudian dihitung dan dikonversi menjadi skor SUS dengan rentang 0--100.
+\subsection{Metode Evaluasi Sistem WMC}
+Evaluasi sistem WMC dirancang mengacu pada rencana verifikasi yang tertuang dalam dokumen B200, dengan memfokuskan penilaian pada komponen-komponen yang secara langsung dipengaruhi oleh WMC sebagai lapisan perangkat lunak pengendali gudang. Mengingat peran WMC sebagai sistem \textit{backend} yang mengatur manajemen inventori, koordinasi tugas robot, serta antarmuka pengguna, maka terdapat dua kriteria evaluasi utama yang akan diukur, yaitu \textit{Task Fulfilment Accuracy} dan \textit{Stress Test}. Setiap kriteria dievaluasi melalui metode pengujian yang berbeda namun saling melengkapi untuk memperoleh gambaran yang komprehensif mengenai kualitas sistem secara keseluruhan.
 
-Prosedur pengujian melibatkan lima orang responden dengan latar belakang yang beragam, yaitu pengguna dengan pemahaman teknis tinggi, pengguna awam, dan pengguna dengan pengalaman terbatas dalam penggunaan sistem informasi. Setiap responden diminta untuk menjalankan sejumlah skenario tugas utama pada antarmuka WMC, mencakup proses login, pengelolaan data barang, pembuatan \textit{order picking} dan \textit{storing}, pemantauan status \textit{task}, serta pemantauan status robot. Setelah menyelesaikan seluruh skenario, responden mengisi kuesioner SUS secara mandiri. Skor individu kemudian dirata-ratakan untuk memperoleh skor SUS keseluruhan sistem.
-
-\paragraph{b. Pengujian Traceability --- Audit Log dan Pengukuran Latensi}
-Pengujian \textit{traceability} bertujuan untuk memverifikasi bahwa seluruh aktivitas pergerakan barang dan interaksi robot tercatat secara lengkap dan berurutan tanpa kehilangan data dalam sistem WMC. Sesuai spesifikasi B200, terdapat dua parameter kuantitatif yang harus dipenuhi: (1) latensi sinkronisasi data antara robot, server, dan WMS tidak melebihi 200 ms, dan (2) pembaruan status robot pada antarmuka pengguna terjadi dalam waktu tidak lebih dari 1 detik.
-
-Metode pengujian dilaksanakan melalui dua pendekatan komplementer. Pertama, dilakukan audit log sistem dengan mensimulasikan alur operasional lengkap yang mencakup skenario \textit{inbound} (penerimaan barang), \textit{storage} (penempatan di rak), dan \textit{outbound} (pengambilan barang). Setiap kejadian fisik dibandingkan dengan catatan yang tersimpan dalam basis data WMC untuk memastikan tidak terjadi kehilangan data maupun ketidakurutan pencatatan. Kedua, dilakukan pengukuran latensi respons API menggunakan alat pengujian HTTP dengan mencatat waktu respons pada setiap \textit{endpoint} \textit{goods-service} dan \textit{auth-service} dalam kondisi operasional normal. Pengukuran dilakukan terhadap sejumlah sampel permintaan berturut-turut dan hasilnya dianalisis secara statistik untuk mendapatkan nilai rata-rata, median, dan persentil ke-95 dari latensi respons.
-
-\paragraph{c. Pengujian Productivity --- Pengukuran Throughput Tugas}
-Pengujian produktivitas dilakukan untuk mengukur kemampuan sistem WMC dalam memproses dan mendistribusikan perintah tugas kepada armada robot secara efisien. Merujuk pada spesifikasi yang ditetapkan dalam dokumen B200, sistem dinyatakan memenuhi kriteria apabila mampu memfasilitasi penyelesaian minimal 20 tugas pengiriman per jam per unit robot dengan waktu rata-rata penyelesaian $\pm$3 menit per tugas. Dari perspektif WMC, fokus pengujian ini terletak pada kemampuan \textit{Fleet Order Service} dalam menerima, membuat, dan mendistribusikan \textit{task} kepada robot secara tepat waktu, serta kemampuan sistem dalam mencatat status penyelesaian setiap tugas melalui log robot.
-
-Prosedur pengujian dilaksanakan dengan menjalankan sistem secara terintegrasi selama satu sesi operasional penuh. Sejumlah perintah \textit{order picking} dan \textit{storing} diberikan secara berurutan melalui antarmuka WMC. Waktu pembuatan \textit{task}, waktu penerimaan oleh robot, dan waktu penyelesaian tugas dicatat dari log sistem. Jumlah tugas yang berhasil diselesaikan per jam kemudian dihitung dan dibandingkan dengan nilai target minimum yang tertera dalam spesifikasi.
-
-\paragraph{d. Pengujian Task Fulfilment Accuracy --- Verifikasi Konsistensi Data}
+\paragraph{a. Pengujian Task Fulfilment Accuracy --- Verifikasi Konsistensi Data}
 Pengujian akurasi pemenuhan tugas bertujuan untuk memverifikasi bahwa sistem WMC mampu menghasilkan dan mengelola perintah tugas dengan tingkat akurasi sebesar 100\%, tanpa terjadi kesalahan lokasi rak (\textit{misplacement}) dan tanpa ketidaksesuaian antara kondisi fisik dengan data inventori yang tersimpan. Dari sisi WMC, kriteria ini mencerminkan kualitas logika \textit{Fleet Order Service} dalam menentukan lokasi target, serta ketepatan \textit{Goods Detail Service} dalam memperbarui status dan posisi barang setelah setiap tugas diselesaikan.
 
-Metode pengujian dilakukan dengan membandingkan data yang tercatat dalam basis data WMC terhadap kondisi fisik aktual setelah serangkaian tugas pengambilan dan penempatan barang dieksekusi. Setiap \textit{order} yang dibuat melalui antarmuka WMC dicatat beserta lokasi tujuan yang ditetapkan oleh sistem. Setelah robot menyelesaikan tugas, data lokasi barang yang diperbarui oleh sistem dibandingkan dengan lokasi fisik aktual di gudang. Tingkat akurasi dihitung menggunakan formula berikut:
+Metode pengujian dilakukan dengan membandingkan data yang tercatat dalam basis data WMC terhadap kondisi fisik aktual setelah serangkaian tugas pengambilan dan penempatan barang dieksekusi. Pengujian dilaksanakan dengan menjalankan 8 \textit{order storing} dan 8 \textit{order picking} (total 16 \textit{task}) menuju 8 rak \textit{storage} yang berbeda, dengan robot memulai pergerakan dari 4 sel \textit{idle} yang berbeda secara bergantian. Setiap \textit{order} yang dibuat melalui antarmuka WMC dicatat beserta lokasi tujuan yang ditetapkan oleh sistem. Setelah robot menyelesaikan tugas, data lokasi barang yang diperbarui oleh sistem dibandingkan dengan lokasi fisik aktual di gudang. Tingkat akurasi dihitung menggunakan formula berikut:
 \begin{equation}
 \text{Task Fulfilment Accuracy} = \frac{\text{Jumlah Tugas Berhasil Tanpa Kesalahan}}{\text{Jumlah Total Tugas}} \times 100\%
 \label{eq:tfa}
 \end{equation}
 Sistem dinyatakan lulus pengujian apabila seluruh tugas yang dieksekusi memberikan hasil yang sesuai antara perintah sistem dengan kondisi fisik, sehingga akurasi mencapai 100\%.
+
+\paragraph{b. Pengujian Stress Test --- Pengukuran Ketahanan Sistem di Bawah Beban}
+Pengujian \textit{stress test} dilakukan untuk mengukur ketahanan dan performa sistem WMC ketika menerima beban permintaan yang tinggi secara bersamaan pada setiap \textit{endpoint} utama. Sistem dinyatakan memenuhi kriteria apabila seluruh \textit{endpoint} yang diuji tidak mengalami kegagalan (\textit{error rate} 0\%) dan tetap responsif di bawah beban, yang diukur melalui waktu respons rata-rata, persentil ke-95 (p95), dan persentil ke-99 (p99).
+
+Metode pengujian dilakukan dengan mengirimkan sejumlah \textit{request} secara simultan ke setiap \textit{endpoint} pada \textit{Authentication Service} dan \textit{Goods Service} menggunakan alat pengujian beban (\textit{load testing tool}). Setiap \textit{endpoint} diuji secara terpisah dengan mencatat waktu respons rata-rata, p95, p99, \textit{error rate}, serta \textit{throughput} (jumlah \textit{request} yang berhasil diproses per detik). Hasil pengujian kemudian dibandingkan terhadap kriteria keberhasilan, yaitu tidak ada kegagalan \textit{request} selama pengujian berlangsung.
 
 Rangkuman seluruh kriteria evaluasi beserta parameter target dan metode pengujiannya disajikan pada Tabel \ref{tab:rangkuman-evaluasi}.
 
@@ -44,219 +37,29 @@ Rangkuman seluruh kriteria evaluasi beserta parameter target dan metode pengujia
     \hline
     \textbf{No} & \textbf{Kriteria Evaluasi} & \textbf{Parameter Target (B200)} & \textbf{Metode Pengujian} \\
     \hline
-    1 & Usability (Perangkat Lunak) & Skor SUS $>$ 80 & Kuesioner SUS dengan 5 responden \\
+    1 & Task Fulfilment Accuracy & Akurasi 100\%; tanpa \textit{misplacement}; konsistensi data fisik dan inventori & Perbandingan data basis data WMC terhadap kondisi fisik aktual pasca eksekusi tugas \\
     \hline
-    2 & Traceability & Sinkronisasi data $\leq$200 ms; pembaruan status robot $\leq$1 detik; data tercatat tanpa kehilangan & Audit log skenario \textit{inbound--storage--outbound} dan pengukuran latensi API \\
-    \hline
-    3 & Productivity & $\geq$20 tugas/jam per robot; rata-rata waktu penyelesaian $\pm$3 menit/tugas & Pencatatan jumlah \textit{task} selesai per jam dan waktu penyelesaian dari log sistem \\
-    \hline
-    4 & Task Fulfilment Accuracy & Akurasi 100\%; tanpa \textit{misplacement}; konsistensi data fisik dan inventori & Perbandingan data basis data WMC terhadap kondisi fisik aktual pasca eksekusi tugas \\
+    2 & Stress Test & \textit{Error rate} 0\% pada seluruh \textit{endpoint} di bawah beban & Pengujian beban simultan pada \textit{endpoint} utama dengan alat pengujian beban \\
     \hline
   \end{tabularx}
 \end{table}
 
-Keempat metode evaluasi tersebut dirancang agar dapat dilaksanakan secara bertahap dan sistematis. Pengujian \textit{usability} dan \textit{traceability} dapat dilakukan secara mandiri dalam lingkungan pengembangan, sementara pengujian produktivitas dan akurasi memerlukan integrasi penuh antara sistem WMC dengan subsistem robot dan \textit{Fleet Controller} dalam skenario operasional terintegrasi. Hasil dari masing-masing pengujian dipaparkan secara rinci pada Subbab \ref{sec:hasil-evaluasi}.
+Kedua metode evaluasi tersebut dirancang agar dapat dilaksanakan secara bertahap dan sistematis. Pengujian \textit{stress test} dapat dilakukan secara mandiri dalam lingkungan pengembangan, sementara pengujian akurasi pemenuhan tugas memerlukan integrasi penuh antara sistem WMC dengan subsistem robot dan \textit{Fleet Controller} dalam skenario operasional terintegrasi.
 
-\section{Hasil Evaluasi}
-\label{sec:hasil-evaluasi}
-Sub-bab ini menyajikan hasil pelaksanaan setiap metode evaluasi yang telah direncanakan pada Subbab 6.1. Pengujian dilaksanakan secara bertahap, dimulai dari pengujian fungsionalitas sistem berdasarkan skenario \textit{use case}, dilanjutkan dengan pengujian \textit{usability}, \textit{traceability}, produktivitas, dan akurasi pemenuhan tugas. Seluruh pengujian dilaksanakan dalam lingkungan terintegrasi antara sistem WMC, basis data, dan subsistem robot.
+\subsection{Metode Evaluasi Sistem Lokalisasi}
+Verifikasi Subsistem Lokalisasi dilakukan dengan menempatkan \textit{marker} Tag36h11 AprilTag ($8\times8$ cm) pada seluruh sel \textit{grid} lantai gudang berukuran $8\times4$ (32 sel), dengan posisi dan orientasi yang telah diketahui secara pasti sebagai \textit{ground truth}. Pengujian orientasi dilakukan pada empat kelipatan sudut, yaitu $0^\circ$, $90^\circ$, $180^\circ$, dan $270^\circ$, sesuai dengan resolusi deteksi \textit{heading} yang digunakan oleh sistem.
 
-\subsection{Hasil Pengujian Fungsionalitas}
-Pengujian fungsionalitas dilakukan untuk memverifikasi bahwa setiap fitur sistem WMC berjalan sesuai dengan skenario \textit{use case} yang telah didefinisikan pada Bab \ref{chap:perancangan}. Skenario pengujian mencakup fitur yang diuji sesuai \textit{use case}, input pengguna, \textit{output} yang diharapkan, dan status pengujian. Hasil pengujian dirangkum pada Tabel \ref{tab:hasil-fungsionalitas}.
+Pengujian dilaksanakan dengan menempatkan banyak \textit{marker} AprilTag secara bersamaan pada seluruh 32 sel \textit{grid} untuk memastikan bahwa pembacaan posisi berhasil dilakukan secara konsisten pada setiap sel, tidak hanya pada sebagian titik sampel. \textit{Payload} MQTT yang dipublikasikan oleh subsistem kemudian dibandingkan terhadap \textit{ground truth} untuk dua properti: posisi sel \textit{grid} (kolom, baris) dan sudut orientasi (\textit{heading}). Target keberhasilan adalah akurasi 100\% pada kedua properti tersebut di seluruh sel \textit{grid} dan seluruh sudut orientasi yang diuji. Tabel pengujian yang disajikan pada Subbab \ref{subsec:hasil-lokalisasi} menampilkan sebagian titik uji sebagai representasi dari keseluruhan pengujian yang telah dilakukan pada seluruh 32 sel \textit{grid}.
 
-\begin{table}[h]
-  \centering
-  \caption{Skenario dan hasil pengujian fungsionalitas WMC}
-  \label{tab:hasil-fungsionalitas}
-  \begin{tabularx}{\textwidth}{ | l | c | X | X | c | }
-    \hline
-    \textbf{ID} & \textbf{UC} & \textbf{Input} & \textbf{Output yang Diharapkan} & \textbf{Status} \\
-    \hline
-    FTA-01 & UC-01 & Username dan password valid & Login berhasil, JWT token diberikan, pengguna diarahkan ke halaman \textit{dashboard} & \checkmark \\
-    \hline
-    FTA-02 & UC-01 & Password tidak sesuai & Login gagal, pesan \enquote{Username atau password salah} ditampilkan, Respons 401 & \checkmark \\
-    \hline
-    FTA-03 & UC-01 & Field username atau password dikosongkan & Pesan validasi \enquote{Kolom tidak boleh kosong} ditampilkan & \checkmark \\
-    \hline
-    FTA-04 & UC-02 & Pengguna menekan tombol logout & Logout berhasil, sesi aktif dihapus dari basis data, pengguna diarahkan ke halaman login & \checkmark \\
-    \hline
-    FTA-05 & UC-03 & Halaman inventori dibuka, data barang tersedia & Daftar barang ditampilkan beserta nama, SKU, kategori, dan stok & \checkmark \\
-    \hline
-    FTA-06 & UC-03 & Halaman inventori dibuka, tidak ada data barang & Pesan \enquote{Belum ada barang terdaftar} ditampilkan & \checkmark \\
-    \hline
-    FTA-07 & UC-04 & Pengguna memilih barang dengan ID valid & Halaman detail barang ditampilkan: nama, SKU, deskripsi, dimensi, berat, kategori, dan stok & \checkmark \\
-    \hline
-    FTA-08 & UC-04 & ID barang tidak valid atau barang telah dihapus & Pesan \enquote{Data barang tidak ditemukan} ditampilkan & \checkmark \\
-    \hline
-    FTA-09 & UC-05 & Pengguna mengakses lokasi barang yang terdaftar & Informasi lokasi ditampilkan: zona, rak (rack), dan slot penyimpanan & \checkmark \\
-    \hline
-    FTA-10 & UC-05 & Barang tidak memiliki lokasi terdaftar & Pesan \enquote{Lokasi barang belum terdaftar} ditampilkan & \checkmark \\
-    \hline
-    FTA-11 & UC-06 & Tipe picking, barang dipilih, stok mencukupi, robot tersedia & Order picking berhasil dibuat, task robot dibuat dengan status Pending, konfirmasi ditampilkan & \checkmark \\
-    \hline
-    FTA-12 & UC-06 & Tipe picking, stok barang tidak mencukupi & Pesan \enquote{Stok tidak mencukupi} ditampilkan, order tidak terbuat & \checkmark \\
-    \hline
-    FTA-13 & UC-06 & Tipe picking, stok mencukupi, tidak ada robot tersedia & Order berhasil dibuat dengan status Waiting, task menunggu robot yang tersedia & \checkmark \\
-    \hline
-    FTA-14 & UC-07 & Tipe storing, barang dipilih, lokasi penyimpanan tersedia & Order storing berhasil dibuat, task robot dibuat dengan status Pending, konfirmasi ditampilkan & \checkmark \\
-    \hline
-    FTA-15 & UC-07 & Tipe storing, tidak ada lokasi penyimpanan tersedia & Pesan \enquote{Tidak ada lokasi penyimpanan yang tersedia} ditampilkan, order tidak terbuat & \checkmark \\
-    \hline
-    FTA-16 & UC-08 & Halaman daftar order dibuka, data order tersedia & Daftar order ditampilkan: ID, tipe, status, dan waktu pembuatan & \checkmark \\
-    \hline
-    FTA-17 & UC-08 & Halaman daftar order dibuka, belum ada order & Pesan \enquote{Belum ada order yang terdaftar} ditampilkan & \checkmark \\
-    \hline
-    FTA-18 & UC-09 & Halaman pemantauan task dibuka, task aktif tersedia & Daftar task ditampilkan: ID task, robot, order terkait, status, dan waktu mulai & \checkmark \\
-    \hline
-    FTA-19 & UC-09 & Pengguna memilih satu task untuk melihat detail & Detail task dan log aktivitas dari RobotLog ditampilkan lengkap & \checkmark \\
-    \hline
-    FTA-20 & UC-10 & Halaman pemantauan robot dibuka, robot terdaftar & Daftar robot ditampilkan: ID, nama, status (idle/active/charging/error), dan task aktif & \checkmark \\
-    \hline
-    FTA-21 & UC-10 & Robot mengalami error atau koneksi terputus & Status robot ditampilkan sebagai Error dengan keterangan pesan kesalahan terakhir dari RobotLog & \checkmark \\
-    \hline
-  \end{tabularx}
-\end{table}
+\section{Hasil Verifikasi}
+\label{sec:hasil-verifikasi}
+Sub-bab ini menyajikan hasil pelaksanaan setiap metode evaluasi yang telah direncanakan pada Subbab \ref{sec:metode-evaluasi}, dipisahkan antara hasil verifikasi Sistem WMC pada Subbab \ref{subsec:hasil-wmc} dan hasil verifikasi Sistem Lokalisasi pada Subbab \ref{subsec:hasil-lokalisasi}.
 
-Berdasarkan hasil pengujian pada Tabel \ref{tab:hasil-fungsionalitas}, seluruh 21 skenario pengujian fungsionalitas menunjukkan hasil yang sesuai dengan \textit{output} yang diharapkan. Sistem WMC berhasil menangani baik skenario alur utama maupun skenario alternatif pada setiap \textit{use case}, termasuk kondisi data kosong, input tidak valid, dan keterbatasan sumber daya seperti stok habis atau robot tidak tersedia.
+\subsection{Hasil Verifikasi Sistem WMC}
+\label{subsec:hasil-wmc}
 
-\subsection{Hasil Pengujian Usability}
-Pengujian \textit{usability} dilaksanakan dengan melibatkan lima orang responden yang mewakili profil pengguna sistem WMC. Setiap responden menjalankan skenario tugas mencakup proses login, pengelolaan data barang, pembuatan \textit{order}, dan pemantauan status robot, kemudian mengisi kuesioner \textit{System Usability Scale} (SUS) secara mandiri. Perhitungan skor SUS mengikuti formula standar, di mana skor akhir merupakan hasil penjumlahan selisih nilai setiap butir terhadap \textit{baseline} dikalikan 2,5. Hasil pengujian disajikan pada Tabel \ref{tab:hasil-sus}.
-
-\begin{table}[h]
-  \centering
-  \caption{Hasil pengujian usability (SUS)}
-  \label{tab:hasil-sus}
-  \begin{tabularx}{\textwidth}{ | c | X | X | c | }
-    \hline
-    \textbf{No} & \textbf{Profil Responden} & \textbf{Skenario Tugas yang Dijalankan} & \textbf{Skor SUS} \\
-    \hline
-    1 & Operator Gudang (pengalaman $>$2 tahun) & Login, daftar barang, buat order picking, pantau task & 85,0 \\
-    \hline
-    2 & Supervisor Operasional & Login, detail barang, buat order storing, pantau robot & 82,5 \\
-    \hline
-    3 & Staf IT / Administrator Sistem & Login, seluruh fitur inventori, buat order, pantau task dan robot & 90,0 \\
-    \hline
-    4 & Operator Gudang (baru, belum terbiasa sistem) & Login, daftar barang, buat order picking & 77,5 \\
-    \hline
-    5 & Manajer Operasional (pengguna non-teknis) & Login, daftar order, pantau status robot & 87,5 \\
-    \hline
-  \end{tabularx}
-\end{table}
-
-\begin{table}[h]
-  \centering
-  \caption{Rekapitulasi skor SUS}
-  \label{tab:rekap-sus}
-  \begin{tabular}{ | l | c | }
-    \hline
-    \textbf{Parameter} & \textbf{Nilai} \\
-    \hline
-    Skor SUS Tertinggi & 90,0 \\
-    \hline
-    Skor SUS Terendah & 77,5 \\
-    \hline
-    Rata-rata Skor SUS & 84,5 \\
-    \hline
-    Target Minimum (B200) & $>$ 80 \\
-    \hline
-    Status & Terpenuhi \checkmark \\
-    \hline
-  \end{tabular}
-\end{table}
-
-Rata-rata skor SUS yang diperoleh adalah 84,5, melampaui nilai target minimum 80 yang ditetapkan dalam spesifikasi B200. Skor tersebut masuk dalam kategori \enquote{Good} hingga \enquote{Excellent} pada skala adjektif SUS \autocite{bangor2009}, yang mengindikasikan bahwa antarmuka sistem WMC telah memiliki tingkat kemudahan penggunaan yang memadai untuk mendukung operasional gudang secara efektif. Skor terendah berasal dari responden dengan latar belakang operator baru, yang mengindikasikan potensi peningkatan pada aspek orientasi pengguna dan panduan antarmuka.
-
-\subsection{Hasil Pengujian Traceability}
-Pengujian \textit{traceability} dilaksanakan melalui dua tahap. Pertama, pengukuran latensi respons API pada seluruh \textit{endpoint} utama sistem WMC menggunakan alat pengujian HTTP. Setiap \textit{endpoint} diuji dengan 30 iterasi permintaan berturut-turut pada kondisi operasional normal, kemudian dianalisis nilai rata-rata, median, dan persentil ke-95 dari waktu respons. Kedua, dilakukan audit log dengan mensimulasikan alur operasional lengkap skenario \textit{inbound--storage--outbound} untuk memverifikasi kelengkapan dan ketepatan waktu pencatatan setiap kejadian.
-
-\begin{table}[h]
-  \centering
-  \caption{Hasil pengukuran latensi respons API}
-  \label{tab:latensi-api}
-  \begin{tabularx}{\textwidth}{ | l | l | c | c | c | c | }
-    \hline
-    \textbf{Layanan} & \textbf{Endpoint} & \textbf{Rata-rata (ms)} & \textbf{Median (ms)} & \textbf{P95 (ms)} & \textbf{Status} \\
-    \hline
-    auth-service & /auth/login (POST) & 45 & 42 & 78 & \checkmark $\leq$200ms \\
-    \hline
-    auth-service & /protected (GET) & 18 & 17 & 32 & \checkmark $\leq$200ms \\
-    \hline
-    goods-service & /items (GET) & 62 & 58 & 112 & \checkmark $\leq$200ms \\
-    \hline
-    goods-service & /item-locations (GET) & 55 & 52 & 98 & \checkmark $\leq$200ms \\
-    \hline
-    goods-service & /orders (POST) & 88 & 84 & 143 & \checkmark $\leq$200ms \\
-    \hline
-    goods-service & /tasks (POST) & 76 & 72 & 128 & \checkmark $\leq$200ms \\
-    \hline
-    goods-service & /robot-logs (GET) & 49 & 46 & 87 & \checkmark $\leq$200ms \\
-    \hline
-  \end{tabularx}
-\end{table}
-
-\begin{table}[h]
-  \centering
-  \caption{Hasil audit log skenario Inbound--Storage--Outbound}
-  \label{tab:audit-log}
-  \begin{tabularx}{\textwidth}{ | c | X | X | c | c | }
-    \hline
-    \textbf{No} & \textbf{Kejadian Fisik} & \textbf{Catatan di Basis Data WMC} & \textbf{Selisih Waktu Pencatatan} & \textbf{Status} \\
-    \hline
-    1 & Barang tiba di area inbound & Order storing dibuat, item location diperbarui & $\leq$150ms & \checkmark \\
-    \hline
-    2 & Robot mengambil barang dari docking area & Task dibuat dan ditetapkan ke robot, status Pending & $\leq$120ms & \checkmark \\
-    \hline
-    3 & Robot tiba di lokasi rak target & Robot log mencatat posisi dan status Active & $\leq$180ms & \checkmark \\
-    \hline
-    4 & Barang ditempatkan di rak (storing selesai) & Status task diperbarui Completed, item location diperbarui & $\leq$160ms & \checkmark \\
-    \hline
-    5 & Order picking dibuat oleh operator & Order dan order item dibuat, task ditetapkan ke robot & $\leq$130ms & \checkmark \\
-    \hline
-    6 & Barang diambil dari rak (picking selesai) & Status task Completed, stok item diperbarui & $\leq$170ms & \checkmark \\
-    \hline
-  \end{tabularx}
-\end{table}
-
-Seluruh \textit{endpoint} sistem WMC menunjukkan latensi respons yang berada di bawah ambang batas 200 ms yang ditetapkan dalam spesifikasi B200, dengan nilai persentil ke-95 tertinggi sebesar 143 ms pada \textit{endpoint} pembuatan \textit{order}. Hasil audit log juga mengonfirmasi bahwa seluruh kejadian fisik dalam alur \textit{inbound--storage--outbound} tercatat secara lengkap, berurutan, dan tepat waktu dalam basis data WMC tanpa terjadi kehilangan data. Pembaruan status robot pada antarmuka pengguna terjadi dalam waktu rata-rata 0,72 detik, memenuhi persyaratan $\leq$1 detik.
-
-\subsection{Hasil Pengujian Produktivitas}
-Pengujian produktivitas dilaksanakan dalam satu sesi operasional terintegrasi selama 60 menit. Perintah \textit{order picking} dan \textit{storing} diberikan secara berurutan melalui antarmuka WMC, dan sistem mencatat waktu pembuatan \textit{task}, waktu penerimaan oleh robot, serta waktu penyelesaian setiap tugas dari log robot. Hasil pengujian dirangkum pada Tabel \ref{tab:produktivitas}.
-
-\begin{table}[h]
-  \centering
-  \caption{Hasil pengujian produktivitas sistem WMC}
-  \label{tab:produktivitas}
-  \begin{tabular}{ | l | l | }
-    \hline
-    \textbf{Parameter} & \textbf{Hasil} \\
-    \hline
-    Durasi sesi pengujian & 60 menit \\
-    \hline
-    Jumlah robot yang digunakan & 2 unit \\
-    \hline
-    Total task yang diberikan & 50 task \\
-    \hline
-    Total task berhasil diselesaikan & 48 task \\
-    \hline
-    Task yang gagal / dibatalkan & 2 task (robot low battery) \\
-    \hline
-    Jumlah task selesai per jam (per robot) & 24 task/jam \\
-    \hline
-    Waktu penyelesaian rata-rata per task & 2 menit 35 detik \\
-    \hline
-    Target minimum throughput (B200) & $\geq$20 task/jam per robot \\
-    \hline
-    Target waktu penyelesaian (B200) & $\pm$3 menit per task \\
-    \hline
-    Status & Terpenuhi \checkmark \\
-    \hline
-  \end{tabular}
-\end{table}
-
-Sistem WMC berhasil memfasilitasi penyelesaian 24 \textit{task} per jam per robot, melampaui target minimum 20 \textit{task} per jam yang ditetapkan dalam spesifikasi B200. Waktu penyelesaian rata-rata per \textit{task} adalah 2 menit 35 detik, lebih cepat dari target $\pm$3 menit per \textit{task}. Dua \textit{task} yang gagal diselesaikan disebabkan oleh robot yang kehabisan daya baterai di tengah operasi, yang merupakan kendala pada subsistem perangkat keras dan bukan pada logika sistem WMC.
-
-\subsection{Hasil Pengujian Task Fulfilment Accuracy}
-Pengujian akurasi pemenuhan tugas dilaksanakan dengan mengeksekusi serangkaian tugas \textit{picking} dan \textit{storing} melalui sistem WMC dan kemudian membandingkan data yang tercatat dalam basis data dengan kondisi fisik aktual di gudang. Setiap \textit{task} diperiksa untuk memastikan tidak terjadi kesalahan lokasi rak (\textit{misplacement}) dan tidak ada ketidaksesuaian antara kondisi fisik dengan data inventori. Hasil pengujian disajikan pada Tabel \ref{tab:tfa}.
+\subsubsection*{VI.2.1.1 Hasil Pengujian Task Fulfilment Accuracy}
+Pengujian akurasi pemenuhan tugas dilaksanakan dengan mengeksekusi 8 tugas \textit{storing} dan 8 tugas \textit{picking} melalui sistem WMC menuju 8 rak \textit{storage} yang berbeda, dengan robot memulai pergerakan dari 4 sel \textit{idle} yang berbeda secara bergantian, kemudian membandingkan data yang tercatat dalam basis data dengan kondisi fisik aktual di gudang. Setiap \textit{task} diperiksa untuk memastikan tidak terjadi kesalahan lokasi rak (\textit{misplacement}) dan tidak ada ketidaksesuaian antara kondisi fisik dengan data inventori. Hasil pengujian disajikan pada Tabel \ref{tab:tfa}.
 
 \begin{table}[h]
   \centering
@@ -266,23 +69,61 @@ Pengujian akurasi pemenuhan tugas dilaksanakan dengan mengeksekusi serangkaian t
     \hline
     \textbf{Tipe Task} & \textbf{Jumlah Task Dieksekusi} & \textbf{Task Tanpa Kesalahan Lokasi} & \textbf{Akurasi (\%)} \\
     \hline
-    Storing (penempatan barang) & 10 & 10 & 100\% \\
+    Storing (penempatan barang) & 8 & 8 & 100\% \\
     \hline
-    Picking (pengambilan barang) & 10 & 10 & 100\% \\
+    Picking (pengambilan barang) & 8 & 8 & 100\% \\
     \hline
-    \textbf{Total keseluruhan} & \textbf{20} & \textbf{20} & \textbf{100\%} \\
+    \textbf{Total keseluruhan} & \textbf{16} & \textbf{16} & \textbf{100\%} \\
     \hline
   \end{tabular}
 \end{table}
 
-Seluruh 20 \textit{task} yang dieksekusi menunjukkan kesesuaian penuh antara lokasi target yang ditetapkan oleh sistem WMC dengan kondisi fisik aktual di gudang. Tidak terdapat satu pun kejadian \textit{misplacement} maupun ketidaksesuaian data inventori, sehingga tingkat \textit{Task Fulfilment Accuracy} mencapai 100\%, memenuhi target spesifikasi B200. Hasil ini mengonfirmasi bahwa logika \textit{Fleet Order Service} dalam menentukan lokasi target dan mekanisme pembaruan data pada \textit{Goods Detail Service} berjalan dengan benar dan andal.
+Seluruh 16 \textit{task} yang dieksekusi menuju 8 rak \textit{storage} dengan titik awal dari 4 sel \textit{idle} yang berbeda menunjukkan kesesuaian penuh antara lokasi target yang ditetapkan oleh sistem WMC dengan kondisi fisik aktual di gudang. Tidak terdapat satu pun kejadian \textit{misplacement} maupun ketidaksesuaian data inventori, sehingga tingkat \textit{Task Fulfilment Accuracy} mencapai 100\%, memenuhi target spesifikasi B200.
 
-\subsection{Hasil Pengujian Lokalisasi}
-Verifikasi Subsistem Lokalisasi dilakukan dengan menempatkan \textit{marker} Tag36h11 AprilTag ($8\times8$ cm) pada posisi dan orientasi yang telah diketahui secara pasti di area lantai gudang, kemudian membandingkan \textit{payload} MQTT yang dipublikasikan oleh subsistem terhadap \textit{ground truth} untuk dua properti: posisi sel \textit{grid} dan sudut orientasi (\textit{heading}). Target keberhasilan adalah akurasi 100\% pada kedua properti tersebut.
+\subsubsection*{VI.2.1.2 Hasil Pengujian Stress Test}
+Pengujian \textit{stress test} dilaksanakan dengan mengirimkan \textit{request} secara simultan ke sebelas \textit{endpoint} utama pada \textit{Authentication Service} dan \textit{Goods Service}. Setiap \textit{endpoint} diukur waktu respons rata-rata, p95, p99, \textit{error rate}, dan \textit{throughput} selama pengujian berlangsung. Hasil pengujian dirangkum pada Tabel \ref{tab:stress-test}.
 
 \begin{table}[h]
   \centering
-  \caption{Hasil verifikasi posisi Subsistem Lokalisasi}
+  \caption{Hasil pengujian stress test \textit{endpoint} WMC}
+  \label{tab:stress-test}
+  \begin{tabularx}{\textwidth}{ | X | c | c | c | c | c | c | }
+    \hline
+    \textbf{Endpoint} & \textbf{Avg} & \textbf{p(95)} & \textbf{p(99)} & \textbf{Error Rate} & \textbf{Throughput} & \textbf{Status} \\
+    \hline
+    POST /auth/login & 6,12 ms & 13,49 ms & 52,36 ms & 0,00\% & 17,6 req/s & Pass All \\
+    \hline
+    GET /items (Goods Service) & 5,06 ms & 10,37 ms & 120,6 ms & 0,00\% & 99,4 req/s & Pass All \\
+    \hline
+    POST /items (Goods Service) & 10,58 ms & 18,2 ms & 46,24 ms & 0,00\% & 19,8 req/s & Pass All \\
+    \hline
+    GET /orders (Blob Service) & 5,12 ms & 11,13 ms & 21,96 ms & 0,00\% & 19,9 req/s & Pass All \\
+    \hline
+    GET /apriltag-mappings/status & 5,54 ms & 17,06 ms & 26,28 ms & 0,00\% & 19,9 req/s & Pass All \\
+    \hline
+    POST /apriltag-mappings & 9 ms & 15,26 ms & 20,87 ms & 0,00\% & 19,8 req/s & Pass All \\
+    \hline
+    GET /orders & 5,93 ms & 11,74 ms & 28,57 ms & 0,00\% & 19,9 req/s & Pass All \\
+    \hline
+    POST /orders & 8,71 ms & 15,29 ms & 24,63 ms & 0,00\% & 19,6 req/s & Pass All \\
+    \hline
+    GET /apriltag-mappings/item/:itemId & 6,21 ms & 13,44 ms & 22,87 ms & 0,00\% & 19,83 req/s & Pass All \\
+    \hline
+    POST /apriltag-mappings/scan & 8,45 ms & 14,92 ms & 21,33 ms & 0,00\% & 19,79 req/s & Pass All \\
+    \hline
+    PATCH /apriltag-mappings/:mappingId/status & 10,13 ms & 17,58 ms & 24,61 ms & 0,00\% & 19,71 req/s & Pass All \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+Seluruh sebelas \textit{endpoint} yang diuji menunjukkan \textit{error rate} sebesar 0,00\%, yang berarti tidak ada \textit{request} yang gagal diproses selama pengujian berlangsung, sehingga memenuhi kriteria keberhasilan yang ditetapkan. Waktu respons p99 tertinggi tercatat pada \textit{endpoint} \texttt{GET /items} sebesar 120,6 ms, sementara \textit{endpoint} lainnya secara konsisten berada di bawah 55 ms pada persentil ke-99.
+
+\subsection{Hasil Verifikasi Sistem Lokalisasi}
+\label{subsec:hasil-lokalisasi}
+
+\begin{table}[h]
+  \centering
+  \caption{Contoh hasil verifikasi posisi Subsistem Lokalisasi (representasi dari pengujian pada seluruh 32 sel grid $8\times4$)}
   \label{tab:verifikasi-posisi}
   \begin{tabular}{ | c | c | c | }
     \hline
@@ -305,7 +146,7 @@ Verifikasi Subsistem Lokalisasi dilakukan dengan menempatkan \textit{marker} Tag
 
 \begin{table}[h]
   \centering
-  \caption{Hasil verifikasi orientasi Subsistem Lokalisasi}
+  \caption{Contoh hasil verifikasi orientasi Subsistem Lokalisasi (kelipatan $90^\circ$)}
   \label{tab:verifikasi-orientasi}
   \begin{tabular}{ | c | c | c | }
     \hline
@@ -322,6 +163,14 @@ Verifikasi Subsistem Lokalisasi dilakukan dengan menempatkan \textit{marker} Tag
   \end{tabular}
 \end{table}
 
-Seluruh 6 kasus verifikasi posisi dan 4 kasus verifikasi orientasi berhasil lulus dengan akurasi 100\%. Hasil ini mengonfirmasi bahwa \textit{pipeline} Subsistem Lokalisasi---mulai dari koreksi distorsi \textit{fisheye}, transformasi \textit{homography}, hingga \textit{snap} ke sel \textit{grid} diskrit---berfungsi dengan benar dan mampu melakukan pemetaan posisi dan deteksi orientasi secara andal pada seluruh titik pengujian di area lantai gudang.
+Pengujian posisi dilaksanakan dengan menempatkan AprilTag pada seluruh 32 sel \textit{grid} $8\times4$ secara bersamaan, dan seluruh sel berhasil terdeteksi dan dipetakan ke koordinat \textit{grid} yang sesuai dengan \textit{ground truth}, mencapai akurasi 100\%. Tabel \ref{tab:verifikasi-posisi} menampilkan enam titik uji sebagai contoh representatif dari keseluruhan pengujian tersebut. Pengujian orientasi dilaksanakan pada empat sudut \textit{heading} ($0^\circ$, $90^\circ$, $180^\circ$, $270^\circ$) dan seluruhnya terdeteksi dengan benar, sebagaimana dicontohkan pada Tabel \ref{tab:verifikasi-orientasi}.
 
-Secara keseluruhan, sistem \textit{Warehouse Management Controller} (WMC) dan Subsistem Lokalisasi yang dikembangkan telah memenuhi seluruh kriteria evaluasi yang ditetapkan. Kelima aspek yang diuji, yaitu \textit{usability}, \textit{traceability}, produktivitas, akurasi pemenuhan tugas, serta akurasi lokalisasi posisi dan orientasi, semuanya menunjukkan hasil yang melampaui atau memenuhi nilai target minimum yang disyaratkan. Hal ini mengonfirmasi bahwa WMC yang diimplementasikan layak digunakan sebagai komponen perangkat lunak inti dalam sistem \textit{Smart Warehouse} Paragon Corp.
+\section{Pembahasan Hasil Evaluasi}
+\label{sec:pembahasan-evaluasi}
+Berdasarkan hasil verifikasi pada Subbab \ref{sec:hasil-verifikasi}, seluruh kriteria evaluasi yang ditetapkan pada dokumen B200 untuk sistem WMC dan Subsistem Lokalisasi telah terpenuhi. Pada sisi WMC, pengujian \textit{Task Fulfilment Accuracy} menunjukkan akurasi 100\% dari 16 \textit{task} (8 \textit{storing} dan 8 \textit{picking}) yang dieksekusi menuju 8 rak \textit{storage} berbeda dengan titik awal dari 4 sel \textit{idle} yang berbeda, tanpa satu pun kejadian \textit{misplacement} atau ketidaksesuaian data inventori, yang mengonfirmasi bahwa logika \textit{Fleet Order Service} dalam menentukan lokasi target serta mekanisme pembaruan data pada \textit{Goods Detail Service} berjalan dengan benar dan andal. Pengujian \textit{stress test} pada sebelas \textit{endpoint} utama \textit{Authentication Service} dan \textit{Goods Service} menunjukkan \textit{error rate} 0,00\% di seluruh \textit{endpoint}, dengan waktu respons p99 tertinggi sebesar 120,6 ms pada \textit{endpoint} \texttt{GET /items}, sementara \textit{endpoint} lainnya secara konsisten berada di bawah 55 ms pada persentil ke-99. Hasil ini mengindikasikan bahwa sistem WMC tetap responsif dan tidak mengalami kegagalan pemrosesan permintaan sekalipun menerima beban tinggi secara bersamaan.
+
+Pada sisi Subsistem Lokalisasi, verifikasi yang dilakukan pada seluruh 32 sel \textit{grid} lantai gudang berukuran $8\times4$ menunjukkan akurasi 100\% untuk pemetaan posisi, dan verifikasi pada seluruh empat kelipatan sudut orientasi ($0^\circ$, $90^\circ$, $180^\circ$, $270^\circ$) juga menunjukkan akurasi 100\% untuk deteksi \textit{heading}. Hasil ini mengonfirmasi bahwa \textit{pipeline} Subsistem Lokalisasi---mulai dari koreksi distorsi \textit{fisheye}, transformasi \textit{homography}, hingga \textit{snap} ke sel \textit{grid} diskrit---berfungsi dengan benar dan mampu melakukan pemetaan posisi serta deteksi orientasi secara andal di seluruh area lantai gudang.
+
+Perlu dicatat bahwa data hasil \textit{stress test} yang disajikan pada Tabel \ref{tab:stress-test} merupakan hasil pengujian awal dan masih bersifat sementara, sehingga berpotensi diperbarui seiring dengan pengujian lanjutan pada kondisi beban yang lebih tinggi atau skenario operasional yang lebih bervariasi. Demikian pula, tabel verifikasi posisi dan orientasi Subsistem Lokalisasi (Tabel \ref{tab:verifikasi-posisi} dan Tabel \ref{tab:verifikasi-orientasi}) hanya menampilkan sebagian titik uji sebagai representasi dari keseluruhan 32 sel \textit{grid} dan seluruh sudut orientasi yang telah diverifikasi secara penuh.
+
+Secara keseluruhan, hasil evaluasi menunjukkan bahwa sistem \textit{Warehouse Management Controller} (WMC) dan Subsistem Lokalisasi yang dikembangkan telah memenuhi seluruh kriteria evaluasi yang ditetapkan. Ketiga aspek yang diuji, yaitu akurasi pemenuhan tugas, ketahanan sistem di bawah beban (\textit{stress test}), serta akurasi lokalisasi posisi dan orientasi, semuanya menunjukkan hasil yang memenuhi atau melampaui nilai target minimum yang disyaratkan dalam spesifikasi B200. Hal ini mengonfirmasi bahwa WMC dan Subsistem Lokalisasi yang diimplementasikan layak digunakan sebagai komponen inti dalam sistem \textit{Smart Warehouse} Paragon Corp.
