@@ -42,13 +42,11 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {I.2}Rumusan Masalah}{3}{section.1.2}%
-\contentsline {section}{\numberline {I.3}Tujuan}{4}{section.1.3}%
-\contentsline {section}{\numberline {I.4}Batasan Masalah}{5}{section.1.4}%
-\contentsline {section}{\numberline {I.5}Metodologi}{5}{section.1.5}%
-\contentsline {section}{\numberline {I.6}Sistematika Penulisan}{6}{section.1.6}%
+\contentsline {section}{\numberline {I.2}Rumusan Masalah}{2}{section.1.2}%
+\contentsline {section}{\numberline {I.3}Tujuan}{3}{section.1.3}%
+\contentsline {section}{\numberline {I.4}Batasan Masalah}{4}{section.1.4}%
+\contentsline {section}{\numberline {I.5}Metodologi}{4}{section.1.5}%
+\contentsline {section}{\numberline {I.6}Sistematika Penulisan}{5}{section.1.6}%
 \contentsline {chapter}{\numberline {II}STUDI LITERATUR}{7}{chapter.2}%
 \contentsline {section}{\numberline {II.1}Industri FMCG dan Peran Gudang Barang Jadi}{7}{section.2.1}%
 \babel@toc {english}{}\relax 

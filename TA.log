@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.4)  14 JUL 2026 20:39
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.4)  15 JUL 2026 21:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1176,52 +1176,51 @@ Package geometry Warning: `a4paper': not available in `\newgeometry'; skipped.
 
 
 ] (./TA.toc
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (4.43953pt too wide) in paragraph at lines 134--134
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Metode Pengambilan Keputusan: Analytical Hierarchy Process (AHP)[][] []  
+ []
 
- [11]
-Overfull \hbox (0.58832pt too wide) detected at line 211
+[11]
+Overfull \hbox (0.58832pt too wide) detected at line 184
 \TU/TimesNewRoman(0)/m/n/12 III.3.1.1 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 212
+Overfull \hbox (0.58832pt too wide) detected at line 185
 \TU/TimesNewRoman(0)/m/n/12 III.3.1.2 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 214
+Overfull \hbox (0.58832pt too wide) detected at line 187
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.1 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 215
+Overfull \hbox (0.58832pt too wide) detected at line 188
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.2 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 216
+Overfull \hbox (0.58832pt too wide) detected at line 189
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.3 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 219
+Overfull \hbox (0.58832pt too wide) detected at line 192
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.4 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 220
+Overfull \hbox (0.58832pt too wide) detected at line 193
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.5 
  []
 
-
-Overfull \hbox (7.96014pt too wide) in paragraph at lines 239--239
+[12]
+Overfull \hbox (7.96014pt too wide) in paragraph at lines 212--212
  [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Desain Detail Subsistem Lokalisasi (\TU/TimesNewRoman(0)/m/it/12 Localisation Sys- 
  []
 
-[12]
-Underfull \vbox (badness 6268) has occurred while \output is active []
-
- [13])
+[13])
 \tf@toc=\write5
 \openout5 = `TA.toc'.
 
@@ -1235,7 +1234,7 @@ Underfull \vbox (badness 1237) has occurred while \output is active []
 \openout6 = `TA.lof'.
 
 ) (./9 Daftar Tabel.tex [16] (./TA.lot
-Overfull \hbox (3.8019pt too wide) in paragraph at lines 164--164
+Overfull \hbox (3.8019pt too wide) in paragraph at lines 128--128
  [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Rekapitulasi Penilaian AHP Solusi Manajemen Data Inventori (B100 
  []
 
@@ -1284,28 +1283,24 @@ Overfull \hbox (16.93071pt too wide) in alignment at lines 15--104
 
 ] (./Bab I - Pendahuluan.tex
 \bbl@ensure@indonesian {Bab} I.
+
+Overfull \hbox (7.26668pt too wide) in paragraph at lines 9--10
+[]\TU/TimesNewRoman(0)/m/n/12 PT Paragon Technology and Innovation (Paragon Corp), salah satu perusahaan FMCG
+ []
+
 [1
 
 
 ]
-Underfull \vbox (badness 1412) has occurred while \output is active []
+Underfull \vbox (badness 4779) has occurred while \output is active []
 
- [2]
-Underfull \vbox (badness 7722) has occurred while \output is active []
-
- [3]
-Overfull \hbox (2.23563pt too wide) in paragraph at lines 41--42
+ [2] [3]
+Overfull \hbox (2.23563pt too wide) in paragraph at lines 37--38
 []\TU/TimesNewRoman(0)/m/n/12 Sistem manajemen informasi memiliki antarmuka yang mudah digunakan oleh
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4] [5]) (./Bab II - Studi.tex [6]
+[4] [5]) (./Bab II - Studi.tex [6]
 \bbl@ensure@indonesian {Bab} II.
-
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 17.
-
 
 Overfull \hbox (7.79181pt too wide) in paragraph at lines 17--18
 \TU/TimesNewRoman(0)/m/n/12 ngumpulan dan penyortiran (\TU/TimesNewRoman(0)/m/it/12 accumulating and sorting\TU/TimesNewRoman(0)/m/n/12 ), pengepakan (\TU/TimesNewRoman(0)/m/it/12 packing\TU/TimesNewRoman(0)/m/n/12 ), lintas-
@@ -3586,14 +3581,8 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-
-Package rerunfilecheck Warning: File `TA.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `TA.out':
-(rerunfilecheck)             Before: ADB8BCF2C07E6F603743CEF72C6394E3;26644
-(rerunfilecheck)             After:  C1DE87B8E4BF23D45BD7D4987BA9F089;27808.
+Package rerunfilecheck Info: File `TA.out' has not changed.
+(rerunfilecheck)             Checksum: C1DE87B8E4BF23D45BD7D4987BA9F089;27808.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                TA
@@ -3604,12 +3593,12 @@ Package logreq Info: Writing requests to 'TA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35676 strings out of 469293
- 705536 string characters out of 5455855
- 2281148 words of memory out of 5000000
- 64147 multiletter control sequences out of 15000+600000
+ 35652 strings out of 469293
+ 705254 string characters out of 5455855
+ 2282784 words of memory out of 5000000
+ 64123 multiletter control sequences out of 15000+600000
  634522 words of font info for 96 fonts, out of 8000000 for 9000
  374 hyphenation exceptions out of 8191
- 73i,10n,95p,1679b,7481s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,10n,95p,1668b,7481s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on TA.pdf (166 pages).
