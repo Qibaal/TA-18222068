@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.4)  15 JUL 2026 21:02
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.4)  16 JUL 2026 09:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -895,7 +895,7 @@ Package csquotes Warning: No style for language 'indonesian'.
 Package csquotes Info: Redefining alias 'default' -> 'fallback'.
 (./TA.aux (/usr/local/texlive/2026basic/texmf-dist/tex/generic/babel/locale/en/babel-english.tex)
 Package babel Info: Importing data for 'english'
-(babel)             from babel-en.ini. Reported on input line 60.
+(babel)             from babel-en.ini. Reported on input line 54.
 )
 \openout1 = `TA.aux'.
 
@@ -1176,47 +1176,47 @@ Package geometry Warning: `a4paper': not available in `\newgeometry'; skipped.
 
 
 ] (./TA.toc
-Overfull \hbox (4.43953pt too wide) in paragraph at lines 134--134
+Overfull \hbox (4.43953pt too wide) in paragraph at lines 116--116
  [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Metode Pengambilan Keputusan: Analytical Hierarchy Process (AHP)[][] []  
  []
 
 [11]
-Overfull \hbox (0.58832pt too wide) detected at line 184
+Overfull \hbox (0.58832pt too wide) detected at line 166
 \TU/TimesNewRoman(0)/m/n/12 III.3.1.1 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 185
+Overfull \hbox (0.58832pt too wide) detected at line 167
 \TU/TimesNewRoman(0)/m/n/12 III.3.1.2 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 187
+Overfull \hbox (0.58832pt too wide) detected at line 169
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.1 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 188
+Overfull \hbox (0.58832pt too wide) detected at line 170
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.2 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 189
+Overfull \hbox (0.58832pt too wide) detected at line 171
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.3 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 192
+Overfull \hbox (0.58832pt too wide) detected at line 174
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.4 
  []
 
 
-Overfull \hbox (0.58832pt too wide) detected at line 193
+Overfull \hbox (0.58832pt too wide) detected at line 175
 \TU/TimesNewRoman(0)/m/n/12 III.3.2.5 
  []
 
 [12]
-Overfull \hbox (7.96014pt too wide) in paragraph at lines 212--212
+Overfull \hbox (7.96014pt too wide) in paragraph at lines 194--194
  [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Desain Detail Subsistem Lokalisasi (\TU/TimesNewRoman(0)/m/it/12 Localisation Sys- 
  []
 
@@ -1234,7 +1234,7 @@ Underfull \vbox (badness 1237) has occurred while \output is active []
 \openout6 = `TA.lof'.
 
 ) (./9 Daftar Tabel.tex [16] (./TA.lot
-Overfull \hbox (3.8019pt too wide) in paragraph at lines 128--128
+Overfull \hbox (3.8019pt too wide) in paragraph at lines 110--110
  [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Rekapitulasi Penilaian AHP Solusi Manajemen Data Inventori (B100 
  []
 
@@ -1291,23 +1291,19 @@ Overfull \hbox (7.26668pt too wide) in paragraph at lines 9--10
 [1
 
 
+] [2] [3] [4]) (./Bab II - Studi.tex [5] [6
+
 ]
-Underfull \vbox (badness 4779) has occurred while \output is active []
-
- [2] [3]
-Overfull \hbox (2.23563pt too wide) in paragraph at lines 37--38
-[]\TU/TimesNewRoman(0)/m/n/12 Sistem manajemen informasi memiliki antarmuka yang mudah digunakan oleh
- []
-
-[4] [5]) (./Bab II - Studi.tex [6]
 \bbl@ensure@indonesian {Bab} II.
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 17.
+
 
 Overfull \hbox (7.79181pt too wide) in paragraph at lines 17--18
 \TU/TimesNewRoman(0)/m/n/12 ngumpulan dan penyortiran (\TU/TimesNewRoman(0)/m/it/12 accumulating and sorting\TU/TimesNewRoman(0)/m/n/12 ), pengepakan (\TU/TimesNewRoman(0)/m/it/12 packing\TU/TimesNewRoman(0)/m/n/12 ), lintas-
  []
 
 [7
-
 
 ]
 Underfull \vbox (badness 1412) has occurred while \output is active []
@@ -3578,9 +3574,6 @@ L3 programming layer <2026-06-18>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `TA.out' has not changed.
 (rerunfilecheck)             Checksum: C1DE87B8E4BF23D45BD7D4987BA9F089;27808.
 
@@ -3593,12 +3586,12 @@ Package logreq Info: Writing requests to 'TA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35652 strings out of 469293
- 705254 string characters out of 5455855
- 2282784 words of memory out of 5000000
- 64123 multiletter control sequences out of 15000+600000
+ 35644 strings out of 469293
+ 705167 string characters out of 5455855
+ 2282651 words of memory out of 5000000
+ 64115 multiletter control sequences out of 15000+600000
  634522 words of font info for 96 fonts, out of 8000000 for 9000
  374 hyphenation exceptions out of 8191
- 73i,10n,95p,1668b,7481s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,10n,95p,1668b,7479s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on TA.pdf (166 pages).
