@@ -6,8 +6,6 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
@@ -49,11 +47,7 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {figure}{\numberline {II.1}{\ignorespaces Ilustrasi arsitektur \textit {microservices} pada \textit {Warehouse Management Controller}}}{13}{figure.caption.8}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
+\contentsline {figure}{\numberline {II.1}{\ignorespaces Ilustrasi arsitektur \textit {microservices} pada \textit {Warehouse Management Controller}}}{11}{figure.caption.8}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -90,57 +84,117 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {figure}{\numberline {II.2}{\ignorespaces Ilustrasi alur \textit {Event-Driven Architecture} pada sistem manajemen inventori}}{21}{figure.caption.9}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {figure}{\numberline {II.2}{\ignorespaces Ilustrasi alur \textit {Event-Driven Architecture} pada sistem manajemen inventori}}{20}{figure.caption.9}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {III.1}{\ignorespaces Diagram BPMN proses bisnis \textit {warehouse} kondisi saat ini (\textit {As-Is})}}{24}{figure.caption.10}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {IV.1}{\ignorespaces Alur Proses Bisnis Kondisi \textit {To-Be} Sistem \textit {Smart Warehouse}}}{47}{figure.caption.11}%
+\contentsline {figure}{\numberline {IV.2}{\ignorespaces Konsep Sistem \textit {Smart Warehouse}}}{49}{figure.caption.12}%
+\contentsline {figure}{\numberline {IV.3}{\ignorespaces Arsitektur Sistem \textit {Smart Warehouse} Level 0}}{50}{figure.caption.13}%
+\contentsline {figure}{\numberline {IV.4}{\ignorespaces Arsitektur \textit {Warehouse Management Controller} (Level 2)}}{51}{figure.caption.14}%
+\contentsline {figure}{\numberline {IV.5}{\ignorespaces Arsitektur Komponen \textit {Database} WMC (Level 3)}}{53}{figure.caption.15}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {figure}{\numberline {IV.6}{\ignorespaces ERD Sistem \textit {Warehouse Management Controller}}}{54}{figure.caption.16}%
+\contentsline {figure}{\numberline {IV.7}{\ignorespaces Arsitektur Komponen \textit {Goods Detail Service} WMC (Level 3)}}{58}{figure.caption.17}%
+\contentsline {figure}{\numberline {IV.8}{\ignorespaces Arsitektur Komponen \textit {Fleet Order Service} WMC (Level 3)}}{59}{figure.caption.18}%
+\contentsline {figure}{\numberline {IV.9}{\ignorespaces Arsitektur Komponen \textit {Authentication Service} WMC (Level 3)}}{60}{figure.caption.19}%
+\contentsline {figure}{\numberline {IV.10}{\ignorespaces Arsitektur \textit {Fleet Controller} (Level 2)}}{62}{figure.caption.20}%
+\contentsline {figure}{\numberline {IV.11}{\ignorespaces Arsitektur Komponen \textit {Localisation System} \textit {Fleet Controller} (Level 3)}}{63}{figure.caption.21}%
+\contentsline {figure}{\numberline {IV.12}{\ignorespaces Perangkat Lokalisasi}}{65}{figure.caption.22}%
+\contentsline {figure}{\numberline {IV.13}{\ignorespaces \textit {Use Case Diagram} Sistem \textit {Warehouse Management Controller}}}{67}{figure.caption.23}%
+\contentsline {figure}{\numberline {IV.14}{\ignorespaces \textit {Class Diagram} Sistem \textit {Warehouse Management Controller}}}{75}{figure.caption.24}%
+\contentsline {figure}{\numberline {IV.15}{\ignorespaces \textit {Sequence Diagram} UC-01: \textit {Login System}}}{90}{figure.caption.25}%
+\contentsline {figure}{\numberline {IV.16}{\ignorespaces \textit {Sequence Diagram} UC-02: \textit {Logout System}}}{90}{figure.caption.26}%
+\contentsline {figure}{\numberline {IV.17}{\ignorespaces \textit {Sequence Diagram} UC-03: \textit {View Inventory List}}}{90}{figure.caption.27}%
+\contentsline {figure}{\numberline {IV.18}{\ignorespaces \textit {Sequence Diagram} UC-04: \textit {View Goods Detail}}}{91}{figure.caption.28}%
+\contentsline {figure}{\numberline {IV.19}{\ignorespaces \textit {Sequence Diagram} UC-05: \textit {View Order}}}{91}{figure.caption.29}%
+\contentsline {figure}{\numberline {IV.20}{\ignorespaces \textit {Sequence Diagram} UC-06: \textit {View Robot \& Operation Status}}}{91}{figure.caption.30}%
+\contentsline {figure}{\numberline {IV.21}{\ignorespaces \textit {Sequence Diagram} UC-07: \textit {Operate Digital Twin}}}{92}{figure.caption.31}%
+\contentsline {figure}{\numberline {IV.22}{\ignorespaces \textit {Sequence Diagram} UC-08: \textit {Create Order Request}}}{92}{figure.caption.32}%
+\contentsline {figure}{\numberline {IV.23}{\ignorespaces \textit {Sequence Diagram} UC-09: \textit {View Item History}}}{92}{figure.caption.33}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {V.1}{\ignorespaces Perangkat Keras Subsistem Lokalisasi}}{100}{figure.caption.34}%
+\contentsline {figure}{\numberline {V.2}{\ignorespaces Antarmuka Visualisasi Subsistem Lokalisasi}}{102}{figure.caption.35}%
+\contentsline {figure}{\numberline {V.3}{\ignorespaces Hasil Publikasi Data Posisi ke MQTT Broker}}{103}{figure.caption.36}%
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {figure}{\numberline {III.1}{\ignorespaces Diagram BPMN proses bisnis \textit {warehouse} kondisi saat ini (\textit {As-Is})}}{26}{figure.caption.10}%
-\contentsline {figure}{\numberline {III.2}{\ignorespaces Diagram BPMN proses bisnis \textit {Smart Warehouse} kondisi \textit {To-Be}}}{28}{figure.caption.11}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {IV.1}{\ignorespaces Konsep Sistem \textit {Smart Warehouse}}}{54}{figure.caption.12}%
-\contentsline {figure}{\numberline {IV.2}{\ignorespaces Arsitektur Sistem \textit {Smart Warehouse} Level 0}}{55}{figure.caption.13}%
-\contentsline {figure}{\numberline {IV.3}{\ignorespaces Arsitektur \textit {Warehouse Management Controller} (Level 2)}}{56}{figure.caption.15}%
-\contentsline {figure}{\numberline {IV.4}{\ignorespaces Arsitektur Komponen \textit {Database} WMC (Level 3)}}{57}{figure.caption.17}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {figure}{\numberline {IV.5}{\ignorespaces ERD Sistem \textit {Warehouse Management Controller}}}{59}{figure.caption.19}%
-\contentsline {figure}{\numberline {IV.6}{\ignorespaces Arsitektur Komponen \textit {Goods Detail Service} WMC (Level 3)}}{61}{figure.caption.21}%
-\contentsline {figure}{\numberline {IV.7}{\ignorespaces Arsitektur Komponen \textit {Fleet Order Service} WMC (Level 3)}}{61}{figure.caption.23}%
-\contentsline {figure}{\numberline {IV.8}{\ignorespaces Arsitektur Komponen \textit {Authentication Service} WMC (Level 3)}}{62}{figure.caption.25}%
-\contentsline {figure}{\numberline {IV.9}{\ignorespaces Arsitektur \textit {Fleet Controller} (Level 2)}}{64}{figure.caption.27}%
-\contentsline {figure}{\numberline {IV.10}{\ignorespaces Arsitektur Komponen \textit {Localisation System} \textit {Fleet Controller} (Level 3)}}{65}{figure.caption.29}%
-\contentsline {figure}{\numberline {IV.11}{\ignorespaces \textit {Use Case Diagram} Sistem \textit {Warehouse Management Controller}}}{67}{figure.caption.32}%
-\contentsline {figure}{\numberline {IV.12}{\ignorespaces \textit {Sequence Diagram} UC-01: \textit {Login System}}}{68}{figure.caption.34}%
-\contentsline {figure}{\numberline {IV.13}{\ignorespaces \textit {Sequence Diagram} UC-02: \textit {Logout System}}}{70}{figure.caption.37}%
-\contentsline {figure}{\numberline {IV.14}{\ignorespaces \textit {Sequence Diagram} UC-03: \textit {View Inventory List}}}{71}{figure.caption.40}%
-\contentsline {figure}{\numberline {IV.15}{\ignorespaces \textit {Sequence Diagram} UC-04: \textit {View Goods Detail}}}{72}{figure.caption.43}%
-\contentsline {figure}{\numberline {IV.16}{\ignorespaces \textit {Sequence Diagram} UC-05: \textit {View Order Status}}}{73}{figure.caption.46}%
-\contentsline {figure}{\numberline {IV.17}{\ignorespaces \textit {Sequence Diagram} UC-06: \textit {View Robot \& Operation Status}}}{74}{figure.caption.49}%
-\contentsline {figure}{\numberline {IV.18}{\ignorespaces \textit {Sequence Diagram} UC-07: \textit {Operate Digital Twin}}}{75}{figure.caption.52}%
-\contentsline {figure}{\numberline {IV.19}{\ignorespaces \textit {Sequence Diagram} UC-08: \textit {Create Order Request}}}{76}{figure.caption.55}%
-\contentsline {figure}{\numberline {IV.20}{\ignorespaces \textit {Sequence Diagram} UC-09: \textit {View Item History}}}{78}{figure.caption.58}%
-\contentsline {figure}{\numberline {IV.21}{\ignorespaces \textit {Class Diagram} Sistem \textit {Warehouse Management Controller}}}{79}{figure.caption.60}%
-\contentsline {figure}{\numberline {IV.22}{\ignorespaces \textit {Sequence Diagram} UC-01: \textit {Login System}}}{92}{figure.caption.91}%
-\contentsline {figure}{\numberline {IV.23}{\ignorespaces \textit {Sequence Diagram} UC-02: \textit {Logout System}}}{92}{figure.caption.92}%
-\contentsline {figure}{\numberline {IV.24}{\ignorespaces \textit {Sequence Diagram} UC-03: \textit {View Inventory List}}}{93}{figure.caption.93}%
-\contentsline {figure}{\numberline {IV.25}{\ignorespaces \textit {Sequence Diagram} UC-04: \textit {View Goods Detail}}}{93}{figure.caption.94}%
-\contentsline {figure}{\numberline {IV.26}{\ignorespaces \textit {Sequence Diagram} UC-05: \textit {View Order Status}}}{93}{figure.caption.95}%
-\contentsline {figure}{\numberline {IV.27}{\ignorespaces \textit {Sequence Diagram} UC-06: \textit {View Robot \& Operation Status}}}{94}{figure.caption.96}%
-\contentsline {figure}{\numberline {IV.28}{\ignorespaces \textit {Sequence Diagram} UC-07: \textit {Operate Digital Twin}}}{94}{figure.caption.97}%
-\contentsline {figure}{\numberline {IV.29}{\ignorespaces \textit {Sequence Diagram} UC-08: \textit {Create Order Request}}}{94}{figure.caption.98}%
-\contentsline {figure}{\numberline {IV.30}{\ignorespaces \textit {Sequence Diagram} UC-09: \textit {View Item History}}}{95}{figure.caption.99}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {V.1}{\ignorespaces Perangkat Keras Subsistem Lokalisasi}}{108}{figure.caption.106}%
-\contentsline {figure}{\numberline {V.2}{\ignorespaces Antarmuka Visualisasi Subsistem Lokalisasi}}{110}{figure.caption.108}%
-\contentsline {figure}{\numberline {V.3}{\ignorespaces Hasil Publikasi Data Posisi ke MQTT Broker}}{111}{figure.caption.109}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

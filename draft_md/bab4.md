@@ -315,9 +315,9 @@ Tabel 4.18 Skenario Use Case UC-04: View Goods Detail
 | **Skenario Alternatif** | |
 | Tidak terdapat skenario alternatif yang dirumuskan untuk use case ini pada dokumen sumber. | |
 
-#### IV.4.1.5 UC-05: View Order Status
+#### IV.4.1.5 UC-05: View Order
 
-Tabel 4.19 Deskripsi Use Case UC-05: View Order Status
+Tabel 4.19 Deskripsi Use Case UC-05: View Order
 
 | Elemen | Keterangan |
 | --- | --- |
@@ -328,7 +328,7 @@ Tabel 4.19 Deskripsi Use Case UC-05: View Order Status
 | Kondisi Akhir | Pengguna dapat memantau progres setiap permintaan penyimpanan atau pengambilan barang. |
 | Deskripsi | Use case ini memungkinkan staf gudang memantau status order inbound maupun outbound. |
 
-Tabel 4.20 Skenario Use Case UC-05: View Order Status
+Tabel 4.20 Skenario Use Case UC-05: View Order
 
 | Aktor | Sistem |
 | --- | --- |
@@ -840,13 +840,13 @@ Sequence diagram ini menggambarkan alur penampilan detail suatu barang. Ketika p
 
 _Gambar 4.16 Sequence Diagram UC-04: View Goods Detail_
 
-5. Sequence Diagram UC-05: View Order Status
+5. Sequence Diagram UC-05: View Order
 
 Sequence diagram ini menggambarkan alur pemantauan status order. Antarmuka pengguna mengirimkan permintaan ke OrderController, yang meneruskannya ke fleet order service untuk mengambil data order. Sistem menampilkan daftar order beserta status terkininya (Pending, InProgress, Completed, atau Failed).
 
-![Placeholder Gambar 4.17 Sequence Diagram UC-05 View Order Status](../images/bab_iv/Sequence_Diagram/sd05.png)
+![Placeholder Gambar 4.17 Sequence Diagram UC-05 View Order](../images/bab_iv/Sequence_Diagram/sd05.png)
 
-_Gambar 4.17 Sequence Diagram UC-05: View Order Status_
+_Gambar 4.17 Sequence Diagram UC-05: View Order_
 
 6. Sequence Diagram UC-06: View Robot & Operation Status
 

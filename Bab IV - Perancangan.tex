@@ -10,47 +10,62 @@ Sebelum mengembangkan sistem \textit{Smart Warehouse}, dilakukan analisis kesenj
 
 Pada kondisi \textit{As-Is}, operasional pergudangan untuk industri \textit{Fast Moving Consumer Goods} (FMCG) seperti Paragon Corp masih bersifat semi-manual dan sangat bergantung pada operator manusia dalam proses \textit{stocking}, \textit{picking}, serta \textit{checking}. Berdasarkan analisis proses bisnis, kondisi saat ini memunculkan celah operasional berupa data stok yang tidak \textit{real-time} karena belum tersinkronisasinya WMS dengan sistem pusat, proses \textit{inbound} yang lambat dan rawan \textit{error}, serta kelambatan dalam \textit{picking} barang yang berdampak pada meningkatnya \textit{lead time} distribusi logistik.
 
-Untuk menyelesaikan berbagai celah operasional tersebut, diusulkan kondisi \textit{To-Be} berupa sistem \textit{Smart Warehouse} yang sepenuhnya terotomasi. Transformasi pada kondisi \textit{To-Be} dirancang dengan cakupan sebagai berikut:
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{images/bpmn_tobe.png}
+  \caption{Alur Proses Bisnis Kondisi \textit{To-Be} Sistem \textit{Smart Warehouse}}
+  \label{fig:bpmn-tobe}
+\end{figure}
+
+Untuk menyelesaikan berbagai celah operasional tersebut, diusulkan kondisi \textit{To-Be} berupa sistem \textit{Smart Warehouse} yang sepenuhnya terotomasi melalui penerapan \textit{Warehouse Management Controller} (WMC) yang mengintegrasikan antarmuka pengguna berbasis \textit{web}, layanan manajemen pesanan, pengendalian armada robot, dan pembaruan inventori otomatis. Transformasi pada kondisi \textit{To-Be} dirancang dengan cakupan sebagai berikut:
 
 \begin{itemize}
   \item \textbf{Integrasi Sistem \textit{Real-Time}}: Sistem inventori terintegrasi secara langsung antara \textit{warehouse} barang jadi dengan sistem pusat sehingga pencatatan data stok selalu tersinkronisasi dan aktual.
-  \item \textbf{Deteksi dan Pelacakan Otomatis}: Proses pendataan, pelacakan lokasi, dan pemantauan pergerakan barang dilakukan secara otomatis dengan tingkat presisi yang tinggi untuk meminimalisasi \textit{human error}.
-  \item \textbf{Otomasi Perpindahan Barang}: Menggantikan proses manual dengan sistem perpindahan barang otomatis (menggunakan robot) untuk seluruh tahapan operasional---baik \textit{storing} maupun \textit{picking}---guna menjamin kecepatan dan keakuratan pemenuhan pesanan.
+  \item \textbf{Deteksi dan Pelacakan Otomatis}: Proses pendataan, pelacakan lokasi, dan pemantauan pergerakan barang dilakukan secara otomatis dengan presisi tinggi untuk meminimalisasi \textit{human error}.
+  \item \textbf{Otomasi Perpindahan Barang}: Menggantikan proses manual dengan sistem perpindahan barang otomatis menggunakan robot untuk seluruh tahapan operasional---baik \textit{storing} maupun \textit{picking}---guna menjamin kecepatan dan keakuratan pemenuhan pesanan.
 \end{itemize}
+
+Alur proses bisnis kondisi \textit{To-Be} secara keseluruhan digambarkan pada Gambar \ref{fig:bpmn-tobe}. Proses dimulai ketika staf gudang \textit{login} ke \textit{WMC Dashboard} melalui autentikasi berbasis \textit{Bearer Token} dari \textit{Authentication Service}, lalu membuat pesanan \textit{storing} atau \textit{picking} melalui antarmuka WMC. Khusus pesanan \textit{picking}, diperlukan persetujuan manajer gudang sebelum diproses sehingga setiap aktivitas pengambilan barang memiliki rekam jejak otorisasi yang terstruktur. Pesanan yang disetujui diterima \textit{Fleet Order Service} untuk divalidasi dan diteruskan ke \textit{Fleet Controller}, yang secara otomatis menentukan robot tersedia, mengalokasikan tugas, dan membangkitkan \textit{waypoint} rute tanpa intervensi manual.
+
+Robot yang ditugaskan bergerak otonom menuju lokasi sumber menggunakan navigasi berbasis pemindaian \textit{QR code} dan sensor IMU, melakukan \textit{docking} dan mengangkat barang dengan mekanisme \textit{underride lifting}, lalu bernavigasi ke lokasi tujuan dan menurunkan barang secara presisi---menggantikan \textit{picking} dan \textit{storing} manual. Setelah tugas selesai, WMC memperbarui data inventori secara otomatis melalui mekanisme \textit{event-driven} yang mencatat setiap perubahan stok sebagai \textit{event} diskrit, dan status pesanan langsung dikirim ke antarmuka WMC. Dengan demikian staf dapat memantau kondisi gudang secara \textit{real-time} tanpa pencatatan manual, sehingga konsistensi antara kondisi fisik di lapangan dan data digital pada sistem selalu terjaga.
 
 \section{Gambaran Umum Sistem}
 Sistem \textit{Smart Warehouse} yang dikembangkan pada penelitian ini dirancang sebagai sebuah \textit{Proof of Concept} (PoC) untuk memvalidasi fungsionalitas, kinerja, dan integrasi dari seluruh subsistem otomasi pergudangan sebelum diimplementasikan pada lingkungan industri yang sesungguhnya. Implementasi fisik dari sistem ini dilaksanakan pada \textit{layout} yang diskalakan $\pm2,4\times1,2$ m, robot dengan ukuran $\pm15\times15$ cm, dan rak barang dengan ukuran $\pm20\times20$ cm sebagai representasi proses gudang yang sama seperti skala besar.
 
-Selain itu, perangkat lunak yang digunakan memiliki kesamaan fungsi dengan rancangan skala industri, sehingga yang diuji pada PoC mencerminkan perilaku sistem penuh. Melalui pendekatan pengujian berskala ini, seluruh proses operasional mulai dari manajemen pesanan, sinkronisasi inventori, pemetaan lokasi, hingga pengendalian pergerakan armada robot dapat dievaluasi secara komprehensif dan akurat selayaknya operasional gudang pada tahap \textit{Industry Scale}.
-
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/architecture-Level-0.jpg}
   \caption{Konsep Sistem \textit{Smart Warehouse}}
   \label{fig:konsep-sistem}
 \end{figure}
 
+Selain itu, perangkat lunak yang digunakan memiliki kesamaan fungsi dengan rancangan skala industri, sehingga yang diuji pada PoC mencerminkan perilaku sistem penuh. Melalui pendekatan pengujian berskala ini, seluruh proses operasional mulai dari manajemen pesanan, sinkronisasi inventori, pemetaan lokasi, hingga pengendalian pergerakan armada robot dapat dievaluasi secara komprehensif dan akurat selayaknya operasional gudang pada tahap \textit{Industry Scale}.
+
 \section{Diagram Arsitektur}
 Subbab ini menjabarkan arsitektur sistem \textit{Smart Warehouse} secara bertingkat, dari gambaran sistem keseluruhan pada Level 0 hingga dekomposisi komponen perangkat lunak yang menyusun \textit{Warehouse Management Controller} (WMC) pada Level 3. Fokus pembahasan diarahkan pada WMC sebagai subsistem perangkat lunak yang dikembangkan, beserta komponen-komponen yang secara langsung berinteraksi dengannya, termasuk arsitektur \textit{Fleet Controller} sebagai konteks integrasi dan komponen \textit{Localisation System} yang menjadi kontribusi individu penulis di dalamnya.
 
-\subsection{Arsitektur Level 0}
-Arsitektur Level 0 menggambarkan sistem \textit{Smart Warehouse} secara menyeluruh sebagai satu kesatuan modul tunggal. Pada level ini, sistem dipandang sebagai kotak hitam (\textit{black box}) yang menerima berbagai masukan dari lingkungan eksternal dan menghasilkan keluaran berupa eksekusi fisik pemindahan barang serta laporan status operasional. Sistem ini berinteraksi langsung dengan staf gudang (\textit{Warehouse Staff}) dan sistem logistik eksternal. Gambar \ref{fig:level0-arch} mengilustrasikan arsitektur sistem pada Level 0.
-
-\begin{figure}[htbp]
+\subsection{Arsitektur Level 1 — Warehouse Management Controller}
+Pada Level 1, sistem \textit{Smart Warehouse} didekomposisi menjadi dua subsistem utama, yaitu \textit{Goods Handling and Delivery System} (GHDS) yang menangani aktivitas fisik robot, dan \textit{Warehouse Management Controller} (WMC) yang menjadi fokus pengembangan pada tugas akhir ini. WMC berfungsi sebagai pusat kendali digital yang mengelola permintaan barang, mengoordinasikan pengendalian robot, serta memperbarui status pesanan secara terintegrasi. WMC berinteraksi langsung dengan antarmuka pengguna, basis data, dan Fleet Controller pada GHDS. Gambar \ref{fig:level1-arch} mengilustrasikan arsitektur WMC pada Level 1.
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/architecture-Level-1.jpg}
   \caption{Arsitektur Sistem \textit{Smart Warehouse} Level 0}
   \label{fig:level0-arch}
 \end{figure}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Fungsi, masukan, dan keluaran sistem \textit{Smart Warehouse} (Level 0)}
-  \label{tab:level0}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Deskripsi} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Fungsi, masukan, dan keluaran sistem \textit{Smart Warehouse} (Level 0)} \label{tab:level0} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:level0}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     Modul & Sistem \textit{Smart Warehouse} (\textit{Finished Goods}) \\
     \hline
     Fungsi & Melakukan interaksi perintah \textit{picking} dan \textit{storing} serta data yang dikirimkan dari \textit{Warehouse Staff}, serta melakukan integrasi data gudang dengan sistem yang sudah ada. \\
@@ -59,37 +74,41 @@ Arsitektur Level 0 menggambarkan sistem \textit{Smart Warehouse} secara menyelur
     \hline
     Luaran & 1. \textit{Order status} --- informasi keberhasilan proses ke operator dan sistem. 2. \textit{Robots data} --- status operasi robot, progres navigasi, dan hasil tugas. 3. \textit{Goods delivery} --- barang fisik yang dikirim ke sistem logistik. 4. \textit{Logistic documentation} --- laporan pelepasan barang dan dokumen \textit{tracking}. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{Subsistem \textit{Warehouse Management Controller} (WMC)}
 
 \subsubsection{Arsitektur Level 2 --- WMC}
 Pada Level 2, sistem \textit{Smart Warehouse} didekomposisi menjadi dua subsistem utama, yaitu \textit{Goods Handling and Delivery System} (GHDS) yang menangani aktivitas fisik robot, dan \textit{Warehouse Management Controller} (WMC) yang menjadi fokus pengembangan pada tugas akhir ini. WMC berfungsi sebagai pusat kendali digital yang mengelola permintaan barang, mengoordinasikan pengendalian robot, serta memperbarui status pesanan secara terintegrasi. WMC berinteraksi langsung dengan antarmuka pengguna, basis data, dan \textit{Fleet Controller} pada GHDS. Gambar \ref{fig:wmc-level2-arch} mengilustrasikan arsitektur WMC pada Level 2.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/wmc/wmc.jpg}
   \caption{Arsitektur \textit{Warehouse Management Controller} (Level 2)}
   \label{fig:wmc-level2-arch}
 \end{figure}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Fungsi, masukan, dan keluaran \textit{Warehouse Management Controller} (Level 2)}
-  \label{tab:wmc-level2}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Deskripsi} \\
-    \hline
-    Fungsi & Mengelola dan mengkoordinasikan proses permintaan barang, pengendalian robot, serta pembaruan status pesanan di gudang secara terintegrasi. \\
-    \hline
-    Masukan & 1. Data robot --- informasi kondisi, posisi, dan status operasional robot. 2. Status pesanan --- informasi perkembangan pesanan yang sedang diproses. 3. Permintaan barang --- permintaan pengambilan atau penyediaan barang dari gudang. 4. Perintah pesanan --- instruksi untuk memproses atau mengeksekusi pesanan tertentu. 5. Kredensial --- data autentikasi untuk memverifikasi akses pengguna. \\
-    \hline
-    Luaran & 1. Barang yang diminta --- informasi atau perintah terkait barang yang harus diambil atau disiapkan. 2. Informasi \& data robot --- kondisi dan data operasional robot yang telah diperbarui. 3. Status pesanan --- status terbaru pesanan setelah diproses oleh sistem. 4. \textit{Bearer Token} --- token autentikasi untuk mengamankan komunikasi antar layanan. \\
-    \hline
-  \end{tabularx}
-\end{table}
+\begin{xltabular}{\textwidth}{ | l | X | }
+  \caption{Fungsi, masukan, dan keluaran \textit{Warehouse Management Controller} (Level 2)} \label{tab:wmc-level2} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:wmc-level2}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
+  Fungsi & Mengelola dan mengkoordinasikan proses permintaan barang, pengendalian robot, serta pembaruan status pesanan di gudang secara terintegrasi. \\
+  \hline
+  Masukan & 1. Data robot --- informasi kondisi, posisi, dan status operasional robot. 2. Status pesanan --- informasi perkembangan pesanan yang sedang diproses. 3. Permintaan barang --- permintaan pengambilan atau penyediaan barang dari gudang. 4. Perintah pesanan --- instruksi untuk memproses atau mengeksekusi pesanan tertentu. 5. Kredensial --- data autentikasi untuk memverifikasi akses pengguna. \\
+  \hline
+  Luaran & 1. Barang yang diminta --- informasi atau perintah terkait barang yang harus diambil atau disiapkan. 2. Informasi \& data robot --- kondisi dan data operasional robot yang telah diperbarui. 3. Status pesanan --- status terbaru pesanan setelah diproses oleh sistem. 4. \textit{Bearer Token} --- token autentikasi untuk mengamankan komunikasi antar layanan. \\
+  \hline
+\end{xltabular}
 
 \subsubsection{Arsitektur Level 3 --- Komponen WMC}
 Pada Level 3, WMC didekomposisi menjadi empat komponen perangkat lunak yang masing-masing memiliki tanggung jawab yang terdefinisi. Keempat komponen tersebut adalah \textit{Database}, \textit{Goods Detail Service}, \textit{Fleet Order Service}, dan \textit{Authentication Service}. Setiap komponen saling terhubung dan beroperasi dalam arsitektur \textit{microservices} yang memungkinkan setiap layanan dikembangkan dan di-\textit{deploy} secara independen (lihat Subbab \ref{chap:studi-literatur} tentang arsitektur \textit{microservices}, khususnya Gambar \ref{fig:microservices-diagram}).
@@ -97,29 +116,34 @@ Pada Level 3, WMC didekomposisi menjadi empat komponen perangkat lunak yang masi
 \paragraph{Database}
 Komponen \textit{Database} merupakan lapisan penyimpanan data terpusat pada WMC. Komponen ini menyimpan seluruh data operasional gudang, mencakup detail barang, \textit{layout} penyimpanan, data pengguna, sesi autentikasi, dan status pengiriman robot. Seluruh layanan WMC lainnya berinteraksi dengan komponen ini melalui mekanisme \textit{query} yang terstruktur. Gambar \ref{fig:database-arch} mengilustrasikan arsitektur komponen \textit{Database}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/wmc/database.jpg}
   \caption{Arsitektur Komponen \textit{Database} WMC (Level 3)}
   \label{fig:database-arch}
 \end{figure}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Fungsi, masukan, dan keluaran \textit{Database} WMC}
-  \label{tab:database-io}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Deskripsi} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Fungsi, masukan, dan keluaran \textit{Database} WMC} \label{tab:database-io} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:database-io}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     Fungsi & Menyimpan dan menyediakan data keseluruhan operasional gudang, mencakup detail barang, \textit{layout} penyimpanan, status pengiriman robot, data pengguna, dan sesi autentikasi. \\
     \hline
     Masukan & 1. \textit{Query Data Goods} --- permintaan baca/ubah/hapus data barang dari \textit{Goods Detail Service}. 2. \textit{Auth Query} / \textit{Session Data} --- diterima dari \textit{Authentication Service} untuk validasi pengguna dan penyimpanan sesi. 3. \textit{Location Query} \& \textit{Order Data} --- diterima dari \textit{Fleet Order Service} untuk mendapatkan lokasi barang dan memperbarui detail barang. \\
     \hline
     Luaran & 1. \textit{Goods Data} --- dikirim ke \textit{Goods Detail Service} sebagai hasil \textit{query} data barang. 2. \textit{User Data} / \textit{Session Info} --- dikirim ke \textit{Authentication Service}. 3. \textit{Location Data} / \textit{Updated Goods Detail} --- dikirim ke \textit{Fleet Order Service}. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 Sebagai kelanjutan dari perancangan komponen \textit{Database}, subbab ini turut menjabarkan skema basis data sistem yang dimodelkan menggunakan \textit{Entity Relationship Diagram} (ERD) berikut.
 
@@ -129,7 +153,7 @@ Pada tugas akhir ini, ERD digunakan untuk memodelkan entitas-entitas utama yang 
 
 Berikut ini merupakan \textit{Entity Relationship Diagram} yang digunakan dalam pengembangan sistem \textit{Warehouse Management Controller}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/ERD.jpg}
   \caption{ERD Sistem \textit{Warehouse Management Controller}}
@@ -138,14 +162,19 @@ Berikut ini merupakan \textit{Entity Relationship Diagram} yang digunakan dalam 
 
 Berdasarkan ERD pada Gambar \ref{fig:erd-wmc}, terdapat sembilan entitas yang dirancang dalam basis data sistem. Entitas \textit{User} menyimpan data pengguna sistem beserta kredensial autentikasi, sedangkan entitas \textit{Session} mencatat informasi sesi aktif pengguna termasuk token dan masa berlakunya. Entitas \textit{Order} merepresentasikan setiap permintaan \textit{picking} maupun \textit{storing} yang dibuat oleh pengguna, dan terhubung dengan entitas \textit{OrderItem} yang memuat rincian barang dalam setiap \textit{order} beserta kuantitasnya. Entitas \textit{Item} menjadi master data barang yang tersimpan di gudang, dilengkapi dengan entitas \textit{ItemLocation} untuk menyimpan informasi posisi fisik barang berupa koordinat rak dalam area gudang. Entitas \textit{Task} menghubungkan \textit{OrderItem} dengan \textit{Robot}, merepresentasikan instruksi operasional yang diberikan kepada robot untuk dieksekusi. Entitas \textit{Robot} menyimpan data identitas dan kapasitas robot, sementara entitas \textit{RobotLog} mencatat seluruh aktivitas dan kejadian pada setiap robot sebagai mekanisme \textit{logging} dan pelacakan kesalahan sistem.
 
-\begin{table}[htbp]
-  \centering
-  \caption{Penjelasan entitas basis data \textit{Warehouse Management Controller}}
-  \label{tab:entitas-db}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Entitas} & \textbf{Deskripsi} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Penjelasan entitas basis data \textit{Warehouse Management Controller}} \label{tab:entitas-db} \\
+  \hline
+  \textbf{Entitas} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:entitas-db}}} \\
+  \hline
+  \textbf{Entitas} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \textit{User} & Menyimpan data pengguna sistem yang merupakan staf gudang yang bertugas mengelola dan memantau seluruh operasional \textit{Warehouse Management Controller}. Struktur data dari entitas \textit{User} mencakup informasi identitas pengguna seperti nama, \textit{username}, dan \textit{password} yang digunakan untuk keperluan autentikasi, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{User} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{Order} memungkinkan sistem melacak seluruh permintaan \textit{picking} dan \textit{storing} yang dibuat oleh masing-masing pengguna, sedangkan relasi dengan entitas \textit{Session} digunakan untuk mengelola sesi login aktif pengguna berdasarkan token autentikasi yang diterbitkan setelah proses login berhasil dilakukan. \\
     \hline
     \textit{Order} & Menyimpan data permintaan operasional gudang yang diajukan oleh pengguna, baik berupa proses \textit{picking} (pengambilan barang) maupun \textit{storing} (penyimpanan barang). Struktur data dari entitas \textit{Order} mencakup referensi pengguna yang mengajukan permintaan, status terkini dari permintaan tersebut, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{Order} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{User} mengikat setiap permintaan kepada pengguna yang membuatnya sehingga sistem dapat melakukan pelacakan dan audit aktivitas secara terstruktur, sedangkan relasi dengan entitas \textit{OrderItem} memungkinkan satu permintaan mencakup beberapa barang sekaligus dengan rincian kuantitas masing-masing. \\
@@ -164,90 +193,105 @@ Berdasarkan ERD pada Gambar \ref{fig:erd-wmc}, terdapat sembilan entitas yang di
     \hline
     \textit{RobotLog} & Mencatat seluruh kejadian, aktivitas, dan kesalahan yang terjadi pada setiap robot selama beroperasi di dalam gudang sebagai mekanisme \textit{logging} dan \textit{audit trail}. Struktur data entitas \textit{RobotLog} mencakup kode log, kode kesalahan (\textit{error code}), pesan kejadian, serta stempel waktu kejadian. Entitas \textit{RobotLog} terhubung dengan dua entitas lain: relasi dengan entitas \textit{Robot} (\textit{many-to-one}) untuk mengidentifikasi unit robot yang menghasilkan log, serta relasi dengan entitas \textit{Task} (\textit{many-to-one}) untuk mengaitkan setiap entri log dengan \textit{task} operasional yang sedang dijalankan saat kejadian tersebut terjadi, sehingga memudahkan penelusuran akar masalah (\textit{root cause analysis}) ketika terjadi kegagalan operasional. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \paragraph{Goods Detail Service}
 Komponen \textit{Goods Detail Service} bertanggung jawab mengelola data master seluruh barang yang tersimpan di gudang. Komponen ini menjadi antarmuka antara \textit{Database} dan komponen lain yang memerlukan informasi barang, mencakup penyimpanan, pembaruan, dan pengambilan informasi secara terperinci. Gambar \ref{fig:gds-arch} mengilustrasikan arsitektur komponen ini.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/wmc/goods-service.jpg}
   \caption{Arsitektur Komponen \textit{Goods Detail Service} WMC (Level 3)}
   \label{fig:gds-arch}
 \end{figure}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Fungsi, masukan, dan keluaran \textit{Goods Detail Service} WMC}
-  \label{tab:gds-io}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Deskripsi} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Fungsi, masukan, dan keluaran \textit{Goods Detail Service} WMC} \label{tab:gds-io} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:gds-io}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     Fungsi & Mengelola data master seluruh barang di gudang, mencakup penyimpanan, pembaruan, dan pengambilan informasi barang secara terperinci. \\
     \hline
     Masukan & 1. \textit{Goods Data} --- objek data berisi informasi lengkap atau pembaruan detail satu atau lebih item barang. 2. \textit{Query Data} --- permintaan spesifik untuk mengambil, menghapus, atau memverifikasi detail barang. \\
     \hline
     Luaran & 1. \textit{Goods Data} --- data barang sebagai respons atas permintaan \textit{Query Data}. 2. \textit{Query Data} --- respons konfirmasi bahwa permintaan telah dieksekusi. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \paragraph{Fleet Order Service}
 \label{subsubsec:fleet-order-service}
 Komponen \textit{Fleet Order Service} merupakan \textit{gateway} utama antara sistem WMC dan komponen \textit{Fleet Controller} pada robot. Komponen ini mengolah seluruh logika pembuatan dan pembatalan \textit{order}, pengaturan tugas robot, serta pemantauan dan sinkronisasi status tugas secara \textit{real-time}. Gambar \ref{fig:fos-arch} mengilustrasikan arsitektur komponen ini.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/wmc/fleet-service.jpg}
   \caption{Arsitektur Komponen \textit{Fleet Order Service} WMC (Level 3)}
   \label{fig:fos-arch}
 \end{figure}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Fungsi, masukan, dan keluaran \textit{Fleet Order Service} WMC}
-  \label{tab:fos-io}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Deskripsi} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Fungsi, masukan, dan keluaran \textit{Fleet Order Service} WMC} \label{tab:fos-io} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:fos-io}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     Fungsi & Mengolah seluruh data dan logika pembuatan \textit{order}, pengaturan tugas robot, pemantauan status robot, serta sinkronisasi status tugas. Menjadi \textit{gateway} antara sistem internal WMC dan \textit{Fleet Controller}. \\
     \hline
     Masukan & 1. \textit{Order Command} --- instruksi pembuatan atau pembatalan \textit{order} dari antarmuka pengguna. 2. \textit{Robot Status} \& \textit{Task Status} --- informasi posisi, baterai, \textit{error}, dan progres tugas dari \textit{Fleet Controller}. 3. \textit{Order Data} / \textit{Location Data} --- diterima dari \textit{Database} untuk memproses dan memperbarui catatan \textit{order}. \\
     \hline
     Luaran & 1. \textit{Order Status Event} --- dikirim ke antarmuka pengguna sebagai respons status \textit{order} terkini. 2. \textit{Command} ke \textit{Fleet Controller} --- instruksi robot berupa \textit{start task}, \textit{cancel task}, atau \textit{emergency stop}. 3. \textit{Updated Goods Detail} --- dikirim ke \textit{Database} setelah \textit{order} diproses. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \paragraph{Authentication Service}
 Komponen \textit{Authentication Service} bertanggung jawab memvalidasi identitas pengguna yang mengakses sistem WMC. Komponen ini menerima kredensial dari antarmuka pengguna, memverifikasinya terhadap data pada \textit{Database}, kemudian menerbitkan \textit{Bearer Token} sebagai bukti otorisasi untuk seluruh permintaan berikutnya. Gambar \ref{fig:auth-arch} mengilustrasikan arsitektur komponen ini.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/wmc/auth-service.jpg}
   \caption{Arsitektur Komponen \textit{Authentication Service} WMC (Level 3)}
   \label{fig:auth-arch}
 \end{figure}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Fungsi, masukan, dan keluaran \textit{Authentication Service} WMC}
-  \label{tab:auth-io}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Deskripsi} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Fungsi, masukan, dan keluaran \textit{Authentication Service} WMC} \label{tab:auth-io} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:auth-io}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     Fungsi & Memvalidasi identitas pengguna berdasarkan kredensial yang diberikan, menghasilkan token autentikasi (\textit{Bearer Token}), serta mengelola sesi pengguna. \\
     \hline
     Masukan & 1. \textit{Credential} Pengguna --- data \textit{username} dan \textit{password} diterima dari antarmuka pengguna via API HTTP/HTTPS. 2. \textit{Session Info} / \textit{User Data} --- hasil pencarian pengguna dari \textit{Database}. 3. \textit{Token} / \textit{Session ID} (opsional) --- diterima dari antarmuka pengguna untuk validasi sesi yang masih aktif. \\
     \hline
     Luaran & 1. \textit{Bearer Token} --- dikirim ke antarmuka pengguna sebagai \textit{string} token untuk otorisasi permintaan berikutnya. 2. \textit{Session Data} --- dikirim ke \textit{Database} untuk disimpan atau diperbarui. 3. Informasi Penolakan Akses --- pesan kesalahan dikirim ke antarmuka pengguna bila kredensial tidak valid atau sesi telah kedaluwarsa. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{Subsistem \textit{Fleet Controller}}
 
@@ -256,29 +300,34 @@ Selain \textit{Warehouse Management Controller}, subsistem \textit{Fleet Control
 
 Pada Level 2, \textit{Fleet Controller} dipandang sebagai satu modul tunggal yang menerima instruksi \textit{order} dan data robot dari WMC, kemudian menghasilkan perintah eksekusi bagi robot serta status terkini yang dikembalikan ke WMC. Gambar \ref{fig:fc-level2-arch} berikut mengilustrasikan arsitektur \textit{Fleet Controller} pada Level 2.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/fleet-controller/fleet-controller.jpg}
   \caption{Arsitektur \textit{Fleet Controller} (Level 2)}
   \label{fig:fc-level2-arch}
 \end{figure}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Fungsi, masukan, dan keluaran \textit{Fleet Controller} (Level 2)}
-  \label{tab:fc-level2}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Deskripsi} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Fungsi, masukan, dan keluaran \textit{Fleet Controller} (Level 2)} \label{tab:fc-level2} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:fc-level2}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     Fungsi & Mengelola penugasan robot, manajemen status, dan rute pergerakan seluruh armada robot berdasarkan instruksi \textit{order} yang diterima dari WMC. \\
     \hline
     Masukan & 1. \textit{Robots Data} --- informasi status, posisi, dan kondisi seluruh robot yang beroperasi di gudang. 2. \textit{Order Commands} --- instruksi pembuatan, pembaruan, atau pembatalan tugas robot, diterima dari \textit{Fleet Order Service} WMC. \\
     \hline
     Luaran & 1. \textit{Order Status} --- status pelaksanaan tugas dikirim ke \textit{Fleet Order Service} WMC. 2. \textit{Robot Commands} --- perintah kendali dikirim ke robot melalui subsistem \textit{Communication} pada GHDS. 3. \textit{Robots Data} --- data status robot terbaru diteruskan ke WMC untuk ditampilkan pada \textit{User Interface}. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsubsection{Arsitektur Level 3 --- Komponen Fleet Controller}
 Pada Level 3, \textit{Fleet Controller} didekomposisi menjadi lima komponen perangkat lunak, yaitu \textit{Communication Service}, \textit{Fleet Manager}, \textit{Local Database}, \textit{Robot Path Planner}, dan \textit{Localisation System}. Keempat komponen pertama merupakan hasil rancangan kelompok TA252601001 sebagaimana didokumentasikan pada dokumen B300, sedangkan komponen \textit{Localisation System} merupakan kontribusi individu penulis yang menggantikan pendekatan lokalisasi berbasis QR Code + \textit{Line Following} pada rancangan awal dengan pendekatan AprilTag + \textit{Overhead Fisheye Camera} (lihat Subbab \ref{sec:batasan-masalah}).
@@ -287,29 +336,34 @@ Pada Level 3, \textit{Fleet Controller} didekomposisi menjadi lima komponen pera
 \label{fc-localisation-system}
 \textit{Localisation System} merupakan komponen \textit{Fleet Controller} yang menjadi fokus kontribusi individu penulis pada tugas akhir ini, berjalan secara paralel dengan subsistem \textit{Navigation} pada robot. Berbeda dengan \textit{Navigation} yang menentukan posisi robot dari perspektif internal robot melalui pembacaan kode QR di lantai dan sensor IMU, \textit{Localisation System} menyediakan perspektif eksternal dari atas (\textit{overhead}) yang mencakup seluruh area lantai gudang sekaligus, termasuk posisi robot, barang, dan \textit{docking station}. Gambar \ref{fig:localisation-arch} mengilustrasikan arsitektur komponen ini; rincian perancangan perangkat dan \textit{pipeline} deteksinya dijabarkan lebih lanjut pada Subbab \ref{subsec:desain-lokalisasi}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/fleet-controller/localization-system.jpg}
   \caption{Arsitektur Komponen \textit{Localisation System} \textit{Fleet Controller} (Level 3)}
   \label{fig:localisation-arch}
 \end{figure}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Fungsi, masukan, dan keluaran \textit{Localisation System}}
-  \label{tab:localisation-io}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Deskripsi} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Fungsi, masukan, dan keluaran \textit{Localisation System}} \label{tab:localisation-io} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:localisation-io}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     Fungsi & Mendeteksi posisi \textit{grid} dan orientasi seluruh robot, barang, serta \textit{docking station} secara terpusat dari sudut pandang \textit{overhead} menggunakan AprilTag \textit{fiducial marker}, kemudian mempublikasikan hasil deteksi sebagai data \textit{grid state} kepada komponen lain \textit{Fleet Controller}. \\
     \hline
     Masukan & 1. \textit{Video Stream} --- umpan video RTSP dari kamera IP \textit{fisheye overhead}. 2. Parameter Kalibrasi --- koefisien distorsi lensa (Kannala--Brandt) dan matriks \textit{homography} hasil kalibrasi satu kali di awal pemasangan. \\
     \hline
     Luaran & 1. \textit{Grid State} (\textit{Location Data}) --- data posisi \textit{grid} dan orientasi seluruh entitas terklasifikasi, dipublikasikan setiap 500 ms melalui \textit{topic} MQTT \textit{location}, dikonsumsi oleh \textit{Fleet Manager} dan diteruskan ke \textit{Fleet Order Service} WMC untuk ditampilkan \textit{real-time} pada \textit{User Interface}. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsubsection{Desain Detail Subsistem Lokalisasi (\textit{Localisation System})}
 \label{subsec:desain-lokalisasi}
@@ -318,17 +372,29 @@ Subsistem Lokalisasi merupakan komponen perangkat lunak yang berada di dalam \te
 \paragraph{Perangkat Lokalisasi}
 Perangkat lokalisasi adalah rakitan kamera \textit{overhead} yang dipasang setinggi 60 cm di atas lantai gudang berukuran $2,4 \times 1,2$ m. Rakitan ini terdiri dari rangka penyangga, sebuah kamera IP \textit{fisheye} berkemampuan 1080p (3 MP) dengan \textit{H.264 encoding} yang melakukan \textit{streaming} melalui protokol RTSP \textit{over} TCP, serta pencahayaan LED tambahan untuk memastikan iluminasi yang seragam di seluruh area lantai. Optik \textit{fisheye} dipilih karena kemampuannya mencakup seluruh area lantai gudang dari satu titik pemasangan tunggal tanpa oklusi, meskipun memerlukan proses koreksi distorsi sebelum dapat digunakan untuk pemetaan posisi yang akurat (lihat Subbab 2.5.2).
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/bab_iv/localisation_device.png}
+  \caption{Perangkat Lokalisasi}
+  \label{fig:perangkat-lokalisasi}
+\end{figure}
+
 \paragraph{Desain Pipeline Deteksi}
 Subsistem Lokalisasi didesain sebagai \textit{pipeline} pemrosesan \textit{frame} yang berjalan secara kontinu. Sebuah \textit{background thread} mengambil \textit{frame} terbaru dari \textit{stream} RTSP secara terus-menerus dan membuang \textit{frame} yang sudah basi, sementara \textit{detection loop} utama berjalan pada frekuensi 4 Hz. Setiap \textit{frame} diproses melalui enam tahap secara berurutan, sebagaimana dirangkum pada Tabel \ref{tab:pipeline-lokalisasi} berikut.
 
-\begin{table}[htbp]
-  \centering
-  \caption{\textit{Pipeline} pemrosesan Subsistem Lokalisasi}
-  \label{tab:pipeline-lokalisasi}
-  \begin{tabularx}{\textwidth}{ | c | l | X | }
-    \hline
-    \textbf{No.} & \textbf{Tahap} & \textbf{Deskripsi} \\
-    \hline
+\begin{xltabular}{\textwidth}{| c | l | X |}
+  \caption{\textit{Pipeline} pemrosesan Subsistem Lokalisasi} \label{tab:pipeline-lokalisasi} \\
+  \hline
+  \textbf{No.} & \textbf{Tahap} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:pipeline-lokalisasi}}} \\
+  \hline
+  \textbf{No.} & \textbf{Tahap} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     1 & Koreksi Distorsi Lensa & Menghilangkan distorsi radial \textit{fisheye} menggunakan koefisien kalibrasi Kannala--Brandt yang dihitung saat \textit{setup}. \\
     \hline
     2 & Pra-pemrosesan & Meningkatkan kontras \textit{frame} yang telah terkoreksi dan mengonversinya ke \textit{grayscale} untuk detektor. \\
@@ -341,14 +407,14 @@ Subsistem Lokalisasi didesain sebagai \textit{pipeline} pemrosesan \textit{frame
     \hline
     6 & Publikasi MQTT & Mengodekan seluruh \textit{grid occupancy state} sebagai \textit{payload} JSON dan mempublikasikannya setiap 500 ms ke \textit{topic location} pada RabbitMQ \textit{broker}. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \section{Diagram \textit{Use Case}}
 \label{sec:diagram-use-case}
-Kebutuhan fungsional sistem mendefinisikan kapabilitas spesifik yang harus tersedia bagi pengguna dalam berinteraksi dengan sistem \textit{Warehouse Management Controller}. Kebutuhan ini diturunkan langsung dari Tabel \ref{tab:kebutuhan-fungsional} dengan perincian yang lebih granular, sehingga setiap kebutuhan merepresentasikan satu fungsi yang dapat diuji secara mandiri. Berikut ini adalah kebutuhan fungsional yang diidentifikasi untuk mendukung pengembangan sistem \textit{Warehouse Management Controller} sebagai perangkat lunak pengelola operasional gudang berbasis robot.
+Kebutuhan fungsional sistem mendefinisikan kapabilitas spesifik yang harus tersedia bagi pengguna dalam berinteraksi dengan sistem \textit{Warehouse Management Controller}. Kebutuhan ini diturunkan langsung dari Tabel \ref{tab:kf01}--\ref{tab:kf05} dengan perincian yang lebih granular, sehingga setiap kebutuhan merepresentasikan satu fungsi yang dapat diuji secara mandiri. Berikut ini adalah kebutuhan fungsional yang diidentifikasi untuk mendukung pengembangan sistem \textit{Warehouse Management Controller} sebagai perangkat lunak pengelola operasional gudang berbasis robot.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/use-case.jpg}
   \caption{\textit{Use Case Diagram} Sistem \textit{Warehouse Management Controller}}
@@ -359,14 +425,19 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
 
 \subsection{UC-01: \textit{Login System}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Deskripsi \textit{Use Case} UC-01: \textit{Login System}}
-  \label{tab:uc01-desc}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Deskripsi \textit{Use Case} UC-01: \textit{Login System}} \label{tab:uc01-desc} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc01-desc}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     ID \textit{Use Case} & UC-01 \\
     \hline
     Aktor Utama & Staf Gudang (\textit{Warehouse Staff}) \\
@@ -379,24 +450,22 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     Deskripsi & \textit{Use case} ini menjelaskan proses autentikasi staf gudang yang telah memiliki akun untuk mengakses fitur sistem \textit{Smart Warehouse}. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd01.png}
-  \caption{\textit{Sequence Diagram} UC-01: \textit{Login System}}
-  \label{fig:sd-uc01}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Skenario \textit{Use Case} UC-01: \textit{Login System}}
-  \label{tab:uc01-scenario}
-  \begin{tabularx}{\textwidth}{ | X | X | }
-    \hline
-    \textbf{Aktor} & \textbf{Sistem} \\
-    \hline
+\begin{xltabular}{\textwidth}{| X | X |}
+  \caption{Skenario \textit{Use Case} UC-01: \textit{Login System}} \label{tab:uc01-scenario} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc01-scenario}}} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \multicolumn{2}{|l|}{\textbf{Skenario Utama}} \\
     \hline
     1. Pengguna mengakses halaman masuk. & \\
@@ -415,19 +484,24 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     4a. Kredensial yang dimasukkan tidak valid. & Sistem menampilkan pesan kesalahan dan meminta pengguna mencoba kembali. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{UC-02: \textit{Logout System}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Deskripsi \textit{Use Case} UC-02: \textit{Logout System}}
-  \label{tab:uc02-desc}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Deskripsi \textit{Use Case} UC-02: \textit{Logout System}} \label{tab:uc02-desc} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc02-desc}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     ID \textit{Use Case} & UC-02 \\
     \hline
     Aktor Utama & Staf Gudang (\textit{Warehouse Staff}) \\
@@ -440,24 +514,22 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     Deskripsi & \textit{Use case} ini menjelaskan proses pengakhiran sesi pengguna yang sedang aktif. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd02.png}
-  \caption{\textit{Sequence Diagram} UC-02: \textit{Logout System}}
-  \label{fig:sd-uc02}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Skenario \textit{Use Case} UC-02: \textit{Logout System}}
-  \label{tab:uc02-scenario}
-  \begin{tabularx}{\textwidth}{ | X | X | }
-    \hline
-    \textbf{Aktor} & \textbf{Sistem} \\
-    \hline
+\begin{xltabular}{\textwidth}{| X | X |}
+  \caption{Skenario \textit{Use Case} UC-02: \textit{Logout System}} \label{tab:uc02-scenario} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc02-scenario}}} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \multicolumn{2}{|l|}{\textbf{Skenario Utama}} \\
     \hline
     1. Pengguna memilih opsi keluar. & \\
@@ -470,19 +542,24 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     \multicolumn{2}{|X|}{Tidak terdapat skenario alternatif yang dirumuskan untuk \textit{use case} ini pada dokumen sumber.} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{UC-03: \textit{View Inventory List}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Deskripsi \textit{Use Case} UC-03: \textit{View Inventory List}}
-  \label{tab:uc03-desc}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Deskripsi \textit{Use Case} UC-03: \textit{View Inventory List}} \label{tab:uc03-desc} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc03-desc}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     ID \textit{Use Case} & UC-03 \\
     \hline
     Aktor Utama & Staf Gudang (\textit{Warehouse Staff}) \\
@@ -495,24 +572,22 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     Deskripsi & \textit{Use case} ini memungkinkan staf gudang melihat daftar seluruh barang yang tercatat dalam inventori. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd03.png}
-  \caption{\textit{Sequence Diagram} UC-03: \textit{View Inventory List}}
-  \label{fig:sd-uc03}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Skenario \textit{Use Case} UC-03: \textit{View Inventory List}}
-  \label{tab:uc03-scenario}
-  \begin{tabularx}{\textwidth}{ | X | X | }
-    \hline
-    \textbf{Aktor} & \textbf{Sistem} \\
-    \hline
+\begin{xltabular}{\textwidth}{| X | X |}
+  \caption{Skenario \textit{Use Case} UC-03: \textit{View Inventory List}} \label{tab:uc03-scenario} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc03-scenario}}} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \multicolumn{2}{|l|}{\textbf{Skenario Utama}} \\
     \hline
     1. Pengguna membuka halaman inventori. & \\
@@ -525,19 +600,24 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     \multicolumn{2}{|X|}{Tidak terdapat skenario alternatif yang dirumuskan untuk \textit{use case} ini pada dokumen sumber.} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{UC-04: \textit{View Goods Detail}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Deskripsi \textit{Use Case} UC-04: \textit{View Goods Detail}}
-  \label{tab:uc04-desc}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Deskripsi \textit{Use Case} UC-04: \textit{View Goods Detail}} \label{tab:uc04-desc} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc04-desc}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     ID \textit{Use Case} & UC-04 \\
     \hline
     Aktor Utama & Staf Gudang (\textit{Warehouse Staff}) \\
@@ -550,24 +630,22 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     Deskripsi & \textit{Use case} ini menampilkan informasi rinci suatu barang termasuk SKU, deskripsi, kuantitas, dan lokasi penyimpanan. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd04.png}
-  \caption{\textit{Sequence Diagram} UC-04: \textit{View Goods Detail}}
-  \label{fig:sd-uc04}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Skenario \textit{Use Case} UC-04: \textit{View Goods Detail}}
-  \label{tab:uc04-scenario}
-  \begin{tabularx}{\textwidth}{ | X | X | }
-    \hline
-    \textbf{Aktor} & \textbf{Sistem} \\
-    \hline
+\begin{xltabular}{\textwidth}{| X | X |}
+  \caption{Skenario \textit{Use Case} UC-04: \textit{View Goods Detail}} \label{tab:uc04-scenario} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc04-scenario}}} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \multicolumn{2}{|l|}{\textbf{Skenario Utama}} \\
     \hline
     1. Pengguna memilih barang tertentu. & \\
@@ -580,19 +658,24 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     \multicolumn{2}{|X|}{Tidak terdapat skenario alternatif yang dirumuskan untuk \textit{use case} ini pada dokumen sumber.} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\subsection{UC-05: \textit{View Order Status}}
+\subsection{UC-05: \textit{View Order}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Deskripsi \textit{Use Case} UC-05: \textit{View Order Status}}
-  \label{tab:uc05-desc}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Deskripsi \textit{Use Case} UC-05: \textit{View Order}} \label{tab:uc05-desc} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc05-desc}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     ID \textit{Use Case} & UC-05 \\
     \hline
     Aktor Utama & Staf Gudang (\textit{Warehouse Staff}) \\
@@ -605,24 +688,22 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     Deskripsi & \textit{Use case} ini memungkinkan staf gudang memantau status \textit{order inbound} maupun \textit{outbound}. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd05.png}
-  \caption{\textit{Sequence Diagram} UC-05: \textit{View Order Status}}
-  \label{fig:sd-uc05}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Skenario \textit{Use Case} UC-05: \textit{View Order Status}}
-  \label{tab:uc05-scenario}
-  \begin{tabularx}{\textwidth}{ | X | X | }
-    \hline
-    \textbf{Aktor} & \textbf{Sistem} \\
-    \hline
+\begin{xltabular}{\textwidth}{| X | X |}
+  \caption{Skenario \textit{Use Case} UC-05: \textit{View Order}} \label{tab:uc05-scenario} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc05-scenario}}} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \multicolumn{2}{|l|}{\textbf{Skenario Utama}} \\
     \hline
     1. Pengguna membuka halaman status \textit{order}. & \\
@@ -635,19 +716,24 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     \multicolumn{2}{|X|}{Tidak terdapat skenario alternatif yang dirumuskan untuk \textit{use case} ini pada dokumen sumber.} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{UC-06: \textit{View Robot \& Operation Status}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Deskripsi \textit{Use Case} UC-06: \textit{View Robot \& Operation Status}}
-  \label{tab:uc06-desc}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Deskripsi \textit{Use Case} UC-06: \textit{View Robot \& Operation Status}} \label{tab:uc06-desc} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc06-desc}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     ID \textit{Use Case} & UC-06 \\
     \hline
     Aktor Utama & Staf Gudang (\textit{Warehouse Staff}) \\
@@ -660,24 +746,22 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     Deskripsi & \textit{Use case} ini menampilkan status armada AGV termasuk posisi, baterai, dan tugas aktif. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd06.png}
-  \caption{\textit{Sequence Diagram} UC-06: \textit{View Robot \& Operation Status}}
-  \label{fig:sd-uc06}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Skenario \textit{Use Case} UC-06: \textit{View Robot \& Operation Status}}
-  \label{tab:uc06-scenario}
-  \begin{tabularx}{\textwidth}{ | X | X | }
-    \hline
-    \textbf{Aktor} & \textbf{Sistem} \\
-    \hline
+\begin{xltabular}{\textwidth}{| X | X |}
+  \caption{Skenario \textit{Use Case} UC-06: \textit{View Robot \& Operation Status}} \label{tab:uc06-scenario} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc06-scenario}}} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \multicolumn{2}{|l|}{\textbf{Skenario Utama}} \\
     \hline
     1. Pengguna membuka halaman status robot. & \\
@@ -690,19 +774,24 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     \multicolumn{2}{|X|}{Tidak terdapat skenario alternatif yang dirumuskan untuk \textit{use case} ini pada dokumen sumber.} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{UC-07: \textit{Operate Digital Twin}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Deskripsi \textit{Use Case} UC-07: \textit{Operate Digital Twin}}
-  \label{tab:uc07-desc}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Deskripsi \textit{Use Case} UC-07: \textit{Operate Digital Twin}} \label{tab:uc07-desc} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc07-desc}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     ID \textit{Use Case} & UC-07 \\
     \hline
     Aktor Utama & Staf Gudang (\textit{Warehouse Staff}) \\
@@ -715,24 +804,22 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     Deskripsi & \textit{Use case} ini memungkinkan staf gudang berinteraksi dengan representasi virtual 3D kondisi gudang dan robot. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd07.png}
-  \caption{\textit{Sequence Diagram} UC-07: \textit{Operate Digital Twin}}
-  \label{fig:sd-uc07}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Skenario \textit{Use Case} UC-07: \textit{Operate Digital Twin}}
-  \label{tab:uc07-scenario}
-  \begin{tabularx}{\textwidth}{ | X | X | }
-    \hline
-    \textbf{Aktor} & \textbf{Sistem} \\
-    \hline
+\begin{xltabular}{\textwidth}{| X | X |}
+  \caption{Skenario \textit{Use Case} UC-07: \textit{Operate Digital Twin}} \label{tab:uc07-scenario} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc07-scenario}}} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \multicolumn{2}{|l|}{\textbf{Skenario Utama}} \\
     \hline
     1. Pengguna membuka tampilan \textit{Digital Twin}. & \\
@@ -747,19 +834,24 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     \multicolumn{2}{|X|}{Tidak terdapat skenario alternatif yang dirumuskan untuk \textit{use case} ini pada dokumen sumber.} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{UC-08: \textit{Create Order Request}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Deskripsi \textit{Use Case} UC-08: \textit{Create Order Request}}
-  \label{tab:uc08-desc}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Deskripsi \textit{Use Case} UC-08: \textit{Create Order Request}} \label{tab:uc08-desc} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc08-desc}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     ID \textit{Use Case} & UC-08 \\
     \hline
     Aktor Utama & Staf Gudang (\textit{Warehouse Staff}) \\
@@ -772,24 +864,22 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     Deskripsi & \textit{Use case} ini menjelaskan proses pembuatan permintaan \textit{storing} atau \textit{picking} barang. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd08.png}
-  \caption{\textit{Sequence Diagram} UC-08: \textit{Create Order Request}}
-  \label{fig:sd-uc08}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Skenario \textit{Use Case} UC-08: \textit{Create Order Request}}
-  \label{tab:uc08-scenario}
-  \begin{tabularx}{\textwidth}{ | X | X | }
-    \hline
-    \textbf{Aktor} & \textbf{Sistem} \\
-    \hline
+\begin{xltabular}{\textwidth}{| X | X |}
+  \caption{Skenario \textit{Use Case} UC-08: \textit{Create Order Request}} \label{tab:uc08-scenario} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc08-scenario}}} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \multicolumn{2}{|l|}{\textbf{Skenario Utama}} \\
     \hline
     1. Pengguna mengisi formulir \textit{order} (barang dan kuantitas). & \\
@@ -808,19 +898,24 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     \multicolumn{2}{|X|}{Tidak terdapat skenario alternatif yang dirumuskan untuk \textit{use case} ini pada dokumen sumber.} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{UC-09: \textit{View Item History}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Deskripsi \textit{Use Case} UC-09: \textit{View Item History}}
-  \label{tab:uc09-desc}
-  \begin{tabularx}{\textwidth}{ | l | X | }
-    \hline
-    \textbf{Elemen} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X |}
+  \caption{Deskripsi \textit{Use Case} UC-09: \textit{View Item History}} \label{tab:uc09-desc} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc09-desc}}} \\
+  \hline
+  \textbf{Elemen} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     ID \textit{Use Case} & UC-09 \\
     \hline
     Aktor Utama & Staf Gudang (\textit{Warehouse Staff}) \\
@@ -833,24 +928,22 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     Deskripsi & \textit{Use case} ini menampilkan riwayat aktivitas suatu barang termasuk perpindahan dan perubahan kuantitas. \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd09.png}
-  \caption{\textit{Sequence Diagram} UC-09: \textit{View Item History}}
-  \label{fig:sd-uc09}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Skenario \textit{Use Case} UC-09: \textit{View Item History}}
-  \label{tab:uc09-scenario}
-  \begin{tabularx}{\textwidth}{ | X | X | }
-    \hline
-    \textbf{Aktor} & \textbf{Sistem} \\
-    \hline
+\begin{xltabular}{\textwidth}{| X | X |}
+  \caption{Skenario \textit{Use Case} UC-09: \textit{View Item History}} \label{tab:uc09-scenario} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{2}{l}{\textit{lanjutan Tabel \ref{tab:uc09-scenario}}} \\
+  \hline
+  \textbf{Aktor} & \textbf{Sistem} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \multicolumn{2}{|l|}{\textbf{Skenario Utama}} \\
     \hline
     1. Pengguna memilih barang untuk dilihat riwayatnya. & \\
@@ -863,13 +956,13 @@ Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem 
     \hline
     \multicolumn{2}{|X|}{Tidak terdapat skenario alternatif yang dirumuskan untuk \textit{use case} ini pada dokumen sumber.} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \section{\textit{Class Diagram}}
 Subbab ini menyajikan \textit{Class Diagram} yang memodelkan struktur statis dari layanan \textit{backend} WMC. Diagram ini mengidentifikasi dan menggambarkan kelas-kelas utama penyusun sistem, yaitu \textit{Controller}, \textit{Service}, \textit{Repository}, dan \textit{Entity}, beserta relasi dan ketergantungan antar kelas tersebut dalam mendukung seluruh logika operasional pengelolaan gudang.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{images/bab_iv/class_diagram.png}
   \caption{\textit{Class Diagram} Sistem \textit{Warehouse Management Controller}}
@@ -878,14 +971,19 @@ Subbab ini menyajikan \textit{Class Diagram} yang memodelkan struktur statis dar
 
 Berdasarkan \textit{Class Diagram} pada Gambar \ref{fig:class-diagram}, rancangan perangkat lunak \textit{Warehouse Management Controller} mengikuti pola arsitektur \textit{microservice} berlapis yang memisahkan tanggung jawab ke dalam empat jenis kelas: \textit{Controller} sebagai titik masuk permintaan dari antarmuka, \textit{Service} sebagai pengampu logika bisnis, \textit{Repository} sebagai lapisan akses persistensi data, dan \textit{Entity} sebagai representasi data domain.
 
-\begin{table}[H]
-  \centering
-  \caption{Daftar kelas pada arsitektur \textit{Warehouse Management Controller}}
-  \label{tab:daftar-kelas}
-  \begin{tabularx}{\textwidth}{ | l | X | l | }
-    \hline
-    \textbf{ID} & \textbf{Nama Kelas} & \textbf{Tipe Kelas} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | X | l |}
+  \caption{Daftar kelas pada arsitektur \textit{Warehouse Management Controller}} \label{tab:daftar-kelas} \\
+  \hline
+  \textbf{ID} & \textbf{Nama Kelas} & \textbf{Tipe Kelas} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:daftar-kelas}}} \\
+  \hline
+  \textbf{ID} & \textbf{Nama Kelas} & \textbf{Tipe Kelas} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     C-01 & AuthController & \textit{Controller} \\
     \hline
     C-02 & ItemController & \textit{Controller} \\
@@ -944,21 +1042,26 @@ Berdasarkan \textit{Class Diagram} pada Gambar \ref{fig:class-diagram}, rancanga
     \hline
     C-29 & AprilTagMapping & \textit{Entity} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah dimodelkan pada \textit{Class Diagram} sistem \textit{Warehouse Management Controller} (WMC). Rincian perancangan ini mendefinisikan atribut beserta tipe datanya, metode (operasi) yang dieksekusi oleh kelas, serta tingkat visibilitas dari masing-masing elemen tersebut (Publik atau Privat). Pendefinisian ini menjadi acuan spesifikasi teknis dalam tahap implementasi kode program.
 
 \subsection{Kelas \textit{Controller}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- AuthController}
-  \label{tab:class-authcontroller}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- AuthController} \label{tab:class-authcontroller} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-authcontroller}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{login(username, password)} & Publik & Menerima kredensial pengguna dari antarmuka dan meneruskan proses autentikasi ke \textit{AuthService}. \\
     \hline
     \texttt{logout(sessionId)} & Publik & Menerima permintaan keluar dan meneruskan pembatalan sesi ke \textit{AuthService}. \\
@@ -969,17 +1072,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{authService} & Privat & AuthService \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- ItemController}
-  \label{tab:class-itemcontroller}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- ItemController} \label{tab:class-itemcontroller} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-itemcontroller}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{listInventory()} & Publik & Menerima permintaan daftar inventori dan meneruskannya ke \textit{ItemService}. \\
     \hline
     \texttt{getGoodsDetail(itemId)} & Publik & Meneruskan permintaan detail barang ke \textit{ItemService}. \\
@@ -990,17 +1098,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{itemService} & Privat & ItemService \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- OrderController}
-  \label{tab:class-ordercontroller}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- OrderController} \label{tab:class-ordercontroller} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-ordercontroller}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{getOrderStatus(userId)} & Publik & Meneruskan permintaan status \textit{order} pengguna ke \textit{OrderService}. \\
     \hline
     \texttt{createOrderRequest(itemId, qty)} & Publik & Menerima data \textit{order} dari antarmuka dan meneruskan pembuatan \textit{order} ke \textit{OrderService}. \\
@@ -1009,17 +1122,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{orderService} & Privat & OrderService \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- RobotController}
-  \label{tab:class-robotcontroller}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- RobotController} \label{tab:class-robotcontroller} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-robotcontroller}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{listRobots()} & Publik & Meneruskan permintaan daftar robot ke \textit{RobotService}. \\
     \hline
     \texttt{getRobotStatus(robotId)} & Publik & Meneruskan permintaan status robot ke \textit{RobotService}. \\
@@ -1028,17 +1146,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{robotService} & Privat & RobotService \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- DigitalTwinController}
-  \label{tab:class-digitaltwincontroller}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- DigitalTwinController} \label{tab:class-digitaltwincontroller} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-digitaltwincontroller}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{operateDigitalTwin()} & Publik & Menginisialisasi modul \textit{Digital Twin} melalui \textit{DigitalTwinService}. \\
     \hline
     \texttt{getRobotPositions()} & Publik & Meneruskan permintaan koordinat robot ke \textit{DigitalTwinService}. \\
@@ -1049,19 +1172,24 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{digitalTwinService} & Privat & DigitalTwinService \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{Kelas \textit{Service}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- AuthService}
-  \label{tab:class-authservice}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- AuthService} \label{tab:class-authservice} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-authservice}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{authenticate(username, password)} & Publik & Memverifikasi kredensial ke \textit{UserRepository} dan membuat sesi baru. \\
     \hline
     \texttt{revokeSession(sessionId)} & Publik & Membatalkan sesi aktif melalui \textit{SessionRepository}. \\
@@ -1076,17 +1204,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{sessionRepository} & Privat & SessionRepository \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- ItemService}
-  \label{tab:class-itemservice}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- ItemService} \label{tab:class-itemservice} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-itemservice}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{getInventoryList()} & Publik & Menyusun daftar barang dari \textit{ItemRepository} untuk kebutuhan tampilan. \\
     \hline
     \texttt{getItemDetail(itemId)} & Publik & Mengambil detail barang termasuk SKU, kuantitas, dan lokasi penyimpanan. \\
@@ -1101,17 +1234,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{locationService} & Privat & LocationService \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- OrderService}
-  \label{tab:class-orderservice}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- OrderService} \label{tab:class-orderservice} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-orderservice}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{listOrders(userId)} & Publik & Menyusun daftar \textit{order} beserta statusnya untuk pengguna. \\
     \hline
     \texttt{createOrder(itemId, qty)} & Publik & Memvalidasi ketersediaan barang dan menyimpan \textit{order} beserta \textit{order item}. \\
@@ -1130,17 +1268,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{notificationService} & Privat & NotificationService \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- RobotService}
-  \label{tab:class-robotservice}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- RobotService} \label{tab:class-robotservice} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-robotservice}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{getRobotList()} & Publik & Menyusun daftar robot dari \textit{RobotRepository}. \\
     \hline
     \texttt{getRobotStatus(robotId)} & Publik & Mengambil status robot termasuk posisi, baterai, dan tugas aktif. \\
@@ -1159,17 +1302,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{notificationService} & Privat & NotificationService \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- TaskService}
-  \label{tab:class-taskservice}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- TaskService} \label{tab:class-taskservice} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-taskservice}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{createTask(orderItemId, robotId)} & Publik & Membuat tugas baru untuk eksekusi suatu \textit{order item}. \\
     \hline
     \texttt{updateTaskStatus(taskId, status)} & Publik & Memperbarui status tugas robot. \\
@@ -1180,17 +1328,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{taskRepository} & Privat & TaskRepository \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- DigitalTwinService}
-  \label{tab:class-digitaltwinservice}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- DigitalTwinService} \label{tab:class-digitaltwinservice} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-digitaltwinservice}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{initializeTwin()} & Publik & Memuat model 3D gudang dan menyiapkan langganan koordinat robot. \\
     \hline
     \texttt{getRobotPositions()} & Publik & Menyusun koordinat robot terkini dari \textit{LocationService}. \\
@@ -1203,17 +1356,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{locationService} & Privat & LocationService \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- LocationService}
-  \label{tab:class-locationservice}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- LocationService} \label{tab:class-locationservice} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-locationservice}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{resolvePosition(aprilTagId)} & Publik & Menentukan koordinat entitas berdasarkan pemetaan AprilTag. \\
     \hline
     \texttt{mapRobotPosition(robotId)} & Publik & Menyelaraskan posisi robot dengan data \textit{AprilTagMapping}. \\
@@ -1224,17 +1382,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{aprilTagMappingRepository} & Privat & AprilTagMappingRepository \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- NotificationService}
-  \label{tab:class-notificationservice}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- NotificationService} \label{tab:class-notificationservice} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-notificationservice}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{notifyOrderStatus(order)} & Publik & Mengirim pembaruan status \textit{order} ke antarmuka pengguna. \\
     \hline
     \texttt{notifyRobotStatus(robot)} & Publik & Mengirim pembaruan status robot ke antarmuka pengguna. \\
@@ -1245,19 +1408,24 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{messageBroker} & Privat & MessageBroker \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{Kelas \textit{Repository}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- UserRepository}
-  \label{tab:class-userrepository}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- UserRepository} \label{tab:class-userrepository} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-userrepository}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{save(user)} & Publik & Menyimpan atau memperbarui data pengguna pada basis data. \\
     \hline
     \texttt{findById(userId)} & Publik & Mengambil pengguna berdasarkan ID. \\
@@ -1268,17 +1436,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{sumberDataPengguna} & Privat & DataSource \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- SessionRepository}
-  \label{tab:class-sessionrepository}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- SessionRepository} \label{tab:class-sessionrepository} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-sessionrepository}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{save(session)} & Publik & Menyimpan sesi pengguna baru. \\
     \hline
     \texttt{findById(sessionId)} & Publik & Mengambil sesi berdasarkan ID. \\
@@ -1289,17 +1462,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{sumberDataSesi} & Privat & DataSource \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- ItemRepository}
-  \label{tab:class-itemrepository}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- ItemRepository} \label{tab:class-itemrepository} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-itemrepository}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{save(item)} & Publik & Menyimpan atau memperbarui data barang. \\
     \hline
     \texttt{findById(itemId)} & Publik & Mengambil barang berdasarkan ID. \\
@@ -1312,17 +1490,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{sumberDataBarang} & Privat & DataSource \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- OrderRepository}
-  \label{tab:class-orderrepository}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- OrderRepository} \label{tab:class-orderrepository} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-orderrepository}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{save(order)} & Publik & Menyimpan \textit{order} baru. \\
     \hline
     \texttt{findById(orderId)} & Publik & Mengambil \textit{order} berdasarkan ID. \\
@@ -1335,17 +1518,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{sumberDataOrder} & Privat & DataSource \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- OrderItemRepository}
-  \label{tab:class-orderitemrepository}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- OrderItemRepository} \label{tab:class-orderitemrepository} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-orderitemrepository}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{save(orderItem)} & Publik & Menyimpan item \textit{order} pada basis data. \\
     \hline
     \texttt{findByOrder(orderId)} & Publik & Mengambil seluruh item berdasarkan \textit{order}. \\
@@ -1354,17 +1542,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{sumberDataOrderItem} & Privat & DataSource \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- RobotRepository}
-  \label{tab:class-robotrepository}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- RobotRepository} \label{tab:class-robotrepository} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-robotrepository}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{save(robot)} & Publik & Menyimpan atau memperbarui data robot. \\
     \hline
     \texttt{findById(robotId)} & Publik & Mengambil robot berdasarkan ID. \\
@@ -1375,17 +1568,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{sumberDataRobot} & Privat & DataSource \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- TaskRepository}
-  \label{tab:class-taskrepository}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- TaskRepository} \label{tab:class-taskrepository} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-taskrepository}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{save(task)} & Publik & Menyimpan tugas robot pada basis data. \\
     \hline
     \texttt{findById(taskId)} & Publik & Mengambil tugas berdasarkan ID. \\
@@ -1396,17 +1594,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{sumberDataTugas} & Privat & DataSource \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- AprilTagMappingRepository}
-  \label{tab:class-apriltagmappingrepository}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- AprilTagMappingRepository} \label{tab:class-apriltagmappingrepository} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-apriltagmappingrepository}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{save(mapping)} & Publik & Menyimpan pemetaan AprilTag. \\
     \hline
     \texttt{findById(aprilTagId)} & Publik & Mengambil pemetaan berdasarkan ID \textit{tag}. \\
@@ -1419,19 +1622,24 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{sumberDataAprilTag} & Privat & DataSource \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \subsection{Kelas \textit{Entity}}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- User}
-  \label{tab:class-user}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- User} \label{tab:class-user} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-user}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{authenticate(pw)} & Publik & Memverifikasi kata sandi pengguna. \\
     \hline
     \textbf{Nama Atribut} & \textbf{Visibilitas} & \textbf{Tipe} \\
@@ -1448,17 +1656,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{deleted\_at} & Privat & \texttt{datetime} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- Session}
-  \label{tab:class-session}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- Session} \label{tab:class-session} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-session}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{isValid()} & Publik & Mengecek validitas sesi berdasarkan waktu kedaluwarsa. \\
     \hline
     \textbf{Nama Atribut} & \textbf{Visibilitas} & \textbf{Tipe} \\
@@ -1471,17 +1684,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{expires\_at} & Privat & \texttt{datetime} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- Item}
-  \label{tab:class-item}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- Item} \label{tab:class-item} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-item}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{updateQuantity(qty)} & Publik & Memperbarui kuantitas stok barang. \\
     \hline
     \texttt{getHistory()} & Publik & Mengembalikan riwayat aktivitas barang. \\
@@ -1498,17 +1716,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{quantity} & Privat & \texttt{int} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- Order}
-  \label{tab:class-order}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- Order} \label{tab:class-order} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-order}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{updateStatus(status)} & Publik & Mengubah status \textit{order} menjadi \textit{Pending}, \textit{InProgress}, \textit{Completed}, atau \textit{Failed}. \\
     \hline
     \textbf{Nama Atribut} & \textbf{Visibilitas} & \textbf{Tipe} \\
@@ -1519,17 +1742,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{status} & Privat & \texttt{string} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- OrderItem}
-  \label{tab:class-orderitem}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- OrderItem} \label{tab:class-orderitem} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-orderitem}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{updateQuantity(qty)} & Publik & Menyesuaikan kuantitas item dalam \textit{order}. \\
     \hline
     \textbf{Nama Atribut} & \textbf{Visibilitas} & \textbf{Tipe} \\
@@ -1542,17 +1770,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{quantity} & Privat & \texttt{int} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- Robot}
-  \label{tab:class-robot}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- Robot} \label{tab:class-robot} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-robot}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{getStatus()} & Publik & Mengembalikan status robot terkini. \\
     \hline
     \textbf{Nama Atribut} & \textbf{Visibilitas} & \textbf{Tipe} \\
@@ -1563,17 +1796,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{max\_payload} & Privat & \texttt{float} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- Task}
-  \label{tab:class-task}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- Task} \label{tab:class-task} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-task}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{updateStatus(status)} & Publik & Memperbarui status tugas robot. \\
     \hline
     \textbf{Nama Atribut} & \textbf{Visibilitas} & \textbf{Tipe} \\
@@ -1586,17 +1824,22 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{status} & Privat & \texttt{string} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
-\begin{table}[htbp]
-  \centering
-  \caption{Detail Kelas -- AprilTagMapping}
-  \label{tab:class-apriltagmapping}
-  \begin{tabularx}{\textwidth}{ | l | l | X | }
-    \hline
-    \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
-    \hline
+\begin{xltabular}{\textwidth}{| l | l | X |}
+  \caption{Detail Kelas -- AprilTagMapping} \label{tab:class-apriltagmapping} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:class-apriltagmapping}}} \\
+  \hline
+  \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
     \texttt{resolvePosition()} & Publik & Mengembalikan koordinat entitas berdasarkan \textit{tag} terpasang. \\
     \hline
     \textbf{Nama Atribut} & \textbf{Visibilitas} & \textbf{Tipe} \\
@@ -1607,8 +1850,8 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
     \hline
     \texttt{robot\_id} & Privat & \texttt{int} \\
     \hline
-  \end{tabularx}
-\end{table}
+  
+\end{xltabular}
 
 \section{\textit{Sequence Diagram}}
 \textit{Sequence diagram} merupakan pemodelan perilaku dinamis (\textit{dynamic behavior}) yang menggambarkan bagaimana objek-objek di dalam sistem \textit{Warehouse Management Controller} (WMC) saling berinteraksi dari waktu ke waktu. Diagram ini memetakan urutan pertukaran pesan (\textit{message passing}) antara aktor (\textit{User Interface}) dengan kelas-kelas pada lapisan \textit{Controller}, \textit{Service}, dan \textit{Entity} (\textit{Database}) dalam mengeksekusi logika bisnis sistem.
@@ -1632,7 +1875,7 @@ Pada perancangan ini, \textit{sequence diagram} disusun untuk merealisasikan kes
 
   \textit{Sequence diagram} ini menggambarkan alur penampilan detail suatu barang. Ketika pengguna memilih salah satu barang dari daftar inventori, antarmuka mengirimkan permintaan ke \textit{ItemController} yang meneruskannya ke \textit{goods detail service} untuk mengambil informasi lengkap barang, kemudian menampilkannya pada halaman detail.
 
-  \item \textbf{\textit{Sequence Diagram} UC-05: \textit{View Order Status}}
+  \item \textbf{\textit{Sequence Diagram} UC-05: \textit{View Order}}
 
   \textit{Sequence diagram} ini menggambarkan alur pemantauan status \textit{order}. Antarmuka pengguna mengirimkan permintaan ke \textit{OrderController}, yang meneruskannya ke \textit{fleet order service} untuk mengambil data \textit{order}. Sistem menampilkan daftar \textit{order} beserta status terkininya (\textit{Pending}, \textit{InProgress}, \textit{Completed}, atau \textit{Failed}).
 
@@ -1684,7 +1927,7 @@ Pada perancangan ini, \textit{sequence diagram} disusun untuk merealisasikan kes
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd05.png}
-  \caption{\textit{Sequence Diagram} UC-05: \textit{View Order Status}}
+  \caption{\textit{Sequence Diagram} UC-05: \textit{View Order}}
   \label{fig:sd-summary-uc05}
 \end{figure}
 

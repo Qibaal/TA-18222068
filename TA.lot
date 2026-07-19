@@ -6,8 +6,6 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
@@ -93,111 +91,172 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {III.1}{\ignorespaces Aktivitas Primer pada \textit {Smart Warehouse}}}{23}{table.3.1}%
+\contentsline {table}{\numberline {III.2}{\ignorespaces \textit {Gap Analysis} Kondisi Eksisting vs \textit {Smart Warehouse}}}{25}{table.3.2}%
+\contentsline {table}{\numberline {III.3}{\ignorespaces Pemetaan Rumusan Masalah dengan Tujuan Proyek}}{26}{table.3.3}%
+\contentsline {table}{\numberline {III.4}{\ignorespaces Karakteristik Produk Sistem \textit {Smart Warehouse}}}{27}{table.3.4}%
+\contentsline {table}{\numberline {III.5}{\ignorespaces Pemetaan Karakteristik Produk dengan Tujuan Proyek}}{28}{table.3.5}%
+\contentsline {table}{\numberline {III.6}{\ignorespaces KF-01 --- Autentikasi dan Otorisasi Akses}}{29}{table.3.6}%
+\contentsline {table}{\numberline {III.7}{\ignorespaces KF-02 --- Pengelolaan Informasi Barang}}{29}{table.3.7}%
+\contentsline {table}{\numberline {III.8}{\ignorespaces KF-03 --- Manajemen \textit {Order Stocking} dan \textit {Picking}}}{29}{table.3.8}%
+\contentsline {table}{\numberline {III.9}{\ignorespaces KF-04 --- Lokalisasi Objek}}{30}{table.3.9}%
+\contentsline {table}{\numberline {III.10}{\ignorespaces KF-05 --- Pemantauan Armada Robot}}{30}{table.3.10}%
+\contentsline {table}{\numberline {III.11}{\ignorespaces Kebutuhan Nonfungsional Sistem}}{31}{table.3.11}%
+\contentsline {table}{\numberline {III.12}{\ignorespaces Kriteria dan Penjelasannya}}{36}{table.3.12}%
+\contentsline {table}{\numberline {III.13}{\ignorespaces Nilai Kepentingan Kriteria}}{36}{table.3.13}%
+\contentsline {table}{\numberline {III.14}{\ignorespaces Nilai Bobot Kriteria}}{37}{table.3.14}%
+\contentsline {table}{\numberline {III.15}{\ignorespaces Rubrik Penilaian Solusi}}{38}{table.3.15}%
+\contentsline {table}{\numberline {III.16}{\ignorespaces Rekapitulasi Penilaian AHP Solusi Manajemen Data Inventori (B100 Tabel 2.2.3.8)}}{39}{table.3.16}%
+\contentsline {table}{\numberline {III.17}{\ignorespaces Penjelasan Penilaian Alternatif 1: Event-Driven Inventory Management}}{40}{table.3.17}%
+\contentsline {table}{\numberline {III.18}{\ignorespaces Penjelasan Penilaian Alternatif 2: State-Driven Inventory Management}}{41}{table.3.18}%
+\contentsline {table}{\numberline {III.19}{\ignorespaces Rekapitulasi Penilaian AHP Solusi Lokalisasi}}{42}{table.3.19}%
+\contentsline {table}{\numberline {III.20}{\ignorespaces Penjelasan Penilaian Alternatif 1: QR Code + Line Following}}{42}{table.3.20}%
+\contentsline {table}{\numberline {III.21}{\ignorespaces Penjelasan Penilaian Alternatif 2: AprilTag + Overhead Fisheye Camera}}{43}{table.3.21}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {IV.1}{\ignorespaces Fungsi, masukan, dan keluaran sistem \textit {Smart Warehouse} (Level 0)}}{50}{table.4.1}%
+\contentsline {table}{\numberline {IV.2}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Warehouse Management Controller} (Level 2)}}{51}{table.4.2}%
+\contentsline {table}{\numberline {IV.3}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Database} WMC}}{53}{table.4.3}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {table}{\numberline {IV.4}{\ignorespaces Penjelasan entitas basis data \textit {Warehouse Management Controller}}}{55}{table.4.4}%
+\contentsline {table}{\numberline {IV.5}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Goods Detail Service} WMC}}{58}{table.4.5}%
+\contentsline {table}{\numberline {IV.6}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Fleet Order Service} WMC}}{59}{table.4.6}%
+\contentsline {table}{\numberline {IV.7}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Authentication Service} WMC}}{60}{table.4.7}%
+\contentsline {table}{\numberline {IV.8}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Fleet Controller} (Level 2)}}{62}{table.4.8}%
+\contentsline {table}{\numberline {IV.9}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Localisation System}}}{64}{table.4.9}%
+\contentsline {table}{\numberline {IV.10}{\ignorespaces \textit {Pipeline} pemrosesan Subsistem Lokalisasi}}{65}{table.4.10}%
+\contentsline {table}{\numberline {IV.11}{\ignorespaces Deskripsi \textit {Use Case} UC-01: \textit {Login System}}}{67}{table.4.11}%
+\contentsline {table}{\numberline {IV.12}{\ignorespaces Skenario \textit {Use Case} UC-01: \textit {Login System}}}{68}{table.4.12}%
+\contentsline {table}{\numberline {IV.13}{\ignorespaces Deskripsi \textit {Use Case} UC-02: \textit {Logout System}}}{68}{table.4.13}%
+\contentsline {table}{\numberline {IV.14}{\ignorespaces Skenario \textit {Use Case} UC-02: \textit {Logout System}}}{69}{table.4.14}%
+\contentsline {table}{\numberline {IV.15}{\ignorespaces Deskripsi \textit {Use Case} UC-03: \textit {View Inventory List}}}{69}{table.4.15}%
+\contentsline {table}{\numberline {IV.16}{\ignorespaces Skenario \textit {Use Case} UC-03: \textit {View Inventory List}}}{70}{table.4.16}%
+\contentsline {table}{\numberline {IV.17}{\ignorespaces Deskripsi \textit {Use Case} UC-04: \textit {View Goods Detail}}}{70}{table.4.17}%
+\contentsline {table}{\numberline {IV.18}{\ignorespaces Skenario \textit {Use Case} UC-04: \textit {View Goods Detail}}}{70}{table.4.18}%
+\contentsline {table}{\numberline {IV.19}{\ignorespaces Deskripsi \textit {Use Case} UC-05: \textit {View Order}}}{71}{table.4.19}%
+\contentsline {table}{\numberline {IV.20}{\ignorespaces Skenario \textit {Use Case} UC-05: \textit {View Order}}}{71}{table.4.20}%
+\contentsline {table}{\numberline {IV.21}{\ignorespaces Deskripsi \textit {Use Case} UC-06: \textit {View Robot \& Operation Status}}}{72}{table.4.21}%
+\contentsline {table}{\numberline {IV.22}{\ignorespaces Skenario \textit {Use Case} UC-06: \textit {View Robot \& Operation Status}}}{72}{table.4.22}%
+\contentsline {table}{\numberline {IV.23}{\ignorespaces Deskripsi \textit {Use Case} UC-07: \textit {Operate Digital Twin}}}{72}{table.4.23}%
+\contentsline {table}{\numberline {IV.24}{\ignorespaces Skenario \textit {Use Case} UC-07: \textit {Operate Digital Twin}}}{73}{table.4.24}%
+\contentsline {table}{\numberline {IV.25}{\ignorespaces Deskripsi \textit {Use Case} UC-08: \textit {Create Order Request}}}{73}{table.4.25}%
+\contentsline {table}{\numberline {IV.26}{\ignorespaces Skenario \textit {Use Case} UC-08: \textit {Create Order Request}}}{73}{table.4.26}%
+\contentsline {table}{\numberline {IV.27}{\ignorespaces Deskripsi \textit {Use Case} UC-09: \textit {View Item History}}}{74}{table.4.27}%
+\contentsline {table}{\numberline {IV.28}{\ignorespaces Skenario \textit {Use Case} UC-09: \textit {View Item History}}}{74}{table.4.28}%
+\contentsline {table}{\numberline {IV.29}{\ignorespaces Daftar kelas pada arsitektur \textit {Warehouse Management Controller}}}{76}{table.4.29}%
+\contentsline {table}{\numberline {IV.30}{\ignorespaces Detail Kelas -- AuthController}}{77}{table.4.30}%
+\contentsline {table}{\numberline {IV.31}{\ignorespaces Detail Kelas -- ItemController}}{77}{table.4.31}%
+\contentsline {table}{\numberline {IV.32}{\ignorespaces Detail Kelas -- OrderController}}{77}{table.4.32}%
+\contentsline {table}{\numberline {IV.33}{\ignorespaces Detail Kelas -- RobotController}}{78}{table.4.33}%
+\contentsline {table}{\numberline {IV.34}{\ignorespaces Detail Kelas -- DigitalTwinController}}{78}{table.4.34}%
+\contentsline {table}{\numberline {IV.35}{\ignorespaces Detail Kelas -- AuthService}}{79}{table.4.35}%
+\contentsline {table}{\numberline {IV.36}{\ignorespaces Detail Kelas -- ItemService}}{79}{table.4.36}%
+\contentsline {table}{\numberline {IV.37}{\ignorespaces Detail Kelas -- OrderService}}{80}{table.4.37}%
+\contentsline {table}{\numberline {IV.38}{\ignorespaces Detail Kelas -- RobotService}}{80}{table.4.38}%
+\contentsline {table}{\numberline {IV.39}{\ignorespaces Detail Kelas -- TaskService}}{81}{table.4.39}%
+\contentsline {table}{\numberline {IV.40}{\ignorespaces Detail Kelas -- DigitalTwinService}}{81}{table.4.40}%
+\contentsline {table}{\numberline {IV.41}{\ignorespaces Detail Kelas -- LocationService}}{82}{table.4.41}%
+\contentsline {table}{\numberline {IV.42}{\ignorespaces Detail Kelas -- NotificationService}}{82}{table.4.42}%
+\contentsline {table}{\numberline {IV.43}{\ignorespaces Detail Kelas -- UserRepository}}{83}{table.4.43}%
+\contentsline {table}{\numberline {IV.44}{\ignorespaces Detail Kelas -- SessionRepository}}{83}{table.4.44}%
+\contentsline {table}{\numberline {IV.45}{\ignorespaces Detail Kelas -- ItemRepository}}{83}{table.4.45}%
+\contentsline {table}{\numberline {IV.46}{\ignorespaces Detail Kelas -- OrderRepository}}{83}{table.4.46}%
+\contentsline {table}{\numberline {IV.47}{\ignorespaces Detail Kelas -- OrderItemRepository}}{84}{table.4.47}%
+\contentsline {table}{\numberline {IV.48}{\ignorespaces Detail Kelas -- RobotRepository}}{84}{table.4.48}%
+\contentsline {table}{\numberline {IV.49}{\ignorespaces Detail Kelas -- TaskRepository}}{84}{table.4.49}%
+\contentsline {table}{\numberline {IV.50}{\ignorespaces Detail Kelas -- AprilTagMappingRepository}}{85}{table.4.50}%
+\contentsline {table}{\numberline {IV.51}{\ignorespaces Detail Kelas -- User}}{85}{table.4.51}%
+\contentsline {table}{\numberline {IV.52}{\ignorespaces Detail Kelas -- Session}}{85}{table.4.52}%
+\contentsline {table}{\numberline {IV.53}{\ignorespaces Detail Kelas -- Item}}{86}{table.4.53}%
+\contentsline {table}{\numberline {IV.54}{\ignorespaces Detail Kelas -- Order}}{86}{table.4.54}%
+\contentsline {table}{\numberline {IV.55}{\ignorespaces Detail Kelas -- OrderItem}}{86}{table.4.55}%
+\contentsline {table}{\numberline {IV.56}{\ignorespaces Detail Kelas -- Robot}}{87}{table.4.56}%
+\contentsline {table}{\numberline {IV.57}{\ignorespaces Detail Kelas -- Task}}{87}{table.4.57}%
+\contentsline {table}{\numberline {IV.58}{\ignorespaces Detail Kelas -- AprilTagMapping}}{87}{table.4.58}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {V.1}{\ignorespaces Daftar \textit {endpoint} \textit {Authentication Service}}}{93}{table.5.1}%
+\contentsline {table}{\numberline {V.2}{\ignorespaces Deskripsi Berkas \textit {Authentication Service}}}{94}{table.5.2}%
+\contentsline {table}{\numberline {V.3}{\ignorespaces Daftar \textit {endpoint} \textit {Goods Service}}}{95}{table.5.3}%
+\contentsline {table}{\numberline {V.4}{\ignorespaces Deskripsi Berkas \textit {Goods Service}}}{96}{table.5.4}%
+\contentsline {table}{\numberline {V.5}{\ignorespaces Daftar \textit {endpoint} \textit {Fleet Service}}}{97}{table.5.5}%
+\contentsline {table}{\numberline {V.6}{\ignorespaces Deskripsi Berkas \textit {Fleet Service}}}{98}{table.5.6}%
+\contentsline {table}{\numberline {V.7}{\ignorespaces Deskripsi Berkas pada Folder \texttt {localisasi}}}{101}{table.5.7}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {VI.1}{\ignorespaces Rangkuman kriteria dan metode evaluasi Subsistem Lokalisasi}}{107}{table.6.1}%
+\contentsline {table}{\numberline {VI.2}{\ignorespaces Hasil pengujian stress test \textit {endpoint} WMC}}{108}{table.6.2}%
+\contentsline {table}{\numberline {VI.3}{\ignorespaces Hasil verifikasi posisi Subsistem Lokalisasi}}{109}{table.6.3}%
+\contentsline {table}{\numberline {VI.4}{\ignorespaces Hasil verifikasi orientasi Subsistem Lokalisasi}}{110}{table.6.4}%
+\contentsline {table}{\numberline {VI.5}{\ignorespaces Hasil pengujian Task Fulfilment Accuracy}}{110}{table.6.5}%
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {III.1}{\ignorespaces Aktivitas Primer pada \textit {Smart Warehouse}}}{25}{table.3.1}%
-\contentsline {table}{\numberline {III.2}{\ignorespaces \textit {Gap Analysis} Kondisi Eksisting vs \textit {Smart Warehouse} (B100 Tabel 2.1.3.2)}}{29}{table.3.2}%
-\contentsline {table}{\numberline {III.3}{\ignorespaces Karakteristik Produk Sistem \textit {Smart Warehouse}}}{30}{table.3.3}%
-\contentsline {table}{\numberline {III.4}{\ignorespaces Kebutuhan Fungsional WMC}}{31}{table.3.4}%
-\contentsline {table}{\numberline {III.5}{\ignorespaces Kebutuhan Fungsional Subsistem Lokalisasi}}{33}{table.3.5}%
-\contentsline {table}{\numberline {III.6}{\ignorespaces Kebutuhan Nonfungsional WMC}}{34}{table.3.6}%
-\contentsline {table}{\numberline {III.7}{\ignorespaces Kebutuhan Nonfungsional Subsistem Lokalisasi}}{36}{table.3.7}%
-\contentsline {table}{\numberline {III.8}{\ignorespaces Perbandingan Karakteristik Alternatif Solusi Manajemen Data Inventori}}{39}{table.3.8}%
-\contentsline {table}{\numberline {III.9}{\ignorespaces Bobot Kriteria AHP Pemilihan Solusi Manajemen Data Inventori}}{40}{table.3.9}%
-\contentsline {table}{\numberline {III.10}{\ignorespaces Penjelasan Penilaian Alternatif 1: Event-Driven Inventory Management}}{41}{table.3.10}%
-\contentsline {table}{\numberline {III.11}{\ignorespaces Penjelasan Penilaian Alternatif 2: State-Driven Inventory Management}}{42}{table.3.11}%
-\contentsline {table}{\numberline {III.12}{\ignorespaces Rekapitulasi Penilaian AHP Solusi Manajemen Data Inventori (B100 Tabel 2.2.3.8)}}{43}{table.3.12}%
-\contentsline {table}{\numberline {III.13}{\ignorespaces Perbandingan Karakteristik Alternatif Solusi Lokalisasi}}{45}{table.3.13}%
-\contentsline {table}{\numberline {III.14}{\ignorespaces Kriteria Evaluasi Pemilihan Solusi Lokalisasi}}{46}{table.3.14}%
-\contentsline {table}{\numberline {III.15}{\ignorespaces Nilai Kepentingan Kriteria}}{47}{table.3.15}%
-\contentsline {table}{\numberline {III.16}{\ignorespaces Nilai Bobot Kriteria}}{48}{table.3.16}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {III.17}{\ignorespaces Penjelasan Penilaian Alternatif 1: QR Code + Line Following}}{48}{table.3.17}%
-\contentsline {table}{\numberline {III.18}{\ignorespaces Penjelasan Penilaian Alternatif 2: AprilTag + Overhead Fisheye Camera}}{49}{table.3.18}%
-\contentsline {table}{\numberline {III.19}{\ignorespaces Rekapitulasi Penilaian AHP Solusi Lokalisasi}}{50}{table.3.19}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {IV.1}{\ignorespaces Fungsi, masukan, dan keluaran sistem \textit {Smart Warehouse} (Level 0)}}{55}{table.caption.14}%
-\contentsline {table}{\numberline {IV.2}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Warehouse Management Controller} (Level 2)}}{57}{table.caption.16}%
-\contentsline {table}{\numberline {IV.3}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Database} WMC}}{57}{table.caption.18}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {IV.4}{\ignorespaces Penjelasan entitas basis data \textit {Warehouse Management Controller}}}{60}{table.caption.20}%
-\contentsline {table}{\numberline {IV.5}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Goods Detail Service} WMC}}{61}{table.caption.22}%
-\contentsline {table}{\numberline {IV.6}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Fleet Order Service} WMC}}{62}{table.caption.24}%
-\contentsline {table}{\numberline {IV.7}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Authentication Service} WMC}}{63}{table.caption.26}%
-\contentsline {table}{\numberline {IV.8}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Fleet Controller} (Level 2)}}{63}{table.caption.28}%
-\contentsline {table}{\numberline {IV.9}{\ignorespaces Fungsi, masukan, dan keluaran \textit {Localisation System}}}{65}{table.caption.30}%
-\contentsline {table}{\numberline {IV.10}{\ignorespaces \textit {Pipeline} pemrosesan Subsistem Lokalisasi}}{68}{table.caption.31}%
-\contentsline {table}{\numberline {IV.11}{\ignorespaces Deskripsi \textit {Use Case} UC-01: \textit {Login System}}}{69}{table.caption.33}%
-\contentsline {table}{\numberline {IV.12}{\ignorespaces Skenario \textit {Use Case} UC-01: \textit {Login System}}}{69}{table.caption.35}%
-\contentsline {table}{\numberline {IV.13}{\ignorespaces Deskripsi \textit {Use Case} UC-02: \textit {Logout System}}}{70}{table.caption.36}%
-\contentsline {table}{\numberline {IV.14}{\ignorespaces Skenario \textit {Use Case} UC-02: \textit {Logout System}}}{70}{table.caption.38}%
-\contentsline {table}{\numberline {IV.15}{\ignorespaces Deskripsi \textit {Use Case} UC-03: \textit {View Inventory List}}}{71}{table.caption.39}%
-\contentsline {table}{\numberline {IV.16}{\ignorespaces Skenario \textit {Use Case} UC-03: \textit {View Inventory List}}}{71}{table.caption.41}%
-\contentsline {table}{\numberline {IV.17}{\ignorespaces Deskripsi \textit {Use Case} UC-04: \textit {View Goods Detail}}}{72}{table.caption.42}%
-\contentsline {table}{\numberline {IV.18}{\ignorespaces Skenario \textit {Use Case} UC-04: \textit {View Goods Detail}}}{72}{table.caption.44}%
-\contentsline {table}{\numberline {IV.19}{\ignorespaces Deskripsi \textit {Use Case} UC-05: \textit {View Order Status}}}{73}{table.caption.45}%
-\contentsline {table}{\numberline {IV.20}{\ignorespaces Skenario \textit {Use Case} UC-05: \textit {View Order Status}}}{73}{table.caption.47}%
-\contentsline {table}{\numberline {IV.21}{\ignorespaces Deskripsi \textit {Use Case} UC-06: \textit {View Robot \& Operation Status}}}{74}{table.caption.48}%
-\contentsline {table}{\numberline {IV.22}{\ignorespaces Skenario \textit {Use Case} UC-06: \textit {View Robot \& Operation Status}}}{74}{table.caption.50}%
-\contentsline {table}{\numberline {IV.23}{\ignorespaces Deskripsi \textit {Use Case} UC-07: \textit {Operate Digital Twin}}}{75}{table.caption.51}%
-\contentsline {table}{\numberline {IV.24}{\ignorespaces Skenario \textit {Use Case} UC-07: \textit {Operate Digital Twin}}}{75}{table.caption.53}%
-\contentsline {table}{\numberline {IV.25}{\ignorespaces Deskripsi \textit {Use Case} UC-08: \textit {Create Order Request}}}{76}{table.caption.54}%
-\contentsline {table}{\numberline {IV.26}{\ignorespaces Skenario \textit {Use Case} UC-08: \textit {Create Order Request}}}{77}{table.caption.56}%
-\contentsline {table}{\numberline {IV.27}{\ignorespaces Deskripsi \textit {Use Case} UC-09: \textit {View Item History}}}{77}{table.caption.57}%
-\contentsline {table}{\numberline {IV.28}{\ignorespaces Skenario \textit {Use Case} UC-09: \textit {View Item History}}}{78}{table.caption.59}%
-\contentsline {table}{\numberline {IV.29}{\ignorespaces Daftar kelas pada arsitektur \textit {Warehouse Management Controller}}}{80}{table.caption.61}%
-\contentsline {table}{\numberline {IV.30}{\ignorespaces Detail Kelas -- AuthController}}{81}{table.caption.62}%
-\contentsline {table}{\numberline {IV.31}{\ignorespaces Detail Kelas -- ItemController}}{81}{table.caption.63}%
-\contentsline {table}{\numberline {IV.32}{\ignorespaces Detail Kelas -- OrderController}}{82}{table.caption.64}%
-\contentsline {table}{\numberline {IV.33}{\ignorespaces Detail Kelas -- RobotController}}{82}{table.caption.65}%
-\contentsline {table}{\numberline {IV.34}{\ignorespaces Detail Kelas -- DigitalTwinController}}{82}{table.caption.66}%
-\contentsline {table}{\numberline {IV.35}{\ignorespaces Detail Kelas -- AuthService}}{83}{table.caption.67}%
-\contentsline {table}{\numberline {IV.36}{\ignorespaces Detail Kelas -- ItemService}}{83}{table.caption.68}%
-\contentsline {table}{\numberline {IV.37}{\ignorespaces Detail Kelas -- OrderService}}{84}{table.caption.69}%
-\contentsline {table}{\numberline {IV.38}{\ignorespaces Detail Kelas -- RobotService}}{85}{table.caption.70}%
-\contentsline {table}{\numberline {IV.39}{\ignorespaces Detail Kelas -- TaskService}}{85}{table.caption.71}%
-\contentsline {table}{\numberline {IV.40}{\ignorespaces Detail Kelas -- DigitalTwinService}}{85}{table.caption.72}%
-\contentsline {table}{\numberline {IV.41}{\ignorespaces Detail Kelas -- LocationService}}{86}{table.caption.73}%
-\contentsline {table}{\numberline {IV.42}{\ignorespaces Detail Kelas -- NotificationService}}{86}{table.caption.74}%
-\contentsline {table}{\numberline {IV.43}{\ignorespaces Detail Kelas -- UserRepository}}{86}{table.caption.75}%
-\contentsline {table}{\numberline {IV.44}{\ignorespaces Detail Kelas -- SessionRepository}}{86}{table.caption.76}%
-\contentsline {table}{\numberline {IV.45}{\ignorespaces Detail Kelas -- ItemRepository}}{87}{table.caption.77}%
-\contentsline {table}{\numberline {IV.46}{\ignorespaces Detail Kelas -- OrderRepository}}{87}{table.caption.78}%
-\contentsline {table}{\numberline {IV.47}{\ignorespaces Detail Kelas -- OrderItemRepository}}{87}{table.caption.79}%
-\contentsline {table}{\numberline {IV.48}{\ignorespaces Detail Kelas -- RobotRepository}}{87}{table.caption.80}%
-\contentsline {table}{\numberline {IV.49}{\ignorespaces Detail Kelas -- TaskRepository}}{88}{table.caption.81}%
-\contentsline {table}{\numberline {IV.50}{\ignorespaces Detail Kelas -- AprilTagMappingRepository}}{88}{table.caption.82}%
-\contentsline {table}{\numberline {IV.51}{\ignorespaces Detail Kelas -- User}}{88}{table.caption.83}%
-\contentsline {table}{\numberline {IV.52}{\ignorespaces Detail Kelas -- Session}}{88}{table.caption.84}%
-\contentsline {table}{\numberline {IV.53}{\ignorespaces Detail Kelas -- Item}}{89}{table.caption.85}%
-\contentsline {table}{\numberline {IV.54}{\ignorespaces Detail Kelas -- Order}}{89}{table.caption.86}%
-\contentsline {table}{\numberline {IV.55}{\ignorespaces Detail Kelas -- OrderItem}}{89}{table.caption.87}%
-\contentsline {table}{\numberline {IV.56}{\ignorespaces Detail Kelas -- Robot}}{89}{table.caption.88}%
-\contentsline {table}{\numberline {IV.57}{\ignorespaces Detail Kelas -- Task}}{90}{table.caption.89}%
-\contentsline {table}{\numberline {IV.58}{\ignorespaces Detail Kelas -- AprilTagMapping}}{90}{table.caption.90}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {V.1}{\ignorespaces Daftar \textit {endpoint} \textit {Authentication Service}}}{98}{table.caption.100}%
-\contentsline {table}{\numberline {V.3}{\ignorespaces Daftar \textit {endpoint} \textit {Goods Service}}}{98}{table.5.3}%
-\contentsline {table}{\numberline {V.5}{\ignorespaces Daftar \textit {endpoint} \textit {Fleet Service}}}{100}{table.5.5}%
-\contentsline {table}{\numberline {V.6}{\ignorespaces Rencana Berkas Fisik \textit {Fleet Service}}}{102}{table.5.6}%
-\contentsline {table}{\numberline {V.10}{\ignorespaces Teknologi yang digunakan dalam pengembangan WMC}}{104}{table.5.10}%
-\contentsline {table}{\numberline {V.12}{\ignorespaces Deskripsi Berkas pada Folder \texttt {localisasi}}}{108}{table.5.12}%
-\contentsline {table}{\numberline {V.2}{\ignorespaces Rencana Berkas Fisik \textit {Authentication Service}}}{112}{table.caption.101}%
-\contentsline {table}{\numberline {V.4}{\ignorespaces Rencana Berkas Fisik \textit {Goods Service}}}{113}{table.caption.102}%
-\contentsline {table}{\numberline {V.7}{\ignorespaces Modul infrastruktur bersama \textit {goods-service} dan \textit {database}}}{114}{table.caption.103}%
-\contentsline {table}{\numberline {V.8}{\ignorespaces Spesifikasi \textit {hardware}}}{114}{table.caption.104}%
-\contentsline {table}{\numberline {V.9}{\ignorespaces Spesifikasi \textit {software}}}{115}{table.caption.105}%
-\contentsline {table}{\numberline {V.11}{\ignorespaces Teknologi yang digunakan dalam implementasi Subsistem Lokalisasi}}{115}{table.caption.107}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {VI.1}{\ignorespaces Rangkuman kriteria dan metode evaluasi WMC}}{119}{table.caption.110}%
-\contentsline {table}{\numberline {VI.2}{\ignorespaces Hasil pengujian Task Fulfilment Accuracy}}{120}{table.caption.111}%
-\contentsline {table}{\numberline {VI.3}{\ignorespaces Hasil pengujian stress test \textit {endpoint} WMC}}{123}{table.caption.112}%
-\contentsline {table}{\numberline {VI.4}{\ignorespaces Contoh hasil verifikasi posisi Subsistem Lokalisasi (representasi dari pengujian pada seluruh 32 sel grid $8\times 4$)}}{124}{table.caption.113}%
-\contentsline {table}{\numberline {VI.5}{\ignorespaces Contoh hasil verifikasi orientasi Subsistem Lokalisasi (kelipatan $90^\circ $)}}{124}{table.caption.114}%
-\addvspace {10\p@ }
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

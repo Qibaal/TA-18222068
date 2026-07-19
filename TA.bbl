@@ -19,6 +19,81 @@
 
 \refsection{0}
   \datalist[entry]{cms/global//global/global/global}
+    \entry{alroobaea2014}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d445b53cd7d79bf04610d0bca0f88693}{%
+           family={Alroobaea},
+           familyi={A\bibinitperiod},
+           given={Roobaea},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cf6aa2e16b6a11094f38eea770dce725}{%
+           family={Mayhew},
+           familyi={M\bibinitperiod},
+           given={Pam\bibnamedelima J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{2aee49e5ecc76bff3a3620378a7014d6}
+      \strng{fullhash}{2aee49e5ecc76bff3a3620378a7014d6}
+      \strng{fullhashraw}{2aee49e5ecc76bff3a3620378a7014d6}
+      \strng{bibnamehash}{2aee49e5ecc76bff3a3620378a7014d6}
+      \strng{authorbibnamehash}{2aee49e5ecc76bff3a3620378a7014d6}
+      \strng{authornamehash}{2aee49e5ecc76bff3a3620378a7014d6}
+      \strng{authorfullhash}{2aee49e5ecc76bff3a3620378a7014d6}
+      \strng{authorfullhashraw}{2aee49e5ecc76bff3a3620378a7014d6}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2014 Science and Information Conference (SAI)}
+      \field{title}{How Many Participants Are Really Enough for Usability Studies?}
+      \field{year}{2014}
+      \field{pages}{48\bibrangedash 56}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/SAI.2014.6918171
+      \endverb
+    \endentry
+    \entry{alter2008}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e9e3c044f14d305e7294ba540a338702}{%
+           family={Alter},
+           familyi={A\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e9e3c044f14d305e7294ba540a338702}
+      \strng{fullhash}{e9e3c044f14d305e7294ba540a338702}
+      \strng{fullhashraw}{e9e3c044f14d305e7294ba540a338702}
+      \strng{bibnamehash}{e9e3c044f14d305e7294ba540a338702}
+      \strng{authorbibnamehash}{e9e3c044f14d305e7294ba540a338702}
+      \strng{authornamehash}{e9e3c044f14d305e7294ba540a338702}
+      \strng{authorfullhash}{e9e3c044f14d305e7294ba540a338702}
+      \strng{authorfullhashraw}{e9e3c044f14d305e7294ba540a338702}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{European Journal of Information Systems}
+      \field{number}{5}
+      \field{title}{Defining Information Systems as Work Systems: Implications for the {IS} Field}
+      \field{volume}{17}
+      \field{year}{2008}
+      \field{pages}{448\bibrangedash 469}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1057/ejis.2008.37
+      \endverb
+    \endentry
     \entry{bangor2009}{article}{}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=05ed7926f59ed51998e7d806c8a2ca30}{%
@@ -62,6 +137,55 @@
       \field{pages}{114\bibrangedash 123}
       \range{pages}{10}
     \endentry
+    \entry{boysen2019}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=a92e3d9b77900615798eb5e3d8fd91f9}{%
+           family={Boysen},
+           familyi={B\bibinitperiod},
+           given={Nils},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c3cbb6b513c528a72bfb954b30bbe43c}{%
+           family={Koster},
+           familyi={K\bibinitperiod},
+           given={René},
+           giveni={R\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+        {{un=0,uniquepart=base,hash=4239318f9dac0b4e162537bffceacbd6}{%
+           family={Weidinger},
+           familyi={W\bibinitperiod},
+           given={Felix},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{95687851b1457639ff2c5e57a121f636}
+      \strng{fullhash}{95687851b1457639ff2c5e57a121f636}
+      \strng{fullhashraw}{95687851b1457639ff2c5e57a121f636}
+      \strng{bibnamehash}{95687851b1457639ff2c5e57a121f636}
+      \strng{authorbibnamehash}{95687851b1457639ff2c5e57a121f636}
+      \strng{authornamehash}{95687851b1457639ff2c5e57a121f636}
+      \strng{authorfullhash}{95687851b1457639ff2c5e57a121f636}
+      \strng{authorfullhashraw}{95687851b1457639ff2c5e57a121f636}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{number}{2}
+      \field{title}{Warehousing in the E-Commerce Era: A Survey}
+      \field{volume}{277}
+      \field{year}{2019}
+      \field{pages}{396\bibrangedash 411}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1016/j.ejor.2018.08.023
+      \endverb
+    \endentry
     \entry{bradski2000}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=a780b2fbd99e4f7ce78d33324e39d4c2}{%
@@ -93,34 +217,37 @@
       \field{pages}{120\bibrangedash 125}
       \range{pages}{6}
     \endentry
-    \entry{brazhkin2018}{article}{}{}
+    \entry{brown2008}{article}{}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=d998b60974bde52dfe90cc2897d6771d}{%
-           family={Brazhkin},
+        {{un=0,uniquepart=base,hash=00432bf95dae33daba00dbbe9730bdfa}{%
+           family={Brown},
            familyi={B\bibinitperiod},
-           given={Vitaliy},
-           giveni={V\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{d998b60974bde52dfe90cc2897d6771d}
-      \strng{fullhash}{d998b60974bde52dfe90cc2897d6771d}
-      \strng{fullhashraw}{d998b60974bde52dfe90cc2897d6771d}
-      \strng{bibnamehash}{d998b60974bde52dfe90cc2897d6771d}
-      \strng{authorbibnamehash}{d998b60974bde52dfe90cc2897d6771d}
-      \strng{authornamehash}{d998b60974bde52dfe90cc2897d6771d}
-      \strng{authorfullhash}{d998b60974bde52dfe90cc2897d6771d}
-      \strng{authorfullhashraw}{d998b60974bde52dfe90cc2897d6771d}
+      \strng{namehash}{00432bf95dae33daba00dbbe9730bdfa}
+      \strng{fullhash}{00432bf95dae33daba00dbbe9730bdfa}
+      \strng{fullhashraw}{00432bf95dae33daba00dbbe9730bdfa}
+      \strng{bibnamehash}{00432bf95dae33daba00dbbe9730bdfa}
+      \strng{authorbibnamehash}{00432bf95dae33daba00dbbe9730bdfa}
+      \strng{authornamehash}{00432bf95dae33daba00dbbe9730bdfa}
+      \strng{authorfullhash}{00432bf95dae33daba00dbbe9730bdfa}
+      \strng{authorfullhashraw}{00432bf95dae33daba00dbbe9730bdfa}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{author}
-      \field{journaltitle}{Journal of Contemporary Business Issues}
-      \field{number}{1}
-      \field{title}{An Analysis of Key Warehouse Resources}
-      \field{volume}{23}
-      \field{year}{2018}
+      \field{journaltitle}{Harvard Business Review}
+      \field{note}{Reprint R0806E}
+      \field{number}{6}
+      \field{title}{Design Thinking}
+      \field{volume}{86}
+      \field{year}{2008}
+      \field{pages}{84\bibrangedash 92}
+      \range{pages}{9}
     \endentry
     \entry{codd1970}{article}{}{}
       \name{author}{1}{}{%
@@ -153,36 +280,38 @@
       \field{pages}{377\bibrangedash 387}
       \range{pages}{11}
     \endentry
-    \entry{conexiom2024}{online}{}{}
+    \entry{dorst2011}{article}{}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=1e523bf3496c5bca8dfafa79ccd79919}{%
-           family={{Conexiom}},
-           familyi={C\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=1f05bc6bdbf00c317af42aee884ecb22}{%
+           family={Dorst},
+           familyi={D\bibinitperiod},
+           given={Kees},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
       }
-      \list{organization}{1}{%
-        {Conexiom Inc.}%
-      }
-      \strng{namehash}{1e523bf3496c5bca8dfafa79ccd79919}
-      \strng{fullhash}{1e523bf3496c5bca8dfafa79ccd79919}
-      \strng{fullhashraw}{1e523bf3496c5bca8dfafa79ccd79919}
-      \strng{bibnamehash}{1e523bf3496c5bca8dfafa79ccd79919}
-      \strng{authorbibnamehash}{1e523bf3496c5bca8dfafa79ccd79919}
-      \strng{authornamehash}{1e523bf3496c5bca8dfafa79ccd79919}
-      \strng{authorfullhash}{1e523bf3496c5bca8dfafa79ccd79919}
-      \strng{authorfullhashraw}{1e523bf3496c5bca8dfafa79ccd79919}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \strng{namehash}{1f05bc6bdbf00c317af42aee884ecb22}
+      \strng{fullhash}{1f05bc6bdbf00c317af42aee884ecb22}
+      \strng{fullhashraw}{1f05bc6bdbf00c317af42aee884ecb22}
+      \strng{bibnamehash}{1f05bc6bdbf00c317af42aee884ecb22}
+      \strng{authorbibnamehash}{1f05bc6bdbf00c317af42aee884ecb22}
+      \strng{authornamehash}{1f05bc6bdbf00c317af42aee884ecb22}
+      \strng{authorfullhash}{1f05bc6bdbf00c317af42aee884ecb22}
+      \strng{authorfullhashraw}{1f05bc6bdbf00c317af42aee884ecb22}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The State of Order Management}
-      \field{year}{2024}
-      \verb{urlraw}
-      \verb https://conexiom.com/resources/state-of-order-management/
-      \endverb
-      \verb{url}
-      \verb https://conexiom.com/resources/state-of-order-management/
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Design Studies}
+      \field{number}{6}
+      \field{title}{The Core of `Design Thinking' and Its Application}
+      \field{volume}{32}
+      \field{year}{2011}
+      \field{pages}{521\bibrangedash 532}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1016/j.destud.2011.07.006
       \endverb
     \endentry
     \entry{fette2011}{report}{}{}
@@ -359,6 +488,52 @@
       \field{volume}{132}
       \field{year}{2021}
     \endentry
+    \entry{gu2007}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=65ba4709c8e9c1df90198645974e0501}{%
+           family={Gu},
+           familyi={G\bibinitperiod},
+           given={Jinxiang},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=92119012462811f283b7b823141d08f8}{%
+           family={Goetschalckx},
+           familyi={G\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=69dc77d6fd7e168af9625ea97cbbfcd5}{%
+           family={McGinnis},
+           familyi={M\bibinitperiod},
+           given={Leon\bibnamedelima F.},
+           giveni={L\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{eb25e8c49e6ce91ddd715f60e7d89070}
+      \strng{fullhash}{eb25e8c49e6ce91ddd715f60e7d89070}
+      \strng{fullhashraw}{eb25e8c49e6ce91ddd715f60e7d89070}
+      \strng{bibnamehash}{eb25e8c49e6ce91ddd715f60e7d89070}
+      \strng{authorbibnamehash}{eb25e8c49e6ce91ddd715f60e7d89070}
+      \strng{authornamehash}{eb25e8c49e6ce91ddd715f60e7d89070}
+      \strng{authorfullhash}{eb25e8c49e6ce91ddd715f60e7d89070}
+      \strng{authorfullhashraw}{eb25e8c49e6ce91ddd715f60e7d89070}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{number}{1}
+      \field{title}{Research on Warehouse Operation: A Comprehensive Review}
+      \field{volume}{177}
+      \field{year}{2007}
+      \field{pages}{1\bibrangedash 21}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1016/j.ejor.2006.02.025
+      \endverb
+    \endentry
     \entry{habazin2017}{article}{}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=ff33919fed36b547921f383fd90337f3}{%
@@ -479,31 +654,36 @@
       \field{title}{Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions}
       \field{year}{2003}
     \endentry
-    \entry{ihlgroup2023}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=0b066723dddc51e50e443fb92da899a2}{%
-           family={{IHL Group}},
+    \entry{ieee2016}{manual}{}{}
+      \name{shortauthor}{1}{}{%
+        {{un=0,uniquepart=base,hash=472abfae8142fdb6f39d081303e8af85}{%
+           family={{IEEE}},
            familyi={I\bibinitperiod}}}%
       }
-      \list{organization}{1}{%
-        {IHL Group}%
+      \list{location}{1}{%
+        {New York, NY, USA}%
       }
-      \strng{namehash}{0b066723dddc51e50e443fb92da899a2}
-      \strng{fullhash}{0b066723dddc51e50e443fb92da899a2}
-      \strng{fullhashraw}{0b066723dddc51e50e443fb92da899a2}
-      \strng{bibnamehash}{0b066723dddc51e50e443fb92da899a2}
-      \strng{authorbibnamehash}{0b066723dddc51e50e443fb92da899a2}
-      \strng{authornamehash}{0b066723dddc51e50e443fb92da899a2}
-      \strng{authorfullhash}{0b066723dddc51e50e443fb92da899a2}
-      \strng{authorfullhashraw}{0b066723dddc51e50e443fb92da899a2}
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{bibnamehash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{shortauthorbibnamehash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{shortauthornamehash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{shortauthorfullhash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{shortauthorfullhashraw}{472abfae8142fdb6f39d081303e8af85}
       \field{sortinit}{I}
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
-      \field{labelnamesource}{author}
+      \field{labelnamesource}{shortauthor}
       \field{labeltitlesource}{title}
-      \field{title}{Retailers and the Ghost Economy: The Uncounted \$1.8 Trillion Opportunity}
-      \field{year}{2023}
+      \field{note}{IEEE Std 1012-2016 (Revision of IEEE Std 1012-2012)}
+      \field{title}{{IEEE} Standard for System, Software, and Hardware Verification and Validation}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.1109/IEEESTD.2017.8055462
+      \endverb
     \endentry
     \entry{iso9001}{manual}{}{}
       \name{shortauthor}{1}{}{%
@@ -533,31 +713,268 @@
       \field{title}{Quality Management Systems --- Requirements}
       \field{year}{2015}
     \endentry
-    \entry{kadin2025}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=a99e661f63d8fde91cd4d3cece447531}{%
-           family={{KADIN Indonesia}},
-           familyi={K\bibinitperiod}}}%
+    \entry{kalaitzakis2021}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=2a7c69d9583ce63c0023765f897a1372}{%
+           family={Kalaitzakis},
+           familyi={K\bibinitperiod},
+           given={Michail},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53de242f609f44c2e6475b66a63bcda5}{%
+           family={Cain},
+           familyi={C\bibinitperiod},
+           given={Brennan},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d1fa3d3634a7d7d96c9d5680f381c390}{%
+           family={Carroll},
+           familyi={C\bibinitperiod},
+           given={Sabrina},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1a77e7dda49e2e02c03dbefe80f1b192}{%
+           family={Ambrosi},
+           familyi={A\bibinitperiod},
+           given={Anand},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d008c6402d3972ff0803a78162699371}{%
+           family={Whitehead},
+           familyi={W\bibinitperiod},
+           given={Camden},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4161e8964577630a2a8070e3c4541d5d}{%
+           family={Vitzilaios},
+           familyi={V\bibinitperiod},
+           given={Nikolaos},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
       }
-      \list{organization}{1}{%
-        {Kamar Dagang dan Industri Indonesia}%
-      }
-      \strng{namehash}{a99e661f63d8fde91cd4d3cece447531}
-      \strng{fullhash}{a99e661f63d8fde91cd4d3cece447531}
-      \strng{fullhashraw}{a99e661f63d8fde91cd4d3cece447531}
-      \strng{bibnamehash}{a99e661f63d8fde91cd4d3cece447531}
-      \strng{authorbibnamehash}{a99e661f63d8fde91cd4d3cece447531}
-      \strng{authornamehash}{a99e661f63d8fde91cd4d3cece447531}
-      \strng{authorfullhash}{a99e661f63d8fde91cd4d3cece447531}
-      \strng{authorfullhashraw}{a99e661f63d8fde91cd4d3cece447531}
+      \strng{namehash}{494f4fee48b7536e5a49a43d6f224050}
+      \strng{fullhash}{1706de37ec1c6e8f22081681f5edb0cd}
+      \strng{fullhashraw}{1706de37ec1c6e8f22081681f5edb0cd}
+      \strng{bibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
+      \strng{authorbibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
+      \strng{authornamehash}{494f4fee48b7536e5a49a43d6f224050}
+      \strng{authorfullhash}{1706de37ec1c6e8f22081681f5edb0cd}
+      \strng{authorfullhashraw}{1706de37ec1c6e8f22081681f5edb0cd}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Pertumbuhan Pasar {FMCG} Indonesia Sektor Kecantikan dan Perawatan Diri}
-      \field{year}{2025}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Journal of Intelligent \& Robotic Systems}
+      \field{number}{4}
+      \field{title}{Fiducial Markers for Pose Estimation: Overview, Applications and Experimental Comparison of the {ARTag}, {AprilTag}, {ArUco} and {STag} Markers}
+      \field{volume}{101}
+      \field{year}{2021}
+      \field{pages}{71}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s10846-020-01307-9
+      \endverb
+    \endentry
+    \entry{kannala2006}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8d20e3f80f9d860f9a91b6f18054e4b1}{%
+           family={Kannala},
+           familyi={K\bibinitperiod},
+           given={Juho},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4333af1d25c1f03e74e9880c9922d5ef}{%
+           family={Brandt},
+           familyi={B\bibinitperiod},
+           given={Sami\bibnamedelima S.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9051aaad4406bfb6c506f6a609735153}
+      \strng{fullhash}{9051aaad4406bfb6c506f6a609735153}
+      \strng{fullhashraw}{9051aaad4406bfb6c506f6a609735153}
+      \strng{bibnamehash}{9051aaad4406bfb6c506f6a609735153}
+      \strng{authorbibnamehash}{9051aaad4406bfb6c506f6a609735153}
+      \strng{authornamehash}{9051aaad4406bfb6c506f6a609735153}
+      \strng{authorfullhash}{9051aaad4406bfb6c506f6a609735153}
+      \strng{authorfullhashraw}{9051aaad4406bfb6c506f6a609735153}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{number}{8}
+      \field{title}{A Generic Camera Model and Calibration Method for Conventional, Wide-Angle, and Fish-Eye Lenses}
+      \field{volume}{28}
+      \field{year}{2006}
+      \field{pages}{1335\bibrangedash 1340}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/TPAMI.2006.153
+      \endverb
+    \endentry
+    \entry{dekoster2007}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=c3cbb6b513c528a72bfb954b30bbe43c}{%
+           family={Koster},
+           familyi={K\bibinitperiod},
+           given={René},
+           giveni={R\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+        {{un=0,uniquepart=base,hash=c2e0cdfcda91e5ea0fe794f9a3c51c8b}{%
+           family={Le-Duc},
+           familyi={L\bibinithyphendelim D\bibinitperiod},
+           given={Tho},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=321b3e2ac2945475699ed7e63d9762e8}{%
+           family={Roodbergen},
+           familyi={R\bibinitperiod},
+           given={Kees\bibnamedelima Jan},
+           giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fb89d3e6a849401b6c658b7196291300}
+      \strng{fullhash}{fb89d3e6a849401b6c658b7196291300}
+      \strng{fullhashraw}{fb89d3e6a849401b6c658b7196291300}
+      \strng{bibnamehash}{fb89d3e6a849401b6c658b7196291300}
+      \strng{authorbibnamehash}{fb89d3e6a849401b6c658b7196291300}
+      \strng{authornamehash}{fb89d3e6a849401b6c658b7196291300}
+      \strng{authorfullhash}{fb89d3e6a849401b6c658b7196291300}
+      \strng{authorfullhashraw}{fb89d3e6a849401b6c658b7196291300}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{number}{2}
+      \field{title}{Design and Control of Warehouse Order Picking: A Literature Review}
+      \field{volume}{182}
+      \field{year}{2007}
+      \field{pages}{481\bibrangedash 501}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1016/j.ejor.2006.07.009
+      \endverb
+    \endentry
+    \entry{lewis2018}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f106a761a58d4041d103c16ce4f11cf1}{%
+           family={Lewis},
+           familyi={L\bibinitperiod},
+           given={James\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f106a761a58d4041d103c16ce4f11cf1}
+      \strng{fullhash}{f106a761a58d4041d103c16ce4f11cf1}
+      \strng{fullhashraw}{f106a761a58d4041d103c16ce4f11cf1}
+      \strng{bibnamehash}{f106a761a58d4041d103c16ce4f11cf1}
+      \strng{authorbibnamehash}{f106a761a58d4041d103c16ce4f11cf1}
+      \strng{authornamehash}{f106a761a58d4041d103c16ce4f11cf1}
+      \strng{authorfullhash}{f106a761a58d4041d103c16ce4f11cf1}
+      \strng{authorfullhashraw}{f106a761a58d4041d103c16ce4f11cf1}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{International Journal of Human--Computer Interaction}
+      \field{number}{7}
+      \field{title}{The System Usability Scale: Past, Present, and Future}
+      \field{volume}{34}
+      \field{year}{2018}
+      \field{pages}{577\bibrangedash 590}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1080/10447318.2018.1455307
+      \endverb
+    \endentry
+    \entry{morar2020}{article}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=ab4db2676b3688deee055ba83e33a658}{%
+           family={Morar},
+           familyi={M\bibinitperiod},
+           given={Anca},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc2760d0088319608859d6f3463e2f87}{%
+           family={Moldoveanu},
+           familyi={M\bibinitperiod},
+           given={Alin},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=07791d2eb7035a86bcdb727acbddcf2e}{%
+           family={Mocanu},
+           familyi={M\bibinitperiod},
+           given={Irina},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b76636560ed99bdeb4f6ce5a33c7805c}{%
+           family={Moldoveanu},
+           familyi={M\bibinitperiod},
+           given={Florica},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a3cbd5ee0a5f7e4f02b2f2a454a3e434}{%
+           family={Radoi},
+           familyi={R\bibinitperiod},
+           given={Ion\bibnamedelima Emilian},
+           giveni={I\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=79cee797e159d9f1c8c949f8b78c5c45}{%
+           family={Asavei},
+           familyi={A\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef65d2b5e10abef835cc8912c50b612f}{%
+           family={Gradinaru},
+           familyi={G\bibinitperiod},
+           given={Alexandru},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=efccf42432966f9d2335f9159b53ba30}{%
+           family={Butean},
+           familyi={B\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{53d489b17a7603d15165dab9a522eb1e}
+      \strng{fullhash}{78d431efae7ab54b5bdf501e033fbb00}
+      \strng{fullhashraw}{78d431efae7ab54b5bdf501e033fbb00}
+      \strng{bibnamehash}{78d431efae7ab54b5bdf501e033fbb00}
+      \strng{authorbibnamehash}{78d431efae7ab54b5bdf501e033fbb00}
+      \strng{authornamehash}{53d489b17a7603d15165dab9a522eb1e}
+      \strng{authorfullhash}{78d431efae7ab54b5bdf501e033fbb00}
+      \strng{authorfullhashraw}{78d431efae7ab54b5bdf501e033fbb00}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Sensors}
+      \field{number}{9}
+      \field{title}{A Comprehensive Survey of Indoor Localization Methods Based on Computer Vision}
+      \field{volume}{20}
+      \field{year}{2020}
+      \field{pages}{2641}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/s20092641
+      \endverb
     \endentry
     \entry{netsuite2024}{online}{}{}
       \name{author}{1}{}{%
@@ -623,6 +1040,78 @@
       \field{title}{Building Microservices: Designing Fine-Grained Systems}
       \field{year}{2015}
     \endentry
+    \entry{nidhra2012}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=876d4318cad6927b00143b2d8dfa55a5}{%
+           family={Nidhra},
+           familyi={N\bibinitperiod},
+           given={Srinivas},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e69cab71190efc2214b079624b38ca6}{%
+           family={Dondeti},
+           familyi={D\bibinitperiod},
+           given={Jagruthi},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fd3bba588aea3bb62d8f8962d9f1259f}
+      \strng{fullhash}{fd3bba588aea3bb62d8f8962d9f1259f}
+      \strng{fullhashraw}{fd3bba588aea3bb62d8f8962d9f1259f}
+      \strng{bibnamehash}{fd3bba588aea3bb62d8f8962d9f1259f}
+      \strng{authorbibnamehash}{fd3bba588aea3bb62d8f8962d9f1259f}
+      \strng{authornamehash}{fd3bba588aea3bb62d8f8962d9f1259f}
+      \strng{authorfullhash}{fd3bba588aea3bb62d8f8962d9f1259f}
+      \strng{authorfullhashraw}{fd3bba588aea3bb62d8f8962d9f1259f}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{International Journal of Embedded Systems and Applications (IJESA)}
+      \field{number}{2}
+      \field{title}{Black Box and White Box Testing Techniques --- A Literature Review}
+      \field{volume}{2}
+      \field{year}{2012}
+      \field{pages}{29\bibrangedash 50}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.5121/ijesa.2012.2204
+      \endverb
+    \endentry
+    \entry{oasis2012}{manual}{}{}
+      \name{shortauthor}{1}{}{%
+        {{un=0,uniquepart=base,hash=6ec60ab9ce327f5a12fbab109e691c73}{%
+           family={{OASIS}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {OASIS}%
+      }
+      \strng{namehash}{6ec60ab9ce327f5a12fbab109e691c73}
+      \strng{bibnamehash}{6ec60ab9ce327f5a12fbab109e691c73}
+      \strng{shortauthorbibnamehash}{6ec60ab9ce327f5a12fbab109e691c73}
+      \strng{shortauthornamehash}{6ec60ab9ce327f5a12fbab109e691c73}
+      \strng{shortauthorfullhash}{6ec60ab9ce327f5a12fbab109e691c73}
+      \strng{shortauthorfullhashraw}{6ec60ab9ce327f5a12fbab109e691c73}
+      \field{extraname}{1}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{shortauthor}
+      \field{labeltitlesource}{title}
+      \field{note}{OASIS Standard; editors: Robert Godfrey, David Ingham, Rafael Schloming}
+      \field{title}{{OASIS} Advanced Message Queuing Protocol ({AMQP}) Version 1.0}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf
+      \endverb
+      \verb{url}
+      \verb http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf
+      \endverb
+    \endentry
     \entry{oasis2014}{manual}{}{}
       \name{shortauthor}{1}{}{%
         {{un=0,uniquepart=base,hash=6ec60ab9ce327f5a12fbab109e691c73}{%
@@ -638,6 +1127,7 @@
       \strng{shortauthornamehash}{6ec60ab9ce327f5a12fbab109e691c73}
       \strng{shortauthorfullhash}{6ec60ab9ce327f5a12fbab109e691c73}
       \strng{shortauthorfullhashraw}{6ec60ab9ce327f5a12fbab109e691c73}
+      \field{extraname}{2}
       \field{sortinit}{O}
       \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
       \field{extradatescope}{labelyear}
@@ -652,6 +1142,41 @@
       \endverb
       \verb{url}
       \verb https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html
+      \endverb
+    \endentry
+    \entry{olson2011}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8f743eebb2f64f75592e54ba06f94320}{%
+           family={Olson},
+           familyi={O\bibinitperiod},
+           given={Edwin},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{fullhash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{fullhashraw}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{bibnamehash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{authorbibnamehash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{authornamehash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{authorfullhash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{authorfullhashraw}{8f743eebb2f64f75592e54ba06f94320}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)}
+      \field{title}{{AprilTag}: A Robust and Flexible Visual Fiducial System}
+      \field{year}{2011}
+      \field{pages}{3400\bibrangedash 3407}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/ICRA.2011.5979561
       \endverb
     \endentry
     \entry{precedenceresearch2025}{online}{}{}
@@ -858,6 +1383,73 @@
       \field{title}{Towards a Characterisation of Smart Systems: A Systematic Literature Review}
       \field{year}{2020}
     \endentry
+    \entry{rouwenhorst2000}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=32a16c73d3bbb23f87c50f127440138f}{%
+           family={Rouwenhorst},
+           familyi={R\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=778d2a1984519ffc1c98824382283d35}{%
+           family={Reuter},
+           familyi={R\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7e6ec10f49816c58e58895e37ed9d5a2}{%
+           family={Stockrahm},
+           familyi={S\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3aad13d31f47a606b91d51aa25a5076f}{%
+           family={Houtum},
+           familyi={H\bibinitperiod},
+           given={G.\bibnamedelimi J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod},
+           prefixun=0}}%
+        {{un=0,uniquepart=base,hash=3c405efced9a2c544cf18b38b975d046}{%
+           family={Mantel},
+           familyi={M\bibinitperiod},
+           given={R.\bibnamedelimi J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=634f5ee597c42e7d97b6e8ad7355d5fe}{%
+           family={Zijm},
+           familyi={Z\bibinitperiod},
+           given={W.\bibnamedelimi H.\bibnamedelimi M.},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0a1900d3a77f3498ac982679a9329152}
+      \strng{fullhash}{c8beca42976bc9f49733c2aaf57f492f}
+      \strng{fullhashraw}{c8beca42976bc9f49733c2aaf57f492f}
+      \strng{bibnamehash}{c8beca42976bc9f49733c2aaf57f492f}
+      \strng{authorbibnamehash}{c8beca42976bc9f49733c2aaf57f492f}
+      \strng{authornamehash}{0a1900d3a77f3498ac982679a9329152}
+      \strng{authorfullhash}{c8beca42976bc9f49733c2aaf57f492f}
+      \strng{authorfullhashraw}{c8beca42976bc9f49733c2aaf57f492f}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{number}{3}
+      \field{title}{Warehouse Design and Control: Framework and Literature Review}
+      \field{volume}{122}
+      \field{year}{2000}
+      \field{pages}{515\bibrangedash 533}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1016/S0377-2217(99)00020-X
+      \endverb
+    \endentry
     \entry{saaty1977}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=8d8e5331ceb6bdfae0cfaed9a7690800}{%
@@ -888,32 +1480,6 @@
       \field{year}{1977}
       \field{pages}{234\bibrangedash 281}
       \range{pages}{48}
-    \endentry
-    \entry{scmchamps2024}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=52d6cf59a604496ad35f568e4074db73}{%
-           family={{SCM Champs}},
-           familyi={S\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {SCM Champs}%
-      }
-      \strng{namehash}{52d6cf59a604496ad35f568e4074db73}
-      \strng{fullhash}{52d6cf59a604496ad35f568e4074db73}
-      \strng{fullhashraw}{52d6cf59a604496ad35f568e4074db73}
-      \strng{bibnamehash}{52d6cf59a604496ad35f568e4074db73}
-      \strng{authorbibnamehash}{52d6cf59a604496ad35f568e4074db73}
-      \strng{authornamehash}{52d6cf59a604496ad35f568e4074db73}
-      \strng{authorfullhash}{52d6cf59a604496ad35f568e4074db73}
-      \strng{authorfullhashraw}{52d6cf59a604496ad35f568e4074db73}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The True Cost of Picking Errors in Warehouse Operations}
-      \field{year}{2024}
     \endentry
     \entry{silberschatz2020}{book}{}{}
       \name{author}{3}{}{%
@@ -957,133 +1523,88 @@
       \field{title}{Database System Concepts}
       \field{year}{2020}
     \endentry
-    \entry{docB100}{report}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=2302f490af35cdbba629ea96e64e3220}{%
-           family={{Tim TA252601001}},
-           familyi={T\bibinitperiod}}}%
+    \entry{zafari2019}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=195ca55bbed6416d65e59307e5283295}{%
+           family={Zafari},
+           familyi={Z\bibinitperiod},
+           given={Faheem},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b41f5b89eddcb048fce2d97d566294ce}{%
+           family={Gkelias},
+           familyi={G\bibinitperiod},
+           given={Athanasios},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5aa48ddf606faa8081c96eaf1efcfebb}{%
+           family={Leung},
+           familyi={L\bibinitperiod},
+           given={Kin\bibnamedelima K.},
+           giveni={K\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
       }
-      \list{institution}{1}{%
-        {Institut Teknologi Bandung}%
-      }
-      \list{location}{1}{%
-        {Bandung}%
-      }
-      \strng{namehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{fullhash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{fullhashraw}{2302f490af35cdbba629ea96e64e3220}
-      \strng{bibnamehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authorbibnamehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authornamehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authorfullhash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authorfullhashraw}{2302f490af35cdbba629ea96e64e3220}
-      \field{extraname}{1}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{extradate}{1}
+      \strng{namehash}{e9b36037f0adc41d54b0b2ff32a1a99a}
+      \strng{fullhash}{e9b36037f0adc41d54b0b2ff32a1a99a}
+      \strng{fullhashraw}{e9b36037f0adc41d54b0b2ff32a1a99a}
+      \strng{bibnamehash}{e9b36037f0adc41d54b0b2ff32a1a99a}
+      \strng{authorbibnamehash}{e9b36037f0adc41d54b0b2ff32a1a99a}
+      \strng{authornamehash}{e9b36037f0adc41d54b0b2ff32a1a99a}
+      \strng{authorfullhash}{e9b36037f0adc41d54b0b2ff32a1a99a}
+      \strng{authorfullhashraw}{e9b36037f0adc41d54b0b2ff32a1a99a}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Dokumen {B100-TA2526.01.001-008}: Analisis Kebutuhan Sistem Smart Warehouse Berbasis Mobile Robot}
-      \field{type}{techreport}
-      \field{year}{2025}
-    \endentry
-    \entry{docB200}{report}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=2302f490af35cdbba629ea96e64e3220}{%
-           family={{Tim TA252601001}},
-           familyi={T\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Institut Teknologi Bandung}%
-      }
-      \list{location}{1}{%
-        {Bandung}%
-      }
-      \strng{namehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{fullhash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{fullhashraw}{2302f490af35cdbba629ea96e64e3220}
-      \strng{bibnamehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authorbibnamehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authornamehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authorfullhash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authorfullhashraw}{2302f490af35cdbba629ea96e64e3220}
-      \field{extraname}{2}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{extradate}{2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Dokumen {B200-TA2526.01.001-005}: Spesifikasi Sistem Smart Warehouse Berbasis Mobile Robot}
-      \field{type}{techreport}
-      \field{year}{2025}
-    \endentry
-    \entry{docB300}{report}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=2302f490af35cdbba629ea96e64e3220}{%
-           family={{Tim TA252601001}},
-           familyi={T\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Institut Teknologi Bandung}%
-      }
-      \list{location}{1}{%
-        {Bandung}%
-      }
-      \strng{namehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{fullhash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{fullhashraw}{2302f490af35cdbba629ea96e64e3220}
-      \strng{bibnamehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authorbibnamehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authornamehash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authorfullhash}{2302f490af35cdbba629ea96e64e3220}
-      \strng{authorfullhashraw}{2302f490af35cdbba629ea96e64e3220}
-      \field{extraname}{3}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{extradate}{3}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Dokumen {B300-TA2526.01.001-007}: Desain Sistem Smart Warehouse Berbasis Mobile Robot}
-      \field{type}{techreport}
-      \field{year}{2025}
-    \endentry
-    \entry{undip2019}{report}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=fd83fbf6ae8598690022ad32fcb6af3b}{%
-           family={{Universitas Diponegoro}},
-           familyi={U\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Fakultas Ekonomika dan Bisnis, Universitas Diponegoro}%
-      }
-      \list{location}{1}{%
-        {Semarang}%
-      }
-      \strng{namehash}{fd83fbf6ae8598690022ad32fcb6af3b}
-      \strng{fullhash}{fd83fbf6ae8598690022ad32fcb6af3b}
-      \strng{fullhashraw}{fd83fbf6ae8598690022ad32fcb6af3b}
-      \strng{bibnamehash}{fd83fbf6ae8598690022ad32fcb6af3b}
-      \strng{authorbibnamehash}{fd83fbf6ae8598690022ad32fcb6af3b}
-      \strng{authornamehash}{fd83fbf6ae8598690022ad32fcb6af3b}
-      \strng{authorfullhash}{fd83fbf6ae8598690022ad32fcb6af3b}
-      \strng{authorfullhashraw}{fd83fbf6ae8598690022ad32fcb6af3b}
-      \field{sortinit}{U}
-      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Bab {II}: Gambaran Umum {PT} Paragon Technology and Innovation}
-      \field{type}{techreport}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{IEEE Communications Surveys \& Tutorials}
+      \field{number}{3}
+      \field{title}{A Survey of Indoor Localization Systems and Technologies}
+      \field{volume}{21}
       \field{year}{2019}
+      \field{pages}{2568\bibrangedash 2599}
+      \range{pages}{32}
+      \verb{doi}
+      \verb 10.1109/COMST.2019.2911558
+      \endverb
+    \endentry
+    \entry{zhang2000}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bdc0f902bd5651d491e1d2e1f9b442fc}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Zhengyou},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bdc0f902bd5651d491e1d2e1f9b442fc}
+      \strng{fullhash}{bdc0f902bd5651d491e1d2e1f9b442fc}
+      \strng{fullhashraw}{bdc0f902bd5651d491e1d2e1f9b442fc}
+      \strng{bibnamehash}{bdc0f902bd5651d491e1d2e1f9b442fc}
+      \strng{authorbibnamehash}{bdc0f902bd5651d491e1d2e1f9b442fc}
+      \strng{authornamehash}{bdc0f902bd5651d491e1d2e1f9b442fc}
+      \strng{authorfullhash}{bdc0f902bd5651d491e1d2e1f9b442fc}
+      \strng{authorfullhashraw}{bdc0f902bd5651d491e1d2e1f9b442fc}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{number}{11}
+      \field{title}{A Flexible New Technique for Camera Calibration}
+      \field{volume}{22}
+      \field{year}{2000}
+      \field{pages}{1330\bibrangedash 1334}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/34.888718
+      \endverb
     \endentry
   \enddatalist
+  \missing{undip2019}
 \endrefsection
 \endinput
 

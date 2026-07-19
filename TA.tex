@@ -114,6 +114,7 @@
 
 \setmainfont{Times New Roman} % set main font to Times New Roman
 \onehalfspacing % spasi 1.5
+\raggedbottom % cegah LaTeX meregangkan spasi vertikal untuk memenuhi halaman (menghindari whitespace besar di sekitar gambar/tabel besar)
 
 % --- Bibliography menggunakan BibLaTeX dengan gaya Chicago ---
 \usepackage[
@@ -267,6 +268,10 @@
 \titleformat{\subsubsection}
 	{\normalfont\bfseries}
 	{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}
+	{\normalfont\bfseries}
+	{\theparagraph}{1em}{}
+\titlespacing{\paragraph}{0pt}{6pt}{6pt}
 
 % --- Gambar ---
 \captionsetup[figure]{

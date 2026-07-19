@@ -1,16 +1,18 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'TA.blg'
-[30] biber-darwin:342> INFO - === Sat Jul 11, 2026, 16:11:49
-[40] Biber.pm:421> INFO - Reading 'TA.bcf'
-[110] Biber.pm:1002> INFO - Found 31 citekeys in bib section 0
-[116] Biber.pm:4487> INFO - Processing section 0
-[121] Biber.pm:4678> INFO - Looking for bibtex file 'daftar-pustaka.bib' for section 0
-[122] bibtex.pm:1713> INFO - LaTeX decoding ...
-[131] bibtex.pm:1519> INFO - Found BibTeX data source 'daftar-pustaka.bib'
-[208] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[208] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'level = 4' with 'level = 2'
-[208] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'variable = shifted' with 'variable = non-ignorable'
-[208] Biber.pm:4307> INFO - Sorting list 'cms/global//global/global/global' of type 'entry' with template 'cms' and locale 'indonesian'
-[208] Biber.pm:4313> INFO - No sort tailoring available for locale 'indonesian'
-[223] bbl.pm:676> INFO - Writing 'TA.bbl' with encoding 'UTF-8'
-[230] bbl.pm:779> INFO - Output to TA.bbl
+[28] biber-darwin:342> INFO - === Sat Jul 18, 2026, 22:06:29
+[38] Biber.pm:421> INFO - Reading 'TA.bcf'
+[105] Biber.pm:1002> INFO - Found 41 citekeys in bib section 0
+[110] Biber.pm:4487> INFO - Processing section 0
+[115] Biber.pm:4678> INFO - Looking for bibtex file 'daftar-pustaka.bib' for section 0
+[115] bibtex.pm:1713> INFO - LaTeX decoding ...
+[129] bibtex.pm:1519> INFO - Found BibTeX data source 'daftar-pustaka.bib'
+[234] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[234] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'level = 4' with 'level = 2'
+[234] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'variable = shifted' with 'variable = non-ignorable'
+[234] Biber.pm:4307> INFO - Sorting list 'cms/global//global/global/global' of type 'entry' with template 'cms' and locale 'indonesian'
+[234] Biber.pm:4313> INFO - No sort tailoring available for locale 'indonesian'
+[252] bbl.pm:676> INFO - Writing 'TA.bbl' with encoding 'UTF-8'
+[259] bbl.pm:779> INFO - Output to TA.bbl
+[259] Biber.pm:132> WARN - I didn't find a database entry for 'undip2019' (section 0)
+[259] Biber.pm:134> INFO - WARNINGS: 1
