@@ -85,7 +85,7 @@ Dengan memahami kondisi eksisting \textit{warehouse} dan kondisi \textit{Smart W
   \hline
 \end{xltabular}
 
-Ketiga masalah aktual tersebut (MA01--MA03) menjadi dasar langsung perancangan WMC. Persoalan sinkronisasi data pada MA01 mendorong kebutuhan modul \textit{Goods Detail Service} yang menjamin stok tercatat secara \textit{real-time}. Lambatnya pendataan pada MA02 melatarbelakangi kebutuhan otomasi pencatatan dan pemantauan barang agar proses \textit{inbound} lebih cepat dan akurat. Adapun ketergantungan pada operator manusia dalam proses \textit{picking} pada MA03 menjadi latar belakang pengembangan \textit{Fleet Order Service} yang mengoordinasikan armada robot secara terprogram dalam proses \textit{stocking} dan \textit{picking}.
+Ketiga masalah aktual tersebut (MA01-MA03) menjadi dasar langsung perancangan WMC. Persoalan sinkronisasi data pada MA01 mendorong kebutuhan modul \textit{Goods Detail Service} yang menjamin stok tercatat secara \textit{real-time}. Lambatnya pendataan pada MA02 melatarbelakangi kebutuhan otomasi pencatatan dan pemantauan barang agar proses \textit{inbound} lebih cepat dan akurat. Adapun ketergantungan pada operator manusia dalam proses \textit{picking} pada MA03 menjadi latar belakang pengembangan \textit{Fleet Order Service} yang mengoordinasikan armada robot secara terprogram dalam proses \textit{stocking} dan \textit{picking}.
 
 \section{Analisis Kebutuhan}
 Analisis kebutuhan bertujuan untuk mengidentifikasi secara sistematis dan menjabarkan seluruh persyaratan yang harus dipenuhi oleh \textit{Warehouse Management Controller} (WMC) guna menyelesaikan permasalahan operasional yang ada. Tahapan ini mencakup penjabaran karakteristik produk, penetapan kebutuhan fungsional dan nonfungsional, serta penjabaran batasan sistem sebagai landasan perancangan solusi yang tepat sasaran.
@@ -156,9 +156,9 @@ Berdasarkan tujuan proyek \textit{Smart Warehouse} yang telah dirumuskan pada do
   \hline
 \end{xltabular}
 
-Karakteristik CH01--CH05 merupakan fungsi dasar yang menjadi inti kapabilitas sistem, sedangkan CH06--CH07 merupakan fungsi dan fitur tambahan. Ketujuh karakteristik produk ini menjadi acuan dalam penurunan kebutuhan fungsional dan nonfungsional WMC pada Subbab \ref{sec:kebutuhan-fungsional} dan \ref{sec:kebutuhan-nonfungsional} berikutnya.
+Karakteristik CH01-CH05 merupakan fungsi dasar yang menjadi inti kapabilitas sistem, sedangkan CH06-CH07 merupakan fungsi dan fitur tambahan. Ketujuh karakteristik produk ini menjadi acuan dalam penurunan kebutuhan fungsional dan nonfungsional WMC pada Subbab \ref{sec:kebutuhan-fungsional} dan \ref{sec:kebutuhan-nonfungsional} berikutnya.
 
-Untuk menunjukkan keterkaitan antara karakteristik produk dengan tujuan proyek yang telah dirumuskan pada Subbab \ref{sec:tujuan-proyek}, disusun pemetaan antara kode tujuan proyek (OB01--OB03) dengan kode karakteristik produk (CH01--CH07) yang mendukungnya, sebagaimana disajikan pada Tabel \ref{tab:pemetaan-karakteristik-tujuan}.
+Untuk menunjukkan keterkaitan antara karakteristik produk dengan tujuan proyek yang telah dirumuskan pada Subbab \ref{sec:tujuan-proyek}, disusun pemetaan antara kode tujuan proyek (OB01-OB03) dengan kode karakteristik produk (CH01-CH07) yang mendukungnya, sebagaimana disajikan pada Tabel \ref{tab:pemetaan-karakteristik-tujuan}.
 
 \begin{xltabular}{\textwidth}{ | l | X | }
   \caption{Pemetaan Karakteristik Produk dengan Tujuan Proyek} \label{tab:pemetaan-karakteristik-tujuan} \\
@@ -183,11 +183,11 @@ Untuk menunjukkan keterkaitan antara karakteristik produk dengan tujuan proyek y
 
 \subsection{Kebutuhan Fungsional}
 \label{sec:kebutuhan-fungsional}
-Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan oleh \textit{Warehouse Management Controller} (WMC) beserta Subsistem Lokalisasi sebagai satu sistem terintegrasi. Kebutuhan diturunkan dari karakteristik produk (CH01--CH07) dan dirumuskan dalam bentuk \textit{Input}, \textit{Operasi}, dan \textit{Output} untuk setiap fungsi utama sistem, sebagaimana dirinci pada Tabel \ref{tab:kf01}--\ref{tab:kf05}.
+Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan oleh \textit{Warehouse Management Controller} (WMC) beserta Subsistem Lokalisasi sebagai satu sistem terintegrasi. Kebutuhan diturunkan dari karakteristik produk (CH01-CH07) dan dirumuskan dalam bentuk \textit{Input}, \textit{Operasi}, dan \textit{Output} untuk setiap fungsi utama sistem, sebagaimana dirinci pada Tabel \ref{tab:kf01}-\ref{tab:kf05}.
 
-% ---------- KF-01 ----------
+% - KF-01 -
 \begin{xltabular}{\textwidth}{ | l | X | }
-  \caption{KF-01 --- Autentikasi dan Otorisasi Akses} \label{tab:kf01} \\
+  \caption{KF-01 - Autentikasi dan Otorisasi Akses} \label{tab:kf01} \\
   \hline
   \textbf{Aspek} & \textbf{Deskripsi} \\
   \hline
@@ -215,9 +215,9 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
   \hline
 \end{xltabular}
 
-% ---------- KF-02 ----------
+% - KF-02 -
 \begin{xltabular}{\textwidth}{ | l | X | }
-  \caption{KF-02 --- Pengelolaan Informasi Barang} \label{tab:kf02} \\
+  \caption{KF-02 - Pengelolaan Informasi Barang} \label{tab:kf02} \\
   \hline
   \textbf{Aspek} & \textbf{Deskripsi} \\
   \hline
@@ -245,9 +245,9 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
   \hline
 \end{xltabular}
 
-% ---------- KF-03 ----------
+% - KF-03 -
 \begin{xltabular}{\textwidth}{ | l | X | }
-  \caption{KF-03 --- Manajemen \textit{Order Stocking} dan \textit{Picking}} \label{tab:kf03} \\
+  \caption{KF-03 - Manajemen \textit{Order Stocking} dan \textit{Picking}} \label{tab:kf03} \\
   \hline
   \textbf{Aspek} & \textbf{Deskripsi} \\
   \hline
@@ -275,9 +275,9 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
   \hline
 \end{xltabular}
 
-% ---------- KF-04 ----------
+% - KF-04 -
 \begin{xltabular}{\textwidth}{ | l | X | }
-  \caption{KF-04 --- Lokalisasi Objek} \label{tab:kf04} \\
+  \caption{KF-04 - Lokalisasi Objek} \label{tab:kf04} \\
   \hline
   \textbf{Aspek} & \textbf{Deskripsi} \\
   \hline
@@ -305,9 +305,9 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
   \hline
 \end{xltabular}
 
-% ---------- KF-05 ----------
+% - KF-05 -
 \begin{xltabular}{\textwidth}{ | l | X | }
-  \caption{KF-05 --- Pemantauan Armada Robot} \label{tab:kf05} \\
+  \caption{KF-05 - Pemantauan Armada Robot} \label{tab:kf05} \\
   \hline
   \textbf{Aspek} & \textbf{Deskripsi} \\
   \hline
@@ -352,20 +352,20 @@ Kebutuhan nonfungsional mendefinisikan batasan kualitas dan performa yang harus 
     \endhead
     \hline
     \endfoot
-    KNF-01 & Traceability \& Latensi & Seluruh aktivitas pergerakan barang dan status robot tercatat lengkap dan berurutan tanpa kehilangan data, dengan sinkronisasi waktu robot--server dan server--WMS terjamin serta pembaruan posisi dan status robot dikirim secara periodik. & Sinkronisasi $\leq$ 200 ms; posisi \& status robot $\leq$ 1 detik & B200 -- Traceability \\
+    KNF-01 & Traceability \& Latensi & Seluruh aktivitas pergerakan barang dan status robot tercatat lengkap dan berurutan tanpa kehilangan data, dengan sinkronisasi waktu robot-server dan server-WMS terjamin serta pembaruan posisi dan status robot dikirim secara periodik. & Sinkronisasi $\leq$ 200 ms; posisi \& status robot $\leq$ 1 detik & B200 - Traceability \\
     \hline
-    KNF-02 & Reliability & Sistem tidak mengalami degradasi akurasi posisi meskipun robot beroperasi berulang kali pada rute yang sama. & \textit{Task Repeatability} 100\% & B200 -- Reliability \\
+    KNF-02 & Reliability & Sistem tidak mengalami degradasi akurasi posisi meskipun robot beroperasi berulang kali pada rute yang sama. & \textit{Task Repeatability} 100\% & B200 - Reliability \\
     \hline
-    KNF-03 & Availability & Seluruh layanan WMC beroperasi kontinu selama jam operasional gudang, serta mampu mendeteksi kegagalan pelacakan (\textit{mismatch} koordinat server vs posisi fisik) dan mengirimkan notifikasi yang memuat koordinat terakhir robot. & \textit{Availability} $\geq$ 95\%; notifikasi memuat \textit{last-known coordinate} & B200 -- Availability \& Safety \\
+    KNF-03 & Availability & Seluruh layanan WMC beroperasi kontinu selama jam operasional gudang, serta mampu mendeteksi kegagalan pelacakan (\textit{mismatch} koordinat server vs posisi fisik) dan mengirimkan notifikasi yang memuat koordinat terakhir robot. & \textit{Availability} $\geq$ 95\%; notifikasi memuat \textit{last-known coordinate} & B200 - Availability \& Safety \\
     \hline
-    KNF-04 & Keamanan & Seluruh \textit{endpoint} layanan hanya dapat diakses oleh pengguna terautentikasi melalui \textit{Bearer Token} yang diterbitkan \textit{Authentication Service}, sehingga tidak ada akses tidak sah terhadap fungsi kritis sistem. & 0 akses tanpa token valid & P-05, B200 -- Safety \\
+    KNF-04 & Keamanan & Seluruh \textit{endpoint} layanan hanya dapat diakses oleh pengguna terautentikasi melalui \textit{Bearer Token} yang diterbitkan \textit{Authentication Service}, sehingga tidak ada akses tidak sah terhadap fungsi kritis sistem. & 0 akses tanpa token valid & P-05, B200 - Safety \\
     \hline
     KNF-05 & Skalabilitas & Arsitektur \textit{microservices} memungkinkan setiap layanan dikembangkan, diuji, dan di-\textit{deploy} secara independen tanpa \textit{redeployment} keseluruhan sistem, guna mendukung adaptasi terhadap kebutuhan gudang yang berbeda. & \textit{Independent deploy} per \textit{service} & CH05, CH06 \\
     \hline
 \end{longtable}
 
 \section{Analisis Pemilihan Solusi}
-Berdasarkan identifikasi masalah dan kebutuhan yang telah dirumuskan pada sub-bab sebelumnya, tahap berikutnya adalah menganalisis dan menentukan solusi arsitektur yang paling sesuai untuk diimplementasikan sebagai \textit{Warehouse Management Controller} (WMC) beserta Subsistem Lokalisasi. Mengikuti struktur analisis pada dokumen B100, subbab ini disusun dalam tiga tahap: identifikasi alternatif solusi (Subbab \ref{sec:usulan-solusi}), analisis dan evaluasi alternatif menggunakan metode \textit{Analytical Hierarchy Process} (AHP) (Subbab \ref{sec:analisis-usulan-solusi}), serta penetapan solusi terpilih (Subbab \ref{sec:solusi-terpilih}). Kedua keputusan yang dibahas --- pemilihan solusi manajemen data inventori WMC dan pemilihan solusi teknis Subsistem Lokalisasi --- dievaluasi dengan kedalaman dan tahapan AHP yang setara.
+Berdasarkan identifikasi masalah dan kebutuhan yang telah dirumuskan pada sub-bab sebelumnya, tahap berikutnya adalah menganalisis dan menentukan solusi arsitektur yang paling sesuai untuk diimplementasikan sebagai \textit{Warehouse Management Controller} (WMC) beserta Subsistem Lokalisasi. Mengikuti struktur analisis pada dokumen B100, subbab ini disusun dalam tiga tahap: identifikasi alternatif solusi (Subbab \ref{sec:usulan-solusi}), analisis dan evaluasi alternatif menggunakan metode \textit{Analytical Hierarchy Process} (AHP) (Subbab \ref{sec:analisis-usulan-solusi}), serta penetapan solusi terpilih (Subbab \ref{sec:solusi-terpilih}). Kedua keputusan yang dibahas - pemilihan solusi manajemen data inventori WMC dan pemilihan solusi teknis Subsistem Lokalisasi - dievaluasi dengan kedalaman dan tahapan AHP yang setara.
 
 \subsection{Usulan Solusi}
 \label{sec:usulan-solusi}
@@ -398,13 +398,13 @@ Keunggulan utama alternatif ini adalah setiap robot mandiri melakukan \textit{se
 
 \paragraph{Alternatif 2: AprilTag + Overhead Fisheye Camera}
 
-Pendekatan ini memindahkan seluruh proses lokalisasi ke satu titik sentral, yaitu kamera IP \textit{fisheye} 1080p yang dipasang setinggi 60 cm di atas area lantai gudang ($2,4\times1,2$ m), melakukan \textit{streaming} video melalui protokol RTSP, kemudian diproses oleh Subsistem Lokalisasi di server melalui \textit{pipeline} koreksi distorsi Kannala--Brandt $\rightarrow$ transformasi \textit{homography} $\rightarrow$ deteksi \textit{marker} AprilTag Tag36h11 $\rightarrow$ \textit{snapping} ke sel \textit{grid}, yang berjalan pada frekuensi 4 Hz dan dipublikasikan ke \textit{topic} MQTT \texttt{location} setiap 500 ms. Pendekatan inilah yang diimplementasikan pada tugas akhir ini.
+Pendekatan ini memindahkan seluruh proses lokalisasi ke satu titik sentral, yaitu kamera IP \textit{fisheye} 1080p yang dipasang setinggi 60 cm di atas area lantai gudang ($2,4\times1,2$ m), melakukan \textit{streaming} video melalui protokol RTSP, kemudian diproses oleh Subsistem Lokalisasi di server melalui \textit{pipeline} koreksi distorsi Kannala-Brandt $\rightarrow$ transformasi \textit{homography} $\rightarrow$ deteksi \textit{marker} AprilTag Tag36h11 $\rightarrow$ \textit{snapping} ke sel \textit{grid}, yang berjalan pada frekuensi 4 Hz dan dipublikasikan ke \textit{topic} MQTT \texttt{location} setiap 500 ms. Pendekatan inilah yang diimplementasikan pada tugas akhir ini.
 
-Keunggulan utama alternatif ini adalah satu perangkat mampu mencakup seluruh area tanpa oklusi, akurasi terverifikasi 100\% pada pengujian posisi maupun orientasi (Tabel \ref{tab:verifikasi-posisi}--\ref{tab:verifikasi-orientasi} pada Bab VI), kalibrasi \textit{homography} hanya dilakukan sekali di awal pemasangan (\textit{one-time}), dan penambahan robot baru cukup dilakukan dengan menempelkan \textit{marker} AprilTag baru tanpa tambahan sensor per unit. Adapun kekurangannya, pendekatan ini bersifat \textit{single point of failure} karena jika kamera atau koneksi RTSP mengalami gangguan maka seluruh sistem lokalisasi ikut lumpuh, area cakupan dibatasi oleh \textit{field-of-view} satu kamera sehingga perluasan ke gudang yang lebih besar memerlukan penambahan kamera dan proses \textit{stitching}, serta memerlukan tahap kalibrasi optik yang lebih matematis dibandingkan sensor garis.
+Keunggulan utama alternatif ini adalah satu perangkat mampu mencakup seluruh area tanpa oklusi, akurasi terverifikasi 100\% pada pengujian posisi maupun orientasi (Tabel \ref{tab:verifikasi-posisi}-\ref{tab:verifikasi-orientasi} pada Bab VI), kalibrasi \textit{homography} hanya dilakukan sekali di awal pemasangan (\textit{one-time}), dan penambahan robot baru cukup dilakukan dengan menempelkan \textit{marker} AprilTag baru tanpa tambahan sensor per unit. Adapun kekurangannya, pendekatan ini bersifat \textit{single point of failure} karena jika kamera atau koneksi RTSP mengalami gangguan maka seluruh sistem lokalisasi ikut lumpuh, area cakupan dibatasi oleh \textit{field-of-view} satu kamera sehingga perluasan ke gudang yang lebih besar memerlukan penambahan kamera dan proses \textit{stitching}, serta memerlukan tahap kalibrasi optik yang lebih matematis dibandingkan sensor garis.
 
 \subsection{Analisis Usulan Solusi}
 \label{sec:analisis-usulan-solusi}
-Analisis usulan solusi dilakukan untuk mengevaluasi setiap alternatif yang telah diidentifikasi pada Subbab \ref{sec:usulan-solusi} secara sistematis menggunakan metode \textit{Analytical Hierarchy Process} (AHP), sehingga keputusan pemilihan solusi bersifat objektif dan dapat dipertanggungjawabkan secara teknis. Mengikuti pendekatan pada dokumen B100, satu set kriteria, bobot, dan rubrik penilaian yang sama digunakan untuk mengevaluasi kedua keputusan yang dibahas --- pemilihan solusi manajemen data inventori WMC maupun pemilihan solusi teknis Subsistem Lokalisasi --- sehingga kedua keputusan dinilai secara setara dan dapat diperbandingkan pada kerangka acuan yang identik. Kriteria dan bobot ini disusun dan dijelaskan terlebih dahulu, dilanjutkan dengan rekapitulasi skor akhir tiap alternatif untuk masing-masing keputusan, dan diakhiri dengan penjelasan justifikasi nilai pada setiap kriteria.
+Analisis usulan solusi dilakukan untuk mengevaluasi setiap alternatif yang telah diidentifikasi pada Subbab \ref{sec:usulan-solusi} secara sistematis menggunakan metode \textit{Analytical Hierarchy Process} (AHP), sehingga keputusan pemilihan solusi bersifat objektif dan dapat dipertanggungjawabkan secara teknis. Mengikuti pendekatan pada dokumen B100, satu set kriteria, bobot, dan rubrik penilaian yang sama digunakan untuk mengevaluasi kedua keputusan yang dibahas - pemilihan solusi manajemen data inventori WMC maupun pemilihan solusi teknis Subsistem Lokalisasi - sehingga kedua keputusan dinilai secara setara dan dapat diperbandingkan pada kerangka acuan yang identik. Kriteria dan bobot ini disusun dan dijelaskan terlebih dahulu, dilanjutkan dengan rekapitulasi skor akhir tiap alternatif untuk masing-masing keputusan, dan diakhiri dengan penjelasan justifikasi nilai pada setiap kriteria.
 
 \subsubsection{Kriteria dan Bobot Evaluasi}
 \label{sec:kriteria-bobot-evaluasi}
@@ -440,15 +440,15 @@ Kriteria penilaian dalam matriks AHP mengacu pada kriteria umum yang telah ditet
 Pembobotan kriteria ditetapkan melalui perbandingan berpasangan (\textit{pairwise comparison}) sebagaimana dilakukan pada dokumen B100 subbab 2.2.3. Hasil perbandingan berpasangan menggunakan skala Saaty disajikan pada Tabel \ref{tab:nilai-kepentingan-kriteria}.
 
 {\small
-\begin{xltabular}{\textwidth}{ | X | c | c | c | c | c | c | }
+\begin{xltabular}{\textwidth}{ | p{3.0cm} | *{6}{>{\centering\arraybackslash}p{1.55cm}|} }
   \caption{Nilai Kepentingan Kriteria} \label{tab:nilai-kepentingan-kriteria} \\
   \hline
-  \textbf{Kriteria} & \textbf{Reliability} & \textbf{Scalability} & \textbf{Cost of Prod.} & \textbf{Complexity of Prod.} & \textbf{Task Compl. Speed} & \textbf{Kemudahan Penggunaan} \\
+  \textbf{Kriteria} & \textbf{Reliabil\-ity} & \textbf{Scalabil\-ity} & \textbf{Cost of Prod.} & \textbf{Complex\-ity of Prod.} & \textbf{Task Compl. Speed} & \textbf{Kemudah\-an Penggunaan} \\
   \hline
   \endfirsthead
   \multicolumn{7}{l}{\textit{lanjutan Tabel \ref{tab:nilai-kepentingan-kriteria}}} \\
   \hline
-  \textbf{Kriteria} & \textbf{Reliability} & \textbf{Scalability} & \textbf{Cost of Prod.} & \textbf{Complexity of Prod.} & \textbf{Task Compl. Speed} & \textbf{Kemudahan Penggunaan} \\
+  \textbf{Kriteria} & \textbf{Reliabil\-ity} & \textbf{Scalabil\-ity} & \textbf{Cost of Prod.} & \textbf{Complex\-ity of Prod.} & \textbf{Task Compl. Speed} & \textbf{Kemudah\-an Penggunaan} \\
   \hline
   \endhead
   \hline
@@ -515,11 +515,11 @@ Setelah kriteria dan bobotnya ditetapkan, rubrik penilaian disusun untuk memberi
   \endhead
   \hline
   \endfoot
-  1 & Reliability & Sistem sering gagal berfungsi ($>$10\% \textit{downtime} per minggu). & Sistem mengalami gangguan berulang (5--10\% \textit{downtime}). & Sistem cukup andal dengan \textit{downtime} sedang (2--5\% \textit{downtime}). & Sistem stabil dengan \textit{downtime} sangat jarang ($<$2\% \textit{downtime}). & Sistem sangat andal, \textit{uptime} $>$99,9\%, mampu beroperasi terus-menerus tanpa gangguan. \\
+  1 & Reliability & Sistem sering gagal berfungsi ($>$10\% \textit{downtime} per minggu). & Sistem mengalami gangguan berulang (5-10\% \textit{downtime}). & Sistem cukup andal dengan \textit{downtime} sedang (2-5\% \textit{downtime}). & Sistem stabil dengan \textit{downtime} sangat jarang ($<$2\% \textit{downtime}). & Sistem sangat andal, \textit{uptime} $>$99,9\%, mampu beroperasi terus-menerus tanpa gangguan. \\
   \hline
-  2 & Scalability & Sistem tidak mampu menangani peningkatan beban; performa turun $>$50\% saat beban naik. & Sistem dapat diskalakan terbatas (penurunan performa 30--50\%). & Sistem masih responsif dengan penurunan performa moderat (10--30\%). & Sistem tetap stabil dengan performa menurun $<$10\% saat beban naik. & Sistem sangat fleksibel; mampu menangani peningkatan beban 100\% tanpa penurunan performa signifikan ($<$5\%). \\
+  2 & Scalability & Sistem tidak mampu menangani peningkatan beban; performa turun $>$50\% saat beban naik. & Sistem dapat diskalakan terbatas (penurunan performa 30-50\%). & Sistem masih responsif dengan penurunan performa moderat (10-30\%). & Sistem tetap stabil dengan performa menurun $<$10\% saat beban naik. & Sistem sangat fleksibel; mampu menangani peningkatan beban 100\% tanpa penurunan performa signifikan ($<$5\%). \\
   \hline
-  3 & Cost of Production & Biaya produksi sangat tinggi. & Biaya melebihi anggaran dan sulit ditekan. & Biaya masih dalam batas wajar namun belum optimal. & Biaya minimal dan sesuai dengan target anggaran. & Biaya sangat minimal dan memberikan rasio biaya--manfaat terbaik. \\
+  3 & Cost of Production & Biaya produksi sangat tinggi. & Biaya melebihi anggaran dan sulit ditekan. & Biaya masih dalam batas wajar namun belum optimal. & Biaya minimal dan sesuai dengan target anggaran. & Biaya sangat minimal dan memberikan rasio biaya-manfaat terbaik. \\
   \hline
   4 & Complexity of Production & Desain sistem sangat rumit dan membutuhkan komponen kustom langka. & Sistem cukup kompleks dan sulit diintegrasikan. & Sistem memiliki kompleksitas menengah dengan beberapa komponen umum. & Sistem mudah dirakit dan dikonfigurasi menggunakan komponen standar. & Sistem sederhana, modular, dan mudah diintegrasikan dengan sistem lain. \\
   \hline
@@ -563,7 +563,7 @@ Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alter
   \hline
   Kemudahan Penggunaan & 0,05 & 5 & 0,25 & 5 & 0,25 \\
   \hline
-  \textbf{Total} & \textbf{1} & --- & \textbf{3,74} & --- & \textbf{3,31} \\
+  \textbf{Total} & \textbf{1} & - & \textbf{3,74} & - & \textbf{3,31} \\
   \hline
 \end{xltabular}
 
@@ -627,7 +627,7 @@ Keunggulan utama \textit{Event-Driven} terletak pada aspek \textit{Reliability} 
 
 \subsubsection{Penilaian Solusi Lokalisasi}
 \label{sec:penilaian-lokalisasi}
-Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alternatif solusi lokalisasi dievaluasi dengan memberikan nilai pada skala 1--5 untuk masing-masing kriteria sesuai karakteristik teknisnya, menggunakan kriteria dan bobot yang sama dengan pemilihan solusi manajemen data inventori pada Tabel \ref{tab:kriteria-penjelasan}--\ref{tab:nilai-bobot-kriteria}. Nilai tersebut dikalikan dengan bobot kriteria hasil perhitungan AHP pada Tabel \ref{tab:nilai-bobot-kriteria} untuk memperoleh skor total tiap alternatif, sebagaimana dirangkum pada Tabel \ref{tab:rekap-ahp-lokalisasi}.
+Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alternatif solusi lokalisasi dievaluasi dengan memberikan nilai pada skala 1-5 untuk masing-masing kriteria sesuai karakteristik teknisnya, menggunakan kriteria dan bobot yang sama dengan pemilihan solusi manajemen data inventori pada Tabel \ref{tab:kriteria-penjelasan}-\ref{tab:nilai-bobot-kriteria}. Nilai tersebut dikalikan dengan bobot kriteria hasil perhitungan AHP pada Tabel \ref{tab:nilai-bobot-kriteria} untuk memperoleh skor total tiap alternatif, sebagaimana dirangkum pada Tabel \ref{tab:rekap-ahp-lokalisasi}.
 
 \begin{xltabular}{\textwidth}{ | X | c | c | c | c | c | }
   \caption{Rekapitulasi Penilaian AHP Solusi Lokalisasi} \label{tab:rekap-ahp-lokalisasi} \\
@@ -658,7 +658,7 @@ Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alter
   \hline
   Kemudahan Penggunaan & 0,05 & 3 & 0,15 & 4 & 0,20 \\
   \hline
-  \textbf{Total} & \textbf{1} & --- & \textbf{3,39} & --- & \textbf{3,75} \\
+  \textbf{Total} & \textbf{1} & - & \textbf{3,39} & - & \textbf{3,75} \\
   \hline
 \end{xltabular}
 
@@ -679,11 +679,11 @@ Dari hasil rekapitulasi, Alternatif 2: AprilTag + Overhead Fisheye Camera memper
   \endfoot
   Reliability & 3 & Posisi relatif terjaga kontinu oleh sensor garis, namun akurasi absolut hanya terverifikasi diskrit di titik QR sehingga berpotensi \textit{drift} antar-\textit{checkpoint}, dan rentan terhadap ausnya \textit{marker}/garis lantai serta perubahan pencahayaan lokal. \\
   \hline
-  Scalability & 4 & Bersifat desentralisasi --- penambahan robot tidak membebani satu titik pemrosesan, cocok untuk perluasan area tanpa infrastruktur kamera tambahan. \\
+  Scalability & 4 & Bersifat desentralisasi - penambahan robot tidak membebani satu titik pemrosesan, cocok untuk perluasan area tanpa infrastruktur kamera tambahan. \\
   \hline
   Cost of Production & 3 & Biaya bertambah linear karena setiap robot membutuhkan satu set sensor lengkap (BFD-1000, GM65, IMU, ESP32-S3). \\
   \hline
-  Complexity of Production & 4 & Instalasi relatif sederhana --- garis dan QR ditempel di lantai tanpa perhitungan optik yang kompleks. \\
+  Complexity of Production & 4 & Instalasi relatif sederhana - garis dan QR ditempel di lantai tanpa perhitungan optik yang kompleks. \\
   \hline
   Task Completion Speed & 3 & Memenuhi target latensi publikasi $\leq$ 1 detik (KNF-01), namun bergantung pada rantai komunikasi robot$\rightarrow$server yang lebih panjang dibanding sistem tersentralisasi. \\
   \hline

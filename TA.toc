@@ -219,15 +219,15 @@
 \contentsline {subsubsection}{\numberline {III.3.2.2}Penilaian Solusi Manajemen Data Inventori}{39}{subsubsection.3.3.2.2}%
 \contentsline {subsubsection}{\numberline {III.3.2.3}Penilaian Solusi Lokalisasi}{41}{subsubsection.3.3.2.3}%
 \contentsline {subsection}{\numberline {III.3.3}Solusi yang Dipilih}{44}{subsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {III.3.3.1}Justifikasi Solusi Terpilih}{45}{subsubsection.3.3.3.1}%
+\contentsline {subsubsection}{\numberline {III.3.3.1}Justifikasi Solusi Terpilih}{44}{subsubsection.3.3.3.1}%
 \contentsline {chapter}{\numberline {IV}PERANCANGAN}{47}{chapter.4}%
 \contentsline {section}{\numberline {IV.1}Konsep Sistem}{47}{section.4.1}%
 \contentsline {section}{\numberline {IV.2}Gambaran Umum Sistem}{48}{section.4.2}%
 \contentsline {section}{\numberline {IV.3}Diagram Arsitektur}{49}{section.4.3}%
-\contentsline {subsection}{\numberline {IV.3.1}Arsitektur Level 1 — Warehouse Management Controller}{49}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {IV.3.1}Arsitektur Level 1 Smart Warehouse}{49}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {IV.3.2}Subsistem \textit {Warehouse Management Controller} (WMC)}{50}{subsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {IV.3.2.1}Arsitektur Level 2 --- WMC}{50}{subsubsection.4.3.2.1}%
-\contentsline {subsubsection}{\numberline {IV.3.2.2}Arsitektur Level 3 --- Komponen WMC}{52}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {IV.3.2.1}Arsitektur Level 2 - WMC}{50}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {IV.3.2.2}Arsitektur Level 3 - Komponen WMC}{52}{subsubsection.4.3.2.2}%
 \contentsline {paragraph}{\numberline {IV.3.2.2.1}Database}{52}{paragraph.4.3.2.2.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
@@ -235,8 +235,8 @@
 \contentsline {paragraph}{\numberline {IV.3.2.2.3}Fleet Order Service}{59}{paragraph.4.3.2.2.3}%
 \contentsline {paragraph}{\numberline {IV.3.2.2.4}Authentication Service}{60}{paragraph.4.3.2.2.4}%
 \contentsline {subsection}{\numberline {IV.3.3}Subsistem \textit {Fleet Controller}}{61}{subsection.4.3.3}%
-\contentsline {subsubsection}{\numberline {IV.3.3.1}Arsitektur Level 2 --- Fleet Controller}{61}{subsubsection.4.3.3.1}%
-\contentsline {subsubsection}{\numberline {IV.3.3.2}Arsitektur Level 3 --- Komponen Fleet Controller}{63}{subsubsection.4.3.3.2}%
+\contentsline {subsubsection}{\numberline {IV.3.3.1}Arsitektur Level 2 - Fleet Controller}{61}{subsubsection.4.3.3.1}%
+\contentsline {subsubsection}{\numberline {IV.3.3.2}Arsitektur Level 3 - Komponen Fleet Controller}{63}{subsubsection.4.3.3.2}%
 \contentsline {paragraph}{\numberline {IV.3.3.2.1}Localisation System}{63}{paragraph.4.3.3.2.1}%
 \contentsline {subsubsection}{\numberline {IV.3.3.3}Desain Detail Subsistem Lokalisasi (\textit {Localisation System})}{64}{subsubsection.4.3.3.3}%
 \contentsline {paragraph}{\numberline {IV.3.3.3.1}Perangkat Lokalisasi}{64}{paragraph.4.3.3.3.1}%

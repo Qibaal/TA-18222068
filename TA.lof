@@ -148,9 +148,9 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {IV.1}{\ignorespaces Alur Proses Bisnis Kondisi \textit {To-Be} Sistem \textit {Smart Warehouse}}}{47}{figure.caption.11}%
 \contentsline {figure}{\numberline {IV.2}{\ignorespaces Konsep Sistem \textit {Smart Warehouse}}}{49}{figure.caption.12}%
-\contentsline {figure}{\numberline {IV.3}{\ignorespaces Arsitektur Sistem \textit {Smart Warehouse} Level 0}}{50}{figure.caption.13}%
+\contentsline {figure}{\numberline {IV.3}{\ignorespaces Arsitektur Sistem \textit {Smart Warehouse} Level 1}}{50}{figure.caption.13}%
 \contentsline {figure}{\numberline {IV.4}{\ignorespaces Arsitektur \textit {Warehouse Management Controller} (Level 2)}}{51}{figure.caption.14}%
-\contentsline {figure}{\numberline {IV.5}{\ignorespaces Arsitektur Komponen \textit {Database} WMC (Level 3)}}{53}{figure.caption.15}%
+\contentsline {figure}{\numberline {IV.5}{\ignorespaces Arsitektur Komponen \textit {Database} WMC (Level 3)}}{52}{figure.caption.15}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {figure}{\numberline {IV.6}{\ignorespaces ERD Sistem \textit {Warehouse Management Controller}}}{54}{figure.caption.16}%

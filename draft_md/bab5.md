@@ -156,9 +156,9 @@ _Endpoint_ Robot, Task, dan Robot Log berasal dari realokasi `goods-service`; _e
 | 5        | `src/services/robotLog.service.ts`           | Logika bisnis log operasional robot, dipindah dari `goods-service` (tambahan) |
 | 6        | `src/repositories/robot.repository.ts`       | Akses data robot ke basis data (RobotRepository, usulan)                      |
 | 7        | `src/repositories/task.repository.ts`        | Akses data task ke basis data (TaskRepository, usulan)                        |
-| 8        | `src/controllers/digitalTwin.controller.ts`  | Endpoint digital twin robot (DigitalTwinController, usulan — belum ada)       |
-| 9        | `src/services/digitalTwin.service.ts`        | Logika bisnis digital twin robot (DigitalTwinService, usulan — belum ada)     |
-| 10       | `src/services/notification.service.ts`       | Logika bisnis notifikasi (NotificationService, usulan — belum ada)            |
+| 8        | `src/controllers/digitalTwin.controller.ts`  | Endpoint digital twin robot (DigitalTwinController, usulan - belum ada)       |
+| 9        | `src/services/digitalTwin.service.ts`        | Logika bisnis digital twin robot (DigitalTwinService, usulan - belum ada)     |
+| 10       | `src/services/notification.service.ts`       | Logika bisnis notifikasi (NotificationService, usulan - belum ada)            |
 | 11       | `blob-service/src/index.ts`                  | Entry point `blob-service`                                                    |
 | 12       | `blob-service/src/routes/apriltagMapping.ts` | Route _mapping_ AprilTag (isi belum dilihat)                                  |
 | 13       | `blob-service/src/routes/order.ts`           | Route order (isi belum dilihat)                                               |
@@ -190,20 +190,20 @@ Implementasi perangkat lunak Subsistem Lokalisasi disusun dalam folder `localisa
 | Nomor  | Nama File                          | Deskripsi                                                                                                             |
 | :----- | :--------------------------------- | :-------------------------------------------------------------------------------------------------------------------- |
 | 1      | `local_rtsp.py`                    | Script standalone untuk uji koneksi RTSP kamera & deteksi AprilTag secara lokal (di luar package `tracker`).          |
-| 2      | `main.py`                          | Entry point utama aplikasi — inisialisasi detector lalu menjalankan mode video atau stream.                           |
+| 2      | `main.py`                          | Entry point utama aplikasi - inisialisasi detector lalu menjalankan mode video atau stream.                           |
 | 3      | `register_tags.py`                 | Script one-time untuk mendaftarkan AprilTag baru ke goods-service & blob-service via API.                             |
 | 4      | `requirements.txt`                 | Daftar dependency Python yang dibutuhkan project.                                                                     |
 | 5      | `tracker/__init__.py`              | Inisialisasi package `tracker`, mengekspos fungsi-fungsi dari seluruh modul.                                          |
-| 6      | `tracker/capture.py`               | Penanganan capture video — threaded reader, koneksi RTSP, inisialisasi sumber kamera/detector.                        |
+| 6      | `tracker/capture.py`               | Penanganan capture video - threaded reader, koneksi RTSP, inisialisasi sumber kamera/detector.                        |
 | 7      | `tracker/config.py`                | Konstanta konfigurasi sistem (URL RTSP, resolusi, FPS, brightness, grid, dll).                                        |
 | 8      | `tracker/field.py`                 | Transformasi perspektif (homography) antara koordinat pixel dan koordinat grid lapangan.                              |
 | 9      | `tracker/fisheye.py`               | Utilitas koreksi distorsi lensa fisheye.                                                                              |
 | 10     | `tracker/grid.py`                  | Membangun, menggambar, dan mencatat matriks occupancy grid platform (robot/goods/docking).                            |
-| 11     | `tracker/modes.py`                 | Mode eksekusi utama — playback video file dan live stream (RTSP/USB).                                                 |
+| 11     | `tracker/modes.py`                 | Mode eksekusi utama - playback video file dan live stream (RTSP/USB).                                                 |
 | 12     | `tracker/mqtt.py`                  | Klien MQTT untuk konek ke broker dan publish state grid/entitas dalam format JSON.                                    |
-| 13     | `tracker/overlay.py`               | Visualisasi overlay — quad lapangan, label tag, HUD, dan logging terminal.                                            |
+| 13     | `tracker/overlay.py`               | Visualisasi overlay - quad lapangan, label tag, HUD, dan logging terminal.                                            |
 | 14     | `tracker/processing.py`            | Pemrosesan frame, manajemen state, dan handler keypress terpusat.                                                     |
-| 15     | `tracker/tags.py`                  | Utilitas AprilTag — klasifikasi jenis tag, warna, dan orientasi.                                                      |
+| 15     | `tracker/tags.py`                  | Utilitas AprilTag - klasifikasi jenis tag, warna, dan orientasi.                                                      |
 | 16     | `tracker/transformer.py`           | Kelas `WarehouseCoordinateTransformer` untuk transformasi koordinat kamera ke koordinat gudang menggunakan kalibrasi. |
 | 17     | `tuned_config.json`                | File hasil tuning konfigurasi (parameter kalibrasi yang sudah dioptimasi).                                            |
 | 18     | `warehouse_calibration_context.md` | Catatan/context kalibrasi warehouse (parameter kamera, referensi koordinat, dll).                                     |

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.4)  19 JUL 2026 20:52
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.4)  19 JUL 2026 22:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1307,19 +1307,19 @@ Overfull \hbox (2.28284pt too wide) in paragraph at lines 21--22
 \TU/TimesNewRoman(0)/m/n/12 simpan (\TU/TimesNewRoman(0)/m/it/12 put-away\TU/TimesNewRoman(0)/m/n/12 ), penyimpanan, pengisian ulang internal (\TU/TimesNewRoman(0)/m/it/12 replenishment\TU/TimesNewRoman(0)/m/n/12 ), pengam-
  []
 
-[8] [9]
+[8]
+Overfull \hbox (10.6297pt too wide) in paragraph at lines 41--42
+\TU/TimesNewRoman(0)/m/n/12 kerja-yang aktivitas-aktivitasnya dikhususkan untuk menangkap, mengirim, menyimp-
+ []
+
+[9]
 
 Package biblatex-chicago Warning: Empty Ibidem citation on input line 52.
 
 [10]
 File: images/microservices_diagram.png Graphic file (type bmp)
 <images/microservices_diagram.png>
- [11] [12] [13] [14] [15] [16] [17]
-Overfull \hbox (6.18085pt too wide) in paragraph at lines 142--143
-\TU/TimesNewRoman(0)/m/n/12 ketepatan—bersama-sama menggambarkan efektivitas sistem dalam mendukung ope-
- []
-
-[18]
+ [11] [12] [13] [14] [15] [16] [17] [18]
 File: images/eda_diagram.png Graphic file (type bmp)
 <images/eda_diagram.png>
 ) (./Bab III - Analisis.tex [19] [20]
@@ -1515,142 +1515,42 @@ Overfull \hbox (15.53836pt too wide) in paragraph at lines 397--398
  []
 
 [34] [35]
-
-Package tabularx Warning: X Columns too narrow (table too wide)
-(tabularx)                 on input line 468.
-
-
-Overfull \hbox (27.3536pt too wide) in paragraph at lines 468--468
-[]|\TU/TimesNewRoman(0)/b/n/10.95 Kriteria| 
+Overfull \hbox (3.95937pt too wide) in paragraph at lines 468--468
+ []|\TU/TimesNewRoman(0)/b/n/10.95 Kemudah- 
  []
 
 
-Overfull \hbox (162.91223pt too wide) in alignment at lines 468--468
+Overfull \hbox (38.83073pt too wide) in alignment at lines 468--468
  [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (27.3536pt too wide) in paragraph at lines 468--468
-[]|\TU/TimesNewRoman(0)/b/n/10.95 Kriteria| 
+Overfull \hbox (3.95937pt too wide) in paragraph at lines 468--468
+ []|\TU/TimesNewRoman(0)/b/n/10.95 Kemudah- 
  []
 
 
-Overfull \hbox (162.91223pt too wide) in alignment at lines 468--468
+Overfull \hbox (38.83073pt too wide) in alignment at lines 468--468
  [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (162.91223pt too wide) in alignment at lines 468--468
+Overfull \hbox (38.83073pt too wide) in alignment at lines 468--468
  [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (35.27739pt too wide) in paragraph at lines 468--468
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Reliability| 
- []
-
-
-Overfull \hbox (35.88156pt too wide) in paragraph at lines 468--468
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Scalability| 
- []
-
-
-Overfull \hbox (9.13213pt too wide) in paragraph at lines 468--468
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Cost
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 of
- []
-
-
-Overfull \hbox (6.0791pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 Pro-
- []
-
-
-Overfull \hbox (1.8178pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 du-
- []
-
-
-Overfull \hbox (10.94466pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 ction| 
- []
-
-
-Overfull \hbox (40.484pt too wide) in paragraph at lines 468--468
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Complexity
+[]|\TU/TimesNewRoman(0)/m/n/10.95 Task Completion
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 of
+[]|\TU/TimesNewRoman(0)/m/n/10.95 Kemudahan Peng-
  []
 
 
-Overfull \hbox (6.0791pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 Pro-
- []
-
-
-Overfull \hbox (1.8178pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 du-
- []
-
-
-Overfull \hbox (10.94466pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 ction| 
- []
-
-
-Overfull \hbox (9.29681pt too wide) in paragraph at lines 468--468
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Task
- []
-
-
-Overfull \hbox (12.16362pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 Com-
- []
-
-
-Overfull \hbox (4.24518pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 ple-
- []
-
-
-Overfull \hbox (6.08452pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 tion
- []
-
-
-Overfull \hbox (7.29279pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 Spe-
- []
-
-
-Overfull \hbox (41.95538pt too wide) in paragraph at lines 468--468
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Kemudahan
- []
-
-
-Overfull \hbox (12.76779pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 Peng-
- []
-
-
-Overfull \hbox (1.8178pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 gu-
- []
-
-
-Overfull \hbox (1.20293pt too wide) in paragraph at lines 468--468
-\TU/TimesNewRoman(0)/m/n/10.95 na-
- []
-
-
-Overfull \hbox (162.91223pt too wide) in alignment at lines 468--468
+Overfull \hbox (38.83073pt too wide) in alignment at lines 468--468
  [] [] [] [] [] [] [] 
  []
 
@@ -1771,7 +1671,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 530--530
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 530--530
-\TU/TimesNewRoman(0)/m/n/10 (5–10%
+\TU/TimesNewRoman(0)/m/n/10 (5-10%
  []
 
 
@@ -1801,7 +1701,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 530--530
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 530--530
-\TU/TimesNewRoman(0)/m/n/10 (2–5%
+\TU/TimesNewRoman(0)/m/n/10 (2-5%
  []
 
 
@@ -2549,7 +2449,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 568--568
 []|\TU/TimesNewRoman(0)/m/n/12 Kemudahan Penggu-
  []
 
-[39]
+
 Underfull \hbox (badness 2726) in paragraph at lines 597--597
 []|\TU/TimesNewRoman(0)/m/n/12 Arsitektur berbasis \TU/TimesNewRoman(0)/m/it/12 event \TU/TimesNewRoman(0)/m/n/12 memungkinkan
  []
@@ -2564,7 +2464,7 @@ Underfull \hbox (badness 1194) in paragraph at lines 597--597
 \TU/TimesNewRoman(0)/m/n/12 berskala linear sesuai kebutuhan tiap gu-
  []
 
-[40] [41]
+[39] [40]
 Overfull \hbox (0.55595pt too wide) in paragraph at lines 663--663
 []|\TU/TimesNewRoman(0)/m/n/12 Reliability| 
  []
@@ -2604,12 +2504,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 663--663
 \TU/TimesNewRoman(0)/m/n/12 Pengguna-
  []
 
-[42] [43] [44]
+[41] [42] [43]
 Overfull \hbox (10.77243pt too wide) in paragraph at lines 732--733
 []\TU/TimesNewRoman(0)/m/n/12 Kaitan hasil AHP dengan pemenuhan kebutuhan nonfungsional sistem (Subbab [][]III.2.4[][])
  []
 
-) (./Bab IV - Perancangan.tex [45] [46
+[44]) (./Bab IV - Perancangan.tex [45] [46
 
 ]
 \bbl@ensure@indonesian {Bab} IV.
@@ -2621,12 +2521,9 @@ File: images/bpmn_tobe.png Graphic file (type bmp)
 File: images/bab_iv/architecture-Level-0.jpg Graphic file (type bmp)
 <images/bab_iv/architecture-Level-0.jpg>
  [48]
-
-LaTeX Warning: Reference `fig:level1-arch' on page 49 undefined on input line 48.
-
 File: images/bab_iv/architecture-Level-1.jpg Graphic file (type bmp)
 <images/bab_iv/architecture-Level-1.jpg>
-[49] [50]
+ [49] [50]
 File: images/bab_iv/wmc/wmc.jpg Graphic file (type bmp)
 <images/bab_iv/wmc/wmc.jpg>
  [51]
@@ -2637,10 +2534,9 @@ Overfull \hbox (2.2634pt too wide) in paragraph at lines 152--153
 \TU/TimesNewRoman(0)/m/n/12 terlibat dalam sistem \TU/TimesNewRoman(0)/m/it/12 Warehouse Management Controller\TU/TimesNewRoman(0)/m/n/12 , yaitu \TU/TimesNewRoman(0)/m/it/12 User\TU/TimesNewRoman(0)/m/n/12 , \TU/TimesNewRoman(0)/m/it/12 Session\TU/TimesNewRoman(0)/m/n/12 , \TU/TimesNewRoman(0)/m/it/12 Order\TU/TimesNewRoman(0)/m/n/12 ,
  []
 
-[53]
 File: images/bab_iv/ERD.jpg Graphic file (type bmp)
 <images/bab_iv/ERD.jpg>
- [54] [55] [56] [57]
+[53] [54] [55] [56] [57]
 File: images/bab_iv/wmc/goods-service.jpg Graphic file (type bmp)
 <images/bab_iv/wmc/goods-service.jpg>
  [58]
@@ -2997,21 +2893,17 @@ See the caption package documentation for explanation.
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `TA.out' has not changed.
-(rerunfilecheck)             Checksum: 65B339036DA70012FF1C0A08B7EF7BD3;27823.
+(rerunfilecheck)             Checksum: DA1D92A816C1DDF0E4FD27CE06CDC3DD;27712.
 Package logreq Info: Writing requests to 'TA.run.xml'.
 \openout1 = `TA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35872 strings out of 469293
- 709447 string characters out of 5455855
- 2285062 words of memory out of 5000000
- 64336 multiletter control sequences out of 15000+600000
+ 35871 strings out of 469293
+ 709430 string characters out of 5455855
+ 2284909 words of memory out of 5000000
+ 64335 multiletter control sequences out of 15000+600000
  636253 words of font info for 108 fonts, out of 8000000 for 9000
  374 hyphenation exceptions out of 8191
  73i,9n,95p,1746b,7479s stack positions out of 10000i,1000n,20000p,200000b,200000s
