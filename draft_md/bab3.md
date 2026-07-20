@@ -83,7 +83,7 @@ Tabel 3.3 Pemetaan Rumusan Masalah dengan Tujuan Proyek
 
 ### III.2.2 Karakteristik Produk
 
-Berdasarkan tujuan proyek _Smart Warehouse_ yang telah dirumuskan pada dokumen B100 subbab 2.2.1, sistem _Warehouse Management Controller_ (WMC) dirancang untuk mengotomatisasi proses _stocking_ dan _picking_ pada pergudangan, mulai dari pencatatan, pelacakan, hingga perpindahan barang. Sistem ini memastikan integrasi data antara kondisi fisik dan digital secara _real-time_, memungkinkan deteksi dan pemantauan pergerakan barang yang akurat, serta mendukung proses perpindahan barang secara presisi dan tepat waktu. Karakteristik produk tersebut dirangkum dan diberi kodefikasi pada Tabel 3.4.
+Berdasarkan tujuan proyek _Smart Warehouse_ yang telah dirumuskan, sistem _Warehouse Management Controller_ (WMC) dirancang untuk mengotomatisasi proses _stocking_ dan _picking_ pada pergudangan, mulai dari pencatatan, pelacakan, hingga perpindahan barang. Sistem ini memastikan integrasi data antara kondisi fisik dan digital secara _real-time_, memungkinkan deteksi dan pemantauan pergerakan barang yang akurat, serta mendukung proses perpindahan barang secara presisi dan tepat waktu. Karakteristik produk tersebut dirangkum dan diberi kodefikasi pada Tabel 3.4.
 
 Tabel 3.4 Karakteristik Produk Sistem Smart Warehouse
 
@@ -155,27 +155,27 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
 
 ### III.2.4 Kebutuhan Nonfungsional
 
-Kebutuhan nonfungsional mendefinisikan batasan kualitas dan performa yang harus dipenuhi oleh sistem sebagai atribut kualitas di luar fungsi utamanya. Kebutuhan ini diturunkan dari spesifikasi produk pada dokumen B200 serta mencakup WMC dan Subsistem Lokalisasi secara terpadu, sebagaimana disajikan pada Tabel 3.11.
+Kebutuhan nonfungsional mendefinisikan batasan kualitas dan performa yang harus dipenuhi oleh sistem sebagai atribut kualitas di luar fungsi utamanya. Kebutuhan ini diturunkan dari spesifikasi produk yang telah ditetapkan serta mencakup WMC dan Subsistem Lokalisasi secara terpadu, sebagaimana disajikan pada Tabel 3.11.
 
 Tabel 3.11 Kebutuhan Nonfungsional Sistem
 
 | Kode   | Kategori               | Deskripsi Kebutuhan                                                                                                                                                                                                                          | Parameter                                                       | Acuan                         |
 | :----- | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------- | :---------------------------- |
-| KNF-01 | Traceability & Latensi | Seluruh aktivitas pergerakan barang dan status robot tercatat lengkap dan berurutan tanpa kehilangan data, dengan sinkronisasi waktu robot--server dan server--WMS terjamin serta pembaruan posisi dan status robot dikirim secara periodik. | Sinkronisasi ≤ 200 ms; posisi & status robot ≤ 1 detik          | B200 -- Traceability          |
-| KNF-02 | Reliability            | Sistem tidak mengalami degradasi akurasi posisi meskipun robot beroperasi berulang kali pada rute yang sama.                                                                                                                                 | _Task Repeatability_ 100%                                       | B200 -- Reliability           |
-| KNF-03 | Availability           | Seluruh layanan WMC beroperasi kontinu selama jam operasional gudang, serta mampu mendeteksi kegagalan pelacakan (_mismatch_ koordinat server vs posisi fisik) dan mengirimkan notifikasi yang memuat koordinat terakhir robot.              | _Availability_ ≥ 95%; notifikasi memuat _last-known coordinate_ | B200 -- Availability & Safety |
-| KNF-04 | Keamanan               | Seluruh _endpoint_ layanan hanya dapat diakses oleh pengguna terautentikasi melalui _Bearer Token_ yang diterbitkan _Authentication Service_, sehingga tidak ada akses tidak sah terhadap fungsi kritis sistem.                              | 0 akses tanpa token valid                                       | P-05, B200 -- Safety          |
+| KNF-01 | Traceability & Latensi | Seluruh aktivitas pergerakan barang dan status robot tercatat lengkap dan berurutan tanpa kehilangan data, dengan sinkronisasi waktu robot--server dan server--WMS terjamin serta pembaruan posisi dan status robot dikirim secara periodik. | Sinkronisasi ≤ 200 ms; posisi & status robot ≤ 1 detik          | Traceability          |
+| KNF-02 | Reliability            | Sistem tidak mengalami degradasi akurasi posisi meskipun robot beroperasi berulang kali pada rute yang sama.                                                                                                                                 | _Task Repeatability_ 100%                                       | Reliability           |
+| KNF-03 | Availability           | Seluruh layanan WMC beroperasi kontinu selama jam operasional gudang, serta mampu mendeteksi kegagalan pelacakan (_mismatch_ koordinat server vs posisi fisik) dan mengirimkan notifikasi yang memuat koordinat terakhir robot.              | _Availability_ ≥ 95%; notifikasi memuat _last-known coordinate_ | Availability & Safety |
+| KNF-04 | Keamanan               | Seluruh _endpoint_ layanan hanya dapat diakses oleh pengguna terautentikasi melalui _Bearer Token_ yang diterbitkan _Authentication Service_, sehingga tidak ada akses tidak sah terhadap fungsi kritis sistem.                              | 0 akses tanpa token valid                                       | P-05          |
 | KNF-05 | Skalabilitas           | Arsitektur _microservices_ memungkinkan setiap layanan dikembangkan, diuji, dan di-_deploy_ secara independen tanpa _redeployment_ keseluruhan sistem, guna mendukung adaptasi terhadap kebutuhan gudang yang berbeda.                       | _Independent deploy_ per _service_                              | CH05, CH06                    |
 
 ## III.3 Analisis Pemilihan Solusi
 
-Berdasarkan identifikasi masalah dan kebutuhan yang telah dirumuskan pada sub-bab sebelumnya, tahap berikutnya adalah menganalisis dan menentukan solusi arsitektur yang paling sesuai untuk diimplementasikan sebagai _Warehouse Management Controller_ (WMC) beserta Subsistem Lokalisasi. Mengikuti struktur analisis pada dokumen B100, subbab ini disusun dalam tiga tahap: identifikasi alternatif solusi (III.3.1), analisis dan evaluasi alternatif menggunakan metode _Analytical Hierarchy Process_ (AHP) (III.3.2), serta penetapan solusi terpilih (III.3.3). Kedua keputusan yang dibahas — pemilihan solusi manajemen data inventori WMC dan pemilihan solusi teknis Subsistem Lokalisasi — dievaluasi dengan kedalaman dan tahapan AHP yang setara.
+Berdasarkan identifikasi masalah dan kebutuhan yang telah dirumuskan pada sub-bab sebelumnya, tahap berikutnya adalah menganalisis dan menentukan solusi arsitektur yang paling sesuai untuk diimplementasikan sebagai _Warehouse Management Controller_ (WMC) beserta Subsistem Lokalisasi. Subbab ini disusun dalam tiga tahap: identifikasi alternatif solusi (III.3.1), analisis dan evaluasi alternatif menggunakan metode _Analytical Hierarchy Process_ (AHP) (III.3.2), serta penetapan solusi terpilih (III.3.3). Kedua keputusan yang dibahas — pemilihan solusi manajemen data inventori WMC dan pemilihan solusi teknis Subsistem Lokalisasi — dievaluasi dengan kedalaman dan tahapan AHP yang setara.
 
 ### III.3.1 Usulan Solusi
 
 #### III.3.1.1 Alternatif Solusi Manajemen Data Inventori (WMC)
 
-Dalam pengembangan WMC sebagai sistem perangkat lunak inti _Smart Warehouse_, permasalahan utama yang perlu diselesaikan pada lapisan manajemen data adalah bagaimana sistem mencatat, memperbarui, dan menjaga konsistensi informasi inventori secara _real-time_ sejalan dengan aktivitas fisik robot di lapangan. Berdasarkan kajian pada dokumen B100 subbab 2.2.2.4, terdapat dua pendekatan arsitektur yang dapat dipertimbangkan sebagai solusi manajemen data inventori WMC, yaitu _Event-Driven Inventory Management_ dan _State-Driven Inventory Management_. Karakteristik masing-masing alternatif diuraikan sebagai berikut.
+Dalam pengembangan WMC sebagai sistem perangkat lunak inti _Smart Warehouse_, permasalahan utama yang perlu diselesaikan pada lapisan manajemen data adalah bagaimana sistem mencatat, memperbarui, dan menjaga konsistensi informasi inventori secara _real-time_ sejalan dengan aktivitas fisik robot di lapangan. Terdapat dua pendekatan arsitektur yang dapat dipertimbangkan sebagai solusi manajemen data inventori WMC, yaitu _Event-Driven Inventory Management_ dan _State-Driven Inventory Management_. Karakteristik masing-masing alternatif diuraikan sebagai berikut.
 
 ##### III.3.1.1.1 Alternatif 1: Event-Driven Inventory Management
 
@@ -191,11 +191,11 @@ Keunggulan utama alternatif ini adalah alur sistem yang lebih sederhana dengan k
 
 #### III.3.1.2 Alternatif Solusi Lokalisasi
 
-Sama seperti pada subbab sebelumnya, pemilihan solusi teknis untuk Subsistem Lokalisasi diawali dengan mengidentifikasi alternatif pendekatan lokalisasi yang dapat diterapkan. Berdasarkan kajian pada dokumen B100/B300 dan implementasi yang dilakukan pada tugas akhir ini, terdapat dua pendekatan yang dapat dipertimbangkan, yaitu _QR Code + Line Following_ dan _AprilTag + Overhead Fisheye Camera_. Karakteristik masing-masing alternatif diuraikan sebagai berikut.
+Sama seperti pada subbab sebelumnya, pemilihan solusi teknis untuk Subsistem Lokalisasi diawali dengan mengidentifikasi alternatif pendekatan lokalisasi yang dapat diterapkan. Berdasarkan implementasi yang dilakukan pada tugas akhir ini, terdapat dua pendekatan yang dapat dipertimbangkan, yaitu _QR Code + Line Following_ dan _AprilTag + Overhead Fisheye Camera_. Karakteristik masing-masing alternatif diuraikan sebagai berikut.
 
 ##### III.3.1.2.1 Alternatif 1: QR Code + Line Following
 
-Pendekatan ini menempatkan seluruh perangkat lokalisasi pada masing-masing robot (_on-board_, desentralisasi) sebagaimana dirancang pada dokumen B100/B300. Robot mengikuti garis lintasan di lantai secara kontinu menggunakan _Line Detector Sensor_ BFD-1000 (6 kanal IR) untuk memperoleh posisi relatif terhadap jalur, kemudian memindai _QR code_ menggunakan GM65 _reader_ pada titik-titik tertentu untuk memverifikasi posisi absolut dalam matriks _grid_ 12×6. Data ini digabung dengan pembacaan IMU dan diolah oleh ESP32-S3 di tiap robot untuk menghasilkan status posisi yang dikirim ke _Fleet Controller_.
+Pendekatan ini menempatkan seluruh perangkat lokalisasi pada masing-masing robot (_on-board_, desentralisasi). Robot mengikuti garis lintasan di lantai secara kontinu menggunakan _Line Detector Sensor_ BFD-1000 (6 kanal IR) untuk memperoleh posisi relatif terhadap jalur, kemudian memindai _QR code_ menggunakan GM65 _reader_ pada titik-titik tertentu untuk memverifikasi posisi absolut dalam matriks _grid_ 12×6. Data ini digabung dengan pembacaan IMU dan diolah oleh ESP32-S3 di tiap robot untuk menghasilkan status posisi yang dikirim ke _Fleet Controller_.
 
 Keunggulan utama alternatif ini adalah setiap robot mandiri melakukan _self-localization_ sehingga tidak bergantung pada satu titik kegagalan sentral, dan infrastruktur jalur serta _QR code_ relatif murah untuk dipasang di lantai gudang. Adapun kekurangannya, akurasi posisi antar-_checkpoint_ bergantung pada kestabilan pembacaan sensor garis yang sensitif terhadap kondisi lantai (debu, aus, pencahayaan), setiap robot memerlukan satu set sensor lengkap sehingga biaya bertambah linear seiring penambahan robot, dan verifikasi posisi absolut hanya terjadi secara diskrit di titik _QR_, bukan kontinu di seluruh area.
 
@@ -207,11 +207,11 @@ Keunggulan utama alternatif ini adalah satu perangkat mampu mencakup seluruh are
 
 ### III.3.2 Analisis Usulan Solusi
 
-Analisis usulan solusi dilakukan untuk mengevaluasi setiap alternatif yang telah diidentifikasi pada Subbab III.3.1 secara sistematis menggunakan metode _Analytical Hierarchy Process_ (AHP), sehingga keputusan pemilihan solusi bersifat objektif dan dapat dipertanggungjawabkan secara teknis. Mengikuti pendekatan pada dokumen B100, satu set kriteria, bobot, dan rubrik penilaian yang sama digunakan untuk mengevaluasi kedua keputusan yang dibahas — pemilihan solusi manajemen data inventori WMC maupun pemilihan solusi teknis Subsistem Lokalisasi — sehingga kedua keputusan dinilai secara setara dan dapat diperbandingkan pada kerangka acuan yang identik. Kriteria dan bobot ini disusun dan dijelaskan terlebih dahulu, dilanjutkan dengan rekapitulasi skor akhir tiap alternatif untuk masing-masing keputusan, dan diakhiri dengan penjelasan justifikasi nilai pada setiap kriteria.
+Analisis usulan solusi dilakukan untuk mengevaluasi setiap alternatif yang telah diidentifikasi pada Subbab III.3.1 secara sistematis menggunakan metode _Analytical Hierarchy Process_ (AHP), sehingga keputusan pemilihan solusi bersifat objektif dan dapat dipertanggungjawabkan secara teknis. Satu set kriteria, bobot, dan rubrik penilaian yang sama digunakan untuk mengevaluasi kedua keputusan yang dibahas — pemilihan solusi manajemen data inventori WMC maupun pemilihan solusi teknis Subsistem Lokalisasi — sehingga kedua keputusan dinilai secara setara dan dapat diperbandingkan pada kerangka acuan yang identik. Kriteria dan bobot ini disusun dan dijelaskan terlebih dahulu, dilanjutkan dengan rekapitulasi skor akhir tiap alternatif untuk masing-masing keputusan, dan diakhiri dengan penjelasan justifikasi nilai pada setiap kriteria.
 
 #### III.3.2.1 Kriteria dan Bobot Evaluasi
 
-Kriteria penilaian dalam matriks AHP mengacu pada kriteria umum yang telah ditetapkan pada dokumen B100, yaitu _Reliability_, _Scalability_, _Cost of Production_, _Complexity of Production_, _Task Completion Speed_, dan Kemudahan Penggunaan, sebagaimana disajikan pada Tabel 3.12. Keenam kriteria ini digunakan sebagai acuan evaluasi baik untuk pemilihan solusi manajemen data inventori WMC maupun pemilihan solusi teknis Subsistem Lokalisasi.
+Kriteria penilaian dalam matriks AHP mengacu pada enam kriteria umum, yaitu _Reliability_, _Scalability_, _Cost of Production_, _Complexity of Production_, _Task Completion Speed_, dan Kemudahan Penggunaan, sebagaimana disajikan pada Tabel 3.12. Keenam kriteria ini digunakan sebagai acuan evaluasi baik untuk pemilihan solusi manajemen data inventori WMC maupun pemilihan solusi teknis Subsistem Lokalisasi.
 
 Tabel 3.12 Kriteria dan Penjelasannya (Manajemen Data Inventori)
 
@@ -224,9 +224,9 @@ Tabel 3.12 Kriteria dan Penjelasannya (Manajemen Data Inventori)
 | Task Completion Speed    | Kecepatan sistem dalam menyelesaikan tugas permintaan dan penaruhan barang. |
 | Kemudahan Penggunaan     | Seberapa mudah sistem dioperasikan tanpa pelatihan khusus.                  |
 
-Pembobotan kriteria ditetapkan melalui perbandingan berpasangan (_pairwise comparison_) sebagaimana dilakukan pada dokumen B100 subbab 2.2.3. Hasil perbandingan berpasangan menggunakan skala Saaty disajikan pada Tabel 3.13.
+Pembobotan kriteria ditetapkan melalui perbandingan berpasangan (_pairwise comparison_). Hasil perbandingan berpasangan menggunakan skala Saaty disajikan pada Tabel 3.13.
 
-Tabel 3.13 Nilai Kepentingan Kriteria (Manajemen Data Inventori) (B100 Tabel 8)
+Tabel 3.13 Nilai Kepentingan Kriteria (Manajemen Data Inventori)
 
 | Kriteria                 | Reliability | Scalability | Cost of Production | Complexity of Production | Task Completion Speed | Kemudahan Penggunaan |
 | :----------------------- | :---------: | :---------: | :----------------: | :----------------------: | :-------------------: | :------------------: |
@@ -237,9 +237,9 @@ Tabel 3.13 Nilai Kepentingan Kriteria (Manajemen Data Inventori) (B100 Tabel 8)
 | Task Completion Speed    |    0,25     |    0,25     |        0,33        |           0,5            |           1           |          2           |
 | Kemudahan Penggunaan     |    0,25     |    0,25     |        0,25        |           0,33           |          0,5          |          1           |
 
-Bobot masing-masing kriteria dihitung dengan menormalisasi setiap kolom matriks terhadap jumlah kolomnya, kemudian merata-ratakan nilai pada setiap baris (metode _eigenvector_ approksimasi), sebagaimana dilakukan pada dokumen B100. Nilai bobot mencerminkan tingkat kepentingan relatif setiap kriteria terhadap tujuan pemilihan solusi manajemen data inventori WMC, sebagaimana disajikan pada Tabel 3.14.
+Bobot masing-masing kriteria dihitung dengan menormalisasi setiap kolom matriks terhadap jumlah kolomnya, kemudian merata-ratakan nilai pada setiap baris (metode _eigenvector_ approksimasi). Nilai bobot mencerminkan tingkat kepentingan relatif setiap kriteria terhadap tujuan pemilihan solusi manajemen data inventori WMC, sebagaimana disajikan pada Tabel 3.14.
 
-Tabel 3.14 Nilai Bobot Kriteria (Manajemen Data Inventori) (B100 Tabel 9)
+Tabel 3.14 Nilai Bobot Kriteria (Manajemen Data Inventori)
 
 | Kriteria                 | Bobot    |
 | :----------------------- | :------- |
@@ -253,7 +253,7 @@ Tabel 3.14 Nilai Bobot Kriteria (Manajemen Data Inventori) (B100 Tabel 9)
 
 Setelah kriteria dan bobotnya ditetapkan, rubrik penilaian disusun untuk memberikan acuan yang konsisten dalam menilai setiap alternatif solusi pada skala 1 (sangat buruk) hingga 5 (sangat baik), sebagaimana disajikan pada Tabel 3.15.
 
-Tabel 3.15 Rubrik Penilaian Solusi (Manajemen Data Inventori) (B100 Tabel 10)
+Tabel 3.15 Rubrik Penilaian Solusi (Manajemen Data Inventori)
 
 | No  | Kriteria                 | Bobot 1 (Sangat Buruk)                                                               | Bobot 2 (Buruk)                                               | Bobot 3 (Cukup)                                                      | Bobot 4 (Baik)                                                       | Bobot 5 (Sangat Baik)                                                                                      |
 | :-: | :----------------------- | :----------------------------------------------------------------------------------- | :------------------------------------------------------------ | :------------------------------------------------------------------- | :------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- |
@@ -268,7 +268,7 @@ Tabel 3.15 Rubrik Penilaian Solusi (Manajemen Data Inventori) (B100 Tabel 10)
 
 Berdasarkan rubrik penilaian pada Tabel 3.15, setiap alternatif solusi manajemen data inventori dievaluasi dengan memberikan nilai pada masing-masing kriteria sesuai karakteristik arsitekturnya. Nilai tersebut dikalikan dengan bobot kriteria hasil perhitungan AHP pada Tabel 3.14 untuk memperoleh skor total tiap alternatif, sebagaimana dirangkum pada Tabel 3.16.
 
-Tabel 3.16 Rekapitulasi Penilaian AHP Solusi Manajemen Data Inventori (B100 Tabel 2.2.3.8)
+Tabel 3.16 Rekapitulasi Penilaian AHP Solusi Manajemen Data Inventori
 
 | Kriteria              | Bobot | Alt. 1: Event-Driven (Nilai) | Alt. 1 (Bobot×Nilai) | Alt. 2: State-Driven (Nilai) | Alt. 2 (Bobot×Nilai) |
 | :-------------------- | :---: | :--------------------------: | :------------------: | :--------------------------: | :------------------: |
@@ -352,9 +352,9 @@ Keunggulan utama AprilTag + Overhead Fisheye Camera terletak pada aspek _Reliabi
 
 Berdasarkan hasil analisis AHP pada Subbab III.3.2, diperoleh solusi terpilih untuk kedua keputusan yang dibahas pada Bab ini.
 
-Untuk manajemen data inventori WMC, _Event-Driven Inventory Management_ dipilih sebagai arsitektur solusi yang diimplementasikan pada _Warehouse Management Controller_ (WMC) dalam tugas akhir ini. Keputusan ini selaras dengan kesimpulan pada dokumen B100 subbab 2.2.4, di mana _Event-Driven Inventory Management_ ditetapkan sebagai solusi manajemen inventori terpilih karena kemampuannya menjaga konsistensi data stok melalui pencatatan setiap perubahan sebagai _event_, serta memudahkan proses audit dan keterlacakan operasional gudang.
+Untuk manajemen data inventori WMC, _Event-Driven Inventory Management_ dipilih sebagai arsitektur solusi yang diimplementasikan pada _Warehouse Management Controller_ (WMC) dalam tugas akhir ini, karena kemampuannya menjaga konsistensi data stok melalui pencatatan setiap perubahan sebagai _event_, serta memudahkan proses audit dan keterlacakan operasional gudang.
 
-Untuk Subsistem Lokalisasi, AprilTag + Kamera _Fisheye Overhead_ dipilih sebagai solusi teknis yang diimplementasikan pada tugas akhir ini, menggantikan pendekatan QR Code + _Line Following_ yang dirancang pada dokumen B100/B300. Keputusan ini konsisten dengan implementasi Subsistem Lokalisasi pada Bab IV Subbab 1.4 dan Bab V Subbab 3, serta hasil pengujian pada Bab VI Subbab 2.6 yang membuktikan pemenuhan seluruh kebutuhan nonfungsional lokalisasi.
+Untuk Subsistem Lokalisasi, AprilTag + Kamera _Fisheye Overhead_ dipilih sebagai solusi teknis yang diimplementasikan pada tugas akhir ini, menggantikan pendekatan QR Code + _Line Following_ pada rancangan awal. Keputusan ini konsisten dengan implementasi Subsistem Lokalisasi pada Bab IV Subbab 1.4 dan Bab V Subbab 3, serta hasil pengujian pada Bab VI Subbab 2.6 yang membuktikan pemenuhan seluruh kebutuhan nonfungsional lokalisasi.
 
 **Justifikasi Solusi Terpilih**
 
@@ -362,4 +362,4 @@ Kaitan hasil AHP dengan pemenuhan kebutuhan nonfungsional sistem (Subbab III.2.4
 
 Untuk Subsistem Lokalisasi, KNF-01 (latensi status posisi ≤ 1 detik) terpenuhi dengan latensi publikasi terukur 500 ms melalui _topic_ MQTT `location`, jauh di bawah ambang batas yang disyaratkan, sejalan dengan skor tertinggi AprilTag + Overhead Fisheye Camera pada kriteria _Task Completion Speed_ (nilai 5). KNF-02 (tidak ada degradasi akurasi posisi/_Task Repeatability_ 100%) terpenuhi dengan hasil verifikasi 100% pada 6 kasus posisi dan 4 kasus orientasi, sejalan dengan skor tertinggi pada kriteria _Reliability_ (nilai 4). KNF-03 (deteksi kegagalan pelacakan dan notifikasi koordinat terakhir) didukung oleh arsitektur tersentralisasi yang memudahkan pemantauan status koneksi kamera dan validitas _payload_ MQTT secara terpusat, sebagaimana dijelaskan pada mekanisme ketahanan operasional pada Tabel 3.20 dan 3.21.
 
-Dengan terpenuhinya seluruh kebutuhan nonfungsional tersebut serta unggulnya skor AHP pada kriteria berbobot tertinggi untuk masing-masing keputusan, pemilihan _Event-Driven Inventory Management_ dan AprilTag + Overhead Fisheye Camera dapat dijustifikasi secara objektif dan dapat dipertanggungjawabkan secara teknis, sekaligus menunjukkan bahwa pengembangan pada tugas akhir ini memberikan penyempurnaan terhadap rancangan awal pada dokumen B100/B300.
+Dengan terpenuhinya seluruh kebutuhan nonfungsional tersebut serta unggulnya skor AHP pada kriteria berbobot tertinggi untuk masing-masing keputusan, pemilihan _Event-Driven Inventory Management_ dan AprilTag + Overhead Fisheye Camera dapat dijustifikasi secara objektif dan dapat dipertanggungjawabkan secara teknis, sekaligus menunjukkan bahwa pengembangan pada tugas akhir ini memberikan penyempurnaan terhadap rancangan awal lokalisasi.

@@ -185,7 +185,7 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.11.2}Integrasi Cloud dan IoT untuk Visibilitas Gudang (van Geest et al., 2021)}{19}{subsection.2.11.2}%
+\contentsline {subsection}{\numberline {II.11.2}Integrasi Cloud dan IoT untuk Visibilitas Gudang (van Geest et al., 2022)}{19}{subsection.2.11.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -213,7 +213,7 @@
 \contentsline {paragraph}{\numberline {III.3.1.1.2}Alternatif 2: State-Driven Inventory Management}{33}{paragraph.3.3.1.1.2}%
 \contentsline {subsubsection}{\numberline {III.3.1.2}Alternatif Solusi Lokalisasi}{34}{subsubsection.3.3.1.2}%
 \contentsline {paragraph}{\numberline {III.3.1.2.1}Alternatif 1: QR Code + Line Following}{34}{paragraph.3.3.1.2.1}%
-\contentsline {paragraph}{\numberline {III.3.1.2.2}Alternatif 2: AprilTag + Overhead Fisheye Camera}{35}{paragraph.3.3.1.2.2}%
+\contentsline {paragraph}{\numberline {III.3.1.2.2}Alternatif 2: AprilTag + Overhead Fisheye Camera}{34}{paragraph.3.3.1.2.2}%
 \contentsline {subsection}{\numberline {III.3.2}Analisis Usulan Solusi}{35}{subsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {III.3.2.1}Kriteria dan Bobot Evaluasi}{35}{subsubsection.3.3.2.1}%
 \contentsline {subsubsection}{\numberline {III.3.2.2}Penilaian Solusi Manajemen Data Inventori}{39}{subsubsection.3.3.2.2}%

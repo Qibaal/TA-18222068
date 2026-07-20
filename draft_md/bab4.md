@@ -152,7 +152,7 @@ Tabel 4.7 Fungsi, Masukan, dan Keluaran Authentication Service WMC
 
 #### IV.3.3.1 Arsitektur Level 2 — Fleet Controller
 
-Selain Warehouse Management Controller, subsistem Fleet Controller turut menjadi bagian penting dari arsitektur Smart Warehouse karena berperan sebagai penghubung langsung antara WMC dan armada robot fisik pada Goods Handling and Delivery System (GHDS). Sebagaimana dijelaskan pada dokumen B300, Fleet Controller bertanggung jawab mengelola penugasan robot, manajemen status, dan perencanaan rute pergerakan armada, dengan seluruh data status robot diterima melalui subsistem Communication pada GHDS. Pengembangan Fleet Controller secara keseluruhan berada di luar cakupan tugas akhir individu ini, kecuali komponen Localisation System yang menjadi kontribusi khusus penulis (lihat Subbab I.4). Pemaparan arsitektur Fleet Controller pada subbab ini diperlukan untuk memberikan konteks interaksi antara WMC dan Fleet Controller melalui Fleet Order Service (lihat IV.3.3.3).
+Selain Warehouse Management Controller, subsistem Fleet Controller turut menjadi bagian penting dari arsitektur Smart Warehouse karena berperan sebagai penghubung langsung antara WMC dan armada robot fisik pada Goods Handling and Delivery System (GHDS). Fleet Controller bertanggung jawab mengelola penugasan robot, manajemen status, dan perencanaan rute pergerakan armada, dengan seluruh data status robot diterima melalui subsistem Communication pada GHDS. Pengembangan Fleet Controller secara keseluruhan berada di luar cakupan tugas akhir individu ini, kecuali komponen Localisation System yang menjadi kontribusi khusus penulis (lihat Subbab I.4). Pemaparan arsitektur Fleet Controller pada subbab ini diperlukan untuk memberikan konteks interaksi antara WMC dan Fleet Controller melalui Fleet Order Service (lihat IV.3.3.3).
 Pada Level 2, Fleet Controller dipandang sebagai satu modul tunggal yang menerima instruksi order dan data robot dari WMC, kemudian menghasilkan perintah eksekusi bagi robot serta status terkini yang dikembalikan ke WMC. Gambar 4.9 berikut mengilustrasikan arsitektur Fleet Controller pada Level 2.
 
 ![Placeholder Gambar 4.9 — Arsitektur Fleet Controller Level 2](../images/bab_iv/fleet-controller/fleet-controller.jpg)
@@ -168,7 +168,7 @@ Tabel 4.8 Fungsi, Masukan, dan Keluaran Fleet Controller (Level 2)
 
 #### IV.3.3.2 Arsitektur Level 3 — Komponen Fleet Controller
 
-Pada Level 3, Fleet Controller didekomposisi menjadi lima komponen perangkat lunak, yaitu Communication Service, Fleet Manager, Local Database, Robot Path Planner, dan Localisation System. Keempat komponen pertama merupakan hasil rancangan kelompok TA252601001 sebagaimana didokumentasikan pada dokumen B300, sedangkan komponen Localisation System merupakan kontribusi individu penulis yang menggantikan pendekatan lokalisasi berbasis QR Code + Line Following pada rancangan awal dengan pendekatan AprilTag + Overhead Fisheye Camera (lihat Subbab III.3.2).
+Pada Level 3, Fleet Controller didekomposisi menjadi lima komponen perangkat lunak, yaitu Communication Service, Fleet Manager, Local Database, Robot Path Planner, dan Localisation System. Keempat komponen pertama merupakan hasil rancangan kelompok TA252601001, sedangkan komponen Localisation System merupakan kontribusi individu penulis yang menggantikan pendekatan lokalisasi berbasis QR Code + Line Following pada rancangan awal dengan pendekatan AprilTag + Overhead Fisheye Camera (lihat Subbab III.3.2).
 
 ##### IV.3.3.2.1 Localisation System
 
