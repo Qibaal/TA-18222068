@@ -175,23 +175,23 @@ Berdasarkan ERD pada Gambar \ref{fig:erd-wmc}, terdapat sembilan entitas yang di
   \endhead
   \hline
   \endfoot
-    \textit{User} & Menyimpan data pengguna sistem yang merupakan staf gudang yang bertugas mengelola dan memantau seluruh operasional \textit{Warehouse Management Controller}. Struktur data dari entitas \textit{User} mencakup informasi identitas pengguna seperti nama, \textit{username}, dan \textit{password} yang digunakan untuk keperluan autentikasi, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{User} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{Order} memungkinkan sistem melacak seluruh permintaan \textit{picking} dan \textit{storing} yang dibuat oleh masing-masing pengguna, sedangkan relasi dengan entitas \textit{Session} digunakan untuk mengelola sesi login aktif pengguna berdasarkan token autentikasi yang diterbitkan setelah proses login berhasil dilakukan. \\
+    \textit{User} & Entitas \textit{User} menyimpan data identitas dan kredensial autentikasi staf gudang yang terhubung dengan entitas \textit{Order} dan \textit{Session}. \\
     \hline
-    \textit{Order} & Menyimpan data permintaan operasional gudang yang diajukan oleh pengguna, baik berupa proses \textit{picking} (pengambilan barang) maupun \textit{storing} (penyimpanan barang). Struktur data dari entitas \textit{Order} mencakup referensi pengguna yang mengajukan permintaan, status terkini dari permintaan tersebut, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{Order} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{User} mengikat setiap permintaan kepada pengguna yang membuatnya sehingga sistem dapat melakukan pelacakan dan audit aktivitas secara terstruktur, sedangkan relasi dengan entitas \textit{OrderItem} memungkinkan satu permintaan mencakup beberapa barang sekaligus dengan rincian kuantitas masing-masing. \\
+    \textit{Order} & Entitas \textit{Order} menyimpan data permintaan \textit{picking} atau \textit{storing} beserta status terkininya yang terhubung dengan entitas \textit{User} dan \textit{OrderItem}. \\
     \hline
-    \textit{OrderItem} & Menyimpan data rincian barang yang terdapat dalam suatu permintaan operasional gudang. Struktur data dari entitas \textit{OrderItem} mencakup referensi ke permintaan induk, referensi ke barang yang diminta, jumlah kuantitas yang diperlukan, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{OrderItem} merupakan entitas penghubung yang memiliki relasi dengan tiga entitas sekaligus dalam sistem. Relasi dengan entitas \textit{Order} mengaitkan setiap detail barang ke permintaan asalnya, relasi dengan entitas \textit{Item} menentukan barang spesifik yang menjadi objek permintaan, sedangkan relasi dengan entitas \textit{Task} menjadi dasar pembentukan instruksi operasional yang akan diberikan kepada robot untuk dieksekusi. \\
+    \textit{OrderItem} & Entitas \textit{OrderItem} menyimpan rincian barang dan kuantitas dalam suatu permintaan yang menghubungkan entitas \textit{Order}, \textit{Item}, dan \textit{Task}. \\
     \hline
-    \textit{Item} & Menyimpan master data seluruh barang yang dikelola di dalam gudang. Struktur data dari entitas \textit{Item} mencakup informasi identitas barang seperti nama, deskripsi, \textit{stock-keeping unit} (SKU), kategori, dan jumlah stok yang tersedia, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{Item} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{OrderItem} memungkinkan sistem merujuk data barang secara akurat ketika memproses permintaan operasional, sedangkan relasi dengan entitas \textit{ItemLocation} digunakan untuk menyimpan informasi posisi fisik barang di dalam gudang berupa koordinat rak sehingga robot dapat menavigasi ke lokasi yang tepat. \\
+    \textit{Item} & Entitas \textit{Item} menyimpan master data barang gudang berupa nama, SKU, kategori, dan stok yang terhubung dengan entitas \textit{OrderItem} dan \textit{ItemLocation}. \\
     \hline
-    \textit{Task} & Menyimpan data instruksi operasional yang diberikan kepada robot sebagai tindak lanjut dari permintaan \textit{picking} atau \textit{storing} yang masuk ke sistem. Struktur data dari entitas \textit{Task} mencakup referensi ke detail permintaan barang yang harus dikerjakan, referensi ke robot yang ditugaskan, status pelaksanaan tugas, serta \textit{timestamp} pembuatan, pembaruan, dan penghapusan data. Entitas \textit{Task} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{OrderItem} mengaitkan setiap instruksi dengan permintaan barang yang harus diselesaikan, sedangkan relasi dengan entitas \textit{Robot} menentukan robot mana yang bertanggung jawab mengeksekusi tugas tersebut sehingga sistem dapat melakukan pemantauan dan pengelolaan armada robot secara terpusat. \\
+    \textit{Task} & Entitas \textit{Task} menyimpan instruksi operasional bagi robot sebagai tindak lanjut permintaan \textit{picking} atau \textit{storing} yang menghubungkan entitas \textit{OrderItem} dan \textit{Robot}. \\
     \hline
-    \textit{Robot} & Menyimpan data identitas dan kapasitas setiap unit robot yang beroperasi di dalam gudang. Struktur data dari entitas \textit{Robot} mencakup nomor seri robot, kapasitas muatan maksimum, kapasitas baterai, serta waktu pemeliharaan terakhir yang dilakukan. Entitas \textit{Robot} terhubung dengan dua entitas lain dalam sistem. Relasi dengan entitas \textit{Task} memungkinkan sistem menugaskan dan memantau seluruh instruksi operasional yang sedang dijalankan oleh masing-masing robot, sedangkan relasi dengan entitas \textit{RobotLog} digunakan untuk mencatat seluruh aktivitas, kode log, kode kesalahan, dan pesan kejadian yang terjadi pada robot selama beroperasi sebagai mekanisme \textit{logging} dan penelusuran kesalahan sistem. \\
+    \textit{Robot} & Entitas \textit{Robot} menyimpan data identitas dan kapasitas setiap unit robot yang terhubung dengan entitas \textit{Task} dan \textit{RobotLog}. \\
     \hline
-    \textit{Session} & Menyimpan informasi sesi aktif setiap pengguna yang berhasil melakukan autentikasi ke dalam sistem. Struktur data entitas \textit{Session} mencakup token sesi, waktu kedaluwarsa (\textit{expiry}), serta status validitas token yang digunakan untuk memverifikasi kredensial pengguna pada setiap permintaan yang dikirimkan ke layanan WMC. Entitas \textit{Session} terhubung dengan entitas \textit{User} melalui relasi \textit{one-to-many}, di mana satu pengguna dapat memiliki beberapa sesi aktif secara bersamaan, namun setiap sesi selalu dimiliki oleh tepat satu pengguna. \\
+    \textit{Session} & Entitas \textit{Session} menyimpan token dan masa berlaku sesi aktif pengguna yang terhubung dengan entitas \textit{User}. \\
     \hline
-    \textit{ItemLocation} & Menyimpan informasi posisi fisik setiap jenis barang dalam area gudang, direpresentasikan sebagai koordinat sel pada \textit{grid} lantai gudang. Struktur data entitas \textit{ItemLocation} mencakup koordinat kolom ($c$) dan baris ($r$) pada \textit{grid} $8\times4$ yang merepresentasikan posisi penyimpanan barang, serta stempel waktu pembaruan terakhir untuk keperluan \textit{traceability} lokasi. Entitas ini terhubung dengan entitas \textit{Item} melalui relasi \textit{one-to-one}, memastikan bahwa setiap jenis barang selalu memiliki satu catatan lokasi aktif yang dapat diperbarui secara \textit{real-time} mengikuti perpindahan barang oleh robot. \\
+    \textit{ItemLocation} & Entitas \textit{ItemLocation} menyimpan koordinat posisi fisik setiap barang pada \textit{grid} lantai gudang yang terhubung dengan entitas \textit{Item}. \\
     \hline
-    \textit{RobotLog} & Mencatat seluruh kejadian, aktivitas, dan kesalahan yang terjadi pada setiap robot selama beroperasi di dalam gudang sebagai mekanisme \textit{logging} dan \textit{audit trail}. Struktur data entitas \textit{RobotLog} mencakup kode log, kode kesalahan (\textit{error code}), pesan kejadian, serta stempel waktu kejadian. Entitas \textit{RobotLog} terhubung dengan dua entitas lain: relasi dengan entitas \textit{Robot} (\textit{many-to-one}) untuk mengidentifikasi unit robot yang menghasilkan log, serta relasi dengan entitas \textit{Task} (\textit{many-to-one}) untuk mengaitkan setiap entri log dengan \textit{task} operasional yang sedang dijalankan saat kejadian tersebut terjadi, sehingga memudahkan penelusuran akar masalah (\textit{root cause analysis}) ketika terjadi kegagalan operasional. \\
+    \textit{RobotLog} & Entitas \textit{RobotLog} mencatat aktivitas, kode kesalahan, dan pesan kejadian setiap robot yang terhubung dengan entitas \textit{Robot} dan \textit{Task}. \\
     \hline
   
 \end{xltabular}
@@ -1855,46 +1855,6 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 
 \section{\textit{Sequence Diagram}}
 \textit{Sequence diagram} merupakan pemodelan perilaku dinamis (\textit{dynamic behavior}) yang menggambarkan bagaimana objek-objek di dalam sistem \textit{Warehouse Management Controller} (WMC) saling berinteraksi dari waktu ke waktu. Diagram ini memetakan urutan pertukaran pesan (\textit{message passing}) antara aktor (\textit{User Interface}) dengan kelas-kelas pada lapisan \textit{Controller}, \textit{Service}, dan \textit{Entity} (\textit{Database}) dalam mengeksekusi logika bisnis sistem.
-
-Pada perancangan ini, \textit{sequence diagram} disusun untuk merealisasikan kesembilan skenario \textit{use case} yang telah didefinisikan pada Subbab \ref{sec:diagram-use-case}.
-
-\begin{enumerate}
-  \item \textbf{\textit{Sequence Diagram} UC-01: \textit{Login System}}
-
-  \textit{Sequence diagram} ini menggambarkan alur sistem saat pengguna melakukan autentikasi. Proses dimulai ketika antarmuka pengguna mengirimkan kredensial (\textit{username} dan \textit{password}) ke \textit{AuthController}. \textit{Controller} meneruskan permintaan tersebut ke \textit{AuthService} untuk divalidasi terhadap data kredensial yang tersimpan pada basis data \textit{User}. Jika validasi berhasil, sistem membuat sesi baru dan mengembalikan \textit{bearer token} kepada pengguna.
-
-  \item \textbf{\textit{Sequence Diagram} UC-02: \textit{Logout System}}
-
-  \textit{Sequence diagram} ini memodelkan proses pengakhiran sesi. Antarmuka pengguna mengirimkan permintaan keluar beserta \textit{session ID} yang sedang aktif ke \textit{AuthController}. \textit{AuthService} memverifikasi dan membatalkan sesi tersebut pada basis data \textit{Session}, sehingga token yang bersangkutan tidak lagi dapat digunakan untuk otorisasi permintaan berikutnya.
-
-  \item \textbf{\textit{Sequence Diagram} UC-03: \textit{View Inventory List}}
-
-  \textit{Sequence diagram} ini menggambarkan alur penampilan daftar inventori. Antarmuka pengguna mengirimkan permintaan ke \textit{ItemController}, yang meneruskannya ke \textit{goods detail service} untuk mengambil seluruh data barang. Hasilnya dikembalikan dan ditampilkan sebagai daftar barang beserta kuantitas dan kategori.
-
-  \item \textbf{\textit{Sequence Diagram} UC-04: \textit{View Goods Detail}}
-
-  \textit{Sequence diagram} ini menggambarkan alur penampilan detail suatu barang. Ketika pengguna memilih salah satu barang dari daftar inventori, antarmuka mengirimkan permintaan ke \textit{ItemController} yang meneruskannya ke \textit{goods detail service} untuk mengambil informasi lengkap barang, kemudian menampilkannya pada halaman detail.
-
-  \item \textbf{\textit{Sequence Diagram} UC-05: \textit{View Order}}
-
-  \textit{Sequence diagram} ini menggambarkan alur pemantauan status \textit{order}. Antarmuka pengguna mengirimkan permintaan ke \textit{OrderController}, yang meneruskannya ke \textit{fleet order service} untuk mengambil data \textit{order}. Sistem menampilkan daftar \textit{order} beserta status terkininya (\textit{Pending}, \textit{InProgress}, \textit{Completed}, atau \textit{Failed}).
-
-  \item \textbf{\textit{Sequence Diagram} UC-06: \textit{View Robot \& Operation Status}}
-
-  \textit{Sequence diagram} ini menggambarkan alur pemantauan status robot secara \textit{real-time}. Antarmuka pengguna berlangganan (\textit{subscribe}) \textit{telemetry stream} melalui \textit{WebSocket} yang dikelola \textit{RobotController}, sehingga panel status armada AGV-mencakup posisi, baterai, dan tugas aktif-dapat diperbarui secara langsung tanpa \textit{polling} berulang.
-
-  \item \textbf{\textit{Sequence Diagram} UC-07: \textit{Operate Digital Twin}}
-
-  \textit{Sequence diagram} ini menggambarkan alur interaksi dengan modul \textit{Digital Twin}. Antarmuka pengguna memuat tampilan \textit{Digital Twin} melalui \textit{DigitalTwinController}, yang menginisialisasi model 3D gudang dan berlangganan koordinat robot secara \textit{real-time}. Saat pengguna memilih robot atau barang pada tampilan 3D, sistem menampilkan detail entitas yang dipilih.
-
-  \item \textbf{\textit{Sequence Diagram} UC-08: \textit{Create Order Request}}
-
-  \textit{Sequence diagram} ini merepresentasikan alur pembuatan permintaan \textit{order}. Antarmuka pengguna mengirimkan formulir \textit{order} (barang dan kuantitas) ke \textit{OrderController}, yang memvalidasi ketersediaan barang melalui \textit{item service}. Setelah tervalidasi, sistem menyimpan \textit{order} beserta \textit{order item} ke basis data, mengirim perintah eksekusi ke \textit{fleet controller} melalui AMQP, kemudian mengembalikan konfirmasi pembuatan \textit{order}.
-
-  \item \textbf{\textit{Sequence Diagram} UC-09: \textit{View Item History}}
-
-  \textit{Sequence diagram} ini menggambarkan alur penelusuran riwayat aktivitas barang. Antarmuka pengguna memilih barang tertentu dan mengirimkan permintaan ke \textit{ItemController}, yang meneruskannya ke \textit{goods detail service} untuk mengambil log aktivitas. Sistem menampilkan kronologi aktivitas \textit{inbound}/\textit{outbound} barang tersebut.
-\end{enumerate}
 
 \begin{figure}[H]
   \centering

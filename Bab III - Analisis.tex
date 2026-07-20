@@ -92,7 +92,7 @@ Analisis kebutuhan bertujuan untuk mengidentifikasi secara sistematis dan menjab
 
 \subsection{Tujuan Proyek}
 \label{sec:tujuan-proyek}
-Berdasarkan kebutuhan yang telah dirumuskan, tujuan atau \textit{objectives} dari proyek ini adalah untuk mengembangkan sebuah sistem \textit{Warehouse} yang mampu melakukan hal yang dapat menjawab Rumusan Masalah:
+Berdasarkan kebutuhan yang telah dirumuskan, tujuan atau \textit{objectives} dari proyek ini adalah untuk mengembangkan sebuah sistem \textit{Warehouse} yang mampu menjawab Rumusan Masalah berikut.
 
 \begin{itemize}[leftmargin=*,nosep]
   \item \textbf{[OB01]} Menjamin konsistensi data stok antara kondisi fisik dan catatan digital secara otomatis dan \textit{integrated}, sehingga seluruh informasi inventori dapat diandalkan sebagai dasar pengambilan keputusan dan tidak terjadi selisih antara sistem dan kenyataan di lapangan.
@@ -352,11 +352,11 @@ Kebutuhan nonfungsional mendefinisikan batasan kualitas dan performa yang harus 
     \endhead
     \hline
     \endfoot
-    KNF-01 & Traceability \& Latensi & Seluruh aktivitas pergerakan barang dan status robot tercatat lengkap dan berurutan tanpa kehilangan data, dengan sinkronisasi waktu robot-server dan server-WMS terjamin serta pembaruan posisi dan status robot dikirim secara periodik. & Sinkronisasi $\leq$ 200 ms; posisi \& status robot $\leq$ 1 detik & Traceability \\
+    KNF-01 & Traceability \& Latensi & Seluruh aktivitas pergerakan barang dan status robot tercatat lengkap dan berurutan tanpa kehilangan data, dengan sinkronisasi waktu robot-server dan server-WMS terjamin serta pembaruan posisi dan status robot dikirim secara periodik. & Sinkronisasi $\leq$ 200 ms, posisi \& status robot $\leq$ 1 detik & Traceability \\
     \hline
     KNF-02 & Reliability & Sistem tidak mengalami degradasi akurasi posisi meskipun robot beroperasi berulang kali pada rute yang sama. & \textit{Task Repeatability} 100\% & Reliability \\
     \hline
-    KNF-03 & Availability & Seluruh layanan WMC beroperasi kontinu selama jam operasional gudang, serta mampu mendeteksi kegagalan pelacakan (\textit{mismatch} koordinat server vs posisi fisik) dan mengirimkan notifikasi yang memuat koordinat terakhir robot. & \textit{Availability} $\geq$ 95\%; notifikasi memuat \textit{last-known coordinate} & Availability \& Safety \\
+    KNF-03 & Availability & Seluruh layanan WMC beroperasi kontinu selama jam operasional gudang, serta mampu mendeteksi kegagalan pelacakan (\textit{mismatch} koordinat server vs posisi fisik) dan mengirimkan notifikasi yang memuat koordinat terakhir robot. & \textit{Availability} $\geq$ 95\%, notifikasi memuat \textit{last-known coordinate} & Availability \& Safety \\
     \hline
     KNF-04 & Keamanan & Seluruh \textit{endpoint} layanan hanya dapat diakses oleh pengguna terautentikasi melalui \textit{Bearer Token} yang diterbitkan \textit{Authentication Service}, sehingga tidak ada akses tidak sah terhadap fungsi kritis sistem. & 0 akses tanpa token valid & P-05 \\
     \hline
@@ -365,7 +365,7 @@ Kebutuhan nonfungsional mendefinisikan batasan kualitas dan performa yang harus 
 \end{longtable}
 
 \section{Analisis Pemilihan Solusi}
-Berdasarkan identifikasi masalah dan kebutuhan yang telah dirumuskan pada sub-bab sebelumnya, tahap berikutnya adalah menganalisis dan menentukan solusi arsitektur yang paling sesuai untuk diimplementasikan sebagai \textit{Warehouse Management Controller} (WMC) beserta Subsistem Lokalisasi. Subbab ini disusun dalam tiga tahap: identifikasi alternatif solusi (Subbab \ref{sec:usulan-solusi}), analisis dan evaluasi alternatif menggunakan metode \textit{Analytical Hierarchy Process} (AHP) (Subbab \ref{sec:analisis-usulan-solusi}), serta penetapan solusi terpilih (Subbab \ref{sec:solusi-terpilih}). Kedua keputusan yang dibahas - pemilihan solusi manajemen data inventori WMC dan pemilihan solusi teknis Subsistem Lokalisasi - dievaluasi dengan kedalaman dan tahapan AHP yang setara.
+Berdasarkan identifikasi masalah dan kebutuhan yang telah dirumuskan pada sub-bab sebelumnya, tahap berikutnya adalah menganalisis dan menentukan solusi arsitektur yang paling sesuai untuk diimplementasikan sebagai \textit{Warehouse Management Controller} (WMC) beserta Subsistem Lokalisasi. Subbab ini disusun dalam tiga tahap, yaitu identifikasi alternatif solusi (Subbab \ref{sec:usulan-solusi}), analisis dan evaluasi alternatif menggunakan metode \textit{Analytical Hierarchy Process} (AHP) (Subbab \ref{sec:analisis-usulan-solusi}), serta penetapan solusi terpilih (Subbab \ref{sec:solusi-terpilih}). Kedua keputusan yang dibahas, yaitu pemilihan solusi manajemen data inventori WMC dan pemilihan solusi teknis Subsistem Lokalisasi, dievaluasi dengan kedalaman dan tahapan AHP yang setara.
 
 \subsection{Usulan Solusi}
 \label{sec:usulan-solusi}
@@ -392,7 +392,7 @@ Sama seperti pada subbab sebelumnya, pemilihan solusi teknis untuk Subsistem Lok
 
 \paragraph{Alternatif 1: QR Code + Line Following}
 
-Pendekatan ini menempatkan seluruh perangkat lokalisasi pada masing-masing robot (\textit{on-board}, desentralisasi). Robot mengikuti garis lintasan di lantai secara kontinu menggunakan \textit{Line Detector Sensor} BFD-1000 (6 kanal IR) untuk memperoleh posisi relatif terhadap jalur, kemudian memindai \textit{QR code} menggunakan GM65 \textit{reader} pada titik-titik tertentu untuk memverifikasi posisi absolut dalam matriks \textit{grid} $12\times6$. Data ini digabung dengan pembacaan IMU dan diolah oleh ESP32-S3 di tiap robot untuk menghasilkan status posisi yang dikirim ke \textit{Fleet Controller}.
+Pendekatan ini menempatkan seluruh perangkat lokalisasi secara \textit{on-board} dan desentralisasi pada masing-masing robot. Robot mengikuti garis lintasan di lantai secara kontinu menggunakan \textit{Line Detector Sensor} BFD-1000 (6 kanal IR) untuk memperoleh posisi relatif terhadap jalur, kemudian memindai \textit{QR code} menggunakan GM65 \textit{reader} pada titik-titik tertentu untuk memverifikasi posisi absolut dalam matriks \textit{grid} $12\times6$. Data ini digabung dengan pembacaan IMU dan diolah oleh ESP32-S3 di tiap robot untuk menghasilkan status posisi yang dikirim ke \textit{Fleet Controller}.
 
 Keunggulan utama alternatif ini adalah setiap robot mandiri melakukan \textit{self-localization} sehingga tidak bergantung pada satu titik kegagalan sentral, dan infrastruktur jalur serta \textit{QR code} relatif murah untuk dipasang di lantai gudang. Adapun kekurangannya, akurasi posisi antar-\textit{checkpoint} bergantung pada kestabilan pembacaan sensor garis yang sensitif terhadap kondisi lantai (debu, aus, pencahayaan), setiap robot memerlukan satu set sensor lengkap sehingga biaya bertambah linear seiring penambahan robot, dan verifikasi posisi absolut hanya terjadi secara diskrit di titik \textit{QR}, bukan kontinu di seluruh area.
 
@@ -400,11 +400,11 @@ Keunggulan utama alternatif ini adalah setiap robot mandiri melakukan \textit{se
 
 Pendekatan ini memindahkan seluruh proses lokalisasi ke satu titik sentral, yaitu kamera IP \textit{fisheye} 1080p yang dipasang setinggi 60 cm di atas area lantai gudang ($2,4\times1,2$ m), melakukan \textit{streaming} video melalui protokol RTSP, kemudian diproses oleh Subsistem Lokalisasi di server melalui \textit{pipeline} koreksi distorsi Kannala-Brandt $\rightarrow$ transformasi \textit{homography} $\rightarrow$ deteksi \textit{marker} AprilTag Tag36h11 $\rightarrow$ \textit{snapping} ke sel \textit{grid}, yang berjalan pada frekuensi 4 Hz dan dipublikasikan ke \textit{topic} MQTT \texttt{location} setiap 500 ms. Pendekatan inilah yang diimplementasikan pada tugas akhir ini.
 
-Keunggulan utama alternatif ini adalah satu perangkat mampu mencakup seluruh area tanpa oklusi, akurasi terverifikasi 100\% pada pengujian posisi maupun orientasi (Tabel \ref{tab:verifikasi-posisi}-\ref{tab:verifikasi-orientasi} pada Bab VI), kalibrasi \textit{homography} hanya dilakukan sekali di awal pemasangan (\textit{one-time}), dan penambahan robot baru cukup dilakukan dengan menempelkan \textit{marker} AprilTag baru tanpa tambahan sensor per unit. Adapun kekurangannya, pendekatan ini bersifat \textit{single point of failure} karena jika kamera atau koneksi RTSP mengalami gangguan maka seluruh sistem lokalisasi ikut lumpuh, area cakupan dibatasi oleh \textit{field-of-view} satu kamera sehingga perluasan ke gudang yang lebih besar memerlukan penambahan kamera dan proses \textit{stitching}, serta memerlukan tahap kalibrasi optik yang lebih matematis dibandingkan sensor garis.
+Keunggulan utama alternatif ini adalah satu perangkat mampu mencakup seluruh area tanpa oklusi, akurasi terverifikasi 100\% pada pengujian posisi maupun orientasi (Tabel \ref{tab:verifikasi-posisi}-\ref{tab:verifikasi-orientasi} pada Bab VI), kalibrasi \textit{homography} hanya perlu dilakukan satu kali di awal pemasangan, dan penambahan robot baru cukup dilakukan dengan menempelkan \textit{marker} AprilTag baru tanpa tambahan sensor per unit. Adapun kekurangannya, pendekatan ini bersifat \textit{single point of failure} karena jika kamera atau koneksi RTSP mengalami gangguan maka seluruh sistem lokalisasi ikut lumpuh, area cakupan dibatasi oleh \textit{field-of-view} satu kamera sehingga perluasan ke gudang yang lebih besar memerlukan penambahan kamera dan proses \textit{stitching}, serta memerlukan tahap kalibrasi optik yang lebih matematis dibandingkan sensor garis.
 
 \subsection{Analisis Usulan Solusi}
 \label{sec:analisis-usulan-solusi}
-Analisis usulan solusi dilakukan untuk mengevaluasi setiap alternatif yang telah diidentifikasi pada Subbab \ref{sec:usulan-solusi} secara sistematis menggunakan metode \textit{Analytical Hierarchy Process} (AHP), sehingga keputusan pemilihan solusi bersifat objektif dan dapat dipertanggungjawabkan secara teknis. Satu set kriteria, bobot, dan rubrik penilaian yang sama digunakan untuk mengevaluasi kedua keputusan yang dibahas - pemilihan solusi manajemen data inventori WMC maupun pemilihan solusi teknis Subsistem Lokalisasi - sehingga kedua keputusan dinilai secara setara dan dapat diperbandingkan pada kerangka acuan yang identik. Kriteria dan bobot ini disusun dan dijelaskan terlebih dahulu, dilanjutkan dengan rekapitulasi skor akhir tiap alternatif untuk masing-masing keputusan, dan diakhiri dengan penjelasan justifikasi nilai pada setiap kriteria.
+Analisis usulan solusi dilakukan untuk mengevaluasi setiap alternatif yang telah diidentifikasi pada Subbab \ref{sec:usulan-solusi} secara sistematis menggunakan metode \textit{Analytical Hierarchy Process} (AHP), sehingga keputusan pemilihan solusi bersifat objektif dan dapat dipertanggungjawabkan secara teknis. Satu set kriteria, bobot, dan rubrik penilaian yang sama digunakan untuk mengevaluasi kedua keputusan yang dibahas, yaitu pemilihan solusi manajemen data inventori WMC maupun pemilihan solusi teknis Subsistem Lokalisasi, sehingga kedua keputusan dinilai secara setara dan dapat diperbandingkan pada kerangka acuan yang identik. Kriteria dan bobot ini disusun dan dijelaskan terlebih dahulu, dilanjutkan dengan rekapitulasi skor akhir tiap alternatif untuk masing-masing keputusan, dan diakhiri dengan penjelasan justifikasi nilai pada setiap kriteria.
 
 \subsubsection{Kriteria dan Bobot Evaluasi}
 \label{sec:kriteria-bobot-evaluasi}
@@ -499,7 +499,7 @@ Bobot masing-masing kriteria dihitung dengan menormalisasi setiap kolom matriks 
   \hline
 \end{xltabular}
 
-Setelah kriteria dan bobotnya ditetapkan, rubrik penilaian disusun untuk memberikan acuan yang konsisten dalam menilai setiap alternatif solusi pada skala 1 (sangat buruk) hingga 5 (sangat baik), sebagaimana disajikan pada Tabel \ref{tab:rubrik-penilaian}.
+Setelah kriteria dan bobotnya ditetapkan, rubrik penilaian disusun untuk memberikan acuan yang konsisten dalam menilai setiap alternatif solusi pada skala 1 hingga 5, dari sangat buruk hingga sangat baik, sebagaimana disajikan pada Tabel \ref{tab:rubrik-penilaian}.
 
 {\footnotesize
 \begin{xltabular}{\textwidth}{ | p{0.5cm} | p{2.1cm} | X | X | X | X | X | }
@@ -517,7 +517,7 @@ Setelah kriteria dan bobotnya ditetapkan, rubrik penilaian disusun untuk memberi
   \endfoot
   1 & Reliability & Sistem sering gagal berfungsi ($>$10\% \textit{downtime} per minggu). & Sistem mengalami gangguan berulang (5-10\% \textit{downtime}). & Sistem cukup andal dengan \textit{downtime} sedang (2-5\% \textit{downtime}). & Sistem stabil dengan \textit{downtime} sangat jarang ($<$2\% \textit{downtime}). & Sistem sangat andal, \textit{uptime} $>$99,9\%, mampu beroperasi terus-menerus tanpa gangguan. \\
   \hline
-  2 & Scalability & Sistem tidak mampu menangani peningkatan beban; performa turun $>$50\% saat beban naik. & Sistem dapat diskalakan terbatas (penurunan performa 30-50\%). & Sistem masih responsif dengan penurunan performa moderat (10-30\%). & Sistem tetap stabil dengan performa menurun $<$10\% saat beban naik. & Sistem sangat fleksibel; mampu menangani peningkatan beban 100\% tanpa penurunan performa signifikan ($<$5\%). \\
+  2 & Scalability & Sistem tidak mampu menangani peningkatan beban, performa turun $>$50\% saat beban naik. & Sistem dapat diskalakan terbatas (penurunan performa 30-50\%). & Sistem masih responsif dengan penurunan performa moderat (10-30\%). & Sistem tetap stabil dengan performa menurun $<$10\% saat beban naik. & Sistem sangat fleksibel dan mampu menangani peningkatan beban 100\% tanpa penurunan performa signifikan ($<$5\%). \\
   \hline
   3 & Cost of Production & Biaya produksi sangat tinggi. & Biaya melebihi anggaran dan sulit ditekan. & Biaya masih dalam batas wajar namun belum optimal. & Biaya minimal dan sesuai dengan target anggaran. & Biaya sangat minimal dan memberikan rasio biaya-manfaat terbaik. \\
   \hline
@@ -567,7 +567,7 @@ Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alter
   \hline
 \end{xltabular}
 
-Dari hasil rekapitulasi, Alternatif 1: \textit{Event-Driven Inventory Management} memperoleh skor total 3,74, lebih tinggi dibandingkan Alternatif 2: \textit{State-Driven Inventory Management} dengan skor 3,31. Penjelasan penilaian pada setiap kriteria diuraikan pada Tabel \ref{tab:penilaian-alt1-inventori} untuk Alternatif 1 dan Tabel \ref{tab:penilaian-alt2-inventori} untuk Alternatif 2.
+Dari hasil rekapitulasi, Alternatif 1 yaitu \textit{Event-Driven Inventory Management} memperoleh skor total 3,74, lebih tinggi dibandingkan Alternatif 2 yaitu \textit{State-Driven Inventory Management} dengan skor 3,31. Penjelasan penilaian pada setiap kriteria diuraikan pada Tabel \ref{tab:penilaian-alt1-inventori} untuk Alternatif 1 dan Tabel \ref{tab:penilaian-alt2-inventori} untuk Alternatif 2.
 
 \begin{xltabular}{\textwidth}{ | l | c | X | }
   \caption{Penjelasan Penilaian Alternatif 1: Event-Driven Inventory Management} \label{tab:penilaian-alt1-inventori} \\
@@ -623,7 +623,7 @@ Dari hasil rekapitulasi, Alternatif 1: \textit{Event-Driven Inventory Management
   \hline
 \end{xltabular}
 
-Keunggulan utama \textit{Event-Driven} terletak pada aspek \textit{Reliability} (bobot tertinggi 0,36) dan \textit{Scalability} (0,25) yang secara agregat memberikan kontribusi skor lebih besar, mencerminkan kemampuan arsitektur berbasis \textit{event} dalam menjaga konsistensi data stok meskipun terjadi kegagalan pada komponen fisik robot, serta fleksibilitasnya dalam menangani peningkatan volume transaksi tanpa membebani satu titik pusat sistem.
+Keunggulan utama \textit{Event-Driven} terletak pada aspek \textit{Reliability} dengan bobot tertinggi 0,36 dan \textit{Scalability} dengan bobot 0,25, yang secara agregat memberikan kontribusi skor lebih besar, mencerminkan kemampuan arsitektur berbasis \textit{event} dalam menjaga konsistensi data stok meskipun terjadi kegagalan pada komponen fisik robot, serta fleksibilitasnya dalam menangani peningkatan volume transaksi tanpa membebani satu titik pusat sistem.
 
 \subsubsection{Penilaian Solusi Lokalisasi}
 \label{sec:penilaian-lokalisasi}
@@ -662,7 +662,7 @@ Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alter
   \hline
 \end{xltabular}
 
-Dari hasil rekapitulasi, Alternatif 2: AprilTag + Overhead Fisheye Camera memperoleh skor total 3,75, lebih tinggi dibandingkan Alternatif 1: QR Code + Line Following dengan skor 3,39. Penjelasan penilaian pada setiap kriteria diuraikan pada Tabel \ref{tab:penilaian-alt1-lokalisasi} untuk Alternatif 1 dan Tabel \ref{tab:penilaian-alt2-lokalisasi} untuk Alternatif 2.
+Dari hasil rekapitulasi, Alternatif 2 yaitu AprilTag + Overhead Fisheye Camera memperoleh skor total 3,75, lebih tinggi dibandingkan Alternatif 1 yaitu QR Code + Line Following dengan skor 3,39. Penjelasan penilaian pada setiap kriteria diuraikan pada Tabel \ref{tab:penilaian-alt1-lokalisasi} untuk Alternatif 1 dan Tabel \ref{tab:penilaian-alt2-lokalisasi} untuk Alternatif 2.
 
 \begin{xltabular}{\textwidth}{ | l | c | X | }
   \caption{Penjelasan Penilaian Alternatif 1: QR Code + Line Following} \label{tab:penilaian-alt1-lokalisasi} \\
@@ -679,11 +679,11 @@ Dari hasil rekapitulasi, Alternatif 2: AprilTag + Overhead Fisheye Camera memper
   \endfoot
   Reliability & 3 & Posisi relatif terjaga kontinu oleh sensor garis, namun akurasi absolut hanya terverifikasi diskrit di titik QR sehingga berpotensi \textit{drift} antar-\textit{checkpoint}, dan rentan terhadap ausnya \textit{marker}/garis lantai serta perubahan pencahayaan lokal. \\
   \hline
-  Scalability & 4 & Bersifat desentralisasi - penambahan robot tidak membebani satu titik pemrosesan, cocok untuk perluasan area tanpa infrastruktur kamera tambahan. \\
+  Scalability & 4 & Bersifat desentralisasi sehingga penambahan robot tidak membebani satu titik pemrosesan, cocok untuk perluasan area tanpa infrastruktur kamera tambahan. \\
   \hline
   Cost of Production & 3 & Biaya bertambah linear karena setiap robot membutuhkan satu set sensor lengkap (BFD-1000, GM65, IMU, ESP32-S3). \\
   \hline
-  Complexity of Production & 4 & Instalasi relatif sederhana - garis dan QR ditempel di lantai tanpa perhitungan optik yang kompleks. \\
+  Complexity of Production & 4 & Instalasi relatif sederhana karena garis dan QR ditempel di lantai tanpa perhitungan optik yang kompleks. \\
   \hline
   Task Completion Speed & 3 & Memenuhi target latensi publikasi $\leq$ 1 detik (KNF-01), namun bergantung pada rantai komunikasi robot$\rightarrow$server yang lebih panjang dibanding sistem tersentralisasi. \\
   \hline
@@ -708,9 +708,9 @@ Dari hasil rekapitulasi, Alternatif 2: AprilTag + Overhead Fisheye Camera memper
   \hline
   Scalability & 3 & Penambahan robot cukup dengan \textit{marker} cetak, namun cakupan dibatasi \textit{field-of-view} satu kamera sehingga perluasan area memerlukan kamera tambahan. \\
   \hline
-  Cost of Production & 4 & Biaya marjinal per robot sangat rendah (hanya \textit{marker} cetak); biaya utama berupa satu kamera per zona cakupan. \\
+  Cost of Production & 4 & Biaya marjinal per robot sangat rendah karena hanya membutuhkan \textit{marker} cetak, sedangkan biaya utama berupa satu kamera per zona cakupan. \\
   \hline
-  Complexity of Production & 3 & Memerlukan kalibrasi \textit{homography} dan koreksi distorsi \textit{fisheye} di awal pemasangan, meski hanya dilakukan sekali (\textit{one-time}). \\
+  Complexity of Production & 3 & Memerlukan kalibrasi \textit{homography} dan koreksi distorsi \textit{fisheye} di awal pemasangan, meski hanya perlu dilakukan satu kali. \\
   \hline
   Task Completion Speed & 5 & Latensi publikasi terukur konsisten 500 ms, jauh di bawah target 1 detik (KNF-01). \\
   \hline
@@ -718,7 +718,7 @@ Dari hasil rekapitulasi, Alternatif 2: AprilTag + Overhead Fisheye Camera memper
   \hline
 \end{xltabular}
 
-Keunggulan utama AprilTag + Overhead Fisheye Camera terletak pada aspek \textit{Reliability} (bobot tertinggi 0,36), didukung akurasi posisi terverifikasi 100\% dan ketahanan terhadap degradasi fisik, yang menyumbang kontribusi skor terbesar terhadap total. Alternatif QR Code + Line Following unggul pada kriteria \textit{Scalability} dan \textit{Complexity of Production} karena sifatnya yang desentralisasi dan instalasi sederhana, namun keunggulan tersebut tidak cukup mengimbangi defisit pada kriteria berbobot tertinggi (\textit{Reliability}), sehingga AprilTag + Overhead Fisheye Camera tetap unggul secara keseluruhan dengan skor total 3,75 berbanding 3,39.
+Keunggulan utama AprilTag + Overhead Fisheye Camera terletak pada aspek \textit{Reliability} dengan bobot tertinggi 0,36, didukung akurasi posisi terverifikasi 100\% dan ketahanan terhadap degradasi fisik, yang menyumbang kontribusi skor terbesar terhadap total. Alternatif QR Code + Line Following unggul pada kriteria \textit{Scalability} dan \textit{Complexity of Production} karena sifatnya yang desentralisasi dan instalasi sederhana, namun keunggulan tersebut tidak cukup mengimbangi defisit pada kriteria \textit{Reliability} yang berbobot tertinggi, sehingga AprilTag + Overhead Fisheye Camera tetap unggul secara keseluruhan dengan skor total 3,75 berbanding 3,39.
 
 \subsection{Solusi yang Dipilih}
 \label{sec:solusi-terpilih}
@@ -729,8 +729,8 @@ Untuk manajemen data inventori WMC, \textit{Event-Driven Inventory Management} d
 Untuk Subsistem Lokalisasi, AprilTag + Kamera \textit{Fisheye Overhead} dipilih sebagai solusi teknis yang diimplementasikan pada tugas akhir ini, menggantikan pendekatan QR Code + \textit{Line Following} pada rancangan awal. Keputusan ini konsisten dengan implementasi Subsistem Lokalisasi pada Bab IV Subbab 1.4 dan Bab V Subbab 3, serta hasil pengujian pada Bab VI Subbab 2.6 yang membuktikan pemenuhan seluruh kebutuhan nonfungsional lokalisasi.
 
 \subsubsection{Justifikasi Solusi Terpilih}
-Kaitan hasil AHP dengan pemenuhan kebutuhan nonfungsional sistem (Subbab \ref{sec:kebutuhan-nonfungsional}) diuraikan sebagai berikut. Untuk manajemen data inventori, skor tertinggi \textit{Event-Driven} pada kriteria \textit{Reliability} selaras dengan pemenuhan KNF-01 (\textit{traceability} dan sinkronisasi data) karena setiap perubahan stok tercatat sebagai \textit{event} yang dapat ditelusuri, serta KNF-05 (skalabilitas) melalui arsitektur \textit{loosely coupled} yang mendukung penambahan layanan tanpa perubahan besar.
+Kaitan hasil AHP dengan pemenuhan kebutuhan nonfungsional sistem pada Subbab \ref{sec:kebutuhan-nonfungsional} diuraikan sebagai berikut. Untuk manajemen data inventori, skor tertinggi \textit{Event-Driven} pada kriteria \textit{Reliability} selaras dengan pemenuhan KNF-01 terkait \textit{traceability} dan sinkronisasi data, karena setiap perubahan stok tercatat sebagai \textit{event} yang dapat ditelusuri, serta selaras dengan pemenuhan KNF-05 terkait skalabilitas melalui arsitektur \textit{loosely coupled} yang mendukung penambahan layanan tanpa perubahan besar.
 
-Untuk Subsistem Lokalisasi, KNF-01 (latensi status posisi $\leq$1 detik) terpenuhi dengan latensi publikasi terukur 500 ms melalui \textit{topic} MQTT \texttt{location}, jauh di bawah ambang batas yang disyaratkan, sejalan dengan skor tertinggi AprilTag + Overhead Fisheye Camera pada kriteria \textit{Task Completion Speed} (nilai 5). KNF-02 (tidak ada degradasi akurasi posisi/\textit{Task Repeatability} 100\%) terpenuhi dengan hasil verifikasi 100\% pada 6 kasus posisi dan 4 kasus orientasi, sejalan dengan skor tertinggi pada kriteria \textit{Reliability} (nilai 4). KNF-03 (deteksi kegagalan pelacakan dan notifikasi koordinat terakhir) didukung oleh arsitektur tersentralisasi yang memudahkan pemantauan status koneksi kamera dan validitas \textit{payload} MQTT secara terpusat, sebagaimana dijelaskan pada mekanisme ketahanan operasional pada Tabel \ref{tab:penilaian-alt1-lokalisasi} dan \ref{tab:penilaian-alt2-lokalisasi}.
+Untuk Subsistem Lokalisasi, KNF-01 yang mensyaratkan latensi status posisi $\leq$1 detik terpenuhi dengan latensi publikasi terukur 500 ms melalui \textit{topic} MQTT \texttt{location}, jauh di bawah ambang batas yang disyaratkan, sejalan dengan skor tertinggi AprilTag + Overhead Fisheye Camera pada kriteria \textit{Task Completion Speed} dengan nilai 5. KNF-02 yang mensyaratkan tidak adanya degradasi akurasi posisi dengan \textit{Task Repeatability} 100\% terpenuhi dengan hasil verifikasi 100\% pada 6 kasus posisi dan 4 kasus orientasi, sejalan dengan skor tertinggi pada kriteria \textit{Reliability} dengan nilai 4. KNF-03 yang mensyaratkan deteksi kegagalan pelacakan dan notifikasi koordinat terakhir didukung oleh arsitektur tersentralisasi yang memudahkan pemantauan status koneksi kamera dan validitas \textit{payload} MQTT secara terpusat, sebagaimana dijelaskan pada mekanisme ketahanan operasional pada Tabel \ref{tab:penilaian-alt1-lokalisasi} dan \ref{tab:penilaian-alt2-lokalisasi}.
 
 Dengan terpenuhinya seluruh kebutuhan nonfungsional tersebut serta unggulnya skor AHP pada kriteria berbobot tertinggi untuk masing-masing keputusan, pemilihan \textit{Event-Driven Inventory Management} dan AprilTag + Overhead Fisheye Camera dapat dijustifikasi secara objektif dan dapat dipertanggungjawabkan secara teknis, sekaligus menunjukkan bahwa pengembangan pada tugas akhir ini memberikan penyempurnaan terhadap rancangan awal lokalisasi.
