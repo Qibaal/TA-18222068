@@ -211,15 +211,15 @@
 \contentsline {subsection}{\numberline {III.2.3}Kebutuhan Fungsional}{28}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {III.2.4}Kebutuhan Nonfungsional}{31}{subsection.3.2.4}%
 \contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{32}{section.3.3}%
-\contentsline {subsection}{\numberline {III.3.1}Usulan Solusi}{32}{subsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {III.3.1.1}Alternatif Solusi Manajemen Data Inventori (WMC)}{32}{subsubsection.3.3.1.1}%
+\contentsline {subsection}{\numberline {III.3.1}Usulan Solusi}{33}{subsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {III.3.1.1}Alternatif Solusi Manajemen Data Inventori (WMC)}{33}{subsubsection.3.3.1.1}%
 \contentsline {paragraph}{\numberline {III.3.1.1.1}Alternatif 1: Event-Driven Inventory Management}{33}{paragraph.3.3.1.1.1}%
-\contentsline {paragraph}{\numberline {III.3.1.1.2}Alternatif 2: State-Driven Inventory Management}{33}{paragraph.3.3.1.1.2}%
+\contentsline {paragraph}{\numberline {III.3.1.1.2}Alternatif 2: State-Driven Inventory Management}{34}{paragraph.3.3.1.1.2}%
 \contentsline {subsubsection}{\numberline {III.3.1.2}Alternatif Solusi Lokalisasi}{34}{subsubsection.3.3.1.2}%
 \contentsline {paragraph}{\numberline {III.3.1.2.1}Alternatif 1: QR Code + Line Following}{34}{paragraph.3.3.1.2.1}%
-\contentsline {paragraph}{\numberline {III.3.1.2.2}Alternatif 2: AprilTag + Overhead Fisheye Camera}{34}{paragraph.3.3.1.2.2}%
+\contentsline {paragraph}{\numberline {III.3.1.2.2}Alternatif 2: AprilTag + Overhead Fisheye Camera}{35}{paragraph.3.3.1.2.2}%
 \contentsline {subsection}{\numberline {III.3.2}Analisis Usulan Solusi}{35}{subsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {III.3.2.1}Kriteria dan Bobot Evaluasi}{35}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {III.3.2.1}Kriteria dan Bobot Evaluasi}{36}{subsubsection.3.3.2.1}%
 \contentsline {subsubsection}{\numberline {III.3.2.2}Penilaian Solusi Manajemen Data Inventori}{39}{subsubsection.3.3.2.2}%
 \contentsline {subsubsection}{\numberline {III.3.2.3}Penilaian Solusi Lokalisasi}{41}{subsubsection.3.3.2.3}%
 \contentsline {subsection}{\numberline {III.3.3}Solusi yang Dipilih}{44}{subsection.3.3.3}%
@@ -272,7 +272,7 @@
 \contentsline {section}{\numberline {VI.1}Metode Evaluasi}{101}{section.6.1}%
 \contentsline {subsection}{\numberline {VI.1.1}Metode Evaluasi Sistem WMC}{101}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {VI.1.2}Metode Evaluasi Sistem Lokalisasi}{102}{subsection.6.1.2}%
-\contentsline {section}{\numberline {VI.2}Hasil Verifikasi}{103}{section.6.2}%
+\contentsline {section}{\numberline {VI.2}Hasil Verifikasi}{104}{section.6.2}%
 \contentsline {subsection}{\numberline {VI.2.1}Hasil Verifikasi Sistem WMC}{104}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {VI.2.2}Hasil Verifikasi Sistem Lokalisasi}{105}{subsection.6.2.2}%
 \contentsline {section}{\numberline {VI.3}Pembahasan Hasil Evaluasi}{107}{section.6.3}%

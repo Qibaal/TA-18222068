@@ -15,7 +15,7 @@ Pada industri \textit{Fast Moving Consumer Goods} (FMCG) seperti PT Paragon Tech
 
 Hasil analisis sebelumnya terhadap proses operasional Paragon Corp menunjukkan tiga kelemahan mendasar pada kondisi eksisting gudang barang jadi. Sistem inventori masih disimpan secara independen dan belum terintegrasi, sehingga rawan menimbulkan \textit{mismatch} antara data stok dan kondisi fisik di lapangan. Proses pencatatan dan pengambilan barang (\textit{case picking}) pun masih sangat bergantung pada operator manusia, sebuah kondisi yang rentan terhambat oleh keterbatasan kompetensi dan jumlah sumber daya manusia. Di sisi lain, meskipun Paragon Corp telah memanfaatkan robot \textit{Automated Guided Vehicle} (AGV) untuk membantu mobilisasi barang jadi, pengelolaan armada AGV tersebut belum ditopang kerangka informasi yang jelas dan terintegrasi. Ketiga kelemahan ini bersama-sama menjadi tantangan tersendiri di tengah volume stok yang terus bertambah dan tuntutan \textit{lead time} yang semakin ketat.
 
-Berdasarkan hasil analisis proses bisnis \textit{Smart Warehouse} tersebut, disusun sejumlah aktivitas primer yang menjadi fokus optimasi sistem, sebagaimana dirangkum pada Tabel \ref{tab:aktivitas-primer}.
+Berdasarkan hasil analisis proses bisnis \textit{Smart Warehouse} tersebut, disusun sejumlah aktivitas primer yang menjadi fokus optimasi sistem, khususnya PA01, PA02, dan PA03 yang menjadi fokus pengembangan \textit{Warehouse Management Controller} (WMC) pada tugas akhir ini karena paling berkaitan dengan permasalahan otomasi penerimaan, penyimpanan, dan pengelolaan \textit{order} pada gudang Paragon Corp. Tabel \ref{tab:aktivitas-primer} merangkum aktivitas-aktivitas tersebut.
 
 \begin{xltabular}{\textwidth}{ | l | X | }
   \caption{Aktivitas Primer pada \textit{Smart Warehouse}} \label{tab:aktivitas-primer} \\
@@ -44,8 +44,6 @@ Berdasarkan hasil analisis proses bisnis \textit{Smart Warehouse} tersebut, disu
   \hline
 \end{xltabular}
 
-Fokus pengembangan \textit{Warehouse Management Controller} (WMC) pada tugas akhir ini diarahkan pada aktivitas PA01, PA02, dan PA03, sebagai aktivitas primer yang paling berkaitan dengan permasalahan otomasi penerimaan, penyimpanan, dan pengelolaan \textit{order} pada gudang Paragon Corp.
-
 \subsection{Kondisi Sistem Saat Ini (As-Is)}
 \label{sec:asis}
 Pada kondisi saat ini, proses operasional gudang pada industri \textit{Fast Moving Consumer Goods} (FMCG) seperti Paragon Corp masih berjalan secara konvensional dengan mengandalkan tenaga kerja manusia dan pencatatan manual di hampir seluruh tahapan. Alur proses keseluruhan pada kondisi eksisting digambarkan pada Gambar \ref{fig:bpmn-asis}.
@@ -62,7 +60,7 @@ Proses diawali dengan inspeksi dan penerimaan barang (\textit{inspection and rec
 Secara keseluruhan, kondisi eksisting ini memperlihatkan empat kelemahan struktural yang saling berkaitan. Seluruh tahap operasional, dari penerimaan hingga pengiriman, masih mengandalkan pencatatan dan koordinasi manual yang rentan terhadap kesalahan dan inkonsistensi data. Ketiadaan pemantauan stok \textit{real-time} menyebabkan ketidaksinkronan berulang antara kondisi fisik di lapangan dan catatan digital. Ketergantungan pada tenaga manusia dalam proses \textit{picking} menciptakan \textit{bottleneck} yang membatasi kapasitas dan kecepatan pemenuhan pesanan, sementara minimnya integrasi antar subsistem membatasi visibilitas operasional bagi manajemen dan memperbesar potensi \textit{human error} di setiap tahap.
 
 \subsection{Analisis Gap}
-Dengan memahami kondisi eksisting \textit{warehouse} dan kondisi \textit{Smart Warehouse} yang ditargetkan, dilakukan analisis \textit{gap} untuk mengidentifikasi kesenjangan antara \textit{current condition} dan \textit{future condition} secara terstruktur. Analisis ini menjadi landasan utama dalam merumuskan kebutuhan sistem WMC, sebagaimana dirangkum pada Tabel \ref{tab:gap-analysis}.
+Dengan memahami kondisi eksisting \textit{warehouse} dan kondisi \textit{Smart Warehouse} yang ditargetkan, dilakukan analisis \textit{gap} untuk mengidentifikasi kesenjangan antara \textit{current condition} dan \textit{future condition} secara terstruktur. Analisis ini menjadi landasan utama dalam merumuskan kebutuhan sistem WMC. Tabel \ref{tab:gap-analysis} merangkum hasil analisis \textit{gap} tersebut.
 
 \begin{xltabular}{\textwidth}{ | l | X | X | X | }
   \caption{\textit{Gap Analysis} Kondisi Eksisting vs \textit{Smart Warehouse}} \label{tab:gap-analysis} \\
@@ -158,7 +156,7 @@ Berdasarkan tujuan proyek \textit{Smart Warehouse} yang telah dirumuskan, sistem
 
 Karakteristik CH01-CH05 merupakan fungsi dasar yang menjadi inti kapabilitas sistem, sedangkan CH06-CH07 merupakan fungsi dan fitur tambahan. Ketujuh karakteristik produk ini menjadi acuan dalam penurunan kebutuhan fungsional dan nonfungsional WMC pada Subbab \ref{sec:kebutuhan-fungsional} dan \ref{sec:kebutuhan-nonfungsional} berikutnya.
 
-Untuk menunjukkan keterkaitan antara karakteristik produk dengan tujuan proyek yang telah dirumuskan pada Subbab \ref{sec:tujuan-proyek}, disusun pemetaan antara kode tujuan proyek (OB01-OB03) dengan kode karakteristik produk (CH01-CH07) yang mendukungnya, sebagaimana disajikan pada Tabel \ref{tab:pemetaan-karakteristik-tujuan}.
+Untuk menunjukkan keterkaitan antara karakteristik produk dengan tujuan proyek yang telah dirumuskan pada Subbab \ref{sec:tujuan-proyek}, disusun pemetaan antara kode tujuan proyek (OB01-OB03) dengan kode karakteristik produk (CH01-CH07) yang mendukungnya. Tabel \ref{tab:pemetaan-karakteristik-tujuan} menyajikan pemetaan tersebut.
 
 \begin{xltabular}{\textwidth}{ | l | X | }
   \caption{Pemetaan Karakteristik Produk dengan Tujuan Proyek} \label{tab:pemetaan-karakteristik-tujuan} \\
@@ -337,7 +335,7 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
 
 \subsection{Kebutuhan Nonfungsional}
 \label{sec:kebutuhan-nonfungsional}
-Kebutuhan nonfungsional mendefinisikan batasan kualitas dan performa yang harus dipenuhi oleh sistem sebagai atribut kualitas di luar fungsi utamanya. Kebutuhan ini diturunkan dari spesifikasi produk yang telah ditetapkan serta mencakup WMC dan Subsistem Lokalisasi secara terpadu, sebagaimana disajikan pada Tabel \ref{tab:kebutuhan-nonfungsional}.
+Kebutuhan nonfungsional mendefinisikan batasan kualitas dan performa yang harus dipenuhi oleh sistem sebagai atribut kualitas di luar fungsi utamanya. Kebutuhan ini diturunkan dari spesifikasi produk yang telah ditetapkan serta mencakup WMC dan Subsistem Lokalisasi secara terpadu. Tabel \ref{tab:kebutuhan-nonfungsional} menyajikan kebutuhan nonfungsional tersebut.
 
 \begin{longtable}{ | p{1.4cm} | p{2.0cm} | >{\raggedright\arraybackslash}p{5.0cm} | >{\raggedright\arraybackslash}p{2.4cm} | >{\raggedright\arraybackslash}p{2.0cm} | }
     \caption{Kebutuhan Nonfungsional Sistem} \label{tab:kebutuhan-nonfungsional} \\
@@ -398,7 +396,7 @@ Keunggulan utama alternatif ini adalah setiap robot mandiri melakukan \textit{se
 
 \paragraph{Alternatif 2: AprilTag + Overhead Fisheye Camera}
 
-Pendekatan ini memindahkan seluruh proses lokalisasi ke satu titik sentral, yaitu kamera IP \textit{fisheye} 1080p yang dipasang setinggi 60 cm di atas area lantai gudang ($2,4\times1,2$ m), melakukan \textit{streaming} video melalui protokol RTSP, kemudian diproses oleh Subsistem Lokalisasi di server melalui \textit{pipeline} koreksi distorsi Kannala-Brandt $\rightarrow$ transformasi \textit{homography} $\rightarrow$ deteksi \textit{marker} AprilTag Tag36h11 $\rightarrow$ \textit{snapping} ke sel \textit{grid}, yang berjalan pada frekuensi 4 Hz dan dipublikasikan ke \textit{topic} MQTT \texttt{location} setiap 500 ms. Pendekatan inilah yang diimplementasikan pada tugas akhir ini.
+Pendekatan ini memindahkan seluruh proses lokalisasi ke satu titik sentral, yaitu kamera IP \textit{fisheye} 1080p yang dipasang setinggi 60 cm di atas area lantai gudang ($2,4\times1,2$ m), melakukan \textit{streaming} video melalui protokol RTSP, kemudian diproses oleh Subsistem Lokalisasi di \textit{server} melalui \textit{pipeline} koreksi distorsi Kannala-Brandt $\rightarrow$ transformasi \textit{homography} $\rightarrow$ deteksi \textit{marker} AprilTag Tag36h11 $\rightarrow$ \textit{snapping} ke sel \textit{grid}, yang berjalan pada frekuensi 4 Hz dan dipublikasikan ke \textit{topic} MQTT \texttt{location} setiap 500 ms. Pendekatan inilah yang diimplementasikan pada tugas akhir ini.
 
 Keunggulan utama alternatif ini adalah satu perangkat mampu mencakup seluruh area tanpa oklusi, akurasi terverifikasi 100\% pada pengujian posisi maupun orientasi (Tabel \ref{tab:verifikasi-posisi}-\ref{tab:verifikasi-orientasi} pada Bab VI), kalibrasi \textit{homography} hanya perlu dilakukan satu kali di awal pemasangan, dan penambahan robot baru cukup dilakukan dengan menempelkan \textit{marker} AprilTag baru tanpa tambahan sensor per unit. Adapun kekurangannya, pendekatan ini bersifat \textit{single point of failure} karena jika kamera atau koneksi RTSP mengalami gangguan maka seluruh sistem lokalisasi ikut lumpuh, area cakupan dibatasi oleh \textit{field-of-view} satu kamera sehingga perluasan ke gudang yang lebih besar memerlukan penambahan kamera dan proses \textit{stitching}, serta memerlukan tahap kalibrasi optik yang lebih matematis dibandingkan sensor garis.
 
@@ -408,7 +406,7 @@ Analisis usulan solusi dilakukan untuk mengevaluasi setiap alternatif yang telah
 
 \subsubsection{Kriteria dan Bobot Evaluasi}
 \label{sec:kriteria-bobot-evaluasi}
-Kriteria penilaian dalam matriks AHP mengacu pada enam kriteria umum, yaitu \textit{Reliability}, \textit{Scalability}, \textit{Cost of Production}, \textit{Complexity of Production}, \textit{Task Completion Speed}, dan Kemudahan Penggunaan, sebagaimana disajikan pada Tabel \ref{tab:kriteria-penjelasan}. Keenam kriteria ini digunakan sebagai acuan evaluasi baik untuk pemilihan solusi manajemen data inventori WMC maupun pemilihan solusi teknis Subsistem Lokalisasi.
+Kriteria penilaian dalam matriks AHP mengacu pada enam kriteria umum, yaitu \textit{Reliability}, \textit{Scalability}, \textit{Cost of Production}, \textit{Complexity of Production}, \textit{Task Completion Speed}, dan Kemudahan Penggunaan. Tabel \ref{tab:kriteria-penjelasan} menyajikan penjelasan keenam kriteria tersebut. Keenam kriteria ini digunakan sebagai acuan evaluasi baik untuk pemilihan solusi manajemen data inventori WMC maupun pemilihan solusi teknis Subsistem Lokalisasi.
 
 \begin{xltabular}{\textwidth}{ | l | X | }
   \caption{Kriteria dan Penjelasannya} \label{tab:kriteria-penjelasan} \\
@@ -437,7 +435,7 @@ Kriteria penilaian dalam matriks AHP mengacu pada enam kriteria umum, yaitu \tex
   \hline
 \end{xltabular}
 
-Pembobotan kriteria ditetapkan melalui perbandingan berpasangan (\textit{pairwise comparison}). Hasil perbandingan berpasangan menggunakan skala Saaty disajikan pada Tabel \ref{tab:nilai-kepentingan-kriteria}.
+Pembobotan kriteria ditetapkan melalui perbandingan berpasangan (\textit{pairwise comparison}). Tabel \ref{tab:nilai-kepentingan-kriteria} menyajikan hasil perbandingan berpasangan menggunakan skala Saaty.
 
 {\small
 \begin{xltabular}{\textwidth}{ | p{3.0cm} | *{6}{>{\centering\arraybackslash}p{1.55cm}|} }
@@ -468,7 +466,7 @@ Pembobotan kriteria ditetapkan melalui perbandingan berpasangan (\textit{pairwis
 \end{xltabular}
 }
 
-Bobot masing-masing kriteria dihitung dengan menormalisasi setiap kolom matriks terhadap jumlah kolomnya, kemudian merata-ratakan nilai pada setiap baris (metode \textit{eigenvector} approksimasi). Nilai bobot mencerminkan tingkat kepentingan relatif setiap kriteria terhadap tujuan pemilihan solusi, sebagaimana disajikan pada Tabel \ref{tab:nilai-bobot-kriteria}.
+Bobot masing-masing kriteria dihitung dengan menormalisasi setiap kolom matriks terhadap jumlah kolomnya, kemudian merata-ratakan nilai pada setiap baris (metode \textit{eigenvector} approksimasi). Nilai bobot mencerminkan tingkat kepentingan relatif setiap kriteria terhadap tujuan pemilihan solusi. Tabel \ref{tab:nilai-bobot-kriteria} menyajikan nilai bobot tersebut.
 
 \begin{xltabular}{\textwidth}{ | X | c | }
   \caption{Nilai Bobot Kriteria} \label{tab:nilai-bobot-kriteria} \\
@@ -499,7 +497,7 @@ Bobot masing-masing kriteria dihitung dengan menormalisasi setiap kolom matriks 
   \hline
 \end{xltabular}
 
-Setelah kriteria dan bobotnya ditetapkan, rubrik penilaian disusun untuk memberikan acuan yang konsisten dalam menilai setiap alternatif solusi pada skala 1 hingga 5, dari sangat buruk hingga sangat baik, sebagaimana disajikan pada Tabel \ref{tab:rubrik-penilaian}.
+Setelah kriteria dan bobotnya ditetapkan, rubrik penilaian disusun untuk memberikan acuan yang konsisten dalam menilai setiap alternatif solusi pada skala 1 hingga 5, dari sangat buruk hingga sangat baik. Tabel \ref{tab:rubrik-penilaian} menyajikan rubrik penilaian tersebut.
 
 {\footnotesize
 \begin{xltabular}{\textwidth}{ | p{0.5cm} | p{2.1cm} | X | X | X | X | X | }
@@ -532,7 +530,7 @@ Setelah kriteria dan bobotnya ditetapkan, rubrik penilaian disusun untuk memberi
 
 \subsubsection{Penilaian Solusi Manajemen Data Inventori}
 \label{sec:penilaian-manajemen-data-inventori}
-Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alternatif solusi manajemen data inventori dievaluasi dengan memberikan nilai pada masing-masing kriteria sesuai karakteristik arsitekturnya. Nilai tersebut dikalikan dengan bobot kriteria hasil perhitungan AHP pada Tabel \ref{tab:nilai-bobot-kriteria} untuk memperoleh skor total tiap alternatif, sebagaimana dirangkum pada Tabel \ref{tab:rekap-ahp-inventori}.
+Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alternatif solusi manajemen data inventori dievaluasi dengan memberikan nilai pada masing-masing kriteria sesuai karakteristik arsitekturnya. Nilai tersebut dikalikan dengan bobot kriteria hasil perhitungan AHP pada Tabel \ref{tab:nilai-bobot-kriteria} untuk memperoleh skor total tiap alternatif. Tabel \ref{tab:rekap-ahp-inventori} merangkum skor total tiap alternatif tersebut.
 
 \begin{xltabular}{\textwidth}{ | X | c | c | c | c | c | }
   \caption{Rekapitulasi Penilaian AHP Solusi Manajemen Data Inventori} \label{tab:rekap-ahp-inventori} \\
@@ -623,11 +621,11 @@ Dari hasil rekapitulasi, Alternatif 1 yaitu \textit{Event-Driven Inventory Manag
   \hline
 \end{xltabular}
 
-Keunggulan utama \textit{Event-Driven} terletak pada aspek \textit{Reliability} dengan bobot tertinggi 0,36 dan \textit{Scalability} dengan bobot 0,25, yang secara agregat memberikan kontribusi skor lebih besar, mencerminkan kemampuan arsitektur berbasis \textit{event} dalam menjaga konsistensi data stok meskipun terjadi kegagalan pada komponen fisik robot, serta fleksibilitasnya dalam menangani peningkatan volume transaksi tanpa membebani satu titik pusat sistem.
+Keunggulan utama \textit{Event-Driven} terletak pada aspek \textit{Reliability} dengan bobot tertinggi 0,36 dan \textit{Scalability} dengan bobot 0,25, yang secara agregat memberikan kontribusi skor lebih besar. Hal ini mencerminkan kemampuan arsitektur berbasis \textit{event} dalam menjaga konsistensi data stok meskipun terjadi kegagalan pada komponen fisik robot, serta fleksibilitasnya dalam menangani peningkatan volume transaksi tanpa membebani satu titik pusat sistem.
 
 \subsubsection{Penilaian Solusi Lokalisasi}
 \label{sec:penilaian-lokalisasi}
-Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alternatif solusi lokalisasi dievaluasi dengan memberikan nilai pada skala 1-5 untuk masing-masing kriteria sesuai karakteristik teknisnya, menggunakan kriteria dan bobot yang sama dengan pemilihan solusi manajemen data inventori pada Tabel \ref{tab:kriteria-penjelasan}-\ref{tab:nilai-bobot-kriteria}. Nilai tersebut dikalikan dengan bobot kriteria hasil perhitungan AHP pada Tabel \ref{tab:nilai-bobot-kriteria} untuk memperoleh skor total tiap alternatif, sebagaimana dirangkum pada Tabel \ref{tab:rekap-ahp-lokalisasi}.
+Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alternatif solusi lokalisasi dievaluasi dengan memberikan nilai pada skala 1-5 untuk masing-masing kriteria sesuai karakteristik teknisnya, menggunakan kriteria dan bobot yang sama dengan pemilihan solusi manajemen data inventori pada Tabel \ref{tab:kriteria-penjelasan}-\ref{tab:nilai-bobot-kriteria}. Nilai tersebut dikalikan dengan bobot kriteria hasil perhitungan AHP pada Tabel \ref{tab:nilai-bobot-kriteria} untuk memperoleh skor total tiap alternatif. Tabel \ref{tab:rekap-ahp-lokalisasi} merangkum skor total tiap alternatif tersebut.
 
 \begin{xltabular}{\textwidth}{ | X | c | c | c | c | c | }
   \caption{Rekapitulasi Penilaian AHP Solusi Lokalisasi} \label{tab:rekap-ahp-lokalisasi} \\
@@ -722,15 +720,11 @@ Keunggulan utama AprilTag + Overhead Fisheye Camera terletak pada aspek \textit{
 
 \subsection{Solusi yang Dipilih}
 \label{sec:solusi-terpilih}
-Berdasarkan hasil analisis AHP pada Subbab \ref{sec:analisis-usulan-solusi}, diperoleh solusi terpilih untuk kedua keputusan yang dibahas pada bab ini.
-
-Untuk manajemen data inventori WMC, \textit{Event-Driven Inventory Management} dipilih sebagai arsitektur solusi yang diimplementasikan pada \textit{Warehouse Management Controller} (WMC) dalam tugas akhir ini, karena kemampuannya menjaga konsistensi data stok melalui pencatatan setiap perubahan sebagai \textit{event}, serta memudahkan proses audit dan keterlacakan operasional gudang.
-
-Untuk Subsistem Lokalisasi, AprilTag + Kamera \textit{Fisheye Overhead} dipilih sebagai solusi teknis yang diimplementasikan pada tugas akhir ini, menggantikan pendekatan QR Code + \textit{Line Following} pada rancangan awal. Keputusan ini konsisten dengan implementasi Subsistem Lokalisasi pada Bab IV Subbab 1.4 dan Bab V Subbab 3, serta hasil pengujian pada Bab VI Subbab 2.6 yang membuktikan pemenuhan seluruh kebutuhan nonfungsional lokalisasi.
+Berdasarkan hasil analisis AHP pada Subbab \ref{sec:analisis-usulan-solusi}, diperoleh solusi terpilih untuk kedua keputusan yang dibahas pada bab ini. Untuk manajemen data inventori WMC, \textit{Event-Driven Inventory Management} dipilih sebagai arsitektur solusi yang diimplementasikan pada \textit{Warehouse Management Controller} (WMC) dalam tugas akhir ini, karena kemampuannya menjaga konsistensi data stok melalui pencatatan setiap perubahan sebagai \textit{event}, serta memudahkan proses audit dan keterlacakan operasional gudang. Untuk Subsistem Lokalisasi, AprilTag + Kamera \textit{Fisheye Overhead} dipilih sebagai solusi teknis yang diimplementasikan pada tugas akhir ini, menggantikan pendekatan QR Code + \textit{Line Following} pada rancangan awal. Keputusan ini konsisten dengan implementasi Subsistem Lokalisasi pada Bab IV Subbab 1.4 dan Bab V Subbab 3, serta hasil pengujian pada Bab VI Subbab 2.6 yang membuktikan pemenuhan seluruh kebutuhan nonfungsional lokalisasi.
 
 \subsubsection{Justifikasi Solusi Terpilih}
 Kaitan hasil AHP dengan pemenuhan kebutuhan nonfungsional sistem pada Subbab \ref{sec:kebutuhan-nonfungsional} diuraikan sebagai berikut. Untuk manajemen data inventori, skor tertinggi \textit{Event-Driven} pada kriteria \textit{Reliability} selaras dengan pemenuhan KNF-01 terkait \textit{traceability} dan sinkronisasi data, karena setiap perubahan stok tercatat sebagai \textit{event} yang dapat ditelusuri, serta selaras dengan pemenuhan KNF-05 terkait skalabilitas melalui arsitektur \textit{loosely coupled} yang mendukung penambahan layanan tanpa perubahan besar.
 
 Untuk Subsistem Lokalisasi, KNF-01 yang mensyaratkan latensi status posisi $\leq$1 detik terpenuhi dengan latensi publikasi terukur 500 ms melalui \textit{topic} MQTT \texttt{location}, jauh di bawah ambang batas yang disyaratkan, sejalan dengan skor tertinggi AprilTag + Overhead Fisheye Camera pada kriteria \textit{Task Completion Speed} dengan nilai 5. KNF-02 yang mensyaratkan tidak adanya degradasi akurasi posisi dengan \textit{Task Repeatability} 100\% terpenuhi dengan hasil verifikasi 100\% pada 6 kasus posisi dan 4 kasus orientasi, sejalan dengan skor tertinggi pada kriteria \textit{Reliability} dengan nilai 4. KNF-03 yang mensyaratkan deteksi kegagalan pelacakan dan notifikasi koordinat terakhir didukung oleh arsitektur tersentralisasi yang memudahkan pemantauan status koneksi kamera dan validitas \textit{payload} MQTT secara terpusat, sebagaimana dijelaskan pada mekanisme ketahanan operasional pada Tabel \ref{tab:penilaian-alt1-lokalisasi} dan \ref{tab:penilaian-alt2-lokalisasi}.
 
-Dengan terpenuhinya seluruh kebutuhan nonfungsional tersebut serta unggulnya skor AHP pada kriteria berbobot tertinggi untuk masing-masing keputusan, pemilihan \textit{Event-Driven Inventory Management} dan AprilTag + Overhead Fisheye Camera dapat dijustifikasi secara objektif dan dapat dipertanggungjawabkan secara teknis, sekaligus menunjukkan bahwa pengembangan pada tugas akhir ini memberikan penyempurnaan terhadap rancangan awal lokalisasi.
+Dengan terpenuhinya seluruh kebutuhan nonfungsional tersebut serta unggulnya skor AHP pada kriteria berbobot tertinggi untuk masing-masing keputusan, pemilihan \textit{Event-Driven Inventory Management} dan AprilTag + Overhead Fisheye Camera dapat dijustifikasi secara objektif dan dapat dipertanggungjawabkan secara teknis. Hal ini sekaligus menunjukkan bahwa pengembangan pada tugas akhir ini memberikan penyempurnaan terhadap rancangan awal lokalisasi.

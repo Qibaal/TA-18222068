@@ -176,7 +176,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {V.1}{\ignorespaces Perangkat Keras Subsistem Lokalisasi}}{96}{figure.caption.32}%
 \contentsline {figure}{\numberline {V.2}{\ignorespaces Antarmuka Visualisasi Subsistem Lokalisasi}}{98}{figure.caption.33}%
-\contentsline {figure}{\numberline {V.3}{\ignorespaces Hasil Publikasi Data Posisi ke MQTT Broker}}{99}{figure.caption.34}%
+\contentsline {figure}{\numberline {V.3}{\ignorespaces Hasil Publikasi Data Posisi ke MQTT \textit {Broker}}}{99}{figure.caption.34}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 

@@ -6,9 +6,7 @@
 \label{chap:perancangan}
 
 \section{Konsep Sistem}
-Sebelum mengembangkan sistem \textit{Smart Warehouse}, dilakukan analisis kesenjangan (\textit{gap analysis}) untuk mengidentifikasi permasalahan pada operasional gudang konvensional saat ini (kondisi \textit{As-Is}) dan merumuskan target perbaikannya pada rancangan sistem usulan (kondisi \textit{To-Be}).
-
-Pada kondisi \textit{As-Is}, operasional pergudangan untuk industri \textit{Fast Moving Consumer Goods} (FMCG) seperti Paragon Corp masih bersifat semi-manual dan sangat bergantung pada operator manusia dalam proses \textit{stocking}, \textit{picking}, serta \textit{checking}. Berdasarkan analisis proses bisnis, kondisi saat ini memunculkan celah operasional berupa data stok yang tidak \textit{real-time} karena belum tersinkronisasinya WMS dengan sistem pusat, proses \textit{inbound} yang lambat dan rawan \textit{error}, serta kelambatan dalam \textit{picking} barang yang berdampak pada meningkatnya \textit{lead time} distribusi logistik.
+Sebelum mengembangkan sistem \textit{Smart Warehouse}, dilakukan analisis kesenjangan (\textit{gap analysis}) untuk mengidentifikasi permasalahan pada operasional gudang konvensional saat ini (kondisi \textit{As-Is}) dan merumuskan target perbaikannya pada rancangan sistem usulan (kondisi \textit{To-Be}). Pada kondisi \textit{As-Is}, operasional pergudangan untuk industri \textit{Fast Moving Consumer Goods} (FMCG) seperti Paragon Corp masih bersifat semi-manual dan sangat bergantung pada operator manusia dalam proses \textit{stocking}, \textit{picking}, serta \textit{checking}. Berdasarkan analisis proses bisnis, kondisi saat ini memunculkan celah operasional berupa data stok yang tidak \textit{real-time} karena belum tersinkronisasinya WMS dengan sistem pusat, proses \textit{inbound} yang lambat dan rawan \textit{error}, serta kelambatan dalam \textit{picking} barang yang berdampak pada meningkatnya \textit{lead time} distribusi logistik.
 
 \begin{figure}[htbp]
   \centering
@@ -145,13 +143,9 @@ Komponen \textit{Database} merupakan lapisan penyimpanan data terpusat pada WMC.
   
 \end{xltabular}
 
-Sebagai kelanjutan dari perancangan komponen \textit{Database}, subbab ini turut menjabarkan skema basis data sistem yang dimodelkan menggunakan \textit{Entity Relationship Diagram} (ERD) berikut.
+Sebagai kelanjutan dari perancangan komponen \textit{Database}, subbab ini turut menjabarkan skema basis data sistem yang dimodelkan menggunakan \textit{Entity Relationship Diagram} (ERD). \textit{Entity Relationship Diagram} (ERD) adalah diagram yang menggambarkan struktur data dalam suatu sistem informasi yang berguna untuk mengetahui hubungan antar entitas, atribut dari masing-masing entitas, dan apa saja entitas yang berperan di dalam penyimpanan data \autocite{silberschatz2020}. ERD merupakan bagian penting dalam proses perancangan sistem, khususnya dalam merancang skema basis data relasional yang terstruktur dan konsisten.
 
-\textit{Entity Relationship Diagram} (ERD) adalah diagram yang menggambarkan struktur data dalam suatu sistem informasi yang berguna untuk mengetahui hubungan antar entitas, atribut dari masing-masing entitas, dan apa saja entitas yang berperan di dalam penyimpanan data \autocite{silberschatz2020}. ERD merupakan bagian penting dalam proses perancangan sistem, khususnya dalam merancang skema basis data relasional yang terstruktur dan konsisten.
-
-Pada tugas akhir ini, ERD digunakan untuk memodelkan entitas-entitas utama yang terlibat dalam sistem \textit{Warehouse Management Controller}, yaitu \textit{User}, \textit{Session}, \textit{Order}, \textit{OrderItem}, \textit{Item}, \textit{ItemLocation}, \textit{Task}, \textit{Robot}, dan \textit{RobotLog}, beserta seluruh relasi yang menghubungkan entitas-entitas tersebut. Entitas-entitas ini saling terhubung secara relasional sesuai dengan pendekatan basis data SQL yang diterapkan pada sistem.
-
-Berikut ini merupakan \textit{Entity Relationship Diagram} yang digunakan dalam pengembangan sistem \textit{Warehouse Management Controller}.
+Pada tugas akhir ini, ERD digunakan untuk memodelkan entitas-entitas utama yang terlibat dalam sistem \textit{Warehouse Management Controller}, yaitu \textit{User}, \textit{Session}, \textit{Order}, \textit{OrderItem}, \textit{Item}, \textit{ItemLocation}, \textit{Task}, \textit{Robot}, dan \textit{RobotLog}, beserta seluruh relasi yang menghubungkan entitas-entitas tersebut. Entitas-entitas ini saling terhubung secara relasional sesuai dengan pendekatan basis data SQL yang diterapkan pada sistem. Gambar \ref{fig:erd-wmc} menunjukkan \textit{Entity Relationship Diagram} yang digunakan dalam pengembangan sistem \textit{Warehouse Management Controller}.
 
 \begin{figure}[H]
   \centering
@@ -380,7 +374,7 @@ Perangkat lokalisasi adalah rakitan kamera \textit{overhead} yang dipasang setin
 \end{figure}
 
 \paragraph{Desain Pipeline Deteksi}
-Subsistem Lokalisasi didesain sebagai \textit{pipeline} pemrosesan \textit{frame} yang berjalan secara kontinu. Sebuah \textit{background thread} mengambil \textit{frame} terbaru dari \textit{stream} RTSP secara terus-menerus dan membuang \textit{frame} yang sudah basi, sementara \textit{detection loop} utama berjalan pada frekuensi 4 Hz. Setiap \textit{frame} diproses melalui enam tahap secara berurutan, sebagaimana dirangkum pada Tabel \ref{tab:pipeline-lokalisasi} berikut.
+Subsistem Lokalisasi didesain sebagai \textit{pipeline} pemrosesan \textit{frame} yang berjalan secara kontinu. Sebuah \textit{background thread} mengambil \textit{frame} terbaru dari \textit{stream} RTSP secara terus-menerus dan membuang \textit{frame} yang sudah basi, sementara \textit{detection loop} utama berjalan pada frekuensi 4 Hz. Setiap \textit{frame} diproses melalui enam tahap secara berurutan. Tabel \ref{tab:pipeline-lokalisasi} berikut merangkum keenam tahap tersebut.
 
 \begin{xltabular}{\textwidth}{| c | l | X |}
   \caption{\textit{Pipeline} pemrosesan Subsistem Lokalisasi} \label{tab:pipeline-lokalisasi} \\
@@ -969,7 +963,7 @@ Subbab ini menyajikan \textit{Class Diagram} yang memodelkan struktur statis dar
   \label{fig:class-diagram}
 \end{figure}
 
-Berdasarkan \textit{Class Diagram} pada Gambar \ref{fig:class-diagram}, rancangan perangkat lunak \textit{Warehouse Management Controller} mengikuti pola arsitektur \textit{microservice} berlapis yang memisahkan tanggung jawab ke dalam empat jenis kelas: \textit{Controller} sebagai titik masuk permintaan dari antarmuka, \textit{Service} sebagai pengampu logika bisnis, \textit{Repository} sebagai lapisan akses persistensi data, dan \textit{Entity} sebagai representasi data domain.
+Berdasarkan \textit{Class Diagram} pada Gambar \ref{fig:class-diagram}, rancangan perangkat lunak \textit{Warehouse Management Controller} mengikuti pola arsitektur \textit{microservice} berlapis yang memisahkan tanggung jawab ke dalam empat jenis kelas: \textit{Controller} sebagai titik masuk permintaan dari antarmuka, \textit{Service} sebagai pengampu logika bisnis, \textit{Repository} sebagai lapisan akses persistensi data, dan \textit{Entity} sebagai representasi data domain. Tabel \ref{tab:daftar-kelas} merangkum daftar seluruh kelas beserta tipenya pada arsitektur tersebut.
 
 \begin{xltabular}{\textwidth}{| l | X | l |}
   \caption{Daftar kelas pada arsitektur \textit{Warehouse Management Controller}} \label{tab:daftar-kelas} \\

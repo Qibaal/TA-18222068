@@ -6,13 +6,13 @@
 \label{chap:implementasi}
 
 \section{Implementasi Warehouse Management Controller}
-Sub-bab ini menjabarkan detail implementasi sistem \textit{Warehouse Management Controller} (WMC), mencakup implementasi modul/\textit{service} untuk prototipe \textit{Smart Warehouse}.
+Sub-bab ini menjabarkan detail implementasi sistem \textit{Warehouse Management Controller} (WMC), mencakup implementasi modul/\textit{service} untuk prototipe \textit{Smart Warehouse}. Pembahasan pada setiap modul mencakup struktur kelas yang diimplementasikan, daftar \textit{endpoint} yang tersedia, serta deskripsi berkas kode sumber terkait.
 
 \subsection{Implementasi Modul}
 Implementasi sistem WMC dilakukan ke dalam tiga \textit{service} utama, yaitu \textit{Authentication Service}, \textit{Goods Service}, dan \textit{Fleet Service}. Setiap \textit{service} diuraikan menjadi empat bagian: kelas \textit{Entity}, \textit{Controller}, \textit{Service}, dan \textit{Repository} sesuai Class Diagram pada Gambar \ref{fig:class-diagram}, diikuti oleh tabel daftar \textit{endpoint} dan tabel deskripsi berkas fisik.
 
 \subsubsection*{V.1.1.1 Authentication Service}
-\textit{Authentication Service} bertanggung jawab atas proses registrasi, \textit{login}, penerbitan dan verifikasi JSON Web Token (JWT), serta pengelolaan data pengguna (\textit{User}) dan sesi (\textit{Session}).
+\textit{Authentication Service} bertanggung jawab atas proses registrasi, \textit{login}, penerbitan dan verifikasi JSON Web Token (JWT), serta pengelolaan data pengguna (\textit{User}) dan sesi (\textit{Session}). Tabel \ref{tab:endpoint-auth} menyajikan daftar \textit{endpoint} yang dikembangkan pada \textit{service} ini.
 
 \begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{1cm} | >{\raggedright\arraybackslash}p{2.2cm} | >{\raggedright\arraybackslash}X | }
   \caption{Daftar \textit{endpoint} \textit{Authentication Service}} \label{tab:endpoint-auth} \\
@@ -93,9 +93,7 @@ Implementasi sistem WMC dilakukan ke dalam tiga \textit{service} utama, yaitu \t
 \end{xltabular}
 
 \subsubsection*{V.1.1.2 Goods Service}
-\textit{Goods Service} menangani data barang, lokasi penyimpanan, pemesanan, serta pemetaan AprilTag ke barang.
-
-\textit{Endpoint} Robot, Task, dan Robot Log telah dikeluarkan dari daftar ini dan direalokasi ke \textit{Fleet Service} (Tabel \ref{tab:endpoint-fleet}).
+\textit{Goods Service} menangani data barang, lokasi penyimpanan, pemesanan, serta pemetaan AprilTag ke barang. \textit{Endpoint} Robot, Task, dan Robot Log telah dikeluarkan dari daftar ini dan direalokasi ke \textit{Fleet Service} (Tabel \ref{tab:endpoint-fleet}).
 
 \begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{1cm} | >{\raggedright\arraybackslash}p{2cm} | >{\raggedright\arraybackslash}X | }
     \caption{Daftar \textit{endpoint} \textit{Goods Service}} \label{tab:endpoint-goods} \\
@@ -206,7 +204,7 @@ Implementasi sistem WMC dilakukan ke dalam tiga \textit{service} utama, yaitu \t
 \end{xltabular}
 
 \subsubsection*{V.1.1.3 Fleet Service}
-\textit{Fleet Service} menangani seluruh logika operasional armada robot, yakni pencatatan robot dan log operasionalnya, penjadwalan \textit{task}, orkestrasi pergerakan, deteksi tabrakan, serta eksekusi \textit{workflow} \textit{storing}/\textit{picking}.
+\textit{Fleet Service} menangani seluruh logika operasional armada robot, yakni pencatatan robot dan log operasionalnya, penjadwalan \textit{task}, orkestrasi pergerakan, deteksi tabrakan, serta eksekusi \textit{workflow} \textit{storing}/\textit{picking}. Tabel \ref{tab:endpoint-fleet} menyajikan daftar \textit{endpoint} yang dikembangkan pada \textit{service} ini.
 
 \begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{0.8cm} | >{\raggedright\arraybackslash}p{1.7cm} | >{\raggedright\arraybackslash}p{4.8cm} | >{\raggedright\arraybackslash}X | }
     \caption{Daftar \textit{endpoint} \textit{Fleet Service}} \label{tab:endpoint-fleet} \\
@@ -339,12 +337,10 @@ Implementasi sistem WMC dilakukan ke dalam tiga \textit{service} utama, yaitu \t
 \end{xltabular}
 
 \section{Implementasi Sistem Lokalisasi}
-Sub-bab ini menjabarkan detail implementasi Subsistem Lokalisasi yang berjalan sebagai komponen dalam \textit{Fleet Controller}, mencakup implementasi perangkat keras serta implementasi perangkat lunak.
+Sub-bab ini menjabarkan detail implementasi Subsistem Lokalisasi yang berjalan sebagai komponen dalam \textit{Fleet Controller}, mencakup implementasi perangkat keras serta implementasi perangkat lunak. Pembahasan perangkat keras meliputi komponen fisik yang digunakan, sedangkan pembahasan perangkat lunak meliputi struktur \textit{pipeline} deteksi dan berkas kode sumber terkait.
 
 \subsection{Implementasi Hardware}
-Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 1080p (H.264, RTSP \textit{over} TCP) yang dipasang setinggi 60 cm di atas area lantai gudang $2,4 \times 1,2$ m, dilengkapi pencahayaan LED tambahan agar kontras \textit{marker} AprilTag tetap optimal.
-
-\textit{Marker} yang digunakan adalah AprilTag keluarga Tag36h11 berukuran $8 \times 8$ cm, ditempelkan pada robot dan barang di area gudang karena keseimbangan terbaiknya antara keterbacaan jarak jauh dan ketahanan terhadap oklusi parsial.
+Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 1080p (H.264, RTSP \textit{over} TCP) yang dipasang setinggi 60 cm di atas area lantai gudang $2,4 \times 1,2$ m, dilengkapi pencahayaan LED tambahan agar kontras \textit{marker} AprilTag tetap optimal. \textit{Marker} yang digunakan adalah AprilTag keluarga Tag36h11 berukuran $8 \times 8$ cm, ditempelkan pada robot dan barang di area gudang karena keseimbangan terbaiknya antara keterbacaan jarak jauh dan ketahanan terhadap oklusi parsial.
 
 \begin{figure}[H]
   \centering
@@ -417,11 +413,11 @@ Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 108
 Kalibrasi \textit{homography} dilakukan satu kali saat \textit{setup} dengan menempatkan empat \textit{marker} referensi di sudut-sudut area lantai gudang yang diketahui posisi \textit{grid}-nya. Setelah kalibrasi selesai, parameter disimpan dan dimuat secara otomatis setiap kali Subsistem Lokalisasi dijalankan ulang.
 
 \subsubsection{Implementasi Publikasi MQTT}
-Pada tahap keenam \textit{pipeline}, seluruh hasil deteksi \textit{frame} dikodekan sebagai \textit{payload} JSON yang merepresentasikan \textit{state} penuh dan diterbitkan setiap 500 ms ke \textit{topic location} pada RabbitMQ \textit{broker}.
+Pada tahap keenam \textit{pipeline}, seluruh hasil deteksi \textit{frame} dikodekan sebagai \textit{payload} JSON yang merepresentasikan \textit{state} penuh dan diterbitkan setiap 500 ms ke \textit{topic location} pada RabbitMQ \textit{broker}. Publikasi berkala ini memungkinkan komponen lain pada sistem, seperti WMC dan \textit{Fleet Controller}, untuk memperoleh data posisi terbaru secara \textit{real-time} tanpa perlu melakukan \textit{polling} langsung ke Subsistem Lokalisasi. Gambar \ref{fig:localization-mqtt} menunjukkan hasil publikasi data posisi yang diterima pada \textit{topic} MQTT tersebut.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_v/localization_mqtt.jpg}
-  \caption{Hasil Publikasi Data Posisi ke MQTT Broker}
+  \caption{Hasil Publikasi Data Posisi ke MQTT \textit{Broker}}
   \label{fig:localization-mqtt}
 \end{figure}

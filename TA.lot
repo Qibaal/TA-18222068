@@ -158,13 +158,13 @@
 \contentsline {table}{\numberline {III.10}{\ignorespaces KF-05 - Pemantauan Armada Robot}}{30}{table.3.10}%
 \contentsline {table}{\numberline {III.11}{\ignorespaces Kebutuhan Nonfungsional Sistem}}{31}{table.3.11}%
 \contentsline {table}{\numberline {III.12}{\ignorespaces Kriteria dan Penjelasannya}}{36}{table.3.12}%
-\contentsline {table}{\numberline {III.13}{\ignorespaces Nilai Kepentingan Kriteria}}{36}{table.3.13}%
+\contentsline {table}{\numberline {III.13}{\ignorespaces Nilai Kepentingan Kriteria}}{37}{table.3.13}%
 \contentsline {table}{\numberline {III.14}{\ignorespaces Nilai Bobot Kriteria}}{37}{table.3.14}%
-\contentsline {table}{\numberline {III.15}{\ignorespaces Rubrik Penilaian Solusi}}{37}{table.3.15}%
+\contentsline {table}{\numberline {III.15}{\ignorespaces Rubrik Penilaian Solusi}}{38}{table.3.15}%
 \contentsline {table}{\numberline {III.16}{\ignorespaces Rekapitulasi Penilaian AHP Solusi Manajemen Data Inventori}}{39}{table.3.16}%
 \contentsline {table}{\numberline {III.17}{\ignorespaces Penjelasan Penilaian Alternatif 1: Event-Driven Inventory Management}}{40}{table.3.17}%
 \contentsline {table}{\numberline {III.18}{\ignorespaces Penjelasan Penilaian Alternatif 2: State-Driven Inventory Management}}{40}{table.3.18}%
-\contentsline {table}{\numberline {III.19}{\ignorespaces Rekapitulasi Penilaian AHP Solusi Lokalisasi}}{41}{table.3.19}%
+\contentsline {table}{\numberline {III.19}{\ignorespaces Rekapitulasi Penilaian AHP Solusi Lokalisasi}}{42}{table.3.19}%
 \contentsline {table}{\numberline {III.20}{\ignorespaces Penjelasan Penilaian Alternatif 1: QR Code + Line Following}}{42}{table.3.20}%
 \contentsline {table}{\numberline {III.21}{\ignorespaces Penjelasan Penilaian Alternatif 2: AprilTag + Overhead Fisheye Camera}}{43}{table.3.21}%
 \addvspace {10\p@ }
@@ -239,9 +239,9 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {VI.1}{\ignorespaces Rangkuman kriteria dan metode evaluasi Subsistem Lokalisasi}}{103}{table.6.1}%
 \contentsline {table}{\numberline {VI.2}{\ignorespaces Hasil pengujian stress test \textit {endpoint} WMC}}{104}{table.6.2}%
-\contentsline {table}{\numberline {VI.3}{\ignorespaces Hasil verifikasi posisi Subsistem Lokalisasi}}{105}{table.6.3}%
+\contentsline {table}{\numberline {VI.3}{\ignorespaces Hasil verifikasi posisi Subsistem Lokalisasi}}{106}{table.6.3}%
 \contentsline {table}{\numberline {VI.4}{\ignorespaces Hasil verifikasi orientasi Subsistem Lokalisasi}}{106}{table.6.4}%
-\contentsline {table}{\numberline {VI.5}{\ignorespaces Hasil pengujian Task Fulfilment Accuracy}}{106}{table.6.5}%
+\contentsline {table}{\numberline {VI.5}{\ignorespaces Hasil pengujian \textit {Task Fulfilment Accuracy}}}{106}{table.6.5}%
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
