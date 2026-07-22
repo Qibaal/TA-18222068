@@ -6,7 +6,7 @@
 \label{chap:perancangan}
 
 \section{Konsep Sistem}
-Sebelum mengembangkan sistem \textit{Smart Warehouse}, dilakukan analisis kesenjangan (\textit{gap analysis}) untuk mengidentifikasi permasalahan pada operasional gudang konvensional saat ini (kondisi \textit{As-Is}) dan merumuskan target perbaikannya pada rancangan sistem usulan (kondisi \textit{To-Be}). Pada kondisi \textit{As-Is}, operasional pergudangan untuk industri \textit{Fast Moving Consumer Goods} (FMCG) seperti Paragon Corp masih bersifat semi-manual dan sangat bergantung pada operator manusia dalam proses \textit{stocking}, \textit{picking}, serta \textit{checking}. Berdasarkan analisis proses bisnis, kondisi saat ini memunculkan celah operasional berupa data stok yang tidak \textit{real-time} karena belum tersinkronisasinya WMS dengan sistem pusat, proses \textit{inbound} yang lambat dan rawan \textit{error}, serta kelambatan dalam \textit{picking} barang yang berdampak pada meningkatnya \textit{lead time} distribusi logistik.
+Sebelum mengembangkan sistem \textit{Smart Warehouse}, dilakukan analisis kesenjangan (\textit{gap analysis}) untuk mengidentifikasi permasalahan pada operasional gudang konvensional saat ini (kondisi \textit{As-Is}) dan merumuskan target perbaikannya pada rancangan sistem usulan (kondisi \textit{To-Be}). Pada kondisi \textit{As-Is}, operasional pergudangan untuk industri \textit{Fast Moving Consumer Goods} (FMCG) seperti Paragon Corp masih bersifat semimanual dan sangat bergantung pada operator manusia dalam proses \textit{stocking}, \textit{picking}, serta \textit{checking}. Berdasarkan analisis proses bisnis, kondisi saat ini memunculkan celah operasional berupa data stok yang tidak \textit{real-time} karena belum tersinkronisasinya WMS dengan sistem pusat, proses \textit{inbound} yang lambat dan rawan \textit{error}, serta kelambatan dalam \textit{picking} barang yang berdampak pada meningkatnya \textit{lead time} distribusi logistik.
 
 \begin{figure}[htbp]
   \centering
@@ -20,12 +20,12 @@ Untuk menyelesaikan berbagai celah operasional tersebut, diusulkan kondisi \text
 \begin{itemize}
   \item \textbf{Integrasi Sistem \textit{Real-Time}}: Sistem inventori terintegrasi secara langsung antara \textit{warehouse} barang jadi dengan sistem pusat sehingga pencatatan data stok selalu tersinkronisasi dan aktual.
   \item \textbf{Deteksi dan Pelacakan Otomatis}: Proses pendataan, pelacakan lokasi, dan pemantauan pergerakan barang dilakukan secara otomatis dengan presisi tinggi untuk meminimalisasi \textit{human error}.
-  \item \textbf{Otomasi Perpindahan Barang}: Menggantikan proses manual dengan sistem perpindahan barang otomatis menggunakan robot untuk seluruh tahapan operasional-baik \textit{storing} maupun \textit{picking}-guna menjamin kecepatan dan keakuratan pemenuhan pesanan.
+  \item \textbf{Otomasi Perpindahan Barang}: Menggantikan proses manual dengan sistem perpindahan barang otomatis menggunakan robot untuk seluruh tahapan operasional---baik \textit{storing} maupun \textit{picking}---guna menjamin kecepatan dan keakuratan pemenuhan pesanan.
 \end{itemize}
 
 Alur proses bisnis kondisi \textit{To-Be} secara keseluruhan digambarkan pada Gambar \ref{fig:bpmn-tobe}. Proses dimulai ketika staf gudang \textit{login} ke \textit{WMC Dashboard} melalui autentikasi berbasis \textit{Bearer Token} dari \textit{Authentication Service}, lalu membuat pesanan \textit{storing} atau \textit{picking} melalui antarmuka WMC. Khusus pesanan \textit{picking}, diperlukan persetujuan manajer gudang sebelum diproses sehingga setiap aktivitas pengambilan barang memiliki rekam jejak otorisasi yang terstruktur. Pesanan yang disetujui diterima \textit{Fleet Order Service} untuk divalidasi dan diteruskan ke \textit{Fleet Controller}, yang secara otomatis menentukan robot tersedia, mengalokasikan tugas, dan membangkitkan \textit{waypoint} rute tanpa intervensi manual.
 
-Robot yang ditugaskan bergerak otonom menuju lokasi sumber menggunakan navigasi berbasis pemindaian \textit{QR code} dan sensor IMU, melakukan \textit{docking} dan mengangkat barang dengan mekanisme \textit{underride lifting}, lalu bernavigasi ke lokasi tujuan dan menurunkan barang secara presisi-menggantikan \textit{picking} dan \textit{storing} manual. Setelah tugas selesai, WMC memperbarui data inventori secara otomatis melalui mekanisme \textit{event-driven} yang mencatat setiap perubahan stok sebagai \textit{event} diskrit, dan status pesanan langsung dikirim ke antarmuka WMC. Dengan demikian staf dapat memantau kondisi gudang secara \textit{real-time} tanpa pencatatan manual, sehingga konsistensi antara kondisi fisik di lapangan dan data digital pada sistem selalu terjaga.
+Robot yang ditugaskan bergerak otonom menuju lokasi sumber menggunakan navigasi berbasis pemindaian \textit{QR code} dan sensor IMU, melakukan \textit{docking} dan mengangkat barang dengan mekanisme \textit{underride lifting}, lalu bernavigasi ke lokasi tujuan dan menurunkan barang secara presisi---menggantikan \textit{picking} dan \textit{storing} manual. Setelah tugas selesai, WMC memperbarui data inventori secara otomatis melalui mekanisme \textit{event-driven} yang mencatat setiap perubahan stok sebagai \textit{event} diskrit, dan status pesanan langsung dikirim ke antarmuka WMC. Dengan demikian staf dapat memantau kondisi gudang secara \textit{real-time} tanpa pencatatan manual, sehingga konsistensi antara kondisi fisik di lapangan dan data digital pada sistem selalu terjaga.
 
 \section{Gambaran Umum Sistem}
 Sistem \textit{Smart Warehouse} yang dikembangkan pada penelitian ini dirancang sebagai sebuah \textit{Proof of Concept} (PoC) untuk memvalidasi fungsionalitas, kinerja, dan integrasi dari seluruh subsistem otomasi pergudangan sebelum diimplementasikan pada lingkungan industri yang sesungguhnya. Implementasi fisik dari sistem ini dilaksanakan pada \textit{layout} yang diskalakan $\pm2,4\times1,2$ m, robot dengan ukuran $\pm15\times15$ cm, dan rak barang dengan ukuran $\pm20\times20$ cm sebagai representasi proses gudang yang sama seperti skala besar.
@@ -68,16 +68,16 @@ Arsitektur Level 1 menampilkan gambaran lebih detail dari sistem \textit{Smart W
     \hline
     Fungsi & Melakukan interaksi perintah \textit{picking} dan \textit{storing} serta data yang dikirimkan dari \textit{Warehouse Staff}, serta melakukan integrasi data gudang dengan sistem yang sudah ada. \\
     \hline
-    Masukan & 1. \textit{Warehouse data} - informasi stok, lokasi penyimpanan, dan status barang dari sistem eksternal. 2. \textit{Requested item} - permintaan pengambilan barang dari \textit{Warehouse Staff}. 3. \textit{Item for storing} - barang fisik yang akan disimpan beserta data ID barang. 4. \textit{Warehouse condition report} - kapasitas ruang, posisi rak, dan kondisi area penyimpanan. \\
+    Masukan & 1. \textit{Warehouse data}---informasi stok, lokasi penyimpanan, dan status barang dari sistem eksternal. 2. \textit{Requested item}---permintaan pengambilan barang dari \textit{Warehouse Staff}. 3. \textit{Item for storing}---barang fisik yang akan disimpan beserta data ID barang. 4. \textit{Warehouse condition report}---kapasitas ruang, posisi rak, dan kondisi area penyimpanan. \\
     \hline
-    Luaran & 1. \textit{Order status} - informasi keberhasilan proses ke operator dan sistem. 2. \textit{Robots data} - status operasi robot, progres navigasi, dan hasil tugas. 3. \textit{Goods delivery} - barang fisik yang dikirim ke sistem logistik. 4. \textit{Logistic documentation} - laporan pelepasan barang dan dokumen \textit{tracking}. \\
+    Luaran & 1. \textit{Order status}---informasi keberhasilan proses ke operator dan sistem. 2. \textit{Robots data}---status operasi robot, progres navigasi, dan hasil tugas. 3. \textit{Goods delivery}---barang fisik yang dikirim ke sistem logistik. 4. \textit{Logistic documentation}---laporan pelepasan barang dan dokumen \textit{tracking}. \\
     \hline
   
 \end{xltabular}
 
 \subsection{Subsistem \textit{Warehouse Management Controller} (WMC)}
 
-\subsubsection{Arsitektur Level 2 - WMC}
+\subsubsection{Arsitektur Level 2---WMC}
 Pada Level 2, sistem \textit{Smart Warehouse} didekomposisi menjadi dua subsistem utama, yaitu \textit{Goods Handling and Delivery System} (GHDS) yang menangani aktivitas fisik robot, dan \textit{Warehouse Management Controller} (WMC) yang menjadi fokus pengembangan pada tugas akhir ini. WMC berfungsi sebagai pusat kendali digital yang mengelola permintaan barang, mengoordinasikan pengendalian robot, serta memperbarui status pesanan secara terintegrasi. WMC berinteraksi langsung dengan antarmuka pengguna, basis data, dan \textit{Fleet Controller} pada GHDS. Gambar \ref{fig:wmc-level2-arch} mengilustrasikan arsitektur WMC pada Level 2.
 
 \begin{figure}[H]
@@ -102,14 +102,14 @@ Pada Level 2, sistem \textit{Smart Warehouse} didekomposisi menjadi dua subsiste
   \endfoot
   Fungsi & Mengelola dan mengkoordinasikan proses permintaan barang, pengendalian robot, serta pembaruan status pesanan di gudang secara terintegrasi. \\
   \hline
-  Masukan & 1. Data robot - informasi kondisi, posisi, dan status operasional robot. 2. Status pesanan - informasi perkembangan pesanan yang sedang diproses. 3. Permintaan barang - permintaan pengambilan atau penyediaan barang dari gudang. 4. Perintah pesanan - instruksi untuk memproses atau mengeksekusi pesanan tertentu. 5. Kredensial - data autentikasi untuk memverifikasi akses pengguna. \\
+  Masukan & 1. Data robot---informasi kondisi, posisi, dan status operasional robot. 2. Status pesanan---informasi perkembangan pesanan yang sedang diproses. 3. Permintaan barang---permintaan pengambilan atau penyediaan barang dari gudang. 4. Perintah pesanan---instruksi untuk memproses atau mengeksekusi pesanan tertentu. 5. Kredensial---data autentikasi untuk memverifikasi akses pengguna. \\
   \hline
-  Luaran & 1. Barang yang diminta - informasi atau perintah terkait barang yang harus diambil atau disiapkan. 2. Informasi \& data robot - kondisi dan data operasional robot yang telah diperbarui. 3. Status pesanan - status terbaru pesanan setelah diproses oleh sistem. 4. \textit{Bearer Token} - token autentikasi untuk mengamankan komunikasi antar layanan. \\
+  Luaran & 1. Barang yang diminta---informasi atau perintah terkait barang yang harus diambil atau disiapkan. 2. Informasi \& data robot---kondisi dan data operasional robot yang telah diperbarui. 3. Status pesanan---status terbaru pesanan setelah diproses oleh sistem. 4. \textit{Bearer Token}---token autentikasi untuk mengamankan komunikasi antar layanan. \\
   \hline
 \end{xltabular}
 
-\subsubsection{Arsitektur Level 3 - Komponen WMC}
-Pada Level 3, WMC didekomposisi menjadi empat komponen perangkat lunak yang masing-masing memiliki tanggung jawab yang terdefinisi. Keempat komponen tersebut adalah \textit{Database}, \textit{Goods Detail Service}, \textit{Fleet Order Service}, dan \textit{Authentication Service}. Setiap komponen saling terhubung dan beroperasi dalam arsitektur \textit{microservices} yang memungkinkan setiap layanan dikembangkan dan di-\textit{deploy} secara independen (lihat Subbab \ref{chap:studi-literatur} tentang arsitektur \textit{microservices}, khususnya Gambar \ref{fig:microservices-diagram}).
+\subsubsection{Arsitektur Level 3---Komponen WMC}
+Pada Level 3, WMC didekomposisi menjadi empat komponen perangkat lunak yang masing-masing memiliki tanggung jawab yang terdefinisi. Keempat komponen tersebut adalah \textit{Database}, \textit{Goods Detail Service}, \textit{Fleet Order Service}, dan \textit{Authentication Service}. Setiap komponen saling terhubung dan beroperasi dalam arsitektur \textit{microservices} yang memungkinkan setiap layanan dikembangkan dan di-\textit{deploy} secara independen (lihat Subbab \ref{sec:arsitektur-software} tentang arsitektur \textit{microservices}).
 
 \paragraph{Database}
 Komponen \textit{Database} merupakan lapisan penyimpanan data terpusat pada WMC. Komponen ini menyimpan seluruh data operasional gudang, mencakup detail barang, \textit{layout} penyimpanan, data pengguna, sesi autentikasi, dan status pengiriman robot. Seluruh layanan WMC lainnya berinteraksi dengan komponen ini melalui mekanisme \textit{query} yang terstruktur. Gambar \ref{fig:database-arch} mengilustrasikan arsitektur komponen \textit{Database}.
@@ -136,9 +136,9 @@ Komponen \textit{Database} merupakan lapisan penyimpanan data terpusat pada WMC.
   \endfoot
     Fungsi & Menyimpan dan menyediakan data keseluruhan operasional gudang, mencakup detail barang, \textit{layout} penyimpanan, status pengiriman robot, data pengguna, dan sesi autentikasi. \\
     \hline
-    Masukan & 1. \textit{Query Data Goods} - permintaan baca/ubah/hapus data barang dari \textit{Goods Detail Service}. 2. \textit{Auth Query} / \textit{Session Data} - diterima dari \textit{Authentication Service} untuk validasi pengguna dan penyimpanan sesi. 3. \textit{Location Query} \& \textit{Order Data} - diterima dari \textit{Fleet Order Service} untuk mendapatkan lokasi barang dan memperbarui detail barang. \\
+    Masukan & 1. \textit{Query Data Goods}---permintaan baca/ubah/hapus data barang dari \textit{Goods Detail Service}. 2. \textit{Auth Query} / \textit{Session Data}---diterima dari \textit{Authentication Service} untuk validasi pengguna dan penyimpanan sesi. 3. \textit{Location Query} \& \textit{Order Data}---diterima dari \textit{Fleet Order Service} untuk mendapatkan lokasi barang dan memperbarui detail barang. \\
     \hline
-    Luaran & 1. \textit{Goods Data} - dikirim ke \textit{Goods Detail Service} sebagai hasil \textit{query} data barang. 2. \textit{User Data} / \textit{Session Info} - dikirim ke \textit{Authentication Service}. 3. \textit{Location Data} / \textit{Updated Goods Detail} - dikirim ke \textit{Fleet Order Service}. \\
+    Luaran & 1. \textit{Goods Data}---dikirim ke \textit{Goods Detail Service} sebagai hasil \textit{query} data barang. 2. \textit{User Data} / \textit{Session Info}---dikirim ke \textit{Authentication Service}. 3. \textit{Location Data} / \textit{Updated Goods Detail}---dikirim ke \textit{Fleet Order Service}. \\
     \hline
   
 \end{xltabular}
@@ -215,9 +215,9 @@ Komponen \textit{Goods Detail Service} bertanggung jawab mengelola data master s
   \endfoot
     Fungsi & Mengelola data master seluruh barang di gudang, mencakup penyimpanan, pembaruan, dan pengambilan informasi barang secara terperinci. \\
     \hline
-    Masukan & 1. \textit{Goods Data} - objek data berisi informasi lengkap atau pembaruan detail satu atau lebih item barang. 2. \textit{Query Data} - permintaan spesifik untuk mengambil, menghapus, atau memverifikasi detail barang. \\
+    Masukan & 1. \textit{Goods Data}---objek data berisi informasi lengkap atau pembaruan detail satu atau lebih item barang. 2. \textit{Query Data}---permintaan spesifik untuk mengambil, menghapus, atau memverifikasi detail barang. \\
     \hline
-    Luaran & 1. \textit{Goods Data} - data barang sebagai respons atas permintaan \textit{Query Data}. 2. \textit{Query Data} - respons konfirmasi bahwa permintaan telah dieksekusi. \\
+    Luaran & 1. \textit{Goods Data}---data barang sebagai respons atas permintaan \textit{Query Data}. 2. \textit{Query Data}---respons konfirmasi bahwa permintaan telah dieksekusi. \\
     \hline
   
 \end{xltabular}
@@ -248,9 +248,9 @@ Komponen \textit{Fleet Order Service} merupakan \textit{gateway} utama antara si
   \endfoot
     Fungsi & Mengolah seluruh data dan logika pembuatan \textit{order}, pengaturan tugas robot, pemantauan status robot, serta sinkronisasi status tugas. Menjadi \textit{gateway} antara sistem internal WMC dan \textit{Fleet Controller}. \\
     \hline
-    Masukan & 1. \textit{Order Command} - instruksi pembuatan atau pembatalan \textit{order} dari antarmuka pengguna. 2. \textit{Robot Status} \& \textit{Task Status} - informasi posisi, baterai, \textit{error}, dan progres tugas dari \textit{Fleet Controller}. 3. \textit{Order Data} / \textit{Location Data} - diterima dari \textit{Database} untuk memproses dan memperbarui catatan \textit{order}. \\
+    Masukan & 1. \textit{Order Command}---instruksi pembuatan atau pembatalan \textit{order} dari antarmuka pengguna. 2. \textit{Robot Status} \& \textit{Task Status}---informasi posisi, baterai, \textit{error}, dan progres tugas dari \textit{Fleet Controller}. 3. \textit{Order Data} / \textit{Location Data}---diterima dari \textit{Database} untuk memproses dan memperbarui catatan \textit{order}. \\
     \hline
-    Luaran & 1. \textit{Order Status Event} - dikirim ke antarmuka pengguna sebagai respons status \textit{order} terkini. 2. \textit{Command} ke \textit{Fleet Controller} - instruksi robot berupa \textit{start task}, \textit{cancel task}, atau \textit{emergency stop}. 3. \textit{Updated Goods Detail} - dikirim ke \textit{Database} setelah \textit{order} diproses. \\
+    Luaran & 1. \textit{Order Status Event}---dikirim ke antarmuka pengguna sebagai respons status \textit{order} terkini. 2. \textit{Command} ke \textit{Fleet Controller}---instruksi robot berupa \textit{start task}, \textit{cancel task}, atau \textit{emergency stop}. 3. \textit{Updated Goods Detail}---dikirim ke \textit{Database} setelah \textit{order} diproses. \\
     \hline
   
 \end{xltabular}
@@ -280,16 +280,16 @@ Komponen \textit{Authentication Service} bertanggung jawab memvalidasi identitas
   \endfoot
     Fungsi & Memvalidasi identitas pengguna berdasarkan kredensial yang diberikan, menghasilkan token autentikasi (\textit{Bearer Token}), serta mengelola sesi pengguna. \\
     \hline
-    Masukan & 1. \textit{Credential} Pengguna - data \textit{username} dan \textit{password} diterima dari antarmuka pengguna via API HTTP/HTTPS. 2. \textit{Session Info} / \textit{User Data} - hasil pencarian pengguna dari \textit{Database}. 3. \textit{Token} / \textit{Session ID} (opsional) - diterima dari antarmuka pengguna untuk validasi sesi yang masih aktif. \\
+    Masukan & 1. \textit{Credential} Pengguna---data \textit{username} dan \textit{password} diterima dari antarmuka pengguna via API HTTP/HTTPS. 2. \textit{Session Info} / \textit{User Data}---hasil pencarian pengguna dari \textit{Database}. 3. \textit{Token} / \textit{Session ID} (opsional)---diterima dari antarmuka pengguna untuk validasi sesi yang masih aktif. \\
     \hline
-    Luaran & 1. \textit{Bearer Token} - dikirim ke antarmuka pengguna sebagai \textit{string} token untuk otorisasi permintaan berikutnya. 2. \textit{Session Data} - dikirim ke \textit{Database} untuk disimpan atau diperbarui. 3. Informasi Penolakan Akses - pesan kesalahan dikirim ke antarmuka pengguna bila kredensial tidak valid atau sesi telah kedaluwarsa. \\
+    Luaran & 1. \textit{Bearer Token}---dikirim ke antarmuka pengguna sebagai \textit{string} token untuk otorisasi permintaan berikutnya. 2. \textit{Session Data}---dikirim ke \textit{Database} untuk disimpan atau diperbarui. 3. Informasi Penolakan Akses---pesan kesalahan dikirim ke antarmuka pengguna bila kredensial tidak valid atau sesi telah kedaluwarsa. \\
     \hline
   
 \end{xltabular}
 
 \subsection{Subsistem \textit{Fleet Controller}}
 
-\subsubsection{Arsitektur Level 2 - Fleet Controller}
+\subsubsection{Arsitektur Level 2---Fleet Controller}
 Selain \textit{Warehouse Management Controller}, subsistem \textit{Fleet Controller} turut menjadi bagian penting dari arsitektur \textit{Smart Warehouse} karena berperan sebagai penghubung langsung antara WMC dan armada robot fisik pada \textit{Goods Handling and Delivery System} (GHDS).\textit{Fleet Controller} bertanggung jawab mengelola penugasan robot, manajemen status, dan perencanaan rute pergerakan armada, dengan seluruh data status robot diterima melalui subsistem \textit{Communication} pada GHDS. Pengembangan \textit{Fleet Controller} secara keseluruhan berada di luar cakupan tugas akhir individu ini, kecuali komponen \textit{Localisation System} yang menjadi kontribusi khusus penulis (lihat Subbab \ref{sec:batasan-masalah}). Pemaparan arsitektur \textit{Fleet Controller} pada subbab ini diperlukan untuk memberikan konteks interaksi antara WMC dan \textit{Fleet Controller} melalui \textit{Fleet Order Service} (lihat Subbab \ref{subsubsec:fleet-order-service}).
 
 Pada Level 2, \textit{Fleet Controller} dipandang sebagai satu modul tunggal yang menerima instruksi \textit{order} dan data robot dari WMC, kemudian menghasilkan perintah eksekusi bagi robot serta status terkini yang dikembalikan ke WMC. Gambar \ref{fig:fc-level2-arch} berikut mengilustrasikan arsitektur \textit{Fleet Controller} pada Level 2.
@@ -316,14 +316,14 @@ Pada Level 2, \textit{Fleet Controller} dipandang sebagai satu modul tunggal yan
   \endfoot
     Fungsi & Mengelola penugasan robot, manajemen status, dan rute pergerakan seluruh armada robot berdasarkan instruksi \textit{order} yang diterima dari WMC. \\
     \hline
-    Masukan & 1. \textit{Robots Data} - informasi status, posisi, dan kondisi seluruh robot yang beroperasi di gudang. 2. \textit{Order Commands} - instruksi pembuatan, pembaruan, atau pembatalan tugas robot, diterima dari \textit{Fleet Order Service} WMC. \\
+    Masukan & 1. \textit{Robots Data}---informasi status, posisi, dan kondisi seluruh robot yang beroperasi di gudang. 2. \textit{Order Commands}---instruksi pembuatan, pembaruan, atau pembatalan tugas robot, diterima dari \textit{Fleet Order Service} WMC. \\
     \hline
-    Luaran & 1. \textit{Order Status} - status pelaksanaan tugas dikirim ke \textit{Fleet Order Service} WMC. 2. \textit{Robot Commands} - perintah kendali dikirim ke robot melalui subsistem \textit{Communication} pada GHDS. 3. \textit{Robots Data} - data status robot terbaru diteruskan ke WMC untuk ditampilkan pada \textit{User Interface}. \\
+    Luaran & 1. \textit{Order Status}---status pelaksanaan tugas dikirim ke \textit{Fleet Order Service} WMC. 2. \textit{Robot Commands}---perintah kendali dikirim ke robot melalui subsistem \textit{Communication} pada GHDS. 3. \textit{Robots Data}---data status robot terbaru diteruskan ke WMC untuk ditampilkan pada \textit{User Interface}. \\
     \hline
   
 \end{xltabular}
 
-\subsubsection{Arsitektur Level 3 - Komponen Fleet Controller}
+\subsubsection{Arsitektur Level 3---Komponen Fleet Controller}
 Pada Level 3, \textit{Fleet Controller} didekomposisi menjadi lima komponen perangkat lunak, yaitu \textit{Communication Service}, \textit{Fleet Manager}, \textit{Local Database}, \textit{Robot Path Planner}, dan \textit{Localisation System}. Keempat komponen pertama merupakan hasil rancangan kelompok TA252601001, sedangkan komponen \textit{Localisation System} merupakan kontribusi individu penulis yang menggantikan pendekatan lokalisasi berbasis QR Code + \textit{Line Following} pada rancangan awal dengan pendekatan AprilTag + \textit{Overhead Fisheye Camera} (lihat Subbab \ref{sec:batasan-masalah}).
 
 \paragraph{Localisation System}
@@ -352,16 +352,16 @@ Pada Level 3, \textit{Fleet Controller} didekomposisi menjadi lima komponen pera
   \endfoot
     Fungsi & Mendeteksi posisi \textit{grid} dan orientasi seluruh robot, barang, serta \textit{docking station} secara terpusat dari sudut pandang \textit{overhead} menggunakan AprilTag \textit{fiducial marker}, kemudian mempublikasikan hasil deteksi sebagai data \textit{grid state} kepada komponen lain \textit{Fleet Controller}. \\
     \hline
-    Masukan & 1. \textit{Video Stream} - umpan video RTSP dari kamera IP \textit{fisheye overhead}. 2. Parameter Kalibrasi - koefisien distorsi lensa (Kannala-Brandt) dan matriks \textit{homography} hasil kalibrasi satu kali di awal pemasangan. \\
+    Masukan & 1. \textit{Video Stream}---umpan video RTSP dari kamera IP \textit{fisheye overhead}. 2. Parameter Kalibrasi---koefisien distorsi lensa (Kannala-Brandt) dan matriks \textit{homography} hasil kalibrasi satu kali di awal pemasangan. \\
     \hline
-    Luaran & 1. \textit{Grid State} (\textit{Location Data}) - data posisi \textit{grid} dan orientasi seluruh entitas terklasifikasi, dipublikasikan setiap 500 ms melalui \textit{topic} MQTT \textit{location}, dikonsumsi oleh \textit{Fleet Manager} dan diteruskan ke \textit{Fleet Order Service} WMC untuk ditampilkan \textit{real-time} pada \textit{User Interface}. \\
+    Luaran & 1. \textit{Grid State} (\textit{Location Data})---data posisi \textit{grid} dan orientasi seluruh entitas terklasifikasi, dipublikasikan setiap 500 ms melalui \textit{topic} MQTT \textit{location}, dikonsumsi oleh \textit{Fleet Manager} dan diteruskan ke \textit{Fleet Order Service} WMC untuk ditampilkan \textit{real-time} pada \textit{User Interface}. \\
     \hline
   
 \end{xltabular}
 
 \subsubsection{Desain Detail Subsistem Lokalisasi (\textit{Localisation System})}
 \label{subsec:desain-lokalisasi}
-Subsistem Lokalisasi merupakan komponen perangkat lunak yang berada di dalam \textit{Fleet Controller}, berjalan secara paralel dengan \textit{Navigation subsystem} pada robot. Jika \textit{Navigation subsystem} menentukan posisi robot dari perspektif internal robot melalui pembacaan kode QR di lantai dan sensor IMU, Subsistem Lokalisasi menyediakan perspektif eksternal dari atas (\textit{overhead}) yang mencakup seluruh area lantai gudang sekaligus-termasuk posisi robot, barang, dan \textit{docking station}. \textit{Output} subsistem ini berupa data \textit{grid state} yang dipublikasikan melalui MQTT ke \textit{topic location} pada RabbitMQ \textit{broker}, dikonsumsi oleh \textit{Fleet Manager} untuk keperluan \textit{digital twin} koordinasi robot, serta oleh \textit{Fleet Order Service} di WMC untuk diteruskan ke \textit{User Interface} secara \textit{real-time}.
+Subsistem Lokalisasi merupakan komponen perangkat lunak yang berada di dalam \textit{Fleet Controller}, berjalan secara paralel dengan \textit{Navigation subsystem} pada robot. Jika \textit{Navigation subsystem} menentukan posisi robot dari perspektif internal robot melalui pembacaan kode QR di lantai dan sensor IMU, Subsistem Lokalisasi menyediakan perspektif eksternal dari atas (\textit{overhead}) yang mencakup seluruh area lantai gudang sekaligus---termasuk posisi robot, barang, dan \textit{docking station}. \textit{Output} subsistem ini berupa data \textit{grid state} yang dipublikasikan melalui MQTT ke \textit{topic location} pada RabbitMQ \textit{broker}, dikonsumsi oleh \textit{Fleet Manager} untuk keperluan \textit{digital twin} koordinasi robot, serta oleh \textit{Fleet Order Service} di WMC untuk diteruskan ke \textit{User Interface} secara \textit{real-time}.
 
 \paragraph{Perangkat Lokalisasi}
 Perangkat lokalisasi adalah rakitan kamera \textit{overhead} yang dipasang setinggi 60 cm di atas lantai gudang berukuran $2,4 \times 1,2$ m. Rakitan ini terdiri dari rangka penyangga, sebuah kamera IP \textit{fisheye} berkemampuan 1080p (3 MP) dengan \textit{H.264 encoding} yang melakukan \textit{streaming} melalui protokol RTSP \textit{over} TCP, serta pencahayaan LED tambahan untuk memastikan iluminasi yang seragam di seluruh area lantai. Optik \textit{fisheye} dipilih karena kemampuannya mencakup seluruh area lantai gudang dari satu titik pemasangan tunggal tanpa oklusi, meskipun memerlukan proses koreksi distorsi sebelum dapat digunakan untuk pemetaan posisi yang akurat (lihat Subbab 2.5.2).
@@ -391,7 +391,7 @@ Subsistem Lokalisasi didesain sebagai \textit{pipeline} pemrosesan \textit{frame
   \endfoot
     1 & Koreksi Distorsi Lensa & Menghilangkan distorsi radial \textit{fisheye} menggunakan koefisien kalibrasi Kannala-Brandt yang dihitung saat \textit{setup}. \\
     \hline
-    2 & Pra-pemrosesan & Meningkatkan kontras \textit{frame} yang telah terkoreksi dan mengonversinya ke \textit{grayscale} untuk detektor. \\
+    2 & Prapemrosesan & Meningkatkan kontras \textit{frame} yang telah terkoreksi dan mengonversinya ke \textit{grayscale} untuk detektor. \\
     \hline
     3 & Deteksi AprilTag & Menjalankan detektor Tag36h11 (\textit{marker} fisik $8\times8$ cm) untuk mengekstrak ID, posisi piksel pusat, dan empat koordinat sudut setiap \textit{tag}. \\
     \hline
@@ -1044,7 +1044,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \subsection{Kelas \textit{Controller}}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - AuthController} \label{tab:class-authcontroller} \\
+  \caption{Detail Kelas---AuthController} \label{tab:class-authcontroller} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1070,7 +1070,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - ItemController} \label{tab:class-itemcontroller} \\
+  \caption{Detail Kelas---ItemController} \label{tab:class-itemcontroller} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1096,7 +1096,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - OrderController} \label{tab:class-ordercontroller} \\
+  \caption{Detail Kelas---OrderController} \label{tab:class-ordercontroller} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1120,7 +1120,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - RobotController} \label{tab:class-robotcontroller} \\
+  \caption{Detail Kelas---RobotController} \label{tab:class-robotcontroller} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1144,7 +1144,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - DigitalTwinController} \label{tab:class-digitaltwincontroller} \\
+  \caption{Detail Kelas---DigitalTwinController} \label{tab:class-digitaltwincontroller} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1172,7 +1172,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \subsection{Kelas \textit{Service}}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - AuthService} \label{tab:class-authservice} \\
+  \caption{Detail Kelas---AuthService} \label{tab:class-authservice} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1202,7 +1202,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - ItemService} \label{tab:class-itemservice} \\
+  \caption{Detail Kelas---ItemService} \label{tab:class-itemservice} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1232,7 +1232,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - OrderService} \label{tab:class-orderservice} \\
+  \caption{Detail Kelas---OrderService} \label{tab:class-orderservice} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1266,7 +1266,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - RobotService} \label{tab:class-robotservice} \\
+  \caption{Detail Kelas---RobotService} \label{tab:class-robotservice} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1300,7 +1300,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - TaskService} \label{tab:class-taskservice} \\
+  \caption{Detail Kelas---TaskService} \label{tab:class-taskservice} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1326,7 +1326,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - DigitalTwinService} \label{tab:class-digitaltwinservice} \\
+  \caption{Detail Kelas---DigitalTwinService} \label{tab:class-digitaltwinservice} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1354,7 +1354,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - LocationService} \label{tab:class-locationservice} \\
+  \caption{Detail Kelas---LocationService} \label{tab:class-locationservice} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1380,7 +1380,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - NotificationService} \label{tab:class-notificationservice} \\
+  \caption{Detail Kelas---NotificationService} \label{tab:class-notificationservice} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1408,7 +1408,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \subsection{Kelas \textit{Repository}}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - UserRepository} \label{tab:class-userrepository} \\
+  \caption{Detail Kelas---UserRepository} \label{tab:class-userrepository} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1434,7 +1434,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - SessionRepository} \label{tab:class-sessionrepository} \\
+  \caption{Detail Kelas---SessionRepository} \label{tab:class-sessionrepository} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1460,7 +1460,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - ItemRepository} \label{tab:class-itemrepository} \\
+  \caption{Detail Kelas---ItemRepository} \label{tab:class-itemrepository} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1488,7 +1488,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - OrderRepository} \label{tab:class-orderrepository} \\
+  \caption{Detail Kelas---OrderRepository} \label{tab:class-orderrepository} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1516,7 +1516,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - OrderItemRepository} \label{tab:class-orderitemrepository} \\
+  \caption{Detail Kelas---OrderItemRepository} \label{tab:class-orderitemrepository} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1540,7 +1540,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - RobotRepository} \label{tab:class-robotrepository} \\
+  \caption{Detail Kelas---RobotRepository} \label{tab:class-robotrepository} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1566,7 +1566,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - TaskRepository} \label{tab:class-taskrepository} \\
+  \caption{Detail Kelas---TaskRepository} \label{tab:class-taskrepository} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1592,7 +1592,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - AprilTagMappingRepository} \label{tab:class-apriltagmappingrepository} \\
+  \caption{Detail Kelas---AprilTagMappingRepository} \label{tab:class-apriltagmappingrepository} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1622,7 +1622,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \subsection{Kelas \textit{Entity}}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - User} \label{tab:class-user} \\
+  \caption{Detail Kelas---User} \label{tab:class-user} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1654,7 +1654,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - Session} \label{tab:class-session} \\
+  \caption{Detail Kelas---Session} \label{tab:class-session} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1682,7 +1682,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - Item} \label{tab:class-item} \\
+  \caption{Detail Kelas---Item} \label{tab:class-item} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1714,7 +1714,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - Order} \label{tab:class-order} \\
+  \caption{Detail Kelas---Order} \label{tab:class-order} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1740,7 +1740,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - OrderItem} \label{tab:class-orderitem} \\
+  \caption{Detail Kelas---OrderItem} \label{tab:class-orderitem} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1768,7 +1768,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - Robot} \label{tab:class-robot} \\
+  \caption{Detail Kelas---Robot} \label{tab:class-robot} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1794,7 +1794,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - Task} \label{tab:class-task} \\
+  \caption{Detail Kelas---Task} \label{tab:class-task} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline
@@ -1822,7 +1822,7 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{| l | l | X |}
-  \caption{Detail Kelas - AprilTagMapping} \label{tab:class-apriltagmapping} \\
+  \caption{Detail Kelas---AprilTagMapping} \label{tab:class-apriltagmapping} \\
   \hline
   \textbf{Nama Operasi} & \textbf{Visibilitas} & \textbf{Keterangan} \\
   \hline

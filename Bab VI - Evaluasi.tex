@@ -4,16 +4,16 @@
 \cleardoublepage
 \chapter{EVALUASI}
 \label{chap:evaluasi}
-Bab ini memaparkan proses evaluasi terhadap sistem \textit{Warehouse Management Controller} (WMC) dan Subsistem Lokalisasi yang telah diimplementasikan. Evaluasi bertujuan untuk mengukur sejauh mana sistem yang dikembangkan memenuhi spesifikasi yang telah ditetapkan. Untuk WMC, cakupan evaluasi difokuskan pada ketahanan sistem di bawah beban melalui \textit{stress test}, sedangkan untuk Subsistem Lokalisasi, cakupan evaluasi meliputi akurasi pemenuhan tugas (\textit{Task Fulfilment Accuracy}), akurasi pemetaan posisi, serta deteksi orientasi. Bab ini disusun menjadi tiga sub-bab: Subbab \ref{sec:metode-evaluasi} memaparkan metode evaluasi yang digunakan, Subbab \ref{sec:hasil-verifikasi} menyajikan hasil verifikasi dari setiap metode tersebut, dan Subbab \ref{sec:pembahasan-evaluasi} membahas hasil evaluasi secara keseluruhan sebagai dasar penilaian kelayakan sistem.
+Bab ini memaparkan proses evaluasi terhadap sistem \textit{Warehouse Management Controller} (WMC) dan Subsistem Lokalisasi yang telah diimplementasikan. Evaluasi bertujuan untuk mengukur sejauh mana sistem yang dikembangkan memenuhi spesifikasi yang telah ditetapkan. Untuk WMC, cakupan evaluasi difokuskan pada ketahanan sistem di bawah beban melalui \textit{stress test}, sedangkan untuk Subsistem Lokalisasi, cakupan evaluasi meliputi akurasi pemenuhan tugas (\textit{Task Fulfilment Accuracy}), akurasi pemetaan posisi, serta deteksi orientasi. Bab ini disusun menjadi tiga subbab: Subbab \ref{sec:metode-evaluasi} memaparkan metode evaluasi yang digunakan, Subbab \ref{sec:hasil-verifikasi} menyajikan hasil verifikasi dari setiap metode tersebut, dan Subbab \ref{sec:pembahasan-evaluasi} membahas hasil evaluasi secara keseluruhan sebagai dasar penilaian kelayakan sistem.
 
 \section{Metode Evaluasi}
 \label{sec:metode-evaluasi}
-Sub-bab ini memaparkan metode evaluasi yang digunakan untuk menilai sistem WMC dan Subsistem Lokalisasi. Metode evaluasi Sistem WMC dipaparkan pada Subbab VI.1.1, sedangkan metode evaluasi Sistem Lokalisasi dipaparkan pada Subbab VI.1.2.
+Subbab ini memaparkan metode evaluasi yang digunakan untuk menilai sistem WMC dan Subsistem Lokalisasi. Metode evaluasi Sistem WMC dipaparkan pada Subbab VI.1.1, sedangkan metode evaluasi Sistem Lokalisasi dipaparkan pada Subbab VI.1.2.
 
 \subsection{Metode Evaluasi Sistem WMC}
 Evaluasi sistem WMC difokuskan pada komponen yang secara langsung dipengaruhi oleh WMC sebagai lapisan perangkat lunak pengendali gudang. Mengingat peran WMC dalam mengatur manajemen inventori, koordinasi tugas robot, serta antarmuka pengguna, kriteria evaluasi utama WMC adalah \textit{Stress Test} untuk mengukur ketahanan dan performa sistem di bawah beban.
 
-\subsubsection*{VI.1.1.1 Pengujian Stress Test - Pengukuran Ketahanan Sistem di Bawah Beban}
+\subsubsection*{VI.1.1.1 Pengujian Stress Test---Pengukuran Ketahanan Sistem di Bawah Beban}
 Pengujian \textit{stress test} dilakukan untuk mengukur ketahanan dan performa sistem WMC ketika menerima beban permintaan yang tinggi secara bersamaan pada setiap \textit{endpoint} utama. Sistem dinyatakan memenuhi kriteria apabila seluruh \textit{endpoint} yang diuji tidak mengalami kegagalan dengan \textit{error rate} 0\% dan tetap responsif di bawah beban, yang diukur melalui waktu respons rata-rata, persentil ke-95 (p95) dan persentil ke-99 (p99).
 
 Metode pengujian dilakukan dengan mengirimkan sejumlah \textit{request} secara simultan ke setiap \textit{endpoint} pada ketiga \textit{service} menggunakan \textit{load testing tool}. Setiap \textit{endpoint} diuji secara terpisah dengan mencatat waktu respons rata-rata, p95, p99, \textit{error rate}, serta \textit{throughput}. Hasil pengujian kemudian dibandingkan terhadap kriteria keberhasilan, yaitu tidak ada kegagalan \textit{request} selama pengujian berlangsung.
@@ -21,8 +21,8 @@ Metode pengujian dilakukan dengan mengirimkan sejumlah \textit{request} secara s
 \subsection{Metode Evaluasi Sistem Lokalisasi}
 Evaluasi Subsistem Lokalisasi mencakup tiga kriteria yang saling melengkapi, yaitu akurasi pemenuhan tugas (\textit{Task Fulfilment Accuracy}), akurasi pemetaan posisi, serta deteksi orientasi. Ketiga kriteria ini secara bersama-sama memverifikasi bahwa Subsistem Lokalisasi mampu menghasilkan data posisi dan orientasi yang akurat, baik secara mandiri maupun ketika terintegrasi dengan sistem WMC dan armada robot.
 
-\subsubsection*{VI.1.2.1 Pengujian Task Fulfilment Accuracy - Verifikasi Konsistensi Data}
-Pengujian ini memverifikasi bahwa sistem mampu mengarahkan robot ke lokasi target yang benar dengan akurasi 100\%, tanpa \textit{misplacement} maupun ketidaksesuaian data inventori. Kriteria ini mencerminkan ketepatan sistem terintegrasi, yang bergantung pada keandalan lokalisasi posisi serta pembaruan status dan posisi barang pasca tugas.
+\subsubsection*{VI.1.2.1 Pengujian Task Fulfilment Accuracy---Verifikasi Konsistensi Data}
+Pengujian ini memverifikasi bahwa sistem mampu mengarahkan robot ke lokasi target yang benar dengan akurasi 100\%, tanpa \textit{misplacement} maupun ketidaksesuaian data inventori. Kriteria ini mencerminkan ketepatan sistem terintegrasi, yang bergantung pada keandalan lokalisasi posisi serta pembaruan status dan posisi barang pascatugas.
 
 Metode pengujian dilakukan dengan membandingkan data yang tercatat dalam basis data terhadap kondisi fisik aktual setelah serangkaian tugas pengambilan dan penempatan barang dieksekusi. Pengujian dilaksanakan dengan menjalankan seluruh kombinasi 4 sel \textit{idle} dan 8 rak \textit{storage}, menghasilkan 32 \textit{order storing} dan 32 \textit{order picking}, atau total 64 \textit{task}. Setiap \textit{order} yang dibuat dicatat beserta lokasi tujuan yang ditetapkan oleh sistem. Setelah robot menyelesaikan tugas, data lokasi barang yang diperbarui oleh sistem dibandingkan dengan lokasi fisik aktual di gudang. Tingkat akurasi dihitung menggunakan formula berikut:
 \begin{equation}
@@ -49,7 +49,7 @@ Tabel \ref{tab:rangkuman-evaluasi-lokalisasi} menyajikan rangkuman seluruh krite
   \endhead
   \hline
   \endfoot
-  Task Fulfilment Accuracy & Akurasi 100\%, tanpa \textit{misplacement}, serta konsistensi data fisik dan inventori & Perbandingan data basis data terhadap kondisi fisik aktual pasca eksekusi tugas \\
+  Task Fulfilment Accuracy & Akurasi 100\%, tanpa \textit{misplacement}, serta konsistensi data fisik dan inventori & Perbandingan data basis data terhadap kondisi fisik aktual pascaeksekusi tugas \\
   \hline
   Akurasi Posisi & Akurasi 100\% pemetaan sel \textit{grid} pada seluruh 32 sel \textit{grid} $8\times4$ & Perbandingan \textit{payload} MQTT terhadap \textit{ground truth} posisi pada seluruh sel \textit{grid} \\
   \hline
@@ -62,7 +62,7 @@ Ketiga metode evaluasi tersebut dirancang agar dapat dilaksanakan secara bertaha
 
 \section{Hasil Verifikasi}
 \label{sec:hasil-verifikasi}
-Sub-bab ini menyajikan hasil pelaksanaan setiap metode evaluasi yang telah direncanakan pada Subbab \ref{sec:metode-evaluasi}, dipisahkan antara hasil verifikasi Sistem WMC pada Subbab \ref{subsec:hasil-wmc} dan hasil verifikasi Sistem Lokalisasi pada Subbab \ref{subsec:hasil-lokalisasi}. Setiap hasil pengujian dibandingkan terhadap kriteria keberhasilan yang telah ditetapkan pada Subbab \ref{sec:metode-evaluasi} untuk menentukan kelayakan sistem.
+Subbab ini menyajikan hasil pelaksanaan setiap metode evaluasi yang telah direncanakan pada Subbab \ref{sec:metode-evaluasi}, dipisahkan antara hasil verifikasi Sistem WMC pada Subbab \ref{subsec:hasil-wmc} dan hasil verifikasi Sistem Lokalisasi pada Subbab \ref{subsec:hasil-lokalisasi}. Setiap hasil pengujian dibandingkan terhadap kriteria keberhasilan yang telah ditetapkan pada Subbab \ref{sec:metode-evaluasi} untuk menentukan kelayakan sistem.
 
 \subsection{Hasil Verifikasi Sistem WMC}
 \label{subsec:hasil-wmc}

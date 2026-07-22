@@ -8,13 +8,13 @@ Industri \textit{Fast Moving Consumer Goods} (FMCG) merupakan sektor dengan pert
 
 PT Paragon Technology and Innovation (Paragon Corp), salah satu perusahaan FMCG terkemuka di Indonesia yang bergerak di bidang manufaktur dan distribusi produk kecantikan serta perawatan diri, mengoperasikan lebih dari 40 \textit{Distribution Center} di Indonesia dan Malaysia dengan tiga jenis gudang utama, yaitu bahan baku, \textit{packaging}, dan barang jadi (\textit{Finished Goods}). Gudang barang jadi menjadi titik kritis dalam rantai distribusi karena merupakan tahap akhir sebelum produk dikirim kepada mitra ritel dan konsumen. Guna merespons kebutuhan operasional yang terus meningkat sekaligus selaras dengan agenda transformasi digital dalam konsep \textit{Society} 5.0, Paragon Corp tengah bertransformasi menuju sistem \textit{Smart Warehouse} pada gudang barang jadinya.
 
-Saat ini Paragon Corp mengandalkan dua platform utama, yaitu \textit{Enterprise Resource Planning} (ERP) Odoo untuk pengelolaan data transaksi dan inventori korporat serta \textit{Warehouse Management System} (WMS) untuk operasional tingkat gudang. Namun, integrasi ERP Odoo dan WMS masih bersifat semi-manual sehingga sinkronisasi data bergantung pada intervensi operator. Ketiadaan integrasi \textit{real-time} ini memicu \textit{mismatch} data stok antara kondisi fisik dan catatan digital, sekaligus \textit{mistracking} barang akibat area penempatan sementara yang tidak tercatat, sehingga staf tidak dapat mengetahui posisi aktual barang. Ketergantungan pada proses manual di tahap \textit{stocking} dan \textit{picking} menimbulkan \textit{bottleneck} dengan \textit{overcapacity} di atas 80\% dan \textit{waiting time} yang tinggi. Metode \textit{picking} manual bahkan mencatat tingkat kesalahan 1-3\%, delapan hingga sepuluh kali lebih tinggi dibanding lingkungan terotomasi \autocite{netsuite2024}.
+Saat ini Paragon Corp mengandalkan dua platform utama, yaitu \textit{Enterprise Resource Planning} (ERP) Odoo untuk pengelolaan data transaksi dan inventori korporat serta \textit{Warehouse Management System} (WMS) untuk operasional tingkat gudang. Namun, integrasi ERP Odoo dan WMS masih bersifat semimanual sehingga sinkronisasi data bergantung pada intervensi operator. Ketiadaan integrasi \textit{real-time} ini memicu \textit{mismatch} data stok antara kondisi fisik dan catatan digital, sekaligus \textit{mistracking} barang akibat area penempatan sementara yang tidak tercatat, sehingga staf tidak dapat mengetahui posisi aktual barang. Ketergantungan pada proses manual di tahap \textit{stocking} dan \textit{picking} menimbulkan \textit{bottleneck} dengan \textit{overcapacity} di atas 80\% dan \textit{waiting time} yang tinggi. Metode \textit{picking} manual bahkan mencatat tingkat kesalahan 1---3\%, delapan hingga sepuluh kali lebih tinggi dibanding lingkungan terotomasi \autocite{netsuite2024}.
 
 Temuan ini diperkuat wawancara tim TA252601001 pada 16 Oktober 2025 bersama Bapak Falih Muhtadi selaku \textit{Staff Logistics and Business Integration Systems} Paragon Corp, yang mengonfirmasi tiga persoalan utama pada gudang barang jadi, yaitu data stok yang belum \textit{real-time}, proses \textit{inbound} yang lambat dan tidak presisi, serta \textit{picking} yang rawan \textit{human error}. Berangkat dari permasalahan tersebut, penulis mengangkat studi kasus pada Paragon Corp dan menyelesaikannya melalui proses perancangan yang sistematis. Penulis memfokuskan kontribusi pada aspek sistem informasi, yaitu menjaga konsistensi data inventori secara otomatis dan menyediakan pemantauan operasional bagi staf gudang, serta menunjang penentuan posisi robot dan barang di area gudang. Solusi tersebut diwujudkan dalam bentuk prototipe yang mensimulasikan mekanisme utama \textit{Smart Warehouse} sebagai dasar implementasi pada skala industri di masa mendatang.
 
 % - Rumusan Masalah -
 \section{Rumusan Masalah}
-Berdasarkan permasalahan yang telah dijelaskan, maka rumusan masalah dalam tugas akhir ini adalah:
+Permasalahan yang telah diuraikan pada Subbab 1.1 mencakup ketiadaan integrasi data \textit{real-time}, proses \textit{inbound} yang lambat, dan \textit{picking} yang rawan \textit{human error}. Berdasarkan permasalahan tersebut, rumusan masalah dalam tugas akhir ini adalah:
 \begin{enumerate}
 \item Bagaimana menyinkronkan dan menjaga konsistensi data stok gudang secara otomatis antara kondisi fisik dan catatan digital, serta menyajikan informasi inventori tersebut secara akurat dan \textit{real-time} kepada staf gudang, sehingga \textit{mismatch} data, \textit{mistracking} barang, dan ketergantungan pada proses manual dapat diatasi?
 \item Bagaimana bentuk rancangan dan prototipe mekanisme penentuan posisi robot dan barang di area gudang yang dapat menunjang pelaksanaan tugas pemindahan barang secara akurat pada prototipe \textit{Smart Warehouse}?
@@ -22,12 +22,12 @@ Berdasarkan permasalahan yang telah dijelaskan, maka rumusan masalah dalam tugas
 
 % - Tujuan -
 \section{Tujuan}
-Tujuan dari pelaksanaan tugas akhir ini adalah:
+Tujuan tugas akhir ini dirumuskan untuk menjawab kedua rumusan masalah yang telah disusun pada Subbab 1.2. Tujuan dari pelaksanaan tugas akhir ini adalah:
 \begin{enumerate}
 \item Mengembangkan sistem informasi manajemen gudang berbasis \textit{microservices} yang menyinkronkan dan menjaga konsistensi data stok secara otomatis serta menyajikan informasi inventori secara akurat dan \textit{real-time} bagi staf gudang.
 \item Merancang dan membangun prototipe mekanisme penentuan posisi robot dan barang di area gudang untuk menunjang pelaksanaan tugas pemindahan barang secara akurat pada prototipe \textit{Smart Warehouse}.
 \end{enumerate}
-Kriteria keberhasilan tugas akhir ini meliputi:
+Pencapaian kedua tujuan tersebut diukur melalui kriteria keberhasilan yang bersifat terukur secara kuantitatif. Kriteria keberhasilan tugas akhir ini meliputi:
 \begin{enumerate}
 \item Sistem dapat melakukan sinkronisasi data inventori secara otomatis untuk meniadakan \textit{mismatch} data antara kondisi lapangan dan sistem pusat.
 \item Sistem dapat menentukan posisi robot dan barang di area gudang secara akurat untuk menunjang pelaksanaan tugas pemindahan barang.
@@ -36,29 +36,29 @@ Kriteria keberhasilan tugas akhir ini meliputi:
 % - Batasan Masalah -
 \section{Batasan Masalah}
 \label{sec:batasan-masalah}
-Untuk menjaga ruang lingkup pembahasan dan memastikan tercapainya tujuan penelitian dalam batasan waktu serta sumber daya yang tersedia, maka ditetapkan batasan-batasan proyek sebagai berikut:
+Pengerjaan tugas akhir ini dibatasi oleh jangka waktu satu semester serta sumber daya tim yang tersedia. Untuk menjaga ruang lingkup pembahasan dan memastikan tercapainya tujuan penelitian dalam batasan tersebut, ditetapkan batasan-batasan proyek sebagai berikut:
 \begin{enumerate}
 \item Tugas akhir ini dikerjakan secara berkelompok yang terdiri dari empat orang mahasiswa, yaitu Muhammad Shafa Sauditya (NIM 13222013), Rubi Naufal Tiandito (NIM 13222100), Raizan Iqbal Resi (NIM 18222068), dan Timotius Vivaldi Gunawan (NIM 18222091).
-\item Penulis berfokus pada pengembangan sistem informasi manajemen gudang-yang mencakup sinkronisasi dan konsistensi data inventori, manajemen antrean tugas, autentikasi, serta antarmuka pemantauan-beserta subsistem lokalisasi untuk penentuan posisi robot dan barang di area gudang.
+\item Penulis berfokus pada pengembangan sistem informasi manajemen gudang---yang mencakup sinkronisasi dan konsistensi data inventori, manajemen antrean tugas, autentikasi, serta antarmuka pemantauan---beserta subsistem lokalisasi untuk penentuan posisi robot dan barang di area gudang.
 \item Prototipe \textit{Smart Warehouse} dilaksanakan pada \textit{layout} yang diskalakan berukuran $\pm$2,4$\times$1,2 m, robot berukuran $\pm$15$\times$15 cm, dan rak barang berukuran $\pm$20$\times$20 cm.
 \end{enumerate}
 
 % - Metodologi Pengerjaan TA -
 \section{Metodologi}
-Metodologi pengerjaan tugas akhir ini mengadopsi pendekatan \textit{Engineering Design Process} yang dilakukan dalam dua siklus iterasi. \textit{Engineering design process} merupakan serangkaian tahapan sistematis dan iteratif yang digunakan para insinyur untuk merumuskan masalah, merancang, serta menghasilkan solusi teknis yang memenuhi kebutuhan dan batasan (\textit{constraints}) yang telah ditetapkan.
+Metodologi pengerjaan tugas akhir ini mengadopsi pendekatan \textit{Engineering Design Process} yang dilakukan dalam dua siklus iterasi. \textit{Engineering Design Process} merupakan serangkaian tahapan sistematis dan iteratif yang digunakan para insinyur untuk merumuskan masalah, merancang, serta menghasilkan solusi teknis yang memenuhi kebutuhan dan batasan (\textit{constraints}) yang telah ditetapkan.
 
-Tahapan utama dalam metodologi ini mencakup lima fase sebagai berikut:
+Kelima fase tersebut dilaksanakan secara berurutan, namun tetap memungkinkan iterasi ulang apabila ditemukan ketidaksesuaian pada tahap sebelumnya. Tahapan utama dalam metodologi ini mencakup lima fase sebagai berikut:
 \begin{enumerate}
-\item \textbf{Define the Problem}\\Tahap awal untuk mengidentifikasi dan merumuskan permasalahan secara jelas, termasuk menetapkan kebutuhan pengguna, tujuan sistem, serta batasan dan kriteria keberhasilan yang menjadi acuan pengembangan.
-\item \textbf{Research and Specify Requirements}\\Proses pengumpulan informasi melalui studi literatur, observasi, maupun analisis sistem yang ada untuk menetapkan spesifikasi kebutuhan fungsional dan non-fungsional secara terukur.
-\item \textbf{Brainstorm and Conceptualize}\\Fase eksplorasi berbagai alternatif solusi rancangan secara kreatif, kemudian mengevaluasi dan memilih konsep terbaik berdasarkan kesesuaiannya terhadap kebutuhan dan batasan yang telah ditentukan.
-\item \textbf{Develop and Prototype}\\Mewujudkan konsep terpilih ke dalam bentuk purwarupa atau implementasi nyata sistem, sebagai representasi solusi yang dapat diuji fungsionalitas dan kinerjanya.
-\item \textbf{Test and Evaluate}\\Tahap pengujian purwarupa terhadap spesifikasi dan kebutuhan yang telah ditetapkan. Hasil evaluasi menjadi dasar untuk melakukan perbaikan dan penyempurnaan rancangan pada siklus iterasi berikutnya.
+\item \textbf{\textit{Define the Problem}}\\Tahap awal untuk mengidentifikasi dan merumuskan permasalahan secara jelas, termasuk menetapkan kebutuhan pengguna, tujuan sistem, serta batasan dan kriteria keberhasilan yang menjadi acuan pengembangan.
+\item \textbf{\textit{Research and Specify Requirements}}\\Proses pengumpulan informasi melalui studi literatur, observasi, maupun analisis sistem yang ada untuk menetapkan spesifikasi kebutuhan fungsional dan nonfungsional secara terukur.
+\item \textbf{\textit{Brainstorm and Conceptualize}}\\Fase eksplorasi berbagai alternatif solusi rancangan secara kreatif, kemudian mengevaluasi dan memilih konsep terbaik berdasarkan kesesuaiannya terhadap kebutuhan dan batasan yang telah ditentukan.
+\item \textbf{\textit{Develop and Prototype}}\\Mewujudkan konsep terpilih ke dalam bentuk purwarupa atau implementasi nyata sistem, sebagai representasi solusi yang dapat diuji fungsionalitas dan kinerjanya.
+\item \textbf{\textit{Test and Evaluate}}\\Tahap pengujian purwarupa terhadap spesifikasi dan kebutuhan yang telah ditetapkan. Hasil evaluasi menjadi dasar untuk melakukan perbaikan dan penyempurnaan rancangan pada siklus iterasi berikutnya.
 \end{enumerate}
 
 % - Sistematika Penulisan -
 \section{Sistematika Penulisan}
-Berikut adalah gambaran umum isi dari setiap bab yang ada dalam laporan tugas akhir ini:
+Laporan tugas akhir ini disusun dalam tujuh bab beserta lampiran pendukung. Berikut adalah gambaran umum isi dari setiap bab yang ada dalam laporan tugas akhir ini:
 \begin{enumerate}
 \item Bab I Pendahuluan berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, dan sistematika penulisan laporan tugas akhir.
 \item Bab II Studi Literatur berisi kajian pustaka yang relevan dengan topik tugas akhir, mencakup teori dan konsep pendukung serta hasil penelitian terdahulu, yang ditutup dengan sintesis dan identifikasi celah penelitian.

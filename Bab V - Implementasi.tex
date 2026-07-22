@@ -6,7 +6,7 @@
 \label{chap:implementasi}
 
 \section{Implementasi Warehouse Management Controller}
-Sub-bab ini menjabarkan detail implementasi sistem \textit{Warehouse Management Controller} (WMC), mencakup implementasi modul/\textit{service} untuk prototipe \textit{Smart Warehouse}. Pembahasan pada setiap modul mencakup struktur kelas yang diimplementasikan, daftar \textit{endpoint} yang tersedia, serta deskripsi berkas kode sumber terkait.
+Subbab ini menjabarkan detail implementasi sistem \textit{Warehouse Management Controller} (WMC), mencakup implementasi modul/\textit{service} untuk prototipe \textit{Smart Warehouse}. Pembahasan pada setiap modul mencakup struktur kelas yang diimplementasikan, daftar \textit{endpoint} yang tersedia, serta deskripsi berkas kode sumber terkait.
 
 \subsection{Implementasi Modul}
 Implementasi sistem WMC dilakukan ke dalam tiga \textit{service} utama, yaitu \textit{Authentication Service}, \textit{Goods Service}, dan \textit{Fleet Service}. Setiap \textit{service} diuraikan menjadi empat bagian: kelas \textit{Entity}, \textit{Controller}, \textit{Service}, dan \textit{Repository} sesuai Class Diagram pada Gambar \ref{fig:class-diagram}, diikuti oleh tabel daftar \textit{endpoint} dan tabel deskripsi berkas fisik.
@@ -316,11 +316,11 @@ Implementasi sistem WMC dilakukan ke dalam tiga \textit{service} utama, yaitu \t
     \hline
     7 & \texttt{src/\allowbreak repositories/\allowbreak task.repository.ts} & Akses data task ke basis data (TaskRepository, usulan) \\
     \hline
-    8 & \texttt{src/\allowbreak controllers/\allowbreak digitalTwin.controller.ts} & Endpoint digital twin robot (DigitalTwinController, usulan - belum ada) \\
+    8 & \texttt{src/\allowbreak controllers/\allowbreak digitalTwin.controller.ts} & Endpoint digital twin robot (DigitalTwinController, usulan---belum ada) \\
     \hline
-    9 & \texttt{src/\allowbreak services/\allowbreak digitalTwin.service.ts} & Logika bisnis digital twin robot (DigitalTwinService, usulan - belum ada) \\
+    9 & \texttt{src/\allowbreak services/\allowbreak digitalTwin.service.ts} & Logika bisnis digital twin robot (DigitalTwinService, usulan---belum ada) \\
     \hline
-    10 & \texttt{src/\allowbreak services/\allowbreak notification.service.ts} & Logika bisnis notifikasi (NotificationService, usulan - belum ada) \\
+    10 & \texttt{src/\allowbreak services/\allowbreak notification.service.ts} & Logika bisnis notifikasi (NotificationService, usulan---belum ada) \\
     \hline
     11 & \texttt{blob-service/\allowbreak src/\allowbreak index.ts} & Entry point \texttt{blob-service} \\
     \hline
@@ -337,7 +337,7 @@ Implementasi sistem WMC dilakukan ke dalam tiga \textit{service} utama, yaitu \t
 \end{xltabular}
 
 \section{Implementasi Sistem Lokalisasi}
-Sub-bab ini menjabarkan detail implementasi Subsistem Lokalisasi yang berjalan sebagai komponen dalam \textit{Fleet Controller}, mencakup implementasi perangkat keras serta implementasi perangkat lunak. Pembahasan perangkat keras meliputi komponen fisik yang digunakan, sedangkan pembahasan perangkat lunak meliputi struktur \textit{pipeline} deteksi dan berkas kode sumber terkait.
+Subbab ini menjabarkan detail implementasi Subsistem Lokalisasi yang berjalan sebagai komponen dalam \textit{Fleet Controller}, mencakup implementasi perangkat keras serta implementasi perangkat lunak. Pembahasan perangkat keras meliputi komponen fisik yang digunakan, sedangkan pembahasan perangkat lunak meliputi struktur \textit{pipeline} deteksi dan berkas kode sumber terkait.
 
 \subsection{Implementasi Hardware}
 Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 1080p (H.264, RTSP \textit{over} TCP) yang dipasang setinggi 60 cm di atas area lantai gudang $2,4 \times 1,2$ m, dilengkapi pencahayaan LED tambahan agar kontras \textit{marker} AprilTag tetap optimal. \textit{Marker} yang digunakan adalah AprilTag keluarga Tag36h11 berukuran $8 \times 8$ cm, ditempelkan pada robot dan barang di area gudang karena keseimbangan terbaiknya antara keterbacaan jarak jauh dan ketahanan terhadap oklusi parsial.
@@ -367,7 +367,7 @@ Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 108
     \endfoot
     1 & \texttt{local\_rtsp.py} & Script standalone untuk uji koneksi RTSP kamera \& deteksi AprilTag secara lokal (di luar package \texttt{tracker}). \\
     \hline
-    2 & \texttt{main.py} & Entry point utama aplikasi - inisialisasi detector lalu menjalankan mode video atau stream. \\
+    2 & \texttt{main.py} & Entry point utama aplikasi---inisialisasi detector lalu menjalankan mode video atau stream. \\
     \hline
     3 & \texttt{register\_tags.py} & Script one-time untuk mendaftarkan AprilTag baru ke goods-service \& blob-service via API. \\
     \hline
@@ -375,7 +375,7 @@ Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 108
     \hline
     5 & \texttt{tracker/\allowbreak \_\_init\_\_.py} & Inisialisasi package \texttt{tracker}, mengekspos fungsi-fungsi dari seluruh modul. \\
     \hline
-    6 & \texttt{tracker/\allowbreak capture.py} & Penanganan capture video - threaded reader, koneksi RTSP, inisialisasi sumber kamera/detector. \\
+    6 & \texttt{tracker/\allowbreak capture.py} & Penanganan capture video---threaded reader, koneksi RTSP, inisialisasi sumber kamera/detector. \\
     \hline
     7 & \texttt{tracker/\allowbreak config.py} & Konstanta konfigurasi sistem (URL RTSP, resolusi, FPS, brightness, grid, dll). \\
     \hline
@@ -385,15 +385,15 @@ Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 108
     \hline
     10 & \texttt{tracker/\allowbreak grid.py} & Membangun, menggambar, dan mencatat matriks occupancy grid platform (robot/goods/docking). \\
     \hline
-    11 & \texttt{tracker/\allowbreak modes.py} & Mode eksekusi utama - playback video file dan live stream (RTSP/USB). \\
+    11 & \texttt{tracker/\allowbreak modes.py} & Mode eksekusi utama---playback video file dan live stream (RTSP/USB). \\
     \hline
     12 & \texttt{tracker/\allowbreak mqtt.py} & Klien MQTT untuk konek ke broker dan publish state grid/entitas dalam format JSON. \\
     \hline
-    13 & \texttt{tracker/\allowbreak overlay.py} & Visualisasi overlay - quad lapangan, label tag, HUD, dan logging terminal. \\
+    13 & \texttt{tracker/\allowbreak overlay.py} & Visualisasi overlay---quad lapangan, label tag, HUD, dan logging terminal. \\
     \hline
     14 & \texttt{tracker/\allowbreak processing.py} & Pemrosesan frame, manajemen state, dan handler keypress terpusat. \\
     \hline
-    15 & \texttt{tracker/\allowbreak tags.py} & Utilitas AprilTag - klasifikasi jenis tag, warna, dan orientasi. \\
+    15 & \texttt{tracker/\allowbreak tags.py} & Utilitas AprilTag---klasifikasi jenis tag, warna, dan orientasi. \\
     \hline
     16 & \texttt{tracker/\allowbreak transformer.py} & Kelas \texttt{WarehouseCoordinateTransformer} untuk transformasi koordinat kamera ke koordinat gudang menggunakan kalibrasi. \\
     \hline

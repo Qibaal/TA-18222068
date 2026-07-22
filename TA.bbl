@@ -440,10 +440,10 @@
     \endentry
     \entry{vangeest2021}{article}{}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=31c38820dfbf5d5e3dde70752ace725d}{%
+        {{un=0,uniquepart=base,hash=c214ca2d6029bc72a03c3813d7f3b092}{%
            family={Geest},
            familyi={G\bibinitperiod},
-           given={Marijn},
+           given={Maarten},
            giveni={M\bibinitperiod},
            givenun=0,
            prefix={van},
@@ -463,30 +463,35 @@
            givenun=0}}%
       }
       \list{location}{1}{%
-        {Amsterdam}%
+        {Basel}%
       }
       \list{publisher}{1}{%
-        {Elsevier}%
+        {MDPI}%
       }
-      \strng{namehash}{cbace2b731e514183322ab76db5b5d62}
-      \strng{fullhash}{cbace2b731e514183322ab76db5b5d62}
-      \strng{fullhashraw}{cbace2b731e514183322ab76db5b5d62}
-      \strng{bibnamehash}{cbace2b731e514183322ab76db5b5d62}
-      \strng{authorbibnamehash}{cbace2b731e514183322ab76db5b5d62}
-      \strng{authornamehash}{cbace2b731e514183322ab76db5b5d62}
-      \strng{authorfullhash}{cbace2b731e514183322ab76db5b5d62}
-      \strng{authorfullhashraw}{cbace2b731e514183322ab76db5b5d62}
+      \strng{namehash}{5f2a9d456ac49b3c8d32c777d7e0513c}
+      \strng{fullhash}{5f2a9d456ac49b3c8d32c777d7e0513c}
+      \strng{fullhashraw}{5f2a9d456ac49b3c8d32c777d7e0513c}
+      \strng{bibnamehash}{5f2a9d456ac49b3c8d32c777d7e0513c}
+      \strng{authorbibnamehash}{5f2a9d456ac49b3c8d32c777d7e0513c}
+      \strng{authornamehash}{5f2a9d456ac49b3c8d32c777d7e0513c}
+      \strng{authorfullhash}{5f2a9d456ac49b3c8d32c777d7e0513c}
+      \strng{authorfullhashraw}{5f2a9d456ac49b3c8d32c777d7e0513c}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{author}
-      \field{journaltitle}{Computers in Industry}
-      \field{note}{Art. no. 103523}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{1}
       \field{title}{Smart Warehouses: Rationale, Challenges, and Solution Directions}
-      \field{volume}{132}
-      \field{year}{2021}
+      \field{volume}{12}
+      \field{year}{2022}
+      \field{pages}{219}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/app12010219
+      \endverb
     \endentry
     \entry{gu2007}{article}{}{}
       \name{author}{3}{}{%
@@ -1000,7 +1005,11 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Warehouse Picking Accuracy: Benchmarks and Best Practices}
+      \field{urlday}{25}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
       \field{year}{2024}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.netsuite.com/portal/resource/articles/inventory-management/warehouse-picking-accuracy.shtml
       \endverb
@@ -1202,8 +1211,18 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Smart Warehousing Market Size, Share, and Trends 2025--2033}
+      \field{title}{Smart Warehouse Market Size and Forecast 2025 to 2034}
+      \field{urlday}{21}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
       \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.precedenceresearch.com/smart-warehouse-market
+      \endverb
+      \verb{url}
+      \verb https://www.precedenceresearch.com/smart-warehouse-market
+      \endverb
     \endentry
     \entry{rabbitmq2023}{online}{}{}
       \name{author}{1}{}{%
@@ -1229,7 +1248,11 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{{RabbitMQ} Documentation: {AMQP} 0-9-1 Model Explained}
+      \field{urlday}{22}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
       \field{year}{2023}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.rabbitmq.com/tutorials/amqp-concepts.html
       \endverb
@@ -1300,8 +1323,18 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Fast Moving Consumer Goods {(FMCG)} Global Market Report 2025}
+      \field{title}{Fast-Moving Consumer Goods {(FMCG)} Market -- Global Strategic Business Report}
+      \field{urlday}{28}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
       \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.researchandmarkets.com/reports/6095171/fast-moving-consumer-goods-fmcg-market
+      \endverb
+      \verb{url}
+      \verb https://www.researchandmarkets.com/reports/6095171/fast-moving-consumer-goods-fmcg-market
+      \endverb
     \endentry
     \entry{richardson2018}{book}{}{}
       \name{author}{1}{}{%
@@ -1337,11 +1370,11 @@
     \endentry
     \entry{romero2020}{article}{}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=af2e2410abad82f9294f2c44ad63fc22}{%
+        {{un=0,uniquepart=base,hash=ac4218ca75303b34e9d7b80faec0cae6}{%
            family={Romero},
            familyi={R\bibinitperiod},
-           given={David},
-           giveni={D\bibinitperiod},
+           given={Marcelo},
+           giveni={M\bibinitperiod},
            givenun=0}}%
         {{un=0,uniquepart=base,hash=2df72874c3a452dcfe14de2f3cd213ef}{%
            family={Guedria},
@@ -1362,17 +1395,20 @@
            giveni={B\bibinitperiod},
            givenun=0}}%
       }
+      \list{location}{1}{%
+        {Amsterdam}%
+      }
       \list{publisher}{1}{%
         {Elsevier}%
       }
-      \strng{namehash}{3c51aded25f2d8bd6421f6f498afddd7}
-      \strng{fullhash}{0cd433663ff8266a2389856bd45ead86}
-      \strng{fullhashraw}{0cd433663ff8266a2389856bd45ead86}
-      \strng{bibnamehash}{0cd433663ff8266a2389856bd45ead86}
-      \strng{authorbibnamehash}{0cd433663ff8266a2389856bd45ead86}
-      \strng{authornamehash}{3c51aded25f2d8bd6421f6f498afddd7}
-      \strng{authorfullhash}{0cd433663ff8266a2389856bd45ead86}
-      \strng{authorfullhashraw}{0cd433663ff8266a2389856bd45ead86}
+      \strng{namehash}{c90e0582e7a51fa533475d9fa207b1f9}
+      \strng{fullhash}{08c652946620b7a400eee8edd5375a15}
+      \strng{fullhashraw}{08c652946620b7a400eee8edd5375a15}
+      \strng{bibnamehash}{08c652946620b7a400eee8edd5375a15}
+      \strng{authorbibnamehash}{08c652946620b7a400eee8edd5375a15}
+      \strng{authornamehash}{c90e0582e7a51fa533475d9fa207b1f9}
+      \strng{authorfullhash}{08c652946620b7a400eee8edd5375a15}
+      \strng{authorfullhashraw}{08c652946620b7a400eee8edd5375a15}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
@@ -1381,7 +1417,13 @@
       \field{labeltitlesource}{author}
       \field{journaltitle}{Computers in Industry}
       \field{title}{Towards a Characterisation of Smart Systems: A Systematic Literature Review}
+      \field{volume}{120}
       \field{year}{2020}
+      \field{pages}{103224}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.compind.2020.103224
+      \endverb
     \endentry
     \entry{rouwenhorst2000}{article}{}{}
       \name{author}{6}{}{%
@@ -1604,7 +1646,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{undip2019}
 \endrefsection
 \endinput
 

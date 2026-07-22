@@ -6,7 +6,7 @@
 Sebelum mendefinisikan kebutuhan dan solusi pengembangan \textit{Warehouse Management Controller} (WMC), perlu dipahami terlebih dahulu kondisi operasional pergudangan PT Paragon Technology and Innovation saat ini beserta permasalahan yang melekat di dalamnya. Analisis kondisi saat ini dilakukan dengan menggali informasi langsung melalui wawancara dengan pihak Paragon Corp, menelaah proses bisnis \textit{warehouse} eksisting, serta mengidentifikasi kesenjangan (\textit{gap}) antara kondisi tersebut dengan target \textit{Smart Warehouse}.
 
 \subsection{Profil Operasional Gudang Berdasarkan Hasil Wawancara}
-Guna memperoleh gambaran kondisi operasional yang akurat, kelompok TA252601001 melaksanakan wawancara daring dengan Bapak Falih Muhtadi, \textit{Staff Logistics and Business Integration Systems} PT Paragon Technology and Innovation (Paragon Corp), pada 16 Oktober 2025. Paragon Corp diketahui memiliki tiga jenis gudang yang terpisah, yaitu gudang bahan baku, gudang kemasan (\textit{packaging warehouse}), dan gudang barang jadi (\textit{Finished Goods}). Tugas akhir ini berfokus pada gudang barang jadi karena posisinya yang bersinggungan langsung dengan proses distribusi produk ke konsumen akhir. Sistem kerja inventori Paragon Corp sendiri menerapkan pendekatan \textit{pull system}, di mana pergerakan dan pemrosesan barang baru berjalan ketika ada permintaan aktual yang masuk, bukan berdasarkan prakiraan internal. Alur kerja gudang mengikuti empat tahapan utama mulai dari \textit{incoming}, \textit{stocking}, \textit{picking} dan \textit{checking}, hingga \textit{dispatching} menuju \textit{Distribution Center}. Pendekatan ini memang menekan risiko \textit{overstock}, namun juga menuntut kecepatan respons sistem yang tinggi agar tidak menimbulkan \textit{bottleneck} pada tahap distribusi. Dari sisi teknologi, gudang Paragon saat ini mengandalkan ERP Odoo dan \textit{Warehouse Management System} (WMS) untuk pencatatan dan pelacakan barang, tetapi kedua sistem tersebut masih bersifat semi-manual dan membutuhkan input operator secara berkala, sehingga integrasi \textit{real-time} antar platform belum terwujud dan \textit{mismatch} antara kondisi fisik di lapangan dengan catatan digital kerap terjadi.
+Guna memperoleh gambaran kondisi operasional yang akurat, kelompok TA252601001 melaksanakan wawancara daring dengan Bapak Falih Muhtadi, \textit{Staff Logistics and Business Integration Systems} PT Paragon Technology and Innovation (Paragon Corp), pada 16 Oktober 2025. Paragon Corp diketahui memiliki tiga jenis gudang yang terpisah, yaitu gudang bahan baku, gudang kemasan (\textit{packaging warehouse}), dan gudang barang jadi (\textit{Finished Goods}). Tugas akhir ini berfokus pada gudang barang jadi karena posisinya yang bersinggungan langsung dengan proses distribusi produk ke konsumen akhir. Sistem kerja inventori Paragon Corp sendiri menerapkan pendekatan \textit{pull system}, di mana pergerakan dan pemrosesan barang baru berjalan ketika ada permintaan aktual yang masuk, bukan berdasarkan prakiraan internal. Alur kerja gudang mengikuti empat tahapan utama mulai dari \textit{incoming}, \textit{stocking}, \textit{picking} dan \textit{checking}, hingga \textit{dispatching} menuju \textit{Distribution Center}. Pendekatan ini memang menekan risiko \textit{overstock}, namun juga menuntut kecepatan respons sistem yang tinggi agar tidak menimbulkan \textit{bottleneck} pada tahap distribusi. Dari sisi teknologi, gudang Paragon saat ini mengandalkan ERP Odoo dan \textit{Warehouse Management System} (WMS) untuk pencatatan dan pelacakan barang, tetapi kedua sistem tersebut masih bersifat semimanual dan membutuhkan input operator secara berkala, sehingga integrasi \textit{real-time} antar platform belum terwujud dan \textit{mismatch} antara kondisi fisik di lapangan dengan catatan digital kerap terjadi.
 
 Paragon Corp saat ini tengah bertransisi menuju sistem SAP untuk memperbaiki integrasi antar platform tersebut, sebuah kebutuhan yang semakin mendesak mengingat perusahaan mengelola lebih dari 40 \textit{Distribution Center} di Indonesia dan Malaysia dengan volume produk dan variasi SKU kosmetik yang sangat beragam. Wawancara ini juga mengonfirmasi sejumlah persoalan mendasar pada gudang barang jadi. Data stok belum bersifat \textit{real-time} karena WMS belum terhubung langsung dengan sistem pusat, proses \textit{inbound} berjalan lambat dengan perhitungan yang kurang presisi akibat masih mengandalkan cara manual, dan proses \textit{picking} pun masih bergantung pada operator sehingga rawan \textit{human error} terutama dalam menghitung jumlah barang. Bapak Falih turut menyoroti masalah \textit{mistracking} yang muncul akibat area penempatan sementara yang tidak tercatat dalam sistem, sekaligus melihat adanya peluang besar untuk mengotomasi proses \textit{inbound}, khususnya pada tahap pemindahan barang dari truk ke \textit{pallet changer}.
 
@@ -90,15 +90,7 @@ Analisis kebutuhan bertujuan untuk mengidentifikasi secara sistematis dan menjab
 
 \subsection{Tujuan Proyek}
 \label{sec:tujuan-proyek}
-Berdasarkan kebutuhan yang telah dirumuskan, tujuan atau \textit{objectives} dari proyek ini adalah untuk mengembangkan sebuah sistem \textit{Warehouse} yang mampu menjawab Rumusan Masalah berikut.
-
-\begin{itemize}[leftmargin=*,nosep]
-  \item \textbf{[OB01]} Menjamin konsistensi data stok antara kondisi fisik dan catatan digital secara otomatis dan \textit{integrated}, sehingga seluruh informasi inventori dapat diandalkan sebagai dasar pengambilan keputusan dan tidak terjadi selisih antara sistem dan kenyataan di lapangan.
-  \item \textbf{[OB02]} Melakukan pelacakan dan pencatatan operasi gudang secara menyeluruh, mencakup proses penerimaan, penyimpanan, hingga distribusi barang, agar setiap pergerakan dapat ditelusuri dengan jelas dan terdokumentasi dengan baik.
-  \item \textbf{[OB03]} Melaksanakan perpindahan barang yang dibutuhkan secara otomatis, mencakup pada proses \textit{stocking} (\textit{inbound}) dan \textit{picking} (\textit{outbound}). Sistem harus dapat melakukan perpindahan secara presisi dan dalam batas waktu pemenuhan \textit{order}.
-\end{itemize}
-
-Ketiga tujuan proyek tersebut dirancang untuk menjawab setiap poin rumusan masalah yang telah disusun sebelumnya. Hubungan antara rumusan masalah dan tujuan proyek dapat dilihat melalui pemetaan berikut.
+Berdasarkan kebutuhan yang telah dirumuskan, tujuan atau \textit{objectives} dari proyek ini adalah untuk mengembangkan sebuah sistem \textit{Warehouse} yang mampu menjawab Rumusan Masalah berikut. Tabel \ref{tab:pemetaan-rumusan-tujuan} memetakan setiap kode rumusan masalah terhadap kode tujuan proyek yang bersesuaian.
 
 \begin{xltabular}{\textwidth}{ | l | l | X | }
   \caption{Pemetaan Rumusan Masalah dengan Tujuan Proyek} \label{tab:pemetaan-rumusan-tujuan} \\
@@ -120,6 +112,8 @@ Ketiga tujuan proyek tersebut dirancang untuk menjawab setiap poin rumusan masal
   PM03 & OB03 & Melaksanakan perpindahan barang yang dibutuhkan secara otomatis, mencakup pada proses \textit{stocking} (\textit{inbound}) dan \textit{picking} (\textit{outbound}). Sistem harus dapat melakukan perpindahan secara presisi dan dalam batas waktu pemenuhan \textit{order}. \\
   \hline
 \end{xltabular}
+
+Ketiga tujuan proyek tersebut dirancang untuk menjawab setiap poin rumusan masalah yang telah disusun sebelumnya. Pemetaan ini menjadi acuan dalam penurunan karakteristik produk pada Subbab \ref{sec:karakteristik-produk} berikutnya.
 
 \subsection{Karakteristik Produk}
 \label{sec:karakteristik-produk}
@@ -185,7 +179,7 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
 
 % - KF-01 -
 \begin{xltabular}{\textwidth}{ | l | X | }
-  \caption{KF-01 - Autentikasi dan Otorisasi Akses} \label{tab:kf01} \\
+  \caption{KF-01---Autentikasi dan Otorisasi Akses} \label{tab:kf01} \\
   \hline
   \textbf{Aspek} & \textbf{Deskripsi} \\
   \hline
@@ -215,7 +209,7 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
 
 % - KF-02 -
 \begin{xltabular}{\textwidth}{ | l | X | }
-  \caption{KF-02 - Pengelolaan Informasi Barang} \label{tab:kf02} \\
+  \caption{KF-02---Pengelolaan Informasi Barang} \label{tab:kf02} \\
   \hline
   \textbf{Aspek} & \textbf{Deskripsi} \\
   \hline
@@ -245,7 +239,7 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
 
 % - KF-03 -
 \begin{xltabular}{\textwidth}{ | l | X | }
-  \caption{KF-03 - Manajemen \textit{Order Stocking} dan \textit{Picking}} \label{tab:kf03} \\
+  \caption{KF-03---Manajemen \textit{Order Stocking} dan \textit{Picking}} \label{tab:kf03} \\
   \hline
   \textbf{Aspek} & \textbf{Deskripsi} \\
   \hline
@@ -275,7 +269,7 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
 
 % - KF-04 -
 \begin{xltabular}{\textwidth}{ | l | X | }
-  \caption{KF-04 - Lokalisasi Objek} \label{tab:kf04} \\
+  \caption{KF-04---Lokalisasi Objek} \label{tab:kf04} \\
   \hline
   \textbf{Aspek} & \textbf{Deskripsi} \\
   \hline
@@ -305,7 +299,7 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
 
 % - KF-05 -
 \begin{xltabular}{\textwidth}{ | l | X | }
-  \caption{KF-05 - Pemantauan Armada Robot} \label{tab:kf05} \\
+  \caption{KF-05---Pemantauan Armada Robot} \label{tab:kf05} \\
   \hline
   \textbf{Aspek} & \textbf{Deskripsi} \\
   \hline
@@ -363,7 +357,7 @@ Kebutuhan nonfungsional mendefinisikan batasan kualitas dan performa yang harus 
 \end{longtable}
 
 \section{Analisis Pemilihan Solusi}
-Berdasarkan identifikasi masalah dan kebutuhan yang telah dirumuskan pada sub-bab sebelumnya, tahap berikutnya adalah menganalisis dan menentukan solusi arsitektur yang paling sesuai untuk diimplementasikan sebagai \textit{Warehouse Management Controller} (WMC) beserta Subsistem Lokalisasi. Subbab ini disusun dalam tiga tahap, yaitu identifikasi alternatif solusi (Subbab \ref{sec:usulan-solusi}), analisis dan evaluasi alternatif menggunakan metode \textit{Analytical Hierarchy Process} (AHP) (Subbab \ref{sec:analisis-usulan-solusi}), serta penetapan solusi terpilih (Subbab \ref{sec:solusi-terpilih}). Kedua keputusan yang dibahas, yaitu pemilihan solusi manajemen data inventori WMC dan pemilihan solusi teknis Subsistem Lokalisasi, dievaluasi dengan kedalaman dan tahapan AHP yang setara.
+Berdasarkan identifikasi masalah dan kebutuhan yang telah dirumuskan pada subbab sebelumnya, tahap berikutnya adalah menganalisis dan menentukan solusi arsitektur yang paling sesuai untuk diimplementasikan sebagai \textit{Warehouse Management Controller} (WMC) beserta Subsistem Lokalisasi. Subbab ini disusun dalam tiga tahap, yaitu identifikasi alternatif solusi (Subbab \ref{sec:usulan-solusi}), analisis dan evaluasi alternatif menggunakan metode \textit{Analytical Hierarchy Process} (AHP) (Subbab \ref{sec:analisis-usulan-solusi}), serta penetapan solusi terpilih (Subbab \ref{sec:solusi-terpilih}). Kedua keputusan yang dibahas, yaitu pemilihan solusi manajemen data inventori WMC dan pemilihan solusi teknis Subsistem Lokalisasi, dievaluasi dengan kedalaman dan tahapan AHP yang setara.
 
 \subsection{Usulan Solusi}
 \label{sec:usulan-solusi}
@@ -513,9 +507,9 @@ Setelah kriteria dan bobotnya ditetapkan, rubrik penilaian disusun untuk memberi
   \endhead
   \hline
   \endfoot
-  1 & Reliability & Sistem sering gagal berfungsi ($>$10\% \textit{downtime} per minggu). & Sistem mengalami gangguan berulang (5-10\% \textit{downtime}). & Sistem cukup andal dengan \textit{downtime} sedang (2-5\% \textit{downtime}). & Sistem stabil dengan \textit{downtime} sangat jarang ($<$2\% \textit{downtime}). & Sistem sangat andal, \textit{uptime} $>$99,9\%, mampu beroperasi terus-menerus tanpa gangguan. \\
+  1 & Reliability & Sistem sering gagal berfungsi ($>$10\% \textit{downtime} per minggu). & Sistem mengalami gangguan berulang (5---10\% \textit{downtime}). & Sistem cukup andal dengan \textit{downtime} sedang (2---5\% \textit{downtime}). & Sistem stabil dengan \textit{downtime} sangat jarang ($<$2\% \textit{downtime}). & Sistem sangat andal, \textit{uptime} $>$99,9\%, mampu beroperasi terus-menerus tanpa gangguan. \\
   \hline
-  2 & Scalability & Sistem tidak mampu menangani peningkatan beban, performa turun $>$50\% saat beban naik. & Sistem dapat diskalakan terbatas (penurunan performa 30-50\%). & Sistem masih responsif dengan penurunan performa moderat (10-30\%). & Sistem tetap stabil dengan performa menurun $<$10\% saat beban naik. & Sistem sangat fleksibel dan mampu menangani peningkatan beban 100\% tanpa penurunan performa signifikan ($<$5\%). \\
+  2 & Scalability & Sistem tidak mampu menangani peningkatan beban, performa turun $>$50\% saat beban naik. & Sistem dapat diskalakan terbatas (penurunan performa 30---50\%). & Sistem masih responsif dengan penurunan performa moderat (10---30\%). & Sistem tetap stabil dengan performa menurun $<$10\% saat beban naik. & Sistem sangat fleksibel dan mampu menangani peningkatan beban 100\% tanpa penurunan performa signifikan ($<$5\%). \\
   \hline
   3 & Cost of Production & Biaya produksi sangat tinggi. & Biaya melebihi anggaran dan sulit ditekan. & Biaya masih dalam batas wajar namun belum optimal. & Biaya minimal dan sesuai dengan target anggaran. & Biaya sangat minimal dan memberikan rasio biaya-manfaat terbaik. \\
   \hline
@@ -625,7 +619,7 @@ Keunggulan utama \textit{Event-Driven} terletak pada aspek \textit{Reliability} 
 
 \subsubsection{Penilaian Solusi Lokalisasi}
 \label{sec:penilaian-lokalisasi}
-Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alternatif solusi lokalisasi dievaluasi dengan memberikan nilai pada skala 1-5 untuk masing-masing kriteria sesuai karakteristik teknisnya, menggunakan kriteria dan bobot yang sama dengan pemilihan solusi manajemen data inventori pada Tabel \ref{tab:kriteria-penjelasan}-\ref{tab:nilai-bobot-kriteria}. Nilai tersebut dikalikan dengan bobot kriteria hasil perhitungan AHP pada Tabel \ref{tab:nilai-bobot-kriteria} untuk memperoleh skor total tiap alternatif. Tabel \ref{tab:rekap-ahp-lokalisasi} merangkum skor total tiap alternatif tersebut.
+Berdasarkan rubrik penilaian pada Tabel \ref{tab:rubrik-penilaian}, setiap alternatif solusi lokalisasi dievaluasi dengan memberikan nilai pada skala 1---5 untuk masing-masing kriteria sesuai karakteristik teknisnya, menggunakan kriteria dan bobot yang sama dengan pemilihan solusi manajemen data inventori pada Tabel \ref{tab:kriteria-penjelasan}-\ref{tab:nilai-bobot-kriteria}. Nilai tersebut dikalikan dengan bobot kriteria hasil perhitungan AHP pada Tabel \ref{tab:nilai-bobot-kriteria} untuk memperoleh skor total tiap alternatif. Tabel \ref{tab:rekap-ahp-lokalisasi} merangkum skor total tiap alternatif tersebut.
 
 \begin{xltabular}{\textwidth}{ | X | c | c | c | c | c | }
   \caption{Rekapitulasi Penilaian AHP Solusi Lokalisasi} \label{tab:rekap-ahp-lokalisasi} \\
