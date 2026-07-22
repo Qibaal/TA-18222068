@@ -340,7 +340,7 @@ Implementasi sistem WMC dilakukan ke dalam tiga \textit{service} utama, yaitu \t
 Subbab ini menjabarkan detail implementasi Subsistem Lokalisasi yang berjalan sebagai komponen dalam \textit{Fleet Controller}, mencakup implementasi perangkat keras serta implementasi perangkat lunak. Pembahasan perangkat keras meliputi komponen fisik yang digunakan, sedangkan pembahasan perangkat lunak meliputi struktur \textit{pipeline} deteksi dan berkas kode sumber terkait.
 
 \subsection{Implementasi Hardware}
-Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 1080p (H.264, RTSP \textit{over} TCP) yang dipasang setinggi 60 cm di atas area lantai gudang $2,4 \times 1,2$ m, dilengkapi pencahayaan LED tambahan agar kontras \textit{marker} AprilTag tetap optimal. \textit{Marker} yang digunakan adalah AprilTag keluarga Tag36h11 berukuran $8 \times 8$ cm, ditempelkan pada robot dan barang di area gudang karena keseimbangan terbaiknya antara keterbacaan jarak jauh dan ketahanan terhadap oklusi parsial.
+Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 1080p (H.264, RTSP \textit{over} TCP) yang dipasang setinggi 60 cm di atas area lantai gudang $2,4 \times 1,2$ m, dilengkapi pencahayaan LED tambahan agar kontras \textit{marker} AprilTag tetap optimal. \textit{Marker} yang digunakan adalah AprilTag keluarga Tag36h11 berukuran $8 \times 8$ cm, ditempelkan pada robot dan barang di area gudang karena keseimbangan terbaiknya antara keterbacaan jarak jauh dan ketahanan terhadap oklusi parsial. Gambar \ref{fig:localization-hardware} menunjukkan perangkat keras Subsistem Lokalisasi yang telah dipasang.
 
 \begin{figure}[H]
   \centering
@@ -410,7 +410,7 @@ Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 108
   \label{fig:localization-software}
 \end{figure}
 
-Kalibrasi \textit{homography} dilakukan satu kali saat \textit{setup} dengan menempatkan empat \textit{marker} referensi di sudut-sudut area lantai gudang yang diketahui posisi \textit{grid}-nya. Setelah kalibrasi selesai, parameter disimpan dan dimuat secara otomatis setiap kali Subsistem Lokalisasi dijalankan ulang.
+Gambar \ref{fig:localization-software} menunjukkan antarmuka visualisasi Subsistem Lokalisasi yang menampilkan hasil deteksi \textit{marker} beserta \textit{overlay grid} area gudang secara \textit{real-time}. Kalibrasi \textit{homography} dilakukan satu kali saat \textit{setup} dengan menempatkan empat \textit{marker} referensi di sudut-sudut area lantai gudang yang diketahui posisi \textit{grid}-nya. Setelah kalibrasi selesai, parameter disimpan dan dimuat secara otomatis setiap kali Subsistem Lokalisasi dijalankan ulang.
 
 \subsubsection{Implementasi Publikasi MQTT}
 Pada tahap keenam \textit{pipeline}, seluruh hasil deteksi \textit{frame} dikodekan sebagai \textit{payload} JSON yang merepresentasikan \textit{state} penuh dan diterbitkan setiap 500 ms ke \textit{topic location} pada RabbitMQ \textit{broker}. Publikasi berkala ini memungkinkan komponen lain pada sistem, seperti WMC dan \textit{Fleet Controller}, untuk memperoleh data posisi terbaru secara \textit{real-time} tanpa perlu melakukan \textit{polling} langsung ke Subsistem Lokalisasi. Gambar \ref{fig:localization-mqtt} menunjukkan hasil publikasi data posisi yang diterima pada \textit{topic} MQTT tersebut.

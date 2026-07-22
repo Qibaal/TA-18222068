@@ -187,23 +187,23 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
   \hline
   \endfoot
   Input &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Kredensial pengguna berupa \textit{username} dan \textit{password}.
     \item \textit{Bearer Token} yang disertakan pada setiap permintaan akses layanan.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
   Operasi &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Memvalidasi kredensial terhadap data pengguna terdaftar.
     \item Menerbitkan \textit{Bearer Token} sebagai kredensial sesi aktif.
     \item Memverifikasi token pada setiap akses \textit{endpoint} layanan dan mengakhiri sesi saat \textit{logout}.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
   Output &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item \textit{Bearer Token} untuk sesi terautentikasi.
     \item Status keberhasilan atau penolakan akses terhadap fungsi sistem.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
 \end{xltabular}
 
@@ -217,23 +217,23 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
   \hline
   \endfoot
   Input &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Permintaan data barang (daftar maupun detail) dari pengguna atau layanan lain.
     \item Identitas barang (SKU/ID) serta data slot dan lokasi penyimpanan pada \textit{grid} gudang.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
   Operasi &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Mengambil dan menyajikan daftar barang beserta atribut ringkas (nama, SKU, kategori, jumlah stok).
     \item Menyediakan informasi detail barang (dimensi, berat, kondisi stok terkini).
     \item Memetakan lokasi fisik barang ke koordinat \textit{grid} dan memperbarui data stok saat terjadi perubahan.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
   Output &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Data daftar dan detail barang yang konsisten.
     \item Informasi lokasi fisik barang pada \textit{grid} gudang.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
 \end{xltabular}
 
@@ -247,23 +247,23 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
   \hline
   \endfoot
   Input &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Permintaan pembuatan \textit{order} (jenis \textit{stocking}/\textit{picking}, barang, lokasi sumber dan tujuan).
     \item \textit{Event} hasil eksekusi tugas dari \textit{Fleet Controller}.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
   Operasi &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Memvalidasi dan mencatat \textit{order} beserta reservasi stok terkait.
     \item Meneruskan instruksi pemindahan barang ke \textit{Fleet Controller}.
     \item Memperbarui status \textit{order} berdasarkan \textit{event} (\textit{Pending}, \textit{In Progress}, \textit{Completed}, \textit{Failed}).
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
   Output &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Konfirmasi \textit{order} yang berhasil dibuat.
     \item Daftar dan status \textit{order} terkini secara \textit{real-time} beserta riwayat untuk audit.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
 \end{xltabular}
 
@@ -277,23 +277,23 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
   \hline
   \endfoot
   Input &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Aliran citra dari kamera \textit{overhead} melalui protokol RTSP.
     \item Parameter kalibrasi kamera dan \textit{homography} serta definisi \textit{layout grid} gudang.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
   Operasi &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Mendeteksi dan mengidentifikasi objek (robot, rak, \textit{docking station}) melalui \textit{marker fiducial}.
     \item Memetakan posisi objek ke sel \textit{grid} diskrit dan menentukan orientasi (\textit{heading}).
     \item Mempublikasikan status posisi secara berkala melalui \textit{topic} MQTT.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
   Output &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Koordinat \textit{grid} dan orientasi setiap objek terdeteksi.
     \item Status posisi terkini yang dikonsumsi oleh \textit{Fleet Controller} dan \textit{Fleet Order Service}.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
 \end{xltabular}
 
@@ -307,23 +307,23 @@ Kebutuhan fungsional mendefinisikan kapabilitas layanan yang harus disediakan ol
   \hline
   \endfoot
   Input &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item \textit{Telemetry} posisi dan status robot (posisi, baterai, status tugas).
     \item Data antrean dan progres \textit{task} dari pusat kendali.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
   Operasi &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Menerima dan memproses status robot secara \textit{real-time} melalui protokol komunikasi IoT.
     \item Mengklasifikasikan status robot (\textit{active}, \textit{idle}, \textit{error}) dan mengaitkan progres \textit{task} dengan \textit{order} terkait.
     \item Menghasilkan notifikasi apabila terjadi kondisi abnormal.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
   Output &
-  \begin{itemize}[leftmargin=*,nosep]
+  \begin{enumerate}[leftmargin=*,nosep]
     \item Data posisi dan status operasional armada robot secara \textit{real-time}.
     \item Status dan progres \textit{task} beserta notifikasi anomali.
-  \end{itemize} \\
+  \end{enumerate} \\
   \hline
 \end{xltabular}
 

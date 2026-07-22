@@ -17,11 +17,11 @@ Sebelum mengembangkan sistem \textit{Smart Warehouse}, dilakukan analisis kesenj
 
 Untuk menyelesaikan berbagai celah operasional tersebut, diusulkan kondisi \textit{To-Be} berupa sistem \textit{Smart Warehouse} yang sepenuhnya terotomasi melalui penerapan \textit{Warehouse Management Controller} (WMC) yang mengintegrasikan antarmuka pengguna berbasis \textit{web}, layanan manajemen pesanan, pengendalian armada robot, dan pembaruan inventori otomatis. Transformasi pada kondisi \textit{To-Be} dirancang dengan cakupan sebagai berikut:
 
-\begin{itemize}
+\begin{enumerate}
   \item \textbf{Integrasi Sistem \textit{Real-Time}}: Sistem inventori terintegrasi secara langsung antara \textit{warehouse} barang jadi dengan sistem pusat sehingga pencatatan data stok selalu tersinkronisasi dan aktual.
   \item \textbf{Deteksi dan Pelacakan Otomatis}: Proses pendataan, pelacakan lokasi, dan pemantauan pergerakan barang dilakukan secara otomatis dengan presisi tinggi untuk meminimalisasi \textit{human error}.
   \item \textbf{Otomasi Perpindahan Barang}: Menggantikan proses manual dengan sistem perpindahan barang otomatis menggunakan robot untuk seluruh tahapan operasional---baik \textit{storing} maupun \textit{picking}---guna menjamin kecepatan dan keakuratan pemenuhan pesanan.
-\end{itemize}
+\end{enumerate}
 
 Alur proses bisnis kondisi \textit{To-Be} secara keseluruhan digambarkan pada Gambar \ref{fig:bpmn-tobe}. Proses dimulai ketika staf gudang \textit{login} ke \textit{WMC Dashboard} melalui autentikasi berbasis \textit{Bearer Token} dari \textit{Authentication Service}, lalu membuat pesanan \textit{storing} atau \textit{picking} melalui antarmuka WMC. Khusus pesanan \textit{picking}, diperlukan persetujuan manajer gudang sebelum diproses sehingga setiap aktivitas pengambilan barang memiliki rekam jejak otorisasi yang terstruktur. Pesanan yang disetujui diterima \textit{Fleet Order Service} untuk divalidasi dan diteruskan ke \textit{Fleet Controller}, yang secara otomatis menentukan robot tersedia, mengalokasikan tugas, dan membangkitkan \textit{waypoint} rute tanpa intervensi manual.
 
@@ -373,6 +373,8 @@ Perangkat lokalisasi adalah rakitan kamera \textit{overhead} yang dipasang setin
   \label{fig:perangkat-lokalisasi}
 \end{figure}
 
+Gambar \ref{fig:perangkat-lokalisasi} menunjukkan rakitan perangkat lokalisasi yang telah dipasang, terdiri dari rangka penyangga, kamera IP \textit{fisheye}, dan pencahayaan LED tambahan sebagaimana diuraikan sebelumnya.
+
 \paragraph{Desain Pipeline Deteksi}
 Subsistem Lokalisasi didesain sebagai \textit{pipeline} pemrosesan \textit{frame} yang berjalan secara kontinu. Sebuah \textit{background thread} mengambil \textit{frame} terbaru dari \textit{stream} RTSP secara terus-menerus dan membuang \textit{frame} yang sudah basi, sementara \textit{detection loop} utama berjalan pada frekuensi 4 Hz. Setiap \textit{frame} diproses melalui enam tahap secara berurutan. Tabel \ref{tab:pipeline-lokalisasi} berikut merangkum keenam tahap tersebut.
 
@@ -414,6 +416,8 @@ Kebutuhan fungsional sistem mendefinisikan kapabilitas spesifik yang harus terse
   \caption{\textit{Use Case Diagram} Sistem \textit{Warehouse Management Controller}}
   \label{fig:use-case-diagram}
 \end{figure}
+
+Gambar \ref{fig:use-case-diagram} menyajikan \textit{use case diagram} sistem WMC yang memetakan sembilan \textit{use case} utama, yaitu UC-01 hingga UC-09, beserta aktor yang berinteraksi dengan masing-masing \textit{use case} tersebut.
 
 Skenario \textit{use case} mendeskripsikan interaksi antara pengguna dan sistem \textit{Warehouse Management Controller} (WMC) untuk setiap kebutuhan fungsional. Setiap skenario mencakup kondisi awal, kondisi akhir, langkah-langkah interaksi normal, serta skenario alternatif apabila terjadi kondisi di luar alur utama.
 
@@ -1857,12 +1861,16 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
   \label{fig:sd-summary-uc01}
 \end{figure}
 
+Gambar \ref{fig:sd-summary-uc01} menggambarkan urutan interaksi antarkelas pada UC-01: \textit{Login System}, mulai dari validasi kredensial pengguna hingga penerbitan \textit{Bearer Token} oleh \textit{Authentication Service}.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd02.png}
   \caption{\textit{Sequence Diagram} UC-02: \textit{Logout System}}
   \label{fig:sd-summary-uc02}
 \end{figure}
+
+Gambar \ref{fig:sd-summary-uc02} menggambarkan urutan interaksi antarkelas pada UC-02: \textit{Logout System}, yaitu proses pengakhiran sesi aktif pengguna oleh \textit{Authentication Service}.
 
 \begin{figure}[H]
   \centering
@@ -1871,12 +1879,16 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
   \label{fig:sd-summary-uc03}
 \end{figure}
 
+Gambar \ref{fig:sd-summary-uc03} menggambarkan urutan interaksi antarkelas pada UC-03: \textit{View Inventory List}, yaitu proses pengambilan dan penyajian daftar barang oleh \textit{Goods Detail Service}.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd04.png}
   \caption{\textit{Sequence Diagram} UC-04: \textit{View Goods Detail}}
   \label{fig:sd-summary-uc04}
 \end{figure}
+
+Gambar \ref{fig:sd-summary-uc04} menggambarkan urutan interaksi antarkelas pada UC-04: \textit{View Goods Detail}, yaitu proses pengambilan dan penyajian detail sebuah barang tertentu.
 
 \begin{figure}[H]
   \centering
@@ -1885,12 +1897,16 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
   \label{fig:sd-summary-uc05}
 \end{figure}
 
+Gambar \ref{fig:sd-summary-uc05} menggambarkan urutan interaksi antarkelas pada UC-05: \textit{View Order}, yaitu proses pengambilan dan penyajian daftar serta status \textit{order} kepada pengguna.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd06.png}
   \caption{\textit{Sequence Diagram} UC-06: \textit{View Robot \& Operation Status}}
   \label{fig:sd-summary-uc06}
 \end{figure}
+
+Gambar \ref{fig:sd-summary-uc06} menggambarkan urutan interaksi antarkelas pada UC-06: \textit{View Robot \& Operation Status}, yaitu proses penyajian status posisi dan operasional armada robot secara \textit{real-time}.
 
 \begin{figure}[H]
   \centering
@@ -1899,6 +1915,8 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
   \label{fig:sd-summary-uc07}
 \end{figure}
 
+Gambar \ref{fig:sd-summary-uc07} menggambarkan urutan interaksi antarkelas pada UC-07: \textit{Operate Digital Twin}, yaitu proses sinkronisasi representasi digital posisi robot dan barang dengan kondisi fisiknya.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd08.png}
@@ -1906,9 +1924,13 @@ Subbab ini menguraikan spesifikasi internal dari kelas-kelas utama yang telah di
   \label{fig:sd-summary-uc08}
 \end{figure}
 
+Gambar \ref{fig:sd-summary-uc08} menggambarkan urutan interaksi antarkelas pada UC-08: \textit{Create Order Request}, mulai dari pembuatan \textit{order} hingga penerusan instruksi pemindahan barang ke \textit{Fleet Controller}.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/bab_iv/Sequence_Diagram/sd09.png}
   \caption{\textit{Sequence Diagram} UC-09: \textit{View Item History}}
   \label{fig:sd-summary-uc09}
 \end{figure}
+
+Gambar \ref{fig:sd-summary-uc09} menggambarkan urutan interaksi antarkelas pada UC-09: \textit{View Item History}, yaitu proses pengambilan dan penyajian riwayat pergerakan sebuah barang.
