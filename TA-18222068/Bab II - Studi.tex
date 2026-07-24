@@ -1,232 +1,208 @@
 \cleardoublepage % memastikan bab baru dimulai di halaman ganjil (kanan)
 \chapter{STUDI LITERATUR}
 \label{chap:studi-literatur}
-\section{Tentang Studi Literatur}
-Studi literatur biasanya berisi tentang tinjauan pustaka, landasan teori, dan penelitian-penelitian terdahulu yang relevan dengan topik tugas akhir yang dikerjakan.
-Dalam subbab ini, penulis diharapkan dapat menjelaskan:
-\begin{enumerate}
-  \item Landasan teori yang diperoleh dari literatur yang akan digunakan untuk menyelesaikan persoalan TA;
-  \item Pengetahuan tentang kasus yang akan dikaji; dan
-  \item Penelitian atau solusi terkait untuk mengetahui posisi persoalan dan berbagai solusi yang memungkinkan untuk diterapkan berdasarkan hasil studi literatur ini.
-\end{enumerate}
-Jadi, studi literatur ini bukan sekadar rangkuman dari berbagai sumber referensi, tetapi harus diolah dan disajikan secara sistematis sehingga dapat memberikan gambaran yang jelas tentang landasan teori dan penelitian-penelitian terdahulu yang relevan dengan topik tugas akhir.
 
-Penulisan studi literatur yang baik dimulai dari penjelasan tentang kasus yang akan dikaji, kemudian diikuti dengan penjelasan tentang teori-teori yang relevan, dan diakhiri dengan tinjauan terhadap penelitian-penelitian terdahulu yang berkaitan dengan topik tugas akhir.
-Misalnya, jika topik tugas akhir adalah tentang masalah klasifikasi biji kopi berdasarkan citra kopi, 
-penulis dapat memulai dengan menjelaskan terlebih dahulu tentang karakteristik biji kopi, masalah dalam melakukan klasifikasi biji kopi, 
-kemudian menjelaskan tentang berbagai metode berbasis komputer yang dapat digunakan untuk mengklasifikasikan biji kopi berdasarkan citranya, 
-metode terbaik yang memungkinkan untuk diterapkan, teori-teori dasar tentang metode tersebut, dan diakhiri dengan tinjauan terhadap penelitian-penelitian terdahulu yang menggunakan metode untuk klasifikasi citra.
+\section{Industri FMCG dan Peran Gudang Barang Jadi}
+\label{sec:fmcg-warehouse}
 
-Dalam studi literatur, biasanya banyak penjelasan tentang teori-teori yang disertai dengan rumus atau persamaan matematika, gambar, tabel, algoritma, pseudocode, atau kode program.
-Oleh karena itu, pada subbab berikut akan dijelaskan beberapa hal teknis terkait format penulisan dokumen tugas akhir.
+Pada industri \textit{Fast Moving Consumer Goods}, atau FMCG, gudang penyimpanan berperan sebagai pusat kendali aliran barang dalam rantai pasok yang menuntut kecepatan, akurasi, dan integrasi sistem yang tinggi. Operasional gudang yang efektif harus mampu menangani volume barang yang besar, variasi \textit{Stock Keeping Unit}, atau SKU, yang luas, serta kecepatan distribusi yang tinggi guna memastikan ketersediaan produk di pasar. Dalam konteks ini, gudang bukan lagi sekadar tempat penyimpanan pasif, melainkan komponen strategis yang secara langsung menentukan kelancaran seluruh rantai distribusi. \textcite{framinan2025} menegaskan bahwa sistem pergudangan konvensional pada industri FMCG mengandung inefisiensi signifikan akibat keterbatasan otomasi dan sistem informasi yang belum terintegrasi sepenuhnya, yang pada akhirnya berdampak pada keterlambatan pengiriman dan ketidakakuratan data inventori.
 
-\section{Format Penulisan Gambar, Tabel, Rumus, dan Kode Program}
-Berikut adalah beberapa contoh penulisan gambar, tabel, rumus, dan kode program yang sesuai dengan format penulisan tugas akhir.
-\subsection{Penulisan Gambar}
-Contoh gambar dapat dilihat pada Gambar \ref{fig:jaringan} dan Gambar \ref{fig:jaringan2}.
-Secara vertikal, gambar biasanya diletakkan di bagian atas halaman (\textit{top}) atau di bagian bawah halaman (\textit{bottom}).
-Gambar tidak harus diletakkan tepat di tempat gambar tersebut disebutkan pertama kali dalam teks,
-tetapi dapat diletakkan di halaman berikutnya jika tidak muat di halaman yang sama. Pada contoh ini, kedua gambar diletakkan di bagian atas halaman 
-menggunakan opsi \texttt{[t]} pada lingkungan \texttt{figure}, namun pada halaman yang berbeda, meskipun disebutkan di halaman yang sama akibat ruang yang terbatas. 
+\section{Aktivitas Operasional Gudang Barang Jadi}
+\label{sec:operasional-gudang}
 
-Penyebutan judul gambar dalam teks menggunakan perintah \texttt{ref}, misalnya Gambar \texttt{\\ref\{fig:jaringan\}}.
-Gunakan huruf kapital pada kata "Gambar" saat menyebutkan gambar dalam teks.
+\subsection{Peran dan Karakteristik Gudang Barang Jadi}
 
-\begin{figure}[t] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-  \caption{Contoh peletakan gambar di bagian atas halaman} 
-	\label{fig:jaringan}
-    	\includegraphics[width=0.7\textwidth]{images/gambar1.png}
-\end{figure}
+Gudang menempati posisi sentral dalam rantai pasok sebagai simpul yang menyeimbangkan pasokan dan permintaan sekaligus menjamin ketersediaan produk. \textcite{rouwenhorst2000} menempatkan gudang bukan sebagai tempat penyimpanan pasif, melainkan sistem yang menjalankan sejumlah fungsi terpadu---penerimaan, penyimpanan, pengambilan pesanan, dan pengiriman---yang harus dirancang dan dikendalikan agar aliran barang berlangsung efisien. Dalam kerangka rantai distribusi, gudang barang jadi, atau \textit{Finished Goods}, menempati tahap paling akhir sebelum produk disalurkan kepada mitra ritel dan konsumen, sehingga kinerjanya menentukan kecepatan dan keandalan pemenuhan permintaan pasar.
 
-Gambar, grafik, atau ilustrasi harus memiliki keterangan atau judul (\textit{caption}) yang menjelaskan isi gambar tersebut. 
-Secara horisontal, gambar dan judulnya diposisikan di tengah. Nomor gambar tidak diakhiri tanda baca.
-Judul gambar diletakkan di bawah gambar dan ditulis dengan huruf kecil kecuali huruf pertama pada kalimat judul. 
-Kalimat judul yang panjang dapat ditulis dalam beberapa baris seperti pada Gambar \ref{fig:jaringan2}.
+Karakteristik operasional gudang barang jadi pada industri dengan perputaran cepat dicirikan oleh volume barang yang besar, variasi \textit{Stock Keeping Unit}, atau SKU, yang luas, serta tuntutan kecepatan dan akurasi yang tinggi. \textcite{boysen2019} menegaskan bahwa pergeseran pola konsumsi modern menuntut gudang beroperasi dengan responsivitas yang jauh lebih tinggi, ukuran pesanan yang lebih kecil namun lebih sering, serta tenggat pengiriman yang ketat. Tuntutan inilah yang menjadikan gudang barang jadi sebagai titik kritis yang kinerjanya berdampak langsung pada tingkat layanan dan biaya keseluruhan rantai pasok.
 
-Ukuran gambar yang ditampilkan dapat diatur dengan mengubah nilai \textit{width} dalam sintaks \textit{includegraphics}. 
-Gambar \ref{fig:jaringan} memiliki lebar 70\% dari lebar teks, sedangkan Gambar \ref{fig:jaringan2} memiliki lebar 90\% dari lebar teks.
- 
+\subsection{Aktivitas dan Proses Bisnis Gudang}
 
-\begin{figure}[t] 
-  \caption{Contoh peletakan gambar dengan judul yang panjang sehingga ditulis dalam beberapa baris} 
-	\label{fig:jaringan2}
-    	\includegraphics[width=0.9\textwidth]{images/gambar1.png}
-\end{figure}
+Operasional gudang tersusun atas rangkaian aktivitas yang saling berurutan. \textcite{gu2007} mengelompokkan aktivitas gudang ke dalam empat fungsi dasar, yaitu penerimaan atau \textit{receiving}, penyimpanan atau \textit{storage}, pengambilan pesanan atau \textit{order picking}, dan pengiriman atau \textit{shipping}. Rangkaian ini secara umum dijabarkan lebih rinci menjadi penerimaan barang, penempatan ke lokasi simpan atau \textit{put-away}, penyimpanan, pengisian ulang internal atau \textit{replenishment}, pengambilan pesanan, pengepakan atau \textit{packing}, hingga pengiriman, yang secara garis besar terbagi atas aliran masuk atau \textit{inbound} dan aliran keluar atau \textit{outbound}.
 
-Pastikan gambar yang digunakan memiliki resolusi yang cukup tinggi agar tidak pecah atau buram saat dicetak. 
-Gambar umumnya tidak tajam dan tulisan tidak jelas atau kabur jika gambar tersebut:
-\begin{enumerate}[a.]
-  \item diperoleh dari hasil cropping pada suatu halaman buku atau situs web;
-  \item hasil pembesaran gambar yang gambar aslinya sebenarnya berukuran kecil; atau
-  \item disimpan dalam resolusi kecil
-\end{enumerate}
-Ketidakjelasan gambar ini dapat dilihat pada garis-garis diagram yang tidak tegas dan tulisan-tulisan dalam gambar yang tampak kabur dan kurang jelas terbaca.
+Di antara seluruh aktivitas tersebut, proses pengambilan pesanan, atau \textit{order picking}, menjadi aktivitas inti karena memiliki tingkat keterlibatan manual tertinggi sekaligus kontribusi biaya terbesar dalam operasional gudang \autocite{boysen2019}. Kinerja pada tahap penyimpanan atau \textit{stocking} dan pengambilan atau \textit{picking} karena itu menjadi penentu utama produktivitas gudang secara keseluruhan, karena keterlambatan atau ketidaktepatan pada kedua tahap ini akan merambat menjadi penurunan kecepatan pemenuhan pesanan dan meningkatnya biaya operasional. Karena kedua tahap ini padat karya, keduanya juga menjadi sasaran utama upaya otomasi dan dukungan sistem informasi dalam modernisasi gudang.
 
-Untuk mendapatkan gambar yang tidak kabur (\textit{blur}), langkah-langkah berikut dapat digunakan:
-\begin{enumerate}[(a)]
-\item Hindari \textit{screenshot}. Gambar yang didapat di suatu pustaka atau referensi sebaiknya digambar ulang (tidak perlu sama persis), misalnya menggunakan PowerPoint, Canva, Figma, draw.io, atau yang lainnya.
-\item Jika diagram atau ilustrasi digambar menggunakan draw.io, saat gambar disimpan ke format PNG atau JPG (\textit{export as}), lakukan \textit{zoom} ke minimal 300\% (\textit{the default value is} 100\%). 
-\item Jika diagram digambar dengan menggunakan \texttt{PowerPoint} atau aplikasi yang mengolah gambar vektor lainnya, gambar dapat langsung disimpan asalkan resolusinya tinggi.
-\end{enumerate}
+\section{Smart Warehouse dan Integrasi Siber-Fisik}
+\label{sec:smart-warehouse}
 
-\subsection{Penulisan Tabel}
-Format penulisan tabel hampir sama dengan format penulisan gambar. Bedanya adalah judul tabel diletakkan di atas tabel, bukan di bawah tabel seperti pada gambar.
-Ada tabel yang bisa dimuat dalam satu halaman (tabel pendek) dan ada tabel panjang yang yang tidak muat dalam satu halaman. Kedua jenis tabel tersebut disusun dengan cara yang berbeda.
-Jika tabel sangat panjang, gunakan paket \textit{longtable} untuk membuat tabel yang dapat terpotong ke halaman berikutnya.
-Namun, jika tabel dapat dimuat dalam satu halaman, gunakan lingkungan \textit{table} biasa, tidak menggunakan \textit{longtable}.
-Usahakan tabel dapat ditulis dalam satu halaman, tidak terpotong ke halaman berikutnya, jika memungkinkan.
+Meningkatnya kompleksitas rantai pasok modern mendorong evolusi gudang dari fasilitas penyimpanan pasif menjadi sistem cerdas yang terhubung secara digital. \textcite{vangeest2021} mendefinisikan \textit{Smart Warehouse} sebagai gudang yang ditopang empat pilar teknologi penggerak, atau \textit{technology enabler}, yaitu \textit{Automation and Robotics} untuk otomasi proses fisik pemindahan barang, \textit{IoT-based Visibility} untuk pendeteksian dan pelacakan barang secara \textit{real-time}, \textit{AI-driven Optimization} untuk penjadwalan dan pengambilan keputusan otomatis, serta \textit{Cyber-Physical Integration} sebagai perekat yang menyatukan operasi fisik di lantai gudang dengan representasi digitalnya. Keempat pilar ini menempatkan data sebagai aset operasional utama, sehingga kualitas keputusan dan kecepatan respons gudang bergantung langsung pada seberapa akurat kondisi fisik tercermin pada sistem informasi.
 
-\subsubsection{Penulisan Tabel Pendek}
-Contoh tabel pendek dapat dilihat pada Tabel \ref{tab:tabel1}, \ref{tab:tabel2}, dan \ref{tab:tabel3}. 
-Pada kedua table ini, tabel dan judulnya diposisikan di tengah secara horisontal dan 
-judul tabel diletakkan di atas tabel. Secara vertikal, tabel sebaiknya diletakkan di bagian atas atau bawah halaman.
+Dari perspektif rekayasa sistem, \textcite{romero2020} menegaskan bahwa sebuah \textit{smart system} dicirikan oleh lima unsur, yaitu adanya elemen-elemen sistem, relasi antarentitas, objektif yang terukur, batasan lingkungan operasi, serta antarmuka yang menghubungkan sistem dengan dunia luar. \textit{Smart Warehouse} memenuhi seluruh karakteristik tersebut dengan objektif tunggal yang jelas, yaitu meningkatkan produktivitas dan akurasi operasional gudang secara berkelanjutan. Karakterisasi ini penting karena menegaskan bahwa transformasi menuju \textit{Smart Warehouse} bukan sekadar penambahan perangkat otomatis, melainkan pengintegrasian elemen fisik dan digital ke dalam satu sistem yang objektif dan batas kerjanya terdefinisi.
 
-Penyebutan judul tabel dalam teks menggunakan perintah \texttt{ref}, misalnya Tabel \ref{tab:tabel1}.
-Gunakan huruf kapital pada kata "Tabel" saat menyebutkan tabel dalam teks.
+Di antara keempat pilar tersebut, \textit{Cyber-Physical Integration} menjadi landasan konseptual yang paling relevan bagi tugas akhir ini. Integrasi siber-fisik mengacu pada sinergi antara lapisan fisik---pergerakan robot dan barang di dalam gudang---dengan lapisan digital berupa pencatatan data inventori secara \textit{real-time} pada basis data terpusat. Melalui pendekatan ini, setiap aktivitas fisik mulai dari penerimaan, penyimpanan, hingga pengambilan barang dapat tercermin secara otomatis dalam sistem informasi tanpa memerlukan intervensi manual. Dalam operasional berbasis \textit{pull system} yang menuntut respons cepat terhadap permintaan aktual, kemampuan menyinkronkan permintaan digital dengan eksekusi fisik secara seketika inilah yang membedakan \textit{Smart Warehouse} dari gudang konvensional, sekaligus menjadi pijakan bagi perancangan sistem pada bab-bab selanjutnya.
 
-Tabel \ref{tab:tabel1} menggunakan paket \textit{tabularx} untuk mengatur lebar kolom secara fleksibel. 
-Selain itu, tabel ini juga menggunakan \textit{threeparttable} untuk menambahkan catatan kaki pada tabel 
-dan opsi \texttt{X} agar lebar kolom fleksibel menyesuaikan lebar tabel.
-Catatan kaki pada tabel ini menggunakan perintah \texttt{tablenotes} yang disediakan oleh paket \textit{threeparttable}.
-Catatan kaki pada tabel ini menggunakan perintah \texttt{\textbackslash footnotemark} dan \texttt{\textbackslash footnotetext} untuk menambahkan catatan kaki pada tabel.
+\section{Sistem Informasi dan Manajemen Inventori Real-Time}
+\label{sec:sistem-informasi}
 
-Tabel \ref{tab:tabel2} menggunakan format standar \texttt{| l | c | r |}. 
-Tabel \ref{tab:tabel3} menggunakan lebar kolom tetap (\textit{fixed width}) menggunakan \texttt{p\{width\}}.
+Operasional gudang berpusat pada pengelolaan inventori, dan di antara seluruh aktivitasnya, proses pengambilan barang, atau \textit{order picking}, merupakan aktivitas yang paling padat karya sekaligus paling mahal. \textcite{dekoster2007} memperkirakan biaya \textit{order picking} dapat mencapai 55\% dari total biaya operasional gudang, sehingga setiap penurunan kinerja pada proses ini langsung menurunkan tingkat layanan dan menaikkan biaya bagi keseluruhan rantai pasok. Karena itu, proses inventori menuntut dukungan informasi yang akurat dan mutakhir, karena keputusan pengambilan, penempatan, dan pemantauan stok hanya akan tepat apabila data yang menjadi acuannya mencerminkan kondisi fisik terkini. Kebutuhan inilah yang menempatkan sistem informasi sebagai tulang punggung manajemen inventori \textit{real-time}.
 
-\begin{table} 
-  \centering
-    \begin{threeparttable}[t] % threeparttable agar bisa menambahkan catatan kaki pada tabel
-    \caption{Contoh tabel yang menggunakan \texttt{tabularx} untuk mengatur lebar kolom secara fleksibel. 
-    Selain itu, tabel ini juga menggunakan \texttt{threeparttable} untuk menambahkan catatan kaki pada tabel 
-    dan opsi \texttt{X} agar lebar kolom fleksibel menyesuaikan lebar tabel.}
-    \label{tab:tabel1}
-    \begin{tabularx}{0.6\textwidth}{| c | X| l | r @{}|} % @{} removes extra space at edges, X makes the column flexible width
-	    \hline
-	    No & Nama 	& Satuan 		& Harga \\
-	    \hline
-	    1 & Buku 	& Exemplar	& 25000 \\
-	    2 & Komputer	& Unit		& 2500000 \\
-	    3 & Pensil	& Buah		& 118900 \\
-	    \hline
-	  \end{tabularx} 
-    \begin{tablenotes}
-      \footnotesize
-      \item \footnotemark[1]Tabel harga berdasarkan data tahun 2023.
-      \item \footnotemark[2]Sumber: \url{https://www.example.com}
-    \end{tablenotes}
-  \end{threeparttable}
-\end{table}
+\subsection{Konsep dan Komponen Sistem Informasi}
 
+\textcite{alter2008} mendefinisikan sistem informasi sebagai suatu \textit{work system}---sistem kerja---yang aktivitas-aktivitasnya dikhususkan untuk menangkap, mengirim, menyimpan, mengambil, mengolah, dan menampilkan informasi. Definisi ini menegaskan bahwa sistem informasi tidak identik dengan teknologi informasi semata, melainkan mencakup keterpaduan antara manusia, proses, dan teknologi yang bekerja bersama untuk suatu tujuan. Dalam kerangka tersebut, sistem informasi tersusun atas sejumlah elemen yang saling terkait. Peserta adalah pengguna yang menjalankan proses, informasi adalah data yang diproses dan dihasilkan, dan teknologi adalah perangkat keras dan lunak yang mendukung. Seluruh elemen ini beroperasi melalui rangkaian proses dan aktivitas untuk menghasilkan produk atau layanan bagi penggunanya. Elemen-elemen inti ini berjalan di dalam konteks lingkungan, infrastruktur, dan strategi organisasi. Sudut pandang ini relevan bagi tugas akhir karena sistem yang dikembangkan bukan sekadar basis data atau antarmuka, melainkan sistem kerja yang menautkan aktivitas fisik gudang, data inventori, dan staf yang memantaunya dalam satu kesatuan.
 
+\subsection{Manajemen Inventori Berbasis Event vs Polling}
 
+Terdapat dua paradigma untuk menjaga agar data inventori pada sistem informasi selalu mencerminkan perubahan kondisi fisik. Paradigma pertama adalah \textit{polling}, yaitu sistem memeriksa kondisi sumber data secara periodik pada interval tetap untuk mendeteksi perubahan. Pendekatan ini sederhana, tetapi menimbulkan dilema karena interval yang panjang memperbesar jeda antara perubahan fisik dan pembaruan data, sedangkan interval yang pendek memboroskan sumber daya karena sebagian besar pemeriksaan tidak menemukan perubahan apa pun. Paradigma kedua adalah pendekatan berbasis \textit{event}, di mana setiap perubahan kondisi---seperti penerimaan barang, reservasi stok, atau penyelesaian tugas---diperlakukan sebagai sebuah \textit{event} diskrit yang dicatat pada saat perubahan itu benar-benar terjadi \autocite{fowler2002}. \textcite{hohpe2003} meletakkan dasar integrasi berbasis pesan ini, di mana komponen-komponen perangkat lunak berkomunikasi secara asinkron melalui pengiriman \textit{event} melalui kanal terpusat, sehingga tetap \textit{loosely coupled} dan dapat beroperasi secara independen. Keunggulan pendekatan \textit{event-driven} dalam konteks inventori adalah latensi pembaruan yang rendah, konsumsi sumber daya yang efisien, serta kemampuan merekonstruksi dan memverifikasi keadaan stok dari rekaman \textit{event} meskipun terjadi kegagalan pada perangkat di lapangan. Pemilihan di antara kedua paradigma ini untuk sistem yang dikembangkan dibahas secara sistematis pada analisis pemilihan solusi di Bab III.
 
-\begin{table}[t] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-  \caption{Tabel yang menggunakan format standar \texttt{| l | c | r |}}
-  \label{tab:tabel2}
-	\begin{tabular}{ | l | c | r | }
-	\hline
-	Nama 	& Satuan 		& Harga \\
-	\hline
-	Buku 	& Exemplar	& 25000 \\
-	Komputer	& Unit		& 2500000 \\
-	Pensil	& Buah		& 118900 \\
-	\hline
-	\end{tabular}
-\end{table}
+\section{Arsitektur dan Teknologi Perangkat Lunak}
+\label{sec:arsitektur-software}
 
+\subsection{Arsitektur Microservices}
 
-\begin{table}[t] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-  \centering
-  \caption{Tabel yang lebar kolomnya dibuat tetap}
-  \label{tbl:tabel3}
-	\begin{tabular}{  p{0.2\textwidth} | p{0.2\textwidth} | p{0.2\textwidth}  }
-	\hline
-	\textbf{Nama} 	& \textbf{Satuan} 		& \textbf{Harga} \\
-	\hline
-	Buku 	& Exemplar	& 25000 \\
-	\emph{Komputer}	& Unit		& 2500000 \\
-	Pensil	& Buah		& 118900 \\
-	\hline
-	\end{tabular}
-\end{table}
+Arsitektur \textit{microservices} adalah gaya perancangan perangkat lunak di mana sebuah aplikasi dibangun sebagai kumpulan layanan kecil yang berdiri sendiri, atau \textit{loosely coupled}, masing-masing menjalankan satu tanggung jawab bisnis yang spesifik dan dapat dikembangkan, di-\textit{deploy}, serta diskalakan secara independen satu sama lain \autocite{newman2015}. Berbeda dengan arsitektur monolitik di mana seluruh komponen terkompilasi dan berjalan dalam satu unit, pada arsitektur \textit{microservices} setiap layanan berkomunikasi melalui antarmuka yang terdefinisi dengan baik---umumnya berupa \textit{RESTful API} atau \textit{message broker}---sehingga kegagalan pada satu layanan tidak secara langsung melumpuhkan keseluruhan sistem \autocite{newman2015}. Pola ini memungkinkan tim pengembang untuk memilih teknologi yang paling sesuai untuk setiap layanan secara independen, meningkatkan ketahanan sistem secara keseluruhan, serta mempercepat siklus pengembangan dan pembaruan fitur tanpa harus melakukan \textit{redeployment} pada keseluruhan aplikasi \autocite{richardson2018}.
 
-% -- Example of importing table from external file --
-\subsubsection{Mengimpor Tabel dari Berkas Eksternal}
+\subsection{Basis Data Relasional dan Properti ACID}
 
-Untuk kerapian penulisan, tabel tidak harus ditulis di dokumen utama. Sebagai contoh, Tabel \ref{tab:tabel4} diimpor dari berkas eksternal \texttt{table/tabel1.tex} menggunakan perintah \texttt{input}. 
-Dengan demikian, jika tabel tersebut perlu diubah, cukup mengubah pada berkas eksternal tersebut tanpa perlu mengubah pada berkas dokumen utama ini.
+Basis data relasional adalah sistem penyimpanan data yang mengorganisasikan informasi ke dalam tabel-tabel, atau relasi, yang saling terhubung melalui kunci asing, atau \textit{foreign key}, berdasarkan model relasional yang diperkenalkan oleh \textcite{codd1970}. Sistem ini menjamin integritas data melalui properti ACID---\textit{Atomicity}, \textit{Consistency}, \textit{Isolation}, dan \textit{Durability}---yang memastikan bahwa setiap transaksi \textit{database} dieksekusi secara penuh atau tidak sama sekali, sehingga tidak ada kondisi data yang setengah diperbarui meskipun terjadi kegagalan sistem di tengah proses \autocite{ramakrishnan2003}. Dalam konteks manajemen inventori \textit{real-time}, properti ACID menjadi sangat kritis karena setiap perubahan jumlah stok, perubahan lokasi barang, maupun pembaruan status \textit{order} harus langsung tercermin secara konsisten di seluruh layanan yang mengakses basis data secara bersamaan, tanpa risiko pembacaan data yang tidak konsisten, atau \textit{dirty read}, antarproses yang berjalan paralel.
 
-\input tables/tabel1.tex
+\section{Infrastruktur Komunikasi Terdistribusi}
+\label{sec:infra-komunikasi}
 
+Pada sistem yang tersusun atas beberapa layanan independen, komunikasi antarkomponen tidak selalu memadai bila hanya mengandalkan pola \textit{request-reply} sinkron seperti REST. Kebutuhan akan pertukaran pesan yang asinkron, andal, dan \textit{real-time} memunculkan sejumlah infrastruktur komunikasi pelengkap. Subbab ini meninjau tiga mekanisme yang lazim digunakan pada sistem terdistribusi bergaya siber-fisik, yaitu \textit{message broker}, protokol MQTT, dan WebSocket.
 
-% -- Example of long table --
-\subsubsection{Tabel yang Sangat Panjang}
-Jika tabel terlalu panjang sehingga tidak muat dalam satu halaman, gunakan paket 
-\textit{longtable} untuk membuat tabel yang dapat terpotong ke halaman berikutnya, 
-seperti pada Tabel \ref{tab:long}. 
+\subsection{Message Broker dan RabbitMQ (AMQP)}
 
-\input tables/longtable1.tex
+\textit{Message broker} adalah komponen perangkat lunak yang bertindak sebagai perantara pengiriman pesan antara produsen, atau \textit{producer}, dan konsumen, atau \textit{consumer}, sehingga kedua pihak dapat beroperasi secara asinkron dan \textit{loosely coupled} tanpa harus saling mengetahui keberadaan satu sama lain \autocite{hohpe2003}. Pola ini pertama kali diformalkan dalam \textit{Enterprise Integration Patterns} sebagai solusi integrasi sistem heterogen, di mana komponen berkomunikasi melalui pengiriman pesan diskrit melalui kanal terpusat. RabbitMQ merupakan salah satu implementasi \textit{message broker} sumber terbuka yang mengadopsi \textit{Advanced Message Queuing Protocol}, atau AMQP, standar terbuka untuk \textit{middleware} berorientasi pesan \autocite{oasis2012}. Dalam model AMQP, pesan yang dipublikasikan \textit{producer} dikirim ke \textit{exchange}, diteruskan ke antrean, atau \textit{queue}, yang sesuai berdasarkan \textit{routing key}, lalu dikonsumsi oleh \textit{consumer} yang berlangganan pada antrean tersebut \autocite{rabbitmq2023}. Mekanisme antrean ini memungkinkan pemisahan beban dan penyanggaan, atau \textit{buffering}, pesan sehingga sistem tetap tangguh meskipun laju produksi dan konsumsi pesan tidak seimbang.
 
-\subsection{Penulisan Rumus atau Persamaan Matematika Menggunakan {\LaTeX} dan Penomorannya}
-Contoh rumus matematika dapat ditulis seperti pada Persamaan \ref{eq:contoh1} di bawah ini. 
-Penomoran persamaan diletakkan di sebelah kanan, dan rumus ditulis dalam mode \textit{display math}.
+\subsection{Protokol MQTT}
+
+\textit{Message Queuing Telemetry Transport}, atau MQTT, adalah protokol komunikasi bergaya \textit{publish-subscribe} yang dirancang khusus untuk perangkat dengan keterbatasan sumber daya dan jaringan yang tidak selalu andal, seperti perangkat \textit{Internet of Things} dan sensor terdistribusi \autocite{oasis2014}. Protokol ini bekerja melalui tiga peran, yaitu \textit{publisher} yang mengirim pesan ke sebuah topik atau \textit{topic}, \textit{broker} yang menerima dan mendistribusikan pesan, serta \textit{subscriber} yang berlangganan topik tertentu untuk menerima pesan secara \textit{real-time}. Keunggulan utama MQTT dibandingkan protokol berbasis HTTP adalah \textit{overhead} yang sangat kecil---\textit{header} paketnya minimal hanya berukuran dua \textit{byte}---sehingga sangat efisien untuk pengiriman data telemetri berfrekuensi tinggi, misalnya pembaruan posisi objek yang dikirim berkali-kali per detik. Model \textit{publish-subscribe} yang memisahkan pengirim dan penerima juga membuat penambahan konsumen data baru dapat dilakukan tanpa mengubah sisi pengirim.
+
+\subsection{WebSocket}
+
+WebSocket adalah protokol komunikasi berbasis TCP yang memungkinkan koneksi persisten dua arah, atau \textit{full-duplex}, antara \textit{server} dan klien, berbeda dengan paradigma \textit{request-response} pada HTTP yang menuntut inisiasi koneksi baru pada setiap pertukaran data \autocite{fette2011}. Setelah koneksi terbentuk melalui mekanisme HTTP \textit{Upgrade handshake}, \textit{server} dapat mengirimkan data ke klien kapan saja tanpa menunggu permintaan, atau \textit{server push}, sehingga latensi pengiriman hanya dibatasi oleh latensi jaringan dan bukan oleh interval pemeriksaan. Karakteristik ini menjadikan WebSocket lebih efisien dibandingkan teknik \textit{long-polling} maupun \textit{Server-Sent Events} untuk kasus data yang berubah secara kontinu dengan frekuensi tinggi, seperti pemantauan status dan posisi objek secara \textit{real-time} pada antarmuka pengguna.
+
+\section{Lokalisasi Objek Berbasis Visi}
+\label{sec:lokalisasi-visi}
+
+Agar sistem dapat mengoordinasikan pemindahan barang, posisi objek di dalam gudang perlu diketahui secara andal. Subbab ini meninjau pendekatan-pendekatan lokalisasi dalam ruang, prinsip koordinat homogen, serta pemetaan piksel citra ke koordinat grid, sebagai landasan bagi perbandingan alternatif solusi lokalisasi pada Bab III.
+
+\subsection{Pendekatan Lokalisasi dalam Ruang}
+
+Lokalisasi dalam ruang, atau \textit{indoor localization}, menghadapi tantangan tersendiri karena sinyal satelit navigasi global tidak tersedia secara memadai di dalam bangunan. \textcite{zafari2019} memetakan beragam teknik lokalisasi dalam ruang yang umumnya berbasis sinyal radio, seperti \textit{Angle of Arrival} atau AoA, \textit{Time of Flight} atau ToF, dan \textit{Received Signal Strength} atau RSS, yang diwujudkan melalui teknologi WiFi, RFID, \textit{Ultra-Wideband} atau UWB, maupun Bluetooth. Mereka menekankan bahwa pemilihan sistem lokalisasi tidak dapat dinilai dari akurasi semata, melainkan harus mempertimbangkan efisiensi energi, ketersediaan, biaya, jangkauan, latensi, skalabilitas, dan akurasi penjejakan secara menyeluruh.
+
+Sebagai alternatif dari pendekatan berbasis sinyal radio, lokalisasi berbasis visi memanfaatkan kamera sebagai sumber data. \textcite{morar2020} mengklasifikasikan metode lokalisasi berbasis visi ke dalam dua kategori utama. Kategori pertama adalah infrastruktur kamera statis yang menjejaki entitas bergerak, misalnya orang atau robot, melalui penjejakan objek. Kategori kedua adalah kamera yang terpasang pada entitas bergerak dan mencocokkan citra yang ditangkap dengan basis citra acuan. Mereka juga menyoroti bahwa jumlah aplikasi yang membutuhkan informasi orientasi---bukan sekadar posisi---terus meningkat. Ragam pendekatan inilah yang membentuk ruang alternatif yang perlu dibandingkan secara sistematis ketika memilih solusi lokalisasi yang sesuai dengan karakteristik lingkungan dan kebutuhan sistem.
+
+\subsection{Koordinat Homogen}
+
+Sebelum posisi objek pada citra dapat diolah lebih lanjut, kamera perlu dikalibrasi terlebih dahulu agar distorsi lensa tidak mengotori hasil pengukuran. \textcite{zhang2000} memperkenalkan teknik kalibrasi kamera yang fleksibel dengan mengamati pola kalibrasi planar dari beberapa orientasi berbeda untuk mengestimasi parameter internal dan eksternal kamera. Ketika digunakan kamera bersudut pandang sangat lebar seperti lensa \textit{fisheye}---yang menguntungkan karena satu kamera dapat mengamati area luas dari satu titik pemasangan---muncul distorsi radial yang parah sehingga garis lurus tampak melengkung. \textcite{kannala2006} mengatasi persoalan ini melalui model kamera generik beserta metode kalibrasinya yang mampu memodelkan dan mengoreksi distorsi lensa \textit{fisheye} maupun lensa konvensional secara akurat. Proses kalibrasi dan operasi geometris terkait pada umumnya diimplementasikan melalui pustaka penglihatan komputer seperti OpenCV \autocite{bradski2000}.
+
+Setelah distorsi dikoreksi, apabila sumbu optik kamera benar-benar sejajar dengan bidang yang diamati, pemetaan dari koordinat piksel citra ke koordinat fisik pada bidang tersebut akan bersifat \textit{affine} sederhana, yaitu hanya berupa kombinasi translasi, rotasi, dan penskalaan seragam. Kondisi ideal tersebut pada praktiknya sangat sulit dicapai, karena kamera jarang terpasang dengan kesejajaran sempurna terhadap bidang yang diamati. Ketidaksejajaran ini menghasilkan citra berbentuk trapesium, di mana objek yang berada jauh dari sumbu optik kamera tampak lebih terkompresi dibandingkan objek yang berada tepat di bawahnya---fenomena yang dikenal sebagai \textit{perspective foreshortening}. Efek ini tidak dapat dikoreksi dengan transformasi \textit{affine} biasa, sehingga diperlukan transformasi proyektif yang disebut homografi, yaitu transformasi yang memetakan titik pada satu bidang datar ke bidang datar lainnya secara satu-ke-satu \autocite{hartley2004}.
+
+Secara matematis, homografi didefinisikan pada ruang koordinat homogen, bukan pada koordinat Kartesian biasa, karena transformasi proyektif melibatkan pembagian oleh suku yang bergantung pada posisi titik itu sendiri sehingga tidak dapat direpresentasikan sebagai transformasi linear murni dalam koordinat Kartesian dua dimensi \autocite{hartley2004}. Sebuah titik piksel $(u, v)$ pada citra kamera direpresentasikan sebagai vektor homogen tiga dimensi $\tilde{p} = (u, v, 1)^T$, sedangkan sebuah titik pada bidang acuan $(g_x, g_y)$ direpresentasikan sebagai $\tilde{g} = (g_x, g_y, 1)^T$. Hubungan antara kedua representasi tersebut dinyatakan sebagai:
+
 \begin{equation}
-E = mc^2
-\label{eq:contoh1}
+\lambda \begin{bmatrix} g_x \\ g_y \\ 1 \end{bmatrix} = \mathbf{H} \begin{bmatrix} u \\ v \\ 1 \end{bmatrix}, \qquad
+\mathbf{H} = \begin{bmatrix} h_{00} & h_{01} & h_{02} \\ h_{10} & h_{11} & h_{12} \\ h_{20} & h_{21} & h_{22} \end{bmatrix}
+\label{eq:homografi-model}
+\eqcaption{Model homografi dalam koordinat homogen}
 \end{equation}
-\eqcaption{Persamaan Pertama}
 
-Contoh lain penulisan rumus matematika yang lebih kompleks dapat ditulis seperti pada Persamaan \ref{eq:rumus2}.
-Perlu diperhatikan bahwa jika rumus terdiri dari beberapa baris, nomor persamaan hanya diletakkan pada baris terakhir, bukan pada setiap baris.
-\begin{align}
-f(x) &= ax^2 + bx + c \notag \\ % tidak menampilkan nomor pada baris ini
-f'(x) &= \frac{d}{dx}(ax^2 + bx + c) \notag \\ % tidak menampilkan nomor pada baris ini
-      &= 2ax + b 
-      \label{eq:rumus2} % nomor hanya muncul pada baris terakhir
-\end{align}
-\eqcaption{Persamaan Kedua}
+dengan $\lambda \neq 0$ merupakan faktor skala homogen yang muncul secara alami dari representasi proyektif dan tidak memiliki makna fisik tersendiri di luar proses normalisasi. Matriks $\mathbf{H}$ berukuran $3 \times 3$ sehingga secara nominal memiliki sembilan entri, namun karena homografi hanya terdefinisi hingga faktor skala---mengalikan seluruh entri matriks dengan sebuah konstanta bukan nol tidak mengubah transformasi yang diwakilinya---derajat kebebasan aktual dari $\mathbf{H}$ hanyalah delapan, bukan sembilan. Untuk menghilangkan ambiguitas skala ini, digunakan konvensi normalisasi dengan menetapkan entri terakhir $h_{22} = 1$.
 
-Jika rumus terlalu panjang untuk ditulis dalam satu baris, gunakan lingkungan \textit{multline} seperti pada Persamaan \ref{eq:rumus3} di bawah ini.
-\begin{multline} 
-y = a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4 + a_5x^5 + a_6x^6 + a_7x^7 \\
-    + a_8x^8 + a_9x^9 + a_{10}x^{10} \label{eq:rumus3}
-\end{multline}
-\eqcaption{Persamaan Ketiga}
+Untuk memperoleh bentuk transformasi yang dapat langsung digunakan secara praktis, faktor skala homogen $\lambda$ perlu dieliminasi dari Persamaan \ref{eq:homografi-model}. Perkalian matriks pada baris ketiga memberikan hubungan $\lambda = h_{20}u + h_{21}v + 1$. Dengan membagi hasil perkalian pada baris pertama dan baris kedua dengan nilai $\lambda$ tersebut, diperoleh bentuk rasional atau bentuk non-homogen dari homografi:
 
-Jika ada penurunan rumus yang terdiri dari beberapa baris, namun tidak memerlukan penomoran pada setiap baris dan tidak masuk di daftar persamaan, gunakan lingkungan \textit{align*}, misalnya:
+\begin{equation}
+g_x = \frac{h_{00}u + h_{01}v + h_{02}}{h_{20}u + h_{21}v + 1}, \qquad
+g_y = \frac{h_{10}u + h_{11}v + h_{12}}{h_{20}u + h_{21}v + 1}
+\label{eq:homografi-rasional}
+\eqcaption{Bentuk rasional homografi}
+\end{equation}
 
-\begin{align*} 
-S &= \sum_{i=1}^{n} i^2 \\
-  &= 1^2 + 2^2 + 3^2 + \cdots + n^2 \\
-  &= \frac{n(n + 1)(2n + 1)}{6}
-\intertext{Contoh lainnya adalah rumus untuk mencari nilai rata-rata fungsi $f(x)$ pada interval $[p, q]$:}
-\bar{f} &= \frac{1}{q - p} \int_{p}^{q} f(x) \, dx \\
-        &= \frac{1}{q - p} \int_{p}^{q} (ax^2 + bx + c) \, dx \\
-        &= \frac{1}{q - p} \left[ \frac{a}{3}x^3 + \frac{b}{2}x^2 + cx \right]_p^q \\
-        &= \frac{a(q^3 - p^3)}{3(q - p)} + \frac{b(q^2 - p^2)}{2(q - p)} + c \label{eq:rumus4}
-\end{align*}
+Kedua persamaan pada Persamaan \ref{eq:homografi-rasional} memiliki penyebut yang identik, yaitu $h_{20}u + h_{21}v + 1$. Kesamaan penyebut inilah yang menjadi ciri khas transformasi proyektif dan yang membedakannya secara fundamental dari transformasi \textit{affine}. Pembagian oleh suku linear yang bergantung pada posisi piksel inilah yang secara matematis mengoreksi efek trapesium akibat \textit{perspective foreshortening}. Apabila koefisien $h_{20}$ dan $h_{21}$ bernilai nol, penyebut akan selalu bernilai satu dan transformasi akan tereduksi menjadi transformasi \textit{affine} biasa tanpa kemampuan mengoreksi distorsi perspektif. Keberadaan koefisien $h_{20}$ dan $h_{21}$ yang tidak nol menjadi indikator matematis bahwa suatu sistem memang membutuhkan koreksi perspektif---sebagaimana halnya kamera \textit{fisheye} pada subsistem lokalisasi tugas akhir ini, yang tidak terpasang tegak lurus sempurna terhadap bidang lantai gudang.
 
+\subsection{Pemetaan Piksel ke Koordinat}
 
+Setelah matriks homografi $\mathbf{H}$ diperoleh melalui kalibrasi kamera \autocite{zhang2000,kannala2006}, setiap piksel penanda yang terdeteksi pada \textit{frame} kamera dapat dipetakan ke koordinat grid kontinu menggunakan bentuk rasional homografi pada Persamaan \ref{eq:homografi-rasional} \autocite{hartley2004}. Estimasi matriks $\mathbf{H}$ maupun operasi transformasi piksel-ke-koordinat semacam ini pada praktiknya dilakukan melalui fungsi bawaan pustaka penglihatan komputer seperti OpenCV \autocite{bradski2000}. Nilai $(g_x, g_y)$ yang dihasilkan merupakan bilangan real kontinu, bukan indeks sel grid diskrit, yang merepresentasikan posisi fisik penanda pada bidang lantai dalam satuan sel grid, dengan domain yang dibatasi oleh dimensi fisik area kerja yang valid.
 
+Karena keperluan sistem adalah menetapkan setiap penanda ke sebuah sel grid diskrit dengan indeks integer, bukan posisi kontinu, diperlukan proses diskritisasi lanjutan yang mengubah koordinat kontinu tersebut menjadi indeks sel $(c, r)$, dengan $c$ untuk kolom dan $r$ untuk baris. Setiap sel grid $(c, r)$ didefinisikan memiliki titik pusat pada koordinat grid kontinu $(c + 0{,}5,\; r + 0{,}5)$.
 
-\subsection{Penulisan Kode Program, \textit{Script} atau \textit{Pseudocode}}
-Contoh penulisan kode program, \textit{script}, atau \textit{pseudocode} dapat dilihat seperti pada \textit{listing} \ref{lst:binary_iter}. 
-Gunakan paket \textit{listings} untuk menulis \textit{source code} dalam bahasa pemrograman tertentu. 
-Kode seperti ini disebut dengan istilah \textit{listing}. 
-Kode program, \textit{script}, atau \textit{pseudocode} yang relatif pendek dapat ditulis di dalam
-dokumen utama. Namun, jika kode programnya sangat panjang, sebaiknya ditulis di berkas terpisah dan diletakkan di lampiran.
+Aturan penetapan sel yang digunakan pada sistem ini adalah aturan titik pusat terdekat, yaitu sebuah titik koordinat kontinu $g_x$ ditetapkan ke sel dengan indeks $c$ yang titik pusatnya paling dekat dengan $g_x$:
 
-\subsection{Penulisan Algoritma}
-Contoh penulisan algoritma dapat dilihat pada Algoritma \ref{alg:binary-search}. Ada beberapa paket yang dapat digunakan untuk menulis algoritma,
-misalnya \textit{algorithm2e}, \textit{algorithmic}, dan \textit{algpseudocode}. 
-Pada contoh ini digunakan paket \textit{algorithmic} untuk menulis algoritma. Setiap paket memiliki sintaks yang berbeda-beda.
-Oleh karena itu, pelajari dokumentasi paket yang digunakan untuk menulis algoritma.
+\begin{equation}
+c^\ast = \arg\min_{c \,\in\, \mathbb{Z}} \left| g_x - (c + 0{,}5) \right|
+\label{eq:sel-argmin}
+\eqcaption{Aturan penetapan sel}
+\end{equation}
 
+Persamaan \ref{eq:sel-argmin} dapat disederhanakan menjadi operasi pembulatan biasa melalui substitusi variabel. Misalkan $y = g_x - 0{,}5$, maka suku di dalam tanda mutlak dapat ditulis ulang menjadi $\left| g_x - (c+0{,}5) \right| = \left| y - c \right|$. Mencari nilai $c$ integer yang meminimumkan $\left| y - c \right|$ pada dasarnya adalah definisi dari operasi pembulatan ke bilangan bulat terdekat terhadap $y$, sehingga $c^\ast = \mathrm{round}(g_x - 0{,}5)$.
 
-\input{listings/binary-search-python.tex}
+Hasil ini menjadi dasar formula diskritisasi yang digunakan pada sistem, dengan tambahan operasi pemangkasan nilai, atau \textit{clipping}, agar indeks sel yang dihasilkan selalu berada pada rentang indeks yang valid meskipun terdapat \textit{noise} pengukuran atau posisi penanda yang berada tepat di tepi area grid:
 
+\begin{equation}
+c = \mathrm{clip}\big(\mathrm{round}(g_x - 0{,}5),\ 0,\ N_c - 1\big), \qquad
+r = \mathrm{clip}\big(\mathrm{round}(g_y - 0{,}5),\ 0,\ N_r - 1\big)
+\label{eq:sel-clip}
+\eqcaption{Diskritisasi koordinat grid menjadi indeks sel}
+\end{equation}
 
-\input{algorithms/binary-search-alg.tex}
+dengan $N_c$ dan $N_r$ berturut-turut adalah jumlah kolom dan baris pada grid lokalisasi. Operasi \textit{clip} diperlukan karena hasil deteksi penanda pada praktiknya tidak selalu berada tepat pada rentang koordinat grid yang ideal---ketidaksempurnaan kalibrasi, \textit{noise} pada citra, maupun posisi fisik penanda yang berada sangat dekat dengan batas terluar area kerja dapat menghasilkan nilai $g_x$ yang sedikit kurang dari nol atau melampaui batas kolom. Tanpa operasi \textit{clip}, kondisi tersebut akan menghasilkan indeks sel yang tidak valid dan tidak merepresentasikan sel manapun pada grid fisik yang sebenarnya.
 
+Aturan diskritisasi pada Persamaan \ref{eq:sel-clip} menjamin tidak adanya area kosong, atau \textit{dead zone}, pada bidang grid, yaitu area di mana sebuah posisi fisik tidak dapat ditetapkan ke sel manapun. Sifat ini dapat ditinjau melalui dua sel yang saling bertetangga, misalnya sel dengan indeks $c$ dan sel dengan indeks $c+1$, yang masing-masing memiliki titik pusat pada $c + 0{,}5$ dan $c + 1{,}5$. Batas atau garis pemisah di antara kedua sel tersebut secara alami berada pada titik tengah di antara kedua titik pusat tersebut, yaitu $\frac{(c + 0{,}5) + (c + 1{,}5)}{2} = c + 1$, yang selalu jatuh tepat pada garis grid integer---batas nyata antara dua sel pada lantai gudang. Karena fungsi pembulatan terdefinisi untuk setiap nilai bilangan real, kecuali pada kasus khusus di mana nilai tersebut berada tepat pada titik tengah dua bilangan bulat yang ditangani melalui konvensi pembulatan standar, setiap titik koordinat kontinu pada bidang grid akan selalu dipetakan ke tepat satu sel diskrit, tanpa terkecuali. Struktur pembagian ruang semacam ini, di mana setiap titik pada bidang dipetakan ke wilayah dengan titik pusat terdekat, dikenal dalam literatur geometri komputasi sebagai partisi Voronoi. Konsekuensinya, perpindahan indeks sel pada sistem lokalisasi hanya akan terjadi ketika posisi fisik penanda benar-benar melewati garis batas tengah antar sel, sehingga pergerakan penanda pada lantai gudang akan selalu terepresentasikan secara konsisten dan tidak pernah terjebak pada wilayah yang tidak terdefinisi.
 
+\section{Fiducial Marker sebagai Kelas Penanda}
+\label{sec:fiducial-marker}
 
+\textit{Fiducial marker} adalah penanda buatan, atau \textit{artificial landmark}, yang dirancang agar mudah dikenali dan dibedakan satu sama lain oleh sistem visi \autocite{olson2011}. Berbeda dengan kode dua dimensi seperti QR yang umumnya diselaraskan secara manual oleh manusia dan membawa muatan informasi besar, sebuah \textit{fiducial marker} membawa muatan informasi kecil namun memungkinkan estimasi \textit{pose} enam derajat kebebasan, atau 6-DOF, yang mencakup posisi dan orientasi, dari satu citra kamera. Keunggulan penanda semacam ini terletak pada ketahanannya terhadap oklusi, distorsi lensa, dan variasi pencahayaan, serta kemampuannya menyediakan fitur yang mudah dikenali dengan deteksi kesalahan bawaan.
+
+\textcite{kalaitzakis2021} menempatkan \textit{fiducial marker} sebagai pelengkap atau pengganti metode lokalisasi lain---seperti GNSS, \textit{Visual-Inertial Odometry}, dan SLAM---ketika metode tersebut tidak tersedia atau tidak cukup akurat, misalnya pada lingkungan dengan fitur visual yang miskin. Mereka juga memaparkan bahwa terdapat beberapa keluarga penanda yang menjadi acuan dan paling banyak digunakan, yaitu ARTag, AprilTag, ArUco, dan STag, yang dapat dibandingkan berdasarkan akurasi, tingkat deteksi, dan biaya komputasi pada berbagai skenario gangguan seperti bayangan dan \textit{motion blur}. Keberadaan beberapa keluarga penanda dengan karakteristik berbeda ini menjadi dasar bagi analisis pemilihan penanda yang paling sesuai pada Bab III.
+
+\section{Metode Pengambilan Keputusan: Analytical Hierarchy Process (AHP)}
+\label{sec:ahp}
+
+\textit{Analytical Hierarchy Process}, atau AHP, adalah metode pengambilan keputusan multikriteria yang dikembangkan oleh Thomas L. Saaty pada tahun 1970-an. Metode ini bekerja dengan menyusun permasalahan keputusan ke dalam struktur hierarki yang terdiri dari tiga tingkat utama, yaitu tujuan atau \textit{goal}, kriteria, dan alternatif solusi. Pada setiap tingkatan, AHP menggunakan teknik perbandingan berpasangan, atau \textit{pairwise comparison}, untuk mengukur tingkat kepentingan relatif antara satu elemen dengan elemen lainnya menggunakan skala numerik 1 hingga 9 yang dikembangkan oleh Saaty. Hasil perbandingan tersebut diolah melalui perhitungan bobot prioritas, atau \textit{eigenvector}, dan divalidasi melalui uji konsistensi dengan indikator \textit{Consistency Ratio}, atau CR, di mana nilai CR di bawah 0,1 mengindikasikan bahwa penilaian yang dilakukan bersifat konsisten dan dapat diterima \autocite{saaty1977}.
+
+\section{Metode Pengembangan Sistem: Design Thinking}
+\label{sec:design-thinking}
+
+\textit{Design Thinking} adalah pendekatan inovasi yang berpusat pada manusia, atau \textit{human-centered}, yang menerapkan kepekaan dan metode perancang untuk menyelaraskan kebutuhan pengguna dengan kelayakan teknologi dan syarat keberhasilan solusi. \textcite{brown2008} menggambarkan pendekatan ini sebagai proses yang berlangsung melalui tiga ruang kegiatan yang saling bertautan dan bukan berurutan secara kaku, yaitu \textit{inspiration} untuk memahami masalah dan peluang, \textit{ideation} untuk membangkitkan dan menguji gagasan, serta \textit{implementation} untuk mewujudkan gagasan ke dalam bentuk nyata. Ia juga menekankan bahwa keberhasilan pendekatan ini bertumpu pada sikap seperti empati terhadap pengguna, pemikiran integratif, optimisme, kesediaan bereksperimen, dan kolaborasi lintas disiplin. Karakteristik inilah yang membuat \textit{Design Thinking} cocok untuk pengembangan sistem yang solusinya harus relevan dengan cara kerja dan kebutuhan penggunanya.
+
+Dari sisi konseptual, \textcite{dorst2011} mengidentifikasi inti \textit{Design Thinking} pada pola penalaran dan praktik \textit{framing}, yaitu kemampuan mengusulkan sudut pandang baru dalam memaknai suatu persoalan sebelum menentukan solusinya. Menurut Dorst, kekuatan pendekatan ini justru terletak pada perumusan ulang masalah, sehingga \textit{Design Thinking} dapat diadopsi untuk pemecahan masalah dan inovasi di berbagai bidang di luar desain, termasuk pengembangan sistem informasi. Perspektif ini memperkuat posisi \textit{Design Thinking} bukan sekadar rangkaian tahapan, melainkan cara berpikir yang menautkan pemahaman masalah dengan perancangan solusi.
+
+Dalam praktik pengembangan perangkat lunak, \textit{Design Thinking} umumnya dioperasionalkan menjadi lima tahapan iteratif---\textit{empathize}, \textit{define}, \textit{ideate}, \textit{prototype}, dan \textit{test}---yang sejalan dengan ketiga ruang kegiatan yang dikemukakan \textcite{brown2008}. Tahap \textit{empathize} dan \textit{define} menggali serta merumuskan kebutuhan pengguna, tahap \textit{ideate} mengeksplorasi alternatif solusi, sementara tahap \textit{prototype} dan \textit{test} mewujudkan dan menguji solusi untuk memperoleh umpan balik yang menyempurnakan pemahaman maupun rancangan. Sifat iteratif inilah yang menjadikan pendekatan tersebut relevan sebagai kerangka metodologi pengerjaan tugas akhir ini, sebagaimana diuraikan pada Bab I.
+
+\section{Pengujian dan Evaluasi Sistem}
+\label{sec:pengujian-evaluasi}
+
+Sistem yang telah dibangun perlu diuji untuk memastikan bahwa ia berfungsi sesuai rancangan dan memenuhi kebutuhan penggunanya. Subbab ini meninjau kriteria dan metode evaluasi yang menjadi landasan pengujian pada Bab VI, mencakup verifikasi dan validasi, pengujian fungsional, \textit{usability}, \textit{traceability}, produktivitas dan akurasi, serta penentuan ukuran sampel uji.
+
+\subsection{Verifikasi dan Validasi}
+
+Verifikasi dan validasi, atau \textit{Verification and Validation} yang disingkat V\&V, merupakan dua kegiatan komplementer untuk menilai kualitas perangkat lunak \autocite{ieee2016}. Verifikasi berfokus pada pertanyaan apakah produk dibangun dengan benar, yaitu apakah keluaran setiap tahap pengembangan telah konsisten dengan spesifikasi yang ditetapkan sebelumnya. Validasi berfokus pada pertanyaan apakah produk yang dibangun adalah produk yang benar, yaitu apakah sistem yang dihasilkan sungguh-sungguh memenuhi kebutuhan penggunanya. Kedua kegiatan ini menjadi kerangka payung yang menaungi metode-metode pengujian yang lebih spesifik pada bagian-bagian berikut.
+
+\subsection{Pengujian Fungsional (Black-Box)}
+
+Pengujian \textit{black-box} adalah teknik pengujian yang menilai perilaku sistem berdasarkan spesifikasi fungsionalnya tanpa memeriksa struktur internal kode \autocite{nidhra2012}. Penguji memberikan masukan tertentu dan membandingkan keluaran yang dihasilkan sistem dengan keluaran yang diharapkan, sehingga kesesuaian fungsi dapat dinilai dari perspektif pengguna. Teknik ini kerap dilaksanakan melalui skenario pengujian yang diturunkan dari kebutuhan fungsional atau \textit{use case}, dan memanfaatkan strategi seperti \textit{equivalence partitioning} dan \textit{boundary value analysis} untuk memilih kasus uji yang representatif, termasuk kondisi masukan yang valid maupun tidak valid.
+
+\subsection{Usability dan System Usability Scale (SUS)}
+
+\textit{Usability} mengukur tingkat kemudahan pengguna dalam mengoperasikan suatu sistem. Salah satu instrumen baku yang paling banyak digunakan untuk menilai \textit{usability} persepsian adalah \textit{System Usability Scale}, atau SUS, sebuah kuesioner sepuluh butir dengan skala Likert 1---5 yang jawabannya dikonversi menjadi skor tunggal pada rentang 0---100. \textcite{lewis2018} menelaah perjalanan SUS sejak kemunculannya dan menegaskan bahwa instrumen yang semula disebut sebagai ``\textit{quick and dirty}'' ini terbukti cepat sekaligus andal, sehingga menjadi standar \textit{de facto} dalam pengukuran \textit{usability}. Untuk membantu penafsiran, \textcite{bangor2009} melengkapi skor SUS dengan skala adjektif dan ambang penerimaan, sehingga suatu skor dapat dikategorikan mulai dari \textit{poor} hingga \textit{excellent} dan diinterpretasikan maknanya secara praktis.
+
+\subsection{Traceability dan Latensi Data}
+
+\textit{Traceability} atau keterlacakan adalah kemampuan sistem untuk mendokumentasikan dan merekonstruksi secara akurat seluruh rangkaian aktivitas operasional yang berkaitan dengan pergerakan barang dan status perangkat. Standar ISO 9001:2015 menempatkan keterlacakan sebagai bagian dari pengendalian informasi terdokumentasi \autocite{iso9001}. Pada sistem \textit{real-time}, keterlacakan tidak hanya menyangkut kelengkapan pencatatan, tetapi juga kecepatan propagasi data antarlapis sistem, yang diukur melalui parameter latensi. Dengan demikian, evaluasi keterlacakan menilai dua hal sekaligus, yaitu tidak adanya data yang hilang dalam pencatatan, dan terpenuhinya batas waktu propagasi data yang ditetapkan.
+
+\subsection{Produktivitas (Throughput) dan Akurasi Pemenuhan Tugas}
+
+Produktivitas gudang lazim diukur melalui \textit{throughput}, yaitu jumlah tugas yang dapat diselesaikan dalam satuan waktu tertentu. \textcite{dekoster2007} menegaskan bahwa proses pengambilan barang merupakan aktivitas paling padat karya sekaligus penentu utama kinerja gudang, sehingga peningkatan \textit{throughput}-nya menjadi prioritas perbaikan produktivitas. Selain kecepatan, akurasi pemenuhan tugas juga menjadi kriteria kritis, karena kesalahan penempatan atau ketidaksesuaian data inventori berdampak langsung pada tingkat layanan dan biaya operasional \autocite{habazin2017}. Kedua metrik ini---kecepatan dan ketepatan---bersama-sama menggambarkan efektivitas sistem dalam mendukung operasional gudang.
+
+\subsection{Penentuan Ukuran Sampel Uji}
+
+Jumlah partisipan pada pengujian yang melibatkan pengguna memengaruhi keterwakilan temuan. \textcite{alroobaea2014} mengkaji secara empiris berapa banyak partisipan yang benar-benar memadai untuk studi \textit{usability}, dan menunjukkan bahwa jumlah sampel yang terlalu kecil berisiko melewatkan sebagian masalah, sementara penambahan partisipan meningkatkan proporsi masalah yang berhasil ditemukan. Temuan ini menjadi dasar bagi penetapan ukuran sampel pada pengujian yang dilakukan, termasuk pertimbangan pelaksanaan \textit{pilot study} untuk pengujian berskala terbatas.
+
+\section{Penelitian Terdahulu (Studi Terkait)}
+\label{sec:penelitian-terdahulu}
+
+\subsection{Redesain Proses Pemenuhan Pesanan (Framinan et al., 2025)}
+
+\textcite{framinan2025} dalam penelitian berjudul ``Redesigning the Customer Order Fulfilment Process in a Company in the FMCG Sector'' yang dipublikasikan di \textit{IFAC-PapersOnLine} mengkaji proses pemenuhan pesanan pada sebuah perusahaan FMCG yang mengalami \textit{bottleneck} akibat sistem pergudangan yang masih bergantung pada proses manual. Menggunakan metode \textit{Business Process Redesign}, atau BPR, penelitian ini menemukan bahwa 62\% keterlambatan pengiriman bersumber dari aktivitas \textit{order picking} dan \textit{staging} yang tidak terkoordinasi secara digital, dan menegaskan bahwa sistem \textit{warehouse} konvensional tidak mampu memenuhi tuntutan permintaan tinggi dan variasi SKU yang luas tanpa dukungan teknologi otomasi dan integrasi sistem informasi yang menyeluruh.
+
+\subsection{Integrasi Cloud dan IoT untuk Visibilitas Gudang (van Geest et al., 2022)}
+
+\textcite{vangeest2021} dalam artikel ilmiah berjudul ``Smart Warehouses: Rationale, Challenges, and Solution Directions'' yang diterbitkan di jurnal \textit{Applied Sciences} menyajikan \textit{systematic review} mengenai evolusi \textit{Smart Warehouse} sebagai respons terhadap meningkatnya kompleksitas rantai pasok modern. Penelitian ini mengidentifikasi empat pilar \textit{technology enabler} utama \textit{Smart Warehouse}, yaitu \textit{Automation and Robotics} berupa penggunaan AGV/AMR untuk transportasi internal, \textit{IoT-based Visibility} berupa sensor dan RFID untuk deteksi posisi barang secara \textit{real-time}, \textit{AI-driven Optimization} berupa penjadwalan dan penentuan rute otomatis, serta \textit{Cyber-Physical Integration} sebagai sinergi antara operasi fisik dan sistem digital berbasis \textit{cloud}. Selain mengidentifikasi pilar-pilar tersebut, penulis juga mengklasifikasikan tantangan implementasi ke dalam tiga kategori, yaitu tantangan operasional berupa integrasi multirobot dan koordinasi sistem, tantangan teknologi berupa interoperabilitas antar platform, latensi \textit{cloud}, dan keamanan siber, serta tantangan organisasi berupa resistensi sumber daya manusia dan biaya transformasi.
+
+\subsection{Implementasi Event-Driven Architecture pada Sistem Manajemen Inventori Real-Time}
+
+\textcite{hohpe2003} dalam \textit{Enterprise Integration Patterns} meletakkan fondasi teoritis arsitektur berbasis \textit{event} sebagai paradigma integrasi sistem di mana komponen-komponen perangkat lunak berkomunikasi melalui pengiriman dan penerimaan pesan, atau \textit{event}, secara asinkron melalui sebuah \textit{event bus} atau \textit{broker} terpusat, sehingga setiap komponen tetap \textit{loosely coupled} dan dapat beroperasi secara independen tanpa harus mengetahui keberadaan komponen lain secara langsung. Dalam konteks manajemen inventori \textit{real-time}, pendekatan ini diwujudkan melalui tiga kategori komponen utama, yaitu \textit{event producers} yang menghasilkan \textit{event}, \textit{event bus} sebagai kanal distribusi pesan, serta \textit{event consumers} yang memproses \textit{event} sesuai tanggung jawabnya masing-masing.
+
+% CATATAN: outline meminta tambahan 1-2 studi terdahulu tentang lokalisasi/vision-based agar seimbang dengan studi manajemen gudang di atas. Tidak ada studi semacam itu pada draf Bab II sebelumnya, sehingga tidak ditambahkan di sini agar tidak mengarang sitasi. Tambahkan sitasi nyata (mis. studi AprilTag/fiducial marker atau homography untuk lokalisasi robot indoor) di sini secara manual.

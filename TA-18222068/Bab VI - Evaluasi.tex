@@ -4,77 +4,197 @@
 \cleardoublepage
 \chapter{EVALUASI}
 \label{chap:evaluasi}
-asdfasdf
+Bab ini memaparkan proses evaluasi terhadap sistem \textit{Warehouse Management Controller} (WMC) dan Subsistem Lokalisasi yang telah diimplementasikan. Evaluasi bertujuan untuk mengukur sejauh mana sistem yang dikembangkan memenuhi spesifikasi yang telah ditetapkan. Untuk WMC, cakupan evaluasi difokuskan pada ketahanan sistem di bawah beban melalui \textit{stress test}, sedangkan untuk Subsistem Lokalisasi, cakupan evaluasi meliputi akurasi pemenuhan tugas (\textit{Task Fulfilment Accuracy}), akurasi pemetaan posisi, serta deteksi orientasi. Bab ini disusun menjadi tiga subbab: Subbab \ref{sec:metode-evaluasi} memaparkan metode evaluasi yang digunakan, Subbab \ref{sec:hasil-verifikasi} menyajikan hasil verifikasi dari setiap metode tersebut, dan Subbab \ref{sec:pembahasan-evaluasi} membahas hasil evaluasi secara keseluruhan sebagai dasar penilaian kelayakan sistem.
+
 \section{Metode Evaluasi}
-asdfasdf
-\section{Hasil Evaluasi}
-asdfasdf
-\section{Pembahasan Hasil Evaluasi}
-\section{Evaluasi Kesalahan Penulisan yang Sering Terjadi}
-\subsection{Penggunaan Kata "di mana" atau "dimana"}
-Banyak yang menuliskan kata "di mana" atau "dimana" sebagai pengganti kata "which" dalam bahasa Inggris. 
-Padahal, penggunaan kata "di mana" atau "dimana" tidak tepat dalam konteks tersebut. Demikian juga untuk kata serupa, misalnya "yang mana".
-Kata "di mana" atau "dimana" ini harus diganti dengan kata lain, seperti "dengan", "tempat", "yang", dan sebagainya tergantung kalimatnya.
-Penjelasan lengkap dapat dilihat pada \autocite{BPBI}.
+\label{sec:metode-evaluasi}
+Subbab ini memaparkan metode evaluasi yang digunakan untuk menilai sistem WMC dan Subsistem Lokalisasi. Metode evaluasi Sistem WMC dipaparkan pada Subbab VI.1.1, sedangkan metode evaluasi Sistem Lokalisasi dipaparkan pada Subbab VI.1.2.
 
-\subsection{Penggunaan Kata "sedangkan" dan "sehingga"}
+\subsection{Metode Evaluasi Sistem WMC}
+Evaluasi sistem WMC difokuskan pada komponen yang secara langsung dipengaruhi oleh WMC sebagai lapisan perangkat lunak pengendali gudang. Mengingat peran WMC dalam mengatur manajemen inventori, koordinasi tugas robot, serta antarmuka pengguna, kriteria evaluasi utama WMC adalah \textit{Stress Test} untuk mengukur ketahanan dan performa sistem di bawah beban.
 
-\begin{table}[t]
-  \begin{tabular}{|c|l|l|}
+\subsubsection*{VI.1.1.1 Pengujian Stress Test---Pengukuran Ketahanan Sistem di Bawah Beban}
+Pengujian \textit{stress test} dilakukan untuk mengukur ketahanan dan performa sistem WMC ketika menerima beban permintaan yang tinggi secara bersamaan pada setiap \textit{endpoint} utama. Sistem dinyatakan memenuhi kriteria apabila seluruh \textit{endpoint} yang diuji tidak mengalami kegagalan dengan \textit{error rate} 0\% dan tetap responsif di bawah beban, yang diukur melalui waktu respons rata-rata, persentil ke-95 (p95) dan persentil ke-99 (p99).
+
+Metode pengujian dilakukan dengan mengirimkan sejumlah \textit{request} secara simultan ke setiap \textit{endpoint} pada ketiga \textit{service} menggunakan \textit{load testing tool}. Setiap \textit{endpoint} diuji secara terpisah dengan mencatat waktu respons rata-rata, p95, p99, \textit{error rate}, serta \textit{throughput}. Hasil pengujian kemudian dibandingkan terhadap kriteria keberhasilan, yaitu tidak ada kegagalan \textit{request} selama pengujian berlangsung.
+
+\subsection{Metode Evaluasi Sistem Lokalisasi}
+Evaluasi Subsistem Lokalisasi mencakup tiga kriteria yang saling melengkapi, yaitu akurasi pemenuhan tugas (\textit{Task Fulfilment Accuracy}), akurasi pemetaan posisi, serta deteksi orientasi. Ketiga kriteria ini secara bersama-sama memverifikasi bahwa Subsistem Lokalisasi mampu menghasilkan data posisi dan orientasi yang akurat, baik secara mandiri maupun ketika terintegrasi dengan sistem WMC dan armada robot.
+
+\subsubsection*{VI.1.2.1 Pengujian Task Fulfilment Accuracy---Verifikasi Konsistensi Data}
+Pengujian ini memverifikasi bahwa sistem mampu mengarahkan robot ke lokasi target yang benar dengan akurasi 100\%, tanpa \textit{misplacement} maupun ketidaksesuaian data inventori. Kriteria ini mencerminkan ketepatan sistem terintegrasi, yang bergantung pada keandalan lokalisasi posisi serta pembaruan status dan posisi barang pascatugas.
+
+Metode pengujian dilakukan dengan membandingkan data yang tercatat dalam basis data terhadap kondisi fisik aktual setelah serangkaian tugas pengambilan dan penempatan barang dieksekusi. Pengujian dilaksanakan dengan menjalankan seluruh kombinasi 4 sel \textit{idle} dan 8 rak \textit{storage}, menghasilkan 32 \textit{order storing} dan 32 \textit{order picking}, atau total 64 \textit{task}. Setiap \textit{order} yang dibuat dicatat beserta lokasi tujuan yang ditetapkan oleh sistem. Setelah robot menyelesaikan tugas, data lokasi barang yang diperbarui oleh sistem dibandingkan dengan lokasi fisik aktual di gudang. Tingkat akurasi dihitung menggunakan Persamaan \ref{eq:tfa}.
+\begin{equation}
+\text{Task Fulfilment Accuracy} = \frac{\text{Jumlah Tugas Berhasil Tanpa Kesalahan}}{\text{Jumlah Total Tugas}} \times 100\%
+\label{eq:tfa}
+\end{equation}
+Sistem dinyatakan lulus pengujian apabila seluruh tugas yang dieksekusi memberikan hasil yang sesuai antara perintah sistem dengan kondisi fisik berdasarkan Persamaan \ref{eq:tfa} tersebut, sehingga akurasi mencapai 100\%. Kriteria ketat ini dipilih karena kesalahan lokasi barang sekecil apa pun dapat berdampak langsung pada keakuratan data inventori dan proses pengambilan barang berikutnya.
+
+\subsubsection*{VI.1.2.2 Pengujian Akurasi Posisi dan Orientasi}
+Verifikasi dilakukan dengan menempatkan \textit{marker} Tag36h11 AprilTag ($8\times8$ cm) secara bersamaan pada seluruh 32 sel \textit{grid} lantai gudang berukuran $8\times4$, dengan posisi dan orientasi yang telah diketahui secara pasti sebagai \textit{ground truth}, serta pengujian orientasi pada empat kelipatan sudut ($0^\circ$, $90^\circ$, $180^\circ$ dan $270^\circ$) sesuai resolusi deteksi \textit{heading} sistem. \textit{Payload} MQTT yang dipublikasikan subsistem dibandingkan terhadap \textit{ground truth} untuk dua properti, yaitu posisi sel \textit{grid} (kolom, baris) dan sudut \textit{heading}, dengan target akurasi 100\% pada kedua properti di seluruh sel dan sudut yang diuji.
+
+Tabel \ref{tab:rangkuman-evaluasi-lokalisasi} menyajikan rangkuman seluruh kriteria evaluasi Subsistem Lokalisasi beserta parameter target dan metode pengujiannya. Ringkasan ini menegaskan bahwa ketiga kriteria dievaluasi dengan target akurasi yang sama-sama ketat, yakni 100\%, meskipun menggunakan metode pengujian yang berbeda.
+
+\begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{3.2cm} | >{\raggedright\arraybackslash}X | >{\raggedright\arraybackslash}X | }
+  \caption{Rangkuman kriteria dan metode evaluasi Subsistem Lokalisasi} \label{tab:rangkuman-evaluasi-lokalisasi} \\
   \hline
-  Kata & Salah & Benar \\ \hline
-  sedangkan & \begin{tabular}[c]{@{}c@{}}Sedangkan sistem lama masih\\ digunakan oleh banyak pengguna.\end{tabular} & \begin{tabular}[c]{@{}c@{}}Sistem lama masih digunakan\\ oleh banyak pengguna,\\ sedangkan sistem baru belum siap.\end{tabular} \\ \hline
-  sehingga & \begin{tabular}[c]{@{}c@{}}Sehingga sistem lama masih\\ digunakan oleh banyak pengguna.\end{tabular} & \begin{tabular}[c]{@{}c@{}}Sistem lama masih digunakan\\ oleh banyak pengguna sehingga\\ sistem baru belum siap.\end{tabular} \\ \hline
-  \end{tabular}
-  \caption{Contoh penggunaan kata "sedangkan" dan "sehingga"}
-  \label{tbl:sedangkan_sehingga}
-\end{table}
+  \textbf{Kriteria Evaluasi} & \textbf{Parameter Target} & \textbf{Metode Pengujian} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:rangkuman-evaluasi-lokalisasi}}} \\
+  \hline
+  \textbf{Kriteria Evaluasi} & \textbf{Parameter Target} & \textbf{Metode Pengujian} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
+  Task Fulfilment Accuracy & Akurasi 100\%, tanpa \textit{misplacement}, serta konsistensi data fisik dan inventori & Perbandingan data basis data terhadap kondisi fisik aktual pascaeksekusi tugas \\
+  \hline
+  Akurasi Posisi & Akurasi 100\% pemetaan sel \textit{grid} pada seluruh 32 sel \textit{grid} $8\times4$ & Perbandingan \textit{payload} MQTT terhadap \textit{ground truth} posisi pada seluruh sel \textit{grid} \\
+  \hline
+  Akurasi Orientasi & Akurasi 100\% deteksi \textit{heading} pada $0^\circ$, $90^\circ$, $180^\circ$, $270^\circ$ & Perbandingan \textit{payload} MQTT terhadap \textit{ground truth} orientasi pada tiap sudut \\
+  \hline
 
-Kata "sedangkan" dan "sehingga" adalah kata hubung atau konjungsi. 
-Konjungsi adalah kata atau ungkapan yang menghubungkan satuan bahasa 
-(kata, frasa, klausa, dan kalimat). 
-Konjungsi dapat dibagi menjadi konjungsi intrakalimat dan antarkalimat.  
-Kata "sedangkan" menghubungkan dua klausa yang bersifat kontrasif, 
-sedangkan "sehingga" menghubungkan dua klausa yang bersifat kausal. 
-Dalam ragam formal, kata hubung “sedangkan” dan “sehingga” hanya dapat digunakan 
-sebagai konjungsi intrakalimat sehingga kedua konjungsi itu \textbf{tidak dapat diletakkan pada awal kalimat}.
-Selain itu, penggunaan kata "sedangkan" harus didahului oleh koma (,), sedangkan kata "sehingga" tidak perlu didahului oleh koma (,).
-Contoh penggunaan yang benar dan salah dapat dilihat pada Tabel \ref{tbl:sedangkan_sehingga}.
+\end{xltabular}
 
+Ketiga metode evaluasi tersebut dirancang agar dapat dilaksanakan secara bertahap dan sistematis. Pengujian akurasi posisi dan orientasi dapat dilakukan secara mandiri terhadap subsistem lokalisasi, sementara pengujian akurasi pemenuhan tugas memerlukan integrasi penuh antara sistem WMC dengan subsistem robot dan \textit{Fleet Controller} dalam skenario operasional terintegrasi.
 
-\subsection{Penggunaan Istilah yang Tidak Baku}
-Ada beberapa istilah yang sering digunakan dalam pembicaraan sehari-hari, tetapi tidak baku dalam penulisan ilmiah.
-Beberapa istilah tersebut antara lain:
-\begin{enumerate}
-  \item analisa $\rightarrow$ analisis
-  \item eksisting atau existing $\rightarrow$ yang ada atau saat ini
-  \item bisnis proses $\rightarrow$ proses bisnis
-  \item user $\rightarrow$ pengguna
-  \item system $\rightarrow$ sistem
-  \item database $\rightarrow$ basis data
-  \item aktifitas $\rightarrow$ aktivitas
-  \item efektifitas $\rightarrow$ efektivitas
-  \item sosial media $\rightarrow$ media sosial
-\end{enumerate}
+\section{Hasil Verifikasi}
+\label{sec:hasil-verifikasi}
+Subbab ini menyajikan hasil pelaksanaan setiap metode evaluasi yang telah direncanakan pada Subbab \ref{sec:metode-evaluasi}, dipisahkan antara hasil verifikasi Sistem WMC pada Subbab \ref{subsec:hasil-wmc} dan hasil verifikasi Sistem Lokalisasi pada Subbab \ref{subsec:hasil-lokalisasi}. Setiap hasil pengujian dibandingkan terhadap kriteria keberhasilan yang telah ditetapkan pada Subbab \ref{sec:metode-evaluasi} untuk menentukan kelayakan sistem.
 
-\subsection{Pemisah Desimal dan Ribuan}
-Tanda pemisah desimal dalam bahasa Indonesia adalah tanda koma, contoh:
-\begin{enumerate}
-  \item (Salah) Akurasi naik menjadi 50.6\% 
-  \item (Benar) Akurasi naik menjadi 50,6\% 
-\end{enumerate}
+\subsection{Hasil Verifikasi Sistem WMC}
+\label{subsec:hasil-wmc}
 
-\subsection{Daftar atau \textit{List}}
-Ada beberapa aturan penulisan daftar atau \textit{list} yang perlu diperhatikan, antara lain:
-\begin{enumerate}[a)]
-\item Jika memungkinkan, hindari penggunaan “bullet points” atau sejenisnya. Sebaiknya, gunakan angka (1, 2, 3, ...) atau huruf (a, b, c, …). Dengan demikian, pembaca dapat dengan mudah melihat jumlah \textit{item} atau \textit{list}. 
-\item Jika dalam daftar hanya ada satu item, tidak perlu menggunakan nomor urut.
-\item Penjelasan atau deskripsi suatu item sebaiknya menyatu dengan judul item tersebut, tidak berbeda halaman. Contoh yang salah: judul item ada di halaman 10, namun deskripsinya di halaman 11. Sebaiknya pindahkan judul tersebut ke halaman 11.
-\item Jika penjelasan atau deskripsi suatu item cukup panjang, misalnya lebih dari 1 halaman atau terdiri atas beberapa paragraf, sebaiknya setiap item tersebut dijadikan judul subbab, kecuali jika level subbab sudah mencapai level 4. 
-\end{enumerate}
+\subsubsection*{VI.2.1.1 Hasil Pengujian Stress Test}
+Pengujian \textit{stress test} dilaksanakan dengan mengirimkan \textit{request} secara simultan ke sebelas \textit{endpoint} utama pada \textit{Authentication Service} dan \textit{Goods Service}. Setiap \textit{endpoint} diukur waktu respons rata-rata, p95, p99, \textit{error rate} dan \textit{throughput} selama pengujian berlangsung. Tabel \ref{tab:stress-test} merangkum hasil pengujian tersebut.
 
-\subsection{Penggunaan Kata "masing-masing" dan "setiap"}
-Kata “masing-masing” digunakan di belakang kata yang diterangkan, misalnya 
-"Setiap proses menggunakan algoritma masing-masing". Kata “tiap-tiap” atau “setiap”
-ditempatkan di depan kata yang diterangkan, misalnya
-"Setiap proses menggunakan algoritma tertentu".
+\begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}X | >{\centering\arraybackslash}p{1.4cm} | >{\centering\arraybackslash}p{1.4cm} | >{\centering\arraybackslash}p{1.4cm} | >{\centering\arraybackslash}p{1.5cm} | >{\centering\arraybackslash}p{1.7cm} | >{\centering\arraybackslash}p{1.4cm} | }
+  \caption{Hasil pengujian stress test \textit{endpoint} WMC} \label{tab:stress-test} \\
+  \hline
+  \textbf{Endpoint} & \textbf{Avg} & \textbf{p(95)} & \textbf{p(99)} & \textbf{Error Rate} & \textbf{Throughput} & \textbf{Status} \\
+  \hline
+  \endfirsthead
+  \multicolumn{7}{l}{\textit{lanjutan Tabel \ref{tab:stress-test}}} \\
+  \hline
+  \textbf{Endpoint} & \textbf{Avg} & \textbf{p(95)} & \textbf{p(99)} & \textbf{Error Rate} & \textbf{Throughput} & \textbf{Status} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
+  POST \slash auth\slash login & 6,12 ms & 13,49 ms & 52,36 ms & 0,00\% & 17,6 req/s & Pass All \\
+  \hline
+  GET \slash items (Goods Service) & 5,06 ms & 10,37 ms & 120,6 ms & 0,00\% & 99,4 req/s & Pass All \\
+  \hline
+  POST \slash items (Goods Service) & 10,58 ms & 18,2 ms & 46,24 ms & 0,00\% & 19,8 req/s & Pass All \\
+  \hline
+  GET \slash orders (Blob Service) & 5,12 ms & 11,13 ms & 21,96 ms & 0,00\% & 19,9 req/s & Pass All \\
+  \hline
+  GET \slash apriltag-mappings\slash status & 5,54 ms & 17,06 ms & 26,28 ms & 0,00\% & 19,9 req/s & Pass All \\
+  \hline
+  POST \slash apriltag-mappings & 9 ms & 15,26 ms & 20,87 ms & 0,00\% & 19,8 req/s & Pass All \\
+  \hline
+  GET \slash orders & 5,93 ms & 11,74 ms & 28,57 ms & 0,00\% & 19,9 req/s & Pass All \\
+  \hline
+  POST \slash orders & 8,71 ms & 15,29 ms & 24,63 ms & 0,00\% & 19,6 req/s & Pass All \\
+  \hline
+  GET \slash apriltag-mappings\slash item\slash :itemId & 6,21 ms & 13,44 ms & 22,87 ms & 0,00\% & 19,83 req/s & Pass All \\
+  \hline
+  POST \slash apriltag-mappings\slash scan & 8,45 ms & 14,92 ms & 21,33 ms & 0,00\% & 19,79 req/s & Pass All \\
+  \hline
+  PATCH \slash apriltag-mappings\slash :mappingId\slash status & 10,13 ms & 17,58 ms & 24,61 ms & 0,00\% & 19,71 req/s & Pass All \\
+  \hline
+
+\end{xltabular}
+
+Seluruh sebelas \textit{endpoint} yang diuji menunjukkan \textit{error rate} sebesar 0,00\%, yang berarti tidak ada \textit{request} yang gagal diproses selama pengujian berlangsung, sehingga memenuhi kriteria keberhasilan yang ditetapkan. Waktu respons \textit{endpoint} secara konsisten berada di bawah 55 ms pada persentil ke-99.
+
+\subsection{Hasil Verifikasi Sistem Lokalisasi}
+\label{subsec:hasil-lokalisasi}
+
+\subsubsection*{VI.2.2.1 Hasil Verifikasi Posisi dan Orientasi}
+Pengujian posisi dilaksanakan dengan menempatkan AprilTag pada seluruh 32 sel \textit{grid} $8\times4$ secara bersamaan, dan seluruh sel berhasil terdeteksi dan dipetakan ke koordinat \textit{grid} yang sesuai dengan \textit{ground truth}, mencapai akurasi 100\%. Tabel \ref{tab:verifikasi-posisi} menampilkan enam titik uji sebagai contoh representatif dari keseluruhan pengujian tersebut. Pengujian orientasi dilaksanakan pada empat sudut \textit{heading} ($0^\circ$, $90^\circ$, $180^\circ$, $270^\circ$) dan seluruhnya terdeteksi dengan benar, sebagaimana dicontohkan pada Tabel \ref{tab:verifikasi-orientasi}.
+
+\begin{xltabular}{\textwidth}{ | c | X | c | }
+  \caption{Hasil verifikasi posisi Subsistem Lokalisasi} \label{tab:verifikasi-posisi} \\
+  \hline
+  \textbf{Tag ID} & \textbf{Sel Grid yang Diharapkan (c, r)} & \textbf{Status} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:verifikasi-posisi}}} \\
+  \hline
+  \textbf{Tag ID} & \textbf{Sel Grid yang Diharapkan (c, r)} & \textbf{Status} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
+  562 & (0, 1) & \checkmark Lulus \\
+  \hline
+  584 & (0, 2) & \checkmark Lulus \\
+  \hline
+  577 & (1, 2) & \checkmark Lulus \\
+  \hline
+  585 & (3, 1) & \checkmark Lulus \\
+  \hline
+  586 & (5, 1) & \checkmark Lulus \\
+  \hline
+  578 & (2, 3) & \checkmark Lulus \\
+  \hline
+
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{ | c | X | c | }
+  \caption{Hasil verifikasi orientasi Subsistem Lokalisasi} \label{tab:verifikasi-orientasi} \\
+  \hline
+  \textbf{Tag ID} & \textbf{Heading yang Diharapkan} & \textbf{Status} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:verifikasi-orientasi}}} \\
+  \hline
+  \textbf{Tag ID} & \textbf{Heading yang Diharapkan} & \textbf{Status} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
+  584 & $0^\circ$ & \checkmark Lulus \\
+  \hline
+  562 & $90^\circ$ & \checkmark Lulus \\
+  \hline
+  578 & $180^\circ$ & \checkmark Lulus \\
+  \hline
+  577 & $270^\circ$ & \checkmark Lulus \\
+  \hline
+
+\end{xltabular}
+
+\subsubsection*{VI.2.2.2 Hasil Pengujian Task Fulfilment Accuracy}
+Pengujian akurasi pemenuhan tugas dilaksanakan dengan mengeksekusi seluruh kombinasi skenario perjalanan antara 4 sel \textit{idle} dan 8 rak \textit{storage}. Setiap sel \textit{idle} diuji terhadap 8 kemungkinan rak \textit{storage} tujuan, menghasilkan 32 skenario tugas \textit{storing} (\textit{idle} $\rightarrow$ \textit{storage}), yang masing-masing dipasangkan dengan skenario tugas \textit{picking} kembali ke sel \textit{idle} asal (\textit{storage} $\rightarrow$ \textit{idle}), sehingga total keseluruhan mencapai 64 skenario tugas. Data lokasi yang tercatat dalam basis data kemudian dibandingkan dengan kondisi fisik aktual di gudang untuk setiap skenario. Setiap \textit{task} diperiksa untuk memastikan tidak terjadi kesalahan lokasi rak atau \textit{misplacement} dan tidak ada ketidaksesuaian antara kondisi fisik dengan data inventori. Tabel \ref{tab:tfa} menyajikan hasil pengujian tersebut.
+
+\begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}X | >{\centering\arraybackslash}p{2.3cm} | >{\centering\arraybackslash}p{2.5cm} | >{\centering\arraybackslash}p{1.8cm} | }
+  \caption{Hasil pengujian \textit{Task Fulfilment Accuracy}} \label{tab:tfa} \\
+  \hline
+  \textbf{Tipe Task} & \textbf{Jumlah Task Dieksekusi} & \textbf{Task Tanpa Kesalahan Lokasi} & \textbf{Akurasi (\%)} \\
+  \hline
+  \endfirsthead
+  \multicolumn{4}{l}{\textit{lanjutan Tabel \ref{tab:tfa}}} \\
+  \hline
+  \textbf{Tipe Task} & \textbf{Jumlah Task Dieksekusi} & \textbf{Task Tanpa Kesalahan Lokasi} & \textbf{Akurasi (\%)} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
+  Storing (penempatan barang) & 32 & 32 & 100\% \\
+  \hline
+  Picking (pengambilan barang) & 32 & 32 & 100\% \\
+  \hline
+  \textbf{Total keseluruhan} & \textbf{64} & \textbf{64} & \textbf{100\%} \\
+  \hline
+
+\end{xltabular}
+
+Seluruh 64 skenario \textit{task} yang dieksekusi pada seluruh kombinasi 4 sel \textit{idle} dan 8 rak \textit{storage} menunjukkan kesesuaian penuh antara lokasi target yang ditetapkan oleh sistem dengan kondisi fisik aktual di gudang. Tidak terdapat satu pun kejadian \textit{misplacement} maupun ketidaksesuaian data inventori, sehingga tingkat \textit{Task Fulfilment Accuracy} mencapai 100\%, memenuhi target spesifikasi yang ditetapkan.
+
+\section{Pembahasan Hasil Evaluasi}
+\label{sec:pembahasan-evaluasi}
+Berdasarkan hasil verifikasi pada Subbab \ref{sec:hasil-verifikasi}, seluruh kriteria evaluasi untuk sistem WMC dan Subsistem Lokalisasi telah terpenuhi. Pengujian \textit{stress test} pada \textit{endpoint} menunjukkan \textit{error rate} 0,00\% yang menyatakan sistem WMC tetap responsif di bawah beban tinggi. Pengujian \textit{Task Fulfilment Accuracy} menunjukkan akurasi 100\% dari 64 \textit{task} tanpa satu pun kejadian \textit{misplacement}, mengonfirmasi keandalan sistem dan lokalisasi posisi dalam mengarahkan robot ke lokasi target yang benar. Verifikasi pemetaan posisi dan deteksi orientasi juga mencapai akurasi 100\% di seluruh 32 sel \textit{grid} dan seluruh sudut \textit{heading} yang diuji, menunjukkan bahwa \textit{pipeline} Subsistem Lokalisasi berfungsi sesuai yang diharapkan. Secara keseluruhan, seluruh aspek yang diuji, yaitu ketahanan sistem WMC, akurasi pemenuhan tugas, serta akurasi lokalisasi posisi dan orientasi, memenuhi target minimum yang disyaratkan.

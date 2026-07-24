@@ -3,42 +3,36 @@
 
 \begin{center}
 
-    \textbf{Implementasi Sistem Smart Scale Berbasis IoT dengan Arsitektur Desentralisasi untuk Optimalisasi Rantai Pasok Jeruk di Tingkat Lapak} \\
+    \textbf{Perancangan dan Implementasi Warehouse Management Controller \& Sistem Lokalisasi untuk Prototipe Smart Warehouse} \\
     \vspace{0.4cm}
     oleh \\
     \vspace{0.4cm}
-    John Doe\\
-    123456789\\
+    Raizan Iqbal Resi\\
+    18222068\\
 \end{center}
 
 
 \begin{spacing}{1.0}
-Proses manual dalam rantai pasok jeruk di tingkat lapak, yang mencakup sortir,
-timbang, dan catat, terbukti tidak efisien, memakan waktu, dan rentan terhadap
-kesalahan. Meskipun solusi berbasis Internet of Things (IoT) dapat mengatasi
-masalah ini, arsitektur terpusat konvensional berbasis cloud justru menimbulkan
-masalah baru berupa latensi tinggi yang menghambat alur kerja real-time.
-Penelitian ini bertujuan untuk merancang dan mengimplementasikan sebuah
-purwarupa sistem smart scale berbasis IoT dengan pendekatan desentralisasi (edge
-computing) untuk meminimalkan latensi dan meningkatkan efisiensi operasional.
-Metode yang digunakan adalah Model Purwarupa, yang diwujudkan dalam bentuk
-perangkat keras dengan arsitektur prosesor ganda (Raspberry Pi 5 dan ESP32) yang
-mampu mengintegrasikan fungsi timbang dan analisis kualitas citra secara
-simultan. Hasil evaluasi menunjukkan bahwa purwarupa dengan arsitektur edge
-computing yang diimplementasikan mampu memberikan respons 43,5\% lebih cepat
-(latensi rata-rata 18,05 detik) dibandingkan dengan simulasi arsitektur terpusat.
-Selain itu, sistem ini berhasil meningkatkan efisiensi waktu kerja secara
-keseluruhan sebesar 58,32\% jika dibandingkan dengan metode manual
-konvensional. Pengujian Penerimaan Pengguna (UAT) yang melibatkan 30
-partisipan juga menunjukkan penerimaan yang sangat positif, dengan skor rata-rata
-untuk kemudahan penggunaan (5,0/5,0), kejelasan antarmuka (4,87/5,0) dan
-persepsi kinerja (4,95/5,0). Kesimpulannya, implementasi sistem smart scale
-dengan arsitektur desentralisasi terbukti merupakan solusi yang valid dan efektif
-untuk menjawab permasalahan latensi dan inefisiensi di lapak. Sistem ini tidak
-hanya unggul secara teknis dalam hal performa, tetapi juga fungsional dan dapat
-diterima dengan baik oleh pengguna akhir, serta berpotensi besar untuk modernisasi
-rantai pasok agribisnis.
+Sistem manajemen gudang FMCG konvensional menghadapi keterbatasan kritis dalam
+sinkronisasi inventaris secara \textit{real-time} dan penelusuran posisi fisik
+barang, sehingga operasional rentan terhadap ketidaksesuaian stok dan hambatan
+proses manual. Laporan ini memaparkan perancangan, implementasi, dan evaluasi
+\textit{Warehouse Management Controller} (WMC) serta sistem lokalisasi berbasis
+AprilTag untuk prototipe \textit{smart warehouse}. WMC dirancang dalam bentuk
+tiga \textit{microservice} yang dapat di-\textit{deploy} secara independen,
+yaitu \textit{Authentication Service}, \textit{Goods Detail Service}, dan
+\textit{Fleet Order Service}. Sistem lokalisasi memanfaatkan kamera untuk
+memetakan posisi robot dan barang ke dalam \textit{grid} diskret berukuran
+8×4 yang mencakup area lantai seluas 2,4×1,2 m. Pengujian \textit{stress test}
+terhadap \textit{endpoint} API WMC berhasil dilalui tanpa kegagalan permintaan.
+Verifikasi sistem lokalisasi berhasil mendeteksi posisi sel \textit{grid} dan
+orientasi robot maupun barang secara akurat pada seluruh kondisi pengujian,
+yang turut berkontribusi terhadap tercapainya \textit{Task Fulfilment Accuracy}
+penuh dalam skenario penyimpanan dan pengambilan barang. Hasil ini menunjukkan
+bahwa integrasi arsitektur \textit{microservice} berbasis \textit{event-driven}
+dengan sistem lokalisasi visual mampu meningkatkan akurasi pelacakan posisi dan
+efisiensi operasional gudang secara signifikan.
 
-Kata kunci: Smart Scale, Internet of Things, Edge Computing, Rantai Pasok Jeruk.
+Kata kunci: Smart Warehouse, Warehouse Management System, Microservice, Computer Vision, Indoor Tracking.
 \end{spacing}
 

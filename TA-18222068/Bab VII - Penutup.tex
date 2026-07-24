@@ -4,7 +4,19 @@
 \cleardoublepage
 \chapter{PENUTUP}
 \label{chap:penutup}
+
 \section{Kesimpulan}
-Jelaskan secara detail langkah-langkah rencana selanjutnya, hal-hal yang diperlukan atau akan disiapkan, dan risiko dan mitigasinya, yang meliputi:
+Berdasarkan proses analisis masalah, pemilihan solusi, perancangan, implementasi, dan evaluasi yang telah dilakukan, kedua rumusan masalah tugas akhir ini dapat dijawab sebagai berikut.
+
+\begin{enumerate}
+\item Permasalahan keterbatasan sinkronisasi data secara \textit{real-time} dan ketergantungan pada proses manual di gudang barang jadi Paragon Corp memicu \textit{mismatch} dan \textit{mistracking} stok. Permasalahan ini dijawab melalui pembangunan sistem informasi manajemen gudang berbasis arsitektur \textit{microservices} dengan pendekatan \textit{event-driven}. Sistem ini didekomposisi menjadi tiga layanan utama, yaitu \textit{Authentication Service}, \textit{Goods Detail Service}, dan \textit{Fleet Order Service}. Sistem ini juga didukung oleh basis data dengan sembilan entitas dan sepuluh \textit{use case}, yaitu UC-01 sampai UC-10. Implementasi menggunakan Node.js dan TypeScript untuk \textit{backend}, PostgreSQL melalui Prisma ORM untuk basis data, serta Docker untuk \textit{containerization}. Sistem ini menyediakan total 41 \textit{endpoint} REST API yang dilindungi autentikasi JWT.
+\item Efektivitas sistem dibuktikan melalui hasil pengujian \textit{stress test} yang menunjukkan seluruh sebelas \textit{endpoint} utama pada \textit{Authentication Service} dan \textit{Goods Service} memiliki \textit{error rate} sebesar 0\%. Waktu respons pada seluruh \textit{endpoint} tersebut juga konsisten berada di bawah 55 ms pada persentil ke-99. Pengujian \textit{Task Fulfilment Accuracy} dilakukan terhadap 64 skenario tugas \textit{storing} dan \textit{picking} pada kombinasi 4 sel \textit{idle} dan 8 rak \textit{storage}. Hasil pengujian mencapai akurasi 100\% tanpa ditemukan kasus \textit{misplacement} maupun ketidaksesuaian data inventori.
+\item Untuk kebutuhan penentuan posisi dan orientasi robot, dikembangkan prototipe Subsistem Lokalisasi yang memanfaatkan penanda AprilTag jenis Tag36h11 dan mempublikasikan hasilnya melalui protokol MQTT. Hasil verifikasi menunjukkan akurasi 100\% pada pengujian posisi sel \textit{grid} maupun deteksi orientasi pada sudut hadap $0^\circ$, $90^\circ$, $180^\circ$, dan $270^\circ$. Dengan demikian, mekanisme ini terbukti mampu menentukan posisi dan orientasi robot secara akurat di seluruh titik pengujian.
+\end{enumerate}
+
 \section{Saran}
-asdfas
+Meskipun sistem WMC telah berhasil dikembangkan dan menghasilkan hasil evaluasi yang memenuhi seluruh kriteria spesifikasi, masih terdapat ruang untuk pengembangan dan penyempurnaan lebih lanjut. Pengembangan lebih lanjut ini diperlukan agar sistem dapat menjadi lebih optimal dalam mendukung operasional gudang dan dapat diterapkan dalam skala yang lebih luas. Beberapa saran yang dapat dipertimbangkan untuk kebutuhan pengembangan selanjutnya adalah:
+\begin{enumerate}
+\item Integrasi dilakukan dengan sistem ERP eksisting Paragon Corp, yaitu Odoo, secara \textit{real-time}. Dengan integrasi ini, data inventori pada WMC dapat tersinkronisasi secara otomatis dengan sistem perencanaan sumber daya perusahaan yang telah ada. Integrasi ini akan menghilangkan kebutuhan rekonsiliasi data manual dan memastikan konsistensi informasi di seluruh lini operasional perusahaan.
+\item Penambahan modul analitik dan pelaporan operasional yang menyajikan visualisasi data historis, seperti tren produktivitas robot, pola penggunaan rak, dan statistik penyelesaian \textit{order} per periode. Fitur ini akan membantu supervisor dan manajer operasional dalam pengambilan keputusan berbasis data untuk optimasi tata letak gudang dan perencanaan kapasitas armada robot.
+\end{enumerate}

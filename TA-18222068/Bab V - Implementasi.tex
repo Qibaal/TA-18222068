@@ -4,4 +4,420 @@
 \cleardoublepage
 \chapter{IMPLEMENTASI}
 \label{chap:implementasi}
-asdfasdf
+
+\section{Implementasi Warehouse Management Controller}
+Subbab ini menjabarkan detail implementasi sistem \textit{Warehouse Management Controller} (WMC), mencakup implementasi modul/\textit{service} untuk prototipe \textit{Smart Warehouse}. Pembahasan pada setiap modul mencakup struktur kelas yang diimplementasikan, daftar \textit{endpoint} yang tersedia, serta deskripsi berkas kode sumber terkait.
+
+\subsection{Implementasi Modul}
+Implementasi sistem WMC dilakukan ke dalam tiga \textit{service} utama, yaitu \textit{Authentication Service}, \textit{Goods Service}, dan \textit{Fleet Service}. Setiap \textit{service} diuraikan menjadi empat bagian: kelas \textit{Entity}, \textit{Controller}, \textit{Service}, dan \textit{Repository} sesuai Class Diagram pada Gambar \ref{fig:class-diagram}, diikuti oleh tabel daftar \textit{endpoint} dan tabel deskripsi berkas fisik.
+
+\subsubsection*{V.1.1.1 Authentication Service}
+\textit{Authentication Service} bertanggung jawab atas proses registrasi, \textit{login}, penerbitan dan verifikasi JSON Web Token (JWT), serta pengelolaan data pengguna (\textit{User}) dan sesi (\textit{Session}). Tabel \ref{tab:endpoint-auth} menyajikan daftar \textit{endpoint} yang dikembangkan pada \textit{service} ini.
+
+\begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{1cm} | >{\raggedright\arraybackslash}p{2.2cm} | >{\raggedright\arraybackslash}X | }
+  \caption{Daftar \textit{endpoint} \textit{Authentication Service}} \label{tab:endpoint-auth} \\
+  \hline
+  \textbf{No} & \textbf{Method} & \textbf{Endpoint} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:endpoint-auth}}} \\
+  \hline
+  \textbf{No} & \textbf{Method} & \textbf{Endpoint} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
+    1 & GET & / \\
+    \hline
+    2 & GET & /docs/spec \\
+    \hline
+    3 & GET & /docs \\
+    \hline
+    4 & POST & /auth/register \\
+    \hline
+    5 & POST & /auth/login \\
+    \hline
+    6 & GET & /protected \\
+    \hline
+    7 & GET & /users \\
+    \hline
+    8 & GET & /users/:id \\
+    \hline
+    9 & POST & /users \\
+    \hline
+    10 & PUT & /users/:id \\
+    \hline
+    11 & DELETE & /users/:id \\
+    \hline
+    12 & GET & /sessions \\
+    \hline
+    13 & POST & /sessions \\
+    \hline
+
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{1.5cm} | >{\raggedright\arraybackslash}p{6.5cm} | >{\raggedright\arraybackslash}X | }
+  \caption{Deskripsi Berkas \textit{Authentication Service}} \label{tab:file-auth} \\
+  \hline
+  \textbf{Nomor} & \textbf{Nama File} & \textbf{Deskripsi} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:file-auth}}} \\
+  \hline
+  \textbf{Nomor} & \textbf{Nama File} & \textbf{Deskripsi} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
+    1 & \texttt{src/\allowbreak controllers/\allowbreak auth.controller.ts} & Controller registrasi, login, dan verifikasi token JWT (AuthController, usulan) \\
+    \hline
+    2 & \texttt{src/\allowbreak services/\allowbreak auth.service.ts} & Logika bisnis autentikasi dan penerbitan JWT (AuthService, usulan) \\
+    \hline
+    3 & \texttt{src/\allowbreak middlewares/\allowbreak jwt.middleware.ts} & Middleware verifikasi token JWT pada setiap \textit{request} masuk (usulan) \\
+    \hline
+    4 & \texttt{src/\allowbreak utils/\allowbreak hash.util.ts} & Utilitas \textit{hashing} dan verifikasi kata sandi (usulan) \\
+    \hline
+    5 & \texttt{src/\allowbreak controllers/\allowbreak user.controller.ts} & Endpoint pengelolaan data user, dipindah dari \texttt{goods-service} \\
+    \hline
+    6 & \texttt{src/\allowbreak services/\allowbreak user.service.ts} & Logika bisnis pengelolaan data user, dipindah dari \texttt{goods-service} \\
+    \hline
+    7 & \texttt{src/\allowbreak repositories/\allowbreak user.repository.ts} & Akses data user ke basis data (UserRepository, usulan) \\
+    \hline
+    8 & \texttt{src/\allowbreak controllers/\allowbreak session.controller.ts} & Endpoint pengelolaan sesi login, dipindah dari \texttt{goods-service} \\
+    \hline
+    9 & \texttt{src/\allowbreak services/\allowbreak session.service.ts} & Logika bisnis pengelolaan sesi login, dipindah dari \texttt{goods-service} \\
+    \hline
+    10 & \texttt{src/\allowbreak repositories/\allowbreak session.repository.ts} & Akses data sesi ke basis data (SessionRepository, usulan) \\
+    \hline
+
+\end{xltabular}
+
+\subsubsection*{V.1.1.2 Goods Service}
+\textit{Goods Service} menangani data barang, lokasi penyimpanan, pemesanan, serta pemetaan AprilTag ke barang. \textit{Endpoint} Robot, Task, dan Robot Log telah dikeluarkan dari daftar ini dan direalokasi ke \textit{Fleet Service} (Tabel \ref{tab:endpoint-fleet}).
+
+\begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{1cm} | >{\raggedright\arraybackslash}p{2cm} | >{\raggedright\arraybackslash}X | }
+    \caption{Daftar \textit{endpoint} \textit{Goods Service}} \label{tab:endpoint-goods} \\
+    \hline
+    \textbf{No} & \textbf{Method} & \textbf{Endpoint} \\
+    \hline
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:endpoint-goods}}} \\
+    \hline
+    \textbf{No} & \textbf{Method} & \textbf{Endpoint} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+    1 & GET & /docs \\
+    \hline
+    2 & GET & /orders \\
+    \hline
+    3 & GET & /orders/user/:userId \\
+    \hline
+    4 & POST & /orders \\
+    \hline
+    5 & GET & /items \\
+    \hline
+    6 & GET & /items/history \\
+    \hline
+    7 & GET & /items/sku/:sku \\
+    \hline
+    8 & POST & /items \\
+    \hline
+    9 & PUT & /items/:id \\
+    \hline
+    10 & DELETE & /items/:id \\
+    \hline
+    11 & GET & /items/apriltag-mappings/apriltag/:tagId \\
+    \hline
+    12 & POST & /items/apriltag-mappings \\
+    \hline
+    13 & PUT & /items/apriltag-mappings/apriltag/:tagId \\
+    \hline
+    14 & DELETE & /items/apriltag-mappings/apriltag/:tagId \\
+    \hline
+    15 & GET & /item-locations \\
+    \hline
+    16 & GET & /item-locations/:id \\
+    \hline
+    17 & GET & /item-locations/item/:itemId \\
+    \hline
+    18 & POST & /item-locations \\
+    \hline
+    19 & PUT & /item-locations/:id \\
+    \hline
+    20 & DELETE & /item-locations/:id \\
+    \hline
+    21 & GET & /order-items \\
+    \hline
+    22 & GET & /order-items/:id \\
+    \hline
+    23 & GET & /order-items/order/:orderId \\
+    \hline
+    24 & POST & /order-items \\
+    \hline
+    25 & PUT & /order-items/:id \\
+    \hline
+    26 & DELETE & /order-items/:id \\
+    \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{1.5cm} | >{\raggedright\arraybackslash}p{6.5cm} | >{\raggedright\arraybackslash}X | }
+    \caption{Deskripsi Berkas \textit{Goods Service}} \label{tab:file-goods} \\
+    \hline
+    \textbf{Nomor} & \textbf{Nama File} & \textbf{Deskripsi} \\
+    \hline
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:file-goods}}} \\
+    \hline
+    \textbf{Nomor} & \textbf{Nama File} & \textbf{Deskripsi} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+    1 & \texttt{src/\allowbreak controllers/\allowbreak item.controller.ts} & Endpoint item barang dan \textit{mapping} AprilTag \\
+    \hline
+    2 & \texttt{src/\allowbreak controllers/\allowbreak order.controller.ts} & Endpoint pemesanan barang \\
+    \hline
+    3 & \texttt{src/\allowbreak controllers/\allowbreak itemLocation.controller.ts} & Endpoint lokasi penyimpanan item (tambahan) \\
+    \hline
+    4 & \texttt{src/\allowbreak controllers/\allowbreak orderItem.controller.ts} & Endpoint detail item pada pesanan (tambahan) \\
+    \hline
+    5 & \texttt{src/\allowbreak services/\allowbreak item.service.ts} & Logika bisnis pengelolaan item barang \\
+    \hline
+    6 & \texttt{src/\allowbreak services/\allowbreak order.service.ts} & Logika bisnis pemesanan barang \\
+    \hline
+    7 & \texttt{src/\allowbreak services/\allowbreak orderItem.service.ts} & Logika bisnis detail item pesanan (tambahan) \\
+    \hline
+    8 & \texttt{src/\allowbreak repositories/\allowbreak item.repository.ts} & Akses data item ke basis data (ItemRepository, usulan) \\
+    \hline
+    9 & \texttt{src/\allowbreak repositories/\allowbreak order.repository.ts} & Akses data order ke basis data (OrderRepository, usulan) \\
+    \hline
+    10 & \texttt{src/\allowbreak repositories/\allowbreak orderItem.repository.ts} & Akses data order item ke basis data (OrderItemRepository, usulan) \\
+    \hline
+    11 & \texttt{src/\allowbreak repositories/\allowbreak aprilTagMapping.repository.ts} & Akses data \textit{mapping} AprilTag ke basis data (AprilTagMappingRepository, usulan) \\
+    \hline
+    12 & \texttt{src/\allowbreak lib/\allowbreak prisma.ts} & Inisialisasi Prisma client \\
+    \hline
+    13 & \texttt{prisma/\allowbreak schema.prisma} & Definisi model Item, Order, OrderItem, AprilTagMapping (perlu dicek) \\
+    \hline
+\end{xltabular}
+
+\subsubsection*{V.1.1.3 Fleet Service}
+\textit{Fleet Service} menangani seluruh logika operasional armada robot, yakni pencatatan robot dan log operasionalnya, penjadwalan \textit{task}, orkestrasi pergerakan, deteksi tabrakan, serta eksekusi \textit{workflow} \textit{storing}/\textit{picking}. Tabel \ref{tab:endpoint-fleet} menyajikan daftar \textit{endpoint} yang dikembangkan pada \textit{service} ini.
+
+\begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{0.8cm} | >{\raggedright\arraybackslash}p{1.7cm} | >{\raggedright\arraybackslash}p{4.8cm} | >{\raggedright\arraybackslash}X | }
+    \caption{Daftar \textit{endpoint} \textit{Fleet Service}} \label{tab:endpoint-fleet} \\
+    \hline
+    \textbf{No} & \textbf{Method} & \textbf{Endpoint} & \textbf{Asal} \\
+    \hline
+    \endfirsthead
+    \multicolumn{4}{l}{\textit{lanjutan Tabel \ref{tab:endpoint-fleet}}} \\
+    \hline
+    \textbf{No} & \textbf{Method} & \textbf{Endpoint} & \textbf{Asal} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+    1 & GET & /robots & goods-service (pindah) \\
+    \hline
+    2 & POST & /robots & goods-service (pindah) \\
+    \hline
+    3 & GET & /tasks & goods-service (pindah) \\
+    \hline
+    4 & GET & /tasks/:id & goods-service (pindah) \\
+    \hline
+    5 & GET & /tasks/robot/:robotId & goods-service (pindah) \\
+    \hline
+    6 & POST & /tasks & goods-service (pindah) \\
+    \hline
+    7 & PUT & /tasks/:id & goods-service (pindah) \\
+    \hline
+    8 & DELETE & /tasks/:id & goods-service (pindah) \\
+    \hline
+    9 & GET & /robot-logs & goods-service (pindah) \\
+    \hline
+    10 & GET & /robot-logs/:id & goods-service (pindah) \\
+    \hline
+    11 & GET & /robot-logs/robot/:robotId & goods-service (pindah) \\
+    \hline
+    12 & POST & /robot-logs & goods-service (pindah) \\
+    \hline
+    13 & PUT & /robot-logs/:id & goods-service (pindah) \\
+    \hline
+    14 & DELETE & /robot-logs/:id & goods-service (pindah) \\
+    \hline
+    15 & GET & /health & blob-service \\
+    \hline
+    16 & * & /apriltag-mappings/* & blob-service \\
+    \hline
+    17 & * & /robot-mappings/* & blob-service \\
+    \hline
+    18 & * & /orders/* & blob-service \\
+    \hline
+    19 & GET & /docs & blob-service \\
+    \hline
+    20 & GET & /health & fleet-controller \\
+    \hline
+    21 & GET & /map & fleet-controller \\
+    \hline
+    22 & GET & /queue & fleet-controller \\
+    \hline
+    23 & GET & /robots & fleet-controller \\
+    \hline
+    24 & GET & /reservations & fleet-controller \\
+    \hline
+    25 & POST & /reset & fleet-controller \\
+    \hline
+    26 & POST & /gotoidle & fleet-controller \\
+    \hline
+    27 & POST & /demo/forward & fleet-controller \\
+    \hline
+    28 & POST & /demo/turn/right & fleet-controller \\
+    \hline
+    29 & POST & /demo/turn/left & fleet-controller \\
+    \hline
+    30 & POST & /demo/dock & fleet-controller \\
+    \hline
+    31 & POST & /demo/undock & fleet-controller \\
+    \hline
+    32 & POST & /demo/navigate & fleet-controller \\
+    \hline
+    33 & POST & /demo/storing & fleet-controller \\
+    \hline
+    34 & POST & /demo/picking & fleet-controller \\
+    \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{1.5cm} | >{\raggedright\arraybackslash}p{6.5cm} | >{\raggedright\arraybackslash}X | }
+    \caption{Deskripsi Berkas \textit{Fleet Service}} \label{tab:file-fleet} \\
+    \hline
+    \textbf{Nomor} & \textbf{Nama File} & \textbf{Deskripsi} \\
+    \hline
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:file-fleet}}} \\
+    \hline
+    \textbf{Nomor} & \textbf{Nama File} & \textbf{Deskripsi} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+    1 & \texttt{src/\allowbreak controllers/\allowbreak robot.controller.ts} & Endpoint pengelolaan robot, dipindah dari \texttt{goods-service} \\
+    \hline
+    2 & \texttt{src/\allowbreak services/\allowbreak robot.service.ts} & Logika bisnis pengelolaan robot, dipindah dari \texttt{goods-service} \\
+    \hline
+    3 & \texttt{src/\allowbreak services/\allowbreak task.service.ts} & Logika bisnis penjadwalan task, dipindah dari \texttt{goods-service} \\
+    \hline
+    4 & \texttt{src/\allowbreak controllers/\allowbreak robotLog.controller.ts} & Endpoint log operasional robot, dipindah dari \texttt{goods-service} (tambahan) \\
+    \hline
+    5 & \texttt{src/\allowbreak services/\allowbreak robotLog.service.ts} & Logika bisnis log operasional robot, dipindah dari \texttt{goods-service} (tambahan) \\
+    \hline
+    6 & \texttt{src/\allowbreak repositories/\allowbreak robot.repository.ts} & Akses data robot ke basis data (RobotRepository, usulan) \\
+    \hline
+    7 & \texttt{src/\allowbreak repositories/\allowbreak task.repository.ts} & Akses data task ke basis data (TaskRepository, usulan) \\
+    \hline
+    8 & \texttt{src/\allowbreak controllers/\allowbreak digitalTwin.controller.ts} & Endpoint digital twin robot (DigitalTwinController, usulan---belum ada) \\
+    \hline
+    9 & \texttt{src/\allowbreak services/\allowbreak digitalTwin.service.ts} & Logika bisnis digital twin robot (DigitalTwinService, usulan---belum ada) \\
+    \hline
+    10 & \texttt{src/\allowbreak services/\allowbreak notification.service.ts} & Logika bisnis notifikasi (NotificationService, usulan---belum ada) \\
+    \hline
+    11 & \texttt{blob-service/\allowbreak src/\allowbreak index.ts} & Entry point \texttt{blob-service} \\
+    \hline
+    12 & \texttt{blob-service/\allowbreak src/\allowbreak routes/\allowbreak apriltagMapping.ts} & Route \textit{mapping} AprilTag (isi belum dilihat) \\
+    \hline
+    13 & \texttt{blob-service/\allowbreak src/\allowbreak routes/\allowbreak order.ts} & Route order (isi belum dilihat) \\
+    \hline
+    14 & \texttt{blob-service/\allowbreak src/\allowbreak routes/\allowbreak robotTagMapping.ts} & Route \textit{mapping} robot-tag (isi belum dilihat) \\
+    \hline
+    15 & \texttt{fleet-controller/\allowbreak cmd/\allowbreak main.go} & Entry point \texttt{fleet-controller} (asumsi) \\
+    \hline
+    16 & \texttt{fleet-controller/\allowbreak internal/\allowbreak api/*.go} & Handler HTTP health/\allowbreak map/\allowbreak queue/\allowbreak robots/\allowbreak reservations/\allowbreak reset/\allowbreak gotoidle/\allowbreak demo \\
+    \hline
+\end{xltabular}
+
+\section{Implementasi Sistem Lokalisasi}
+Subbab ini menjabarkan detail implementasi Subsistem Lokalisasi yang berjalan sebagai komponen dalam \textit{Fleet Controller}, mencakup implementasi perangkat keras serta implementasi perangkat lunak. Pembahasan perangkat keras meliputi komponen fisik yang digunakan, sedangkan pembahasan perangkat lunak meliputi struktur \textit{pipeline} deteksi dan berkas kode sumber terkait.
+
+\subsection{Implementasi Hardware}
+Perangkat keras utama Subsistem Lokalisasi adalah kamera IP \textit{fisheye} 1080p (H.264, RTSP \textit{over} TCP) yang dipasang setinggi 60 cm di atas area lantai gudang $2,4 \times 1,2$ m, dilengkapi pencahayaan LED tambahan agar kontras \textit{marker} AprilTag tetap optimal. \textit{Marker} yang digunakan adalah AprilTag keluarga Tag36h11 berukuran $8 \times 8$ cm, ditempelkan pada robot dan barang di area gudang karena keseimbangan terbaiknya antara keterbacaan jarak jauh dan ketahanan terhadap oklusi parsial. Gambar \ref{fig:localization-hardware} menunjukkan perangkat keras Subsistem Lokalisasi yang telah dipasang.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{images/bab_v/localization_hardware.jpg}
+  \caption{Perangkat Keras Subsistem Lokalisasi}
+  \label{fig:localization-hardware}
+\end{figure}
+
+\subsection{Implementasi Software}
+{\sloppy Implementasi perangkat lunak Subsistem Lokalisasi disusun dalam folder \texttt{localisasi}, terdiri atas skrip entry point, package \texttt{tracker} yang memuat seluruh logika \textit{pipeline} deteksi, serta berkas konfigurasi dan kalibrasi pendukung. Tabel \ref{tab:file-lokalisasi} merangkum deskripsi singkat setiap berkas.\par}
+
+\begin{xltabular}{\textwidth}{ | >{\raggedright\arraybackslash}p{1.5cm} | >{\raggedright\arraybackslash}p{4cm} | >{\raggedright\arraybackslash}X | }
+    \caption{Deskripsi Berkas pada Folder \texttt{localisasi}} \label{tab:file-lokalisasi} \\
+    \hline
+    \textbf{Nomor} & \textbf{Nama File} & \textbf{Deskripsi} \\
+    \hline
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{lanjutan Tabel \ref{tab:file-lokalisasi}}} \\
+    \hline
+    \textbf{Nomor} & \textbf{Nama File} & \textbf{Deskripsi} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+    1 & \texttt{local\_rtsp.py} & Script standalone untuk uji koneksi RTSP kamera \& deteksi AprilTag secara lokal (di luar package \texttt{tracker}). \\
+    \hline
+    2 & \texttt{main.py} & Entry point utama aplikasi---inisialisasi detector lalu menjalankan mode video atau stream. \\
+    \hline
+    3 & \texttt{register\_tags.py} & Script one-time untuk mendaftarkan AprilTag baru ke goods-service \& blob-service via API. \\
+    \hline
+    4 & \texttt{requirements.txt} & Daftar dependency Python yang dibutuhkan project. \\
+    \hline
+    5 & \texttt{tracker/\allowbreak \_\_init\_\_.py} & Inisialisasi package \texttt{tracker}, mengekspos fungsi-fungsi dari seluruh modul. \\
+    \hline
+    6 & \texttt{tracker/\allowbreak capture.py} & Penanganan capture video---threaded reader, koneksi RTSP, inisialisasi sumber kamera/detector. \\
+    \hline
+    7 & \texttt{tracker/\allowbreak config.py} & Konstanta konfigurasi sistem (URL RTSP, resolusi, FPS, brightness, grid, dll). \\
+    \hline
+    8 & \texttt{tracker/\allowbreak field.py} & Transformasi perspektif (homography) antara koordinat pixel dan koordinat grid lapangan. \\
+    \hline
+    9 & \texttt{tracker/\allowbreak fisheye.py} & Utilitas koreksi distorsi lensa fisheye. \\
+    \hline
+    10 & \texttt{tracker/\allowbreak grid.py} & Membangun, menggambar, dan mencatat matriks occupancy grid platform (robot/goods/docking). \\
+    \hline
+    11 & \texttt{tracker/\allowbreak modes.py} & Mode eksekusi utama---playback video file dan live stream (RTSP/USB). \\
+    \hline
+    12 & \texttt{tracker/\allowbreak mqtt.py} & Klien MQTT untuk konek ke broker dan publish state grid/entitas dalam format JSON. \\
+    \hline
+    13 & \texttt{tracker/\allowbreak overlay.py} & Visualisasi overlay---quad lapangan, label tag, HUD, dan logging terminal. \\
+    \hline
+    14 & \texttt{tracker/\allowbreak processing.py} & Pemrosesan frame, manajemen state, dan handler keypress terpusat. \\
+    \hline
+    15 & \texttt{tracker/\allowbreak tags.py} & Utilitas AprilTag---klasifikasi jenis tag, warna, dan orientasi. \\
+    \hline
+    16 & \texttt{tracker/\allowbreak transformer.py} & Kelas \texttt{WarehouseCoordinateTransformer} untuk transformasi koordinat kamera ke koordinat gudang menggunakan kalibrasi. \\
+    \hline
+    17 & \texttt{tuned\_config.json} & File hasil tuning konfigurasi (parameter kalibrasi yang sudah dioptimasi). \\
+    \hline
+    18 & \texttt{warehouse\_\allowbreak calibration\_\allowbreak context.md} & Catatan/context kalibrasi warehouse (parameter kamera, referensi koordinat, dll). \\
+    \hline
+\end{xltabular}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{images/bab_v/localization_software.jpg}
+  \caption{Antarmuka Visualisasi Subsistem Lokalisasi}
+  \label{fig:localization-software}
+\end{figure}
+
+Gambar \ref{fig:localization-software} menunjukkan antarmuka visualisasi Subsistem Lokalisasi yang menampilkan hasil deteksi \textit{marker} beserta \textit{overlay grid} area gudang secara \textit{real-time}. Kalibrasi \textit{homography} dilakukan satu kali saat \textit{setup} dengan menempatkan empat \textit{marker} referensi di sudut-sudut area lantai gudang yang diketahui posisi \textit{grid}-nya. Setelah kalibrasi selesai, parameter disimpan dan dimuat secara otomatis setiap kali Subsistem Lokalisasi dijalankan ulang.
+
+\subsubsection{Implementasi Publikasi MQTT}
+Pada tahap keenam \textit{pipeline}, seluruh hasil deteksi \textit{frame} dikodekan sebagai \textit{payload} JSON yang merepresentasikan \textit{state} penuh dan diterbitkan setiap 500 ms ke \textit{topic location} pada RabbitMQ \textit{broker}. Publikasi berkala ini memungkinkan komponen lain pada sistem, seperti WMC dan \textit{Fleet Controller}, untuk memperoleh data posisi terbaru secara \textit{real-time} tanpa perlu melakukan \textit{polling} langsung ke Subsistem Lokalisasi. Gambar \ref{fig:localization-mqtt} menunjukkan hasil publikasi data posisi yang diterima pada \textit{topic} MQTT tersebut.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{images/bab_v/localization_mqtt.jpg}
+  \caption{Hasil Publikasi Data Posisi ke MQTT \textit{Broker}}
+  \label{fig:localization-mqtt}
+\end{figure}
